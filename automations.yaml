@@ -1,1 +1,6 @@
-[]
+- alias: "Update configurations"
+  trigger:
+    - platform: webhook
+      webhook_id: "refresh_config"
+  action:
+    service: shell_command.git_pull
