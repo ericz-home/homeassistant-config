@@ -11,11 +11,6 @@ frontend:
 
 http: !include http.yaml
 
-logger:
-  default: info
-  logs:
-    homeassistant.components.shell_command: debug
-
 # Text to speech
 tts:
   - platform: google_translate
