@@ -1,3 +1,7 @@
+homeassistant:
+  auth_mfa_modules:
+    - type: totp
+#
 # Loads default set of integrations. Do not remove.
 default_config:
 
