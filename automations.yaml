@@ -3,7 +3,11 @@
     platform: homeassistant
     event: start
   action:
-  - service: shell_command.ln_dir
+  - service: shell_command.ln_file
     data:
       src: /git/current/www
       dst: www
+  - service: shell_command.ln_file
+    data:
+      src: /git/current/ui-lovelace.yaml
+      dst: ui-lovelace.yaml

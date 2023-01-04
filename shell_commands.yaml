@@ -1,1 +1,1 @@
-ln_dir: "ln -s {{ src }} /config/{{ dst }}"
+ln_file: "ln -s {{ src }} /config/{{ dst }}"
