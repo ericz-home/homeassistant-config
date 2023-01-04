@@ -1,0 +1,13 @@
+title: Home
+views:
+  - path: default_view
+    title: Home
+    cards:
+      - show_current: true
+        show_forecast: true
+        type: weather-forecast
+        entity: weather.forecast_home
+      - type: "custom:sun-card"
+        entity: sun.sun
+
+
