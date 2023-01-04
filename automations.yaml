@@ -1,6 +1,9 @@
-- alias: "Update configurations"
+- alias: "Link config directories"
   trigger:
-    - platform: webhook
-      webhook_id: "refresh_config"
+    platform: homeassistant
+    event: start
   action:
-    service: shell_command.git_pull
+  - service: ln_dir
+    data:
+      src: /git/current/www
+      dst: www
