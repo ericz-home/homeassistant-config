@@ -7,6 +7,12 @@ views:
         show_forecast: true
         type: weather-forecast
         entity: weather.forecast_home
+        secondary_info_attribute: precipitation
+      - show_current: true
+        show_forecast: true
+        type: weather-forecast
+        entity: weather.forecast_home_hourly
+        secondary_info_attribute: precipitation
       - type: "custom:sun-card"
         entity: sun.sun
 
