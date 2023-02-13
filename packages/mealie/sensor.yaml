@@ -1,0 +1,8 @@
+sensor:
+  - platform: rest
+    resource: 'http://mealie.mealie:9000/api/meal-plans/today'
+    method: GET
+    name: mealie_todays_meal
+    headers:
+      Authorization: Bearer !secret mealie_api_token
+    value_template: "{{ value_json.name }}"
