@@ -8,7 +8,8 @@ views:
         type: weather-forecast
         entity: weather.forecast_home
         secondary_info_attribute: precipitation
-      - show_forecast: true
+      - show_current: false
+        show_forecast: true
         type: weather-forecast
         entity: weather.forecast_home_hourly
         secondary_info_attribute: precipitation
@@ -16,6 +17,12 @@ views:
         entity: sun.sun
       - type: media-control
         entity: media_player.sound_system
+      - type: picture-entity
+        entity: sensor.mealie_todays_meal
+        name: Dinner
+        show_state: true
+        show_name: true
+        image: 'http://mealie.mealie:9000/api/meal-plans/today/image?group_name=Home'
 
 
 
