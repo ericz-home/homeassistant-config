@@ -19,12 +19,18 @@ views:
           entity: sun.sun
       - type: vertical-stack
         cards:
-        - type: picture-entity
-          entity: sensor.mealie_todays_meal
-          name: Dinner
-          show_state: true
-          show_name: true
-          image: 'http://mealie.mealie:9000/api/meal-plans/today/image?group_name=Home'
+        - type: 'custom:config-template-card'
+          variables:
+            RECIPE: states['sensor.mealie_todays_meal'].state.attributes['id']
+          entities:
+          - sensor.mealie_todays_meal
+          card: 
+            type: picture-entity
+            entity: sensor.mealie_todays_meal
+            name: Dinner
+            show_state: true
+            show_name: true
+            image: 'http://mealie.mealie:9000/api/media/recipes/${RECIPE}/images/min-original.webp'
         - type: media-control
           entity: media_player.sound_system
 
