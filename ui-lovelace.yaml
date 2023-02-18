@@ -31,19 +31,20 @@ views:
             - sensor.mealie_todays_meal
             style: 
               left: 50%
-              bottom: 0%
+              bottom: 5%
               width: 100%
               background-color: var(--primary-background-color)
               opacity: 0.8
               text-align: right
-              font-size: medium
+              font-size: 2vw
+              padding-bottom: 5px
             element:
               type: state-label
               entity: sensor.mealie_todays_meal
               attribute: name
               tap_action:
-                action: "${URL === '' ? none : 'url'}"
-                url_path: "${URL === '' ? none : URL}"
+                action: url
+                url_path: "${URL}"
         - type: media-control
           entity: media_player.sound_system
 
