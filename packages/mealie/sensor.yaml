@@ -6,4 +6,4 @@ mealie:
     name: mealie_todays_meal
     headers:
       Authorization: !secret mealie_api_token
-    value_template: "{{ value_json[0].name }}"
+    value_template: "{{ value_json[0].recipe.name }}"
