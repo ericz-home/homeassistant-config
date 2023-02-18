@@ -31,7 +31,7 @@ views:
             - sensor.mealie_todays_meal
             style: 
               left: 50%
-              bottom: -10%
+              bottom: 0%
               width: 100%
               background-color: var(--primary-background-color)
               opacity: 0.8
@@ -42,8 +42,8 @@ views:
               entity: sensor.mealie_todays_meal
               attribute: name
               tap_action:
-                action: "${URL === '' ? 'none' : 'url'}"
-                url_path: "${URL}"
+                action: "${URL === '' ? none : 'url'}"
+                url_path: "${URL === '' ? none : URL}"
         - type: media-control
           entity: media_player.sound_system
 
