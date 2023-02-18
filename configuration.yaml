@@ -16,5 +16,4 @@ http: !include http.yaml
 tts:
   - platform: google_translate
 
-scene: !include scenes.yaml
 lovelace: !include lovelace.yaml
