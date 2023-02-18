@@ -1,7 +1,7 @@
 mealie:
   sensor:
   - platform: rest
-    resource: 'http://mealie.mealie:9000/api/meal-plans/today'
+    resource: 'http://mealie.mealie:9000/api/groups/mealplans/today'
     method: GET
     name: mealie_todays_meal
     headers:
