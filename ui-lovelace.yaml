@@ -19,7 +19,7 @@ views:
           entity: sun.sun
       - type: vertical-stack
         cards:
-          type: picture-elements
+        - type: picture-elements
           entity: camera.mealie_todays_meal_image
           camera_image: camera.mealie_todays_meal_image
           title: Tonight's Dinner
@@ -28,7 +28,7 @@ views:
             variables:
               URL: states['sensor.mealie_todays_meal'].attributes['orgUrl']
             entities:
-              - sensor.mealie_todays_meal
+            - sensor.mealie_todays_meal
             element:
               type: state-label
               entity: sensor.mealie_todays_meal
