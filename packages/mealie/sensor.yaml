@@ -5,5 +5,5 @@ mealie:
     method: GET
     name: mealie_todays_meal
     headers:
-      Authorization: Bearer !secret mealie_api_token
+      Authorization: !secret mealie_api_token
     value_template: "{{ value_json.name }}"
