@@ -42,7 +42,7 @@ views:
                 text-align: right
                 font-size: medium
               tap_action:
-                action: ${URL == "" ? none : url}
+                action: "${URL == '' ? 'none' : 'url'}"
                 url_path: "${URL}"
         - type: media-control
           entity: media_player.sound_system
