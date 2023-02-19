@@ -63,9 +63,9 @@ cards:
           type: attribute
           entity: sensor.waze_travel_time_splunk
           attribute: duration
-          name: "Commute to Splunk"
+          name: "Commute to Splunk\\n"
           suffix: "min"
-          prefix: "${DISTANCE.toFixed(2) + ' mi\\n'}"
+          prefix: "${DISTANCE DISTANCE.toFixed(2) + ' mi\\n'}"
       - type: divider
       - type: 'custom:config-template-card'
         variables:
@@ -76,7 +76,7 @@ cards:
           type: attribute
           entity: sensor.waze_travel_time_seabird
           attribute: duration
-          name: "Commute to Seabird"
+          name: "Commute to Seabird\\n"
           suffix: "min"
           prefix: "${DISTANCE.toFixed(2) + ' mi\\n'}"
   - type: iframe
