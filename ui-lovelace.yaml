@@ -55,37 +55,44 @@ views:
           title: "Transit Schedule"
           entities:
           - type: attribute
-            entity: sensor.31-centralmagnolia
+            entity: sensor.31wcentralmagnolia
+            name: "31 Central Magnolia"
             attribute: "Due in"
             suffix: min
           - type: attribute
-            entity: sensor.32-seattlecenter
-            attribute: "Due in"
-            suffix: min
-          - type: divider
-          - type: attribute
-            entity: sensor.31-seattlechildrens
-            attribute: "Due in"
-            suffix: min
-          - type: attribute
-            entity: sensor.32-seattlechildrens
+            entity: sensor.32wseattlecenter
+            name: "32 Seattle Center"
             attribute: "Due in"
             suffix: min
           - type: divider
           - type: attribute
-            entity: sensor.link-anglelake
+            entity: sensor.31eseattlechildrens
+            name: "31 Seattle Children's"
             attribute: "Due in"
             suffix: min
           - type: attribute
-            entity: sensor.link-northgate
+            entity: sensor.32eseattlechildrens
+            name: "32 Seattle Children's"
+            attribute: "Due in"
+            suffix: min
+          - type: divider
+          - type: attribute
+            entity: sensor.lksanglelake
+            name: "Link Angle Lake"
+            attribute: "Due in"
+            suffix: min
+          - type: attribute
+            entity: sensor.lknnorthgate
+            name: "Link Northgate"
             attribute: "Due in"
             suffix: min
         - type: map
           entities:
-          - sensor.31-centralmagnolia
-          - sensor.32-seattlecenter
-          - sensor.31-seattlechildrens
-          - sensor.32-seattlechildrens
-          - sensor.link-anglelake
-          - sensor.link-northgate
+          - sensor.31wcentralmagnolia
+          - sensor.32wseattlecenter
+          - sensor.31eseattlechildrens
+          - sensor.32eseattlechildrens
+          - sensor.lksanglelake
+          - sensor.lknnorthgate
+          - zone.home
 
