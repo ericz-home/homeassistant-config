@@ -5,11 +5,13 @@ views:
     cards:
       - type: vertical-stack
         cards:
-        - show_current: false
+        - show_current: true
           show_forecast: true
+          secondary_info_attribute: precipitation
+          name: Home
           type: weather-forecast
           entity: weather.ksea_hourly
-        - show_current: true
+        - show_current: false
           show_forecast: true
           type: weather-forecast
           entity: weather.ksea_daynight
@@ -52,8 +54,8 @@ views:
         - type: glance
           title: "Transit Schedule"
           entities:
-          - sensor.31_seattle_center
-          - sensor.32_central_magnolia
+          - sensor.31_Seattle_Center
+          - sensor.32_Central_Magnolia
           show_name: true
           show_icon: true
           show_state: true
