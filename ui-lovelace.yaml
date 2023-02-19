@@ -47,5 +47,7 @@ views:
                 url_path: "${URL}"
         - type: media-control
           entity: media_player.sound_system
+        - type: media-control
+          entity: media_player.basement_tv
 
 
