@@ -5,6 +5,8 @@
 !*.yaml
 !packages
 !packages/**
+!custom_components
+!custom_components/**
 !.gitignore
 !*.md
 !www

@@ -5,16 +5,14 @@ views:
     cards:
       - type: vertical-stack
         cards:
-        - show_current: true
-          show_forecast: true
-          type: weather-forecast
-          entity: weather.forecast_home
-          secondary_info_attribute: precipitation
         - show_current: false
           show_forecast: true
           type: weather-forecast
-          entity: weather.forecast_home_hourly
-          secondary_info_attribute: precipitation
+          entity: weather.ksea_hourly
+        - show_current: true
+          show_forecast: true
+          type: weather-forecast
+          entity: weather.ksea_daynight
         - type: "custom:sun-card"
           entity: sun.sun
       - type: vertical-stack
@@ -49,5 +47,15 @@ views:
           entity: media_player.sound_system
         - type: media-control
           entity: media_player.basement_tv
-
+      - type: vertical-stack
+        cards:
+        - type: glance
+          title: "Transit Schedule"
+          entities:
+          - sensor.31_seattle_center
+          - sensor.32_central_magnolia
+          show_name: true
+          show_icon: true
+          show_state: true
+          columns: 1
 
