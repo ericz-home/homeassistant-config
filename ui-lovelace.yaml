@@ -7,7 +7,7 @@ views:
         cards:
         - show_current: true
           show_forecast: true
-          secondary_info_attribute: precipitation
+          secondary_info_attribute: humidity
           name: Home
           type: weather-forecast
           entity: weather.ksea_hourly
@@ -55,35 +55,37 @@ views:
           title: "Transit Schedule"
           entities:
           - type: attribute
-            entity: sensor.31_central_magnolia
+            entity: sensor.31-centralmagnolia
             attribute: "Due in"
             suffix: min
           - type: attribute
-            entity: sensor.32_seattle_center
-            attribute: "Due in"
-            suffix: min
-          - type: divider
-          - type: attribute
-            entity: sensor.31_seattle_childrens
-            attribute: "Due in"
-            suffix: min
-          - type: attribute
-            entity: sensor.32_seattle_childrens
+            entity: sensor.32-seattlecenter
             attribute: "Due in"
             suffix: min
           - type: divider
           - type: attribute
-            entity: sensor.link_angle_lake
+            entity: sensor.31-seattlechildrens
             attribute: "Due in"
             suffix: min
           - type: attribute
-            entity: sensor.link_northgate
+            entity: sensor.32-seattlechildrens
+            attribute: "Due in"
+            suffix: min
+          - type: divider
+          - type: attribute
+            entity: sensor.link-anglelake
+            attribute: "Due in"
+            suffix: min
+          - type: attribute
+            entity: sensor.link-northgate
             attribute: "Due in"
             suffix: min
         - type: map
           entities:
-          - sensor.31_central_magnolia
-          - sensor.32_seattle_center
-          - sensor.31_seattle_childrens
-          - sensor.32_seattle_childrens
+          - sensor.31-centralmagnolia
+          - sensor.32-seattlecenter
+          - sensor.31-seattlechildrens
+          - sensor.32-seattlechildrens
+          - sensor.link-anglelake
+          - sensor.link-northgate
 
