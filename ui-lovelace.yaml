@@ -49,52 +49,52 @@ views:
           entity: media_player.sound_system
         - type: media-control
           entity: media_player.basement_tv
-    - path: commute
-      title: Commute
-      cards:
-      - type: entities
-        title: "Transit Schedule"
-        entities:
-        - type: attribute
-          entity: sensor.3_1_w_centralmagnolia
-          name: "31 Central Magnolia"
-          attribute: "Due in"
-          suffix: min
-        - type: attribute
-          entity: sensor.3_2_w_seattlecenter
-          name: "32 Seattle Center"
-          attribute: "Due in"
-          suffix: min
-        - type: divider
-        - type: attribute
-          entity: sensor.3_1_e_seattlechildrens
-          name: "31 Seattle Children's"
-          attribute: "Due in"
-          suffix: min
-        - type: attribute
-          entity: sensor.3_2_e_seattlechildrens
-          name: "32 Seattle Children's"
-          attribute: "Due in"
-          suffix: min
-        - type: divider
-        - type: attribute
-          entity: sensor.link_anglelake
-          name: "Link Angle Lake"
-          attribute: "Due in"
-          suffix: min
-        - type: attribute
-          entity: sensor.link_northgate
-          name: "Link Northgate"
-          attribute: "Due in"
-          suffix: min
-      - type: map
-        entities:
-        - zone.home
-        - sensor.3_1_w_centralmagnolia
-        - sensor.3_2_w_seattlecenter
-        - sensor.3_1_e_seattlechildrens
-        - sensor.3_2_e_seattlechildrens
-        - sensor.link_anglelake
-        - sensor.link_northgate
-        default_zoom: 20
+  - path: commute
+    title: Commute
+    cards:
+    - type: entities
+      title: "Transit Schedule"
+      entities:
+      - type: attribute
+        entity: sensor.3_1_w_centralmagnolia
+        name: "31 Central Magnolia"
+        attribute: "Due in"
+        suffix: min
+      - type: attribute
+        entity: sensor.3_2_w_seattlecenter
+        name: "32 Seattle Center"
+        attribute: "Due in"
+        suffix: min
+      - type: divider
+      - type: attribute
+        entity: sensor.3_1_e_seattlechildrens
+        name: "31 Seattle Children's"
+        attribute: "Due in"
+        suffix: min
+      - type: attribute
+        entity: sensor.3_2_e_seattlechildrens
+        name: "32 Seattle Children's"
+        attribute: "Due in"
+        suffix: min
+      - type: divider
+      - type: attribute
+        entity: sensor.link_anglelake
+        name: "Link Angle Lake"
+        attribute: "Due in"
+        suffix: min
+      - type: attribute
+        entity: sensor.link_northgate
+        name: "Link Northgate"
+        attribute: "Due in"
+        suffix: min
+    - type: map
+      entities:
+      - zone.home
+      - sensor.3_1_w_centralmagnolia
+      - sensor.3_2_w_seattlecenter
+      - sensor.3_1_e_seattlechildrens
+      - sensor.3_2_e_seattlechildrens
+      - sensor.link_anglelake
+      - sensor.link_northgate
+      default_zoom: 20
 
