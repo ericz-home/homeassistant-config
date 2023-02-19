@@ -1,5 +1,6 @@
 path: commute
 title: Commute
+icon: mdi:train-car
 cards:
 - type: entities
   title: "Transit Schedule"
@@ -45,6 +46,34 @@ cards:
   - sensor.3_2_e_seattlechildrens
   - sensor.link_anglelake
   - sensor.link_northgate
-  default_zoom: 12
-
-
+  default_zoom: 13
+- type: entities
+  title: Commute Time
+  entities:
+    - type: 'custom:config-template-card'
+      variables:
+        DISTANCE: states['sensor.waze_travel_time_splunk'].attributes['Distance']
+      entities:
+      - sensor.waze_travel_time_splunk
+      row:
+        type: attribute
+        entity: sensor.waze_travel_time_splunk
+        attribute: Duration
+        name: "Commute to Splunk"
+        suffix: "min"
+        prefix: "${DISTANCE} mi / "
+    - type: divider
+    - type: 'custom:config-template-card'
+      variables:
+        DISTANCE: states['sensor.waze_travel_time_splunk'].attributes['Distance']
+      entities:
+      - sensor.waze_travel_time_splunk
+      row:
+        type: attribute
+        entity: sensor.waze_travel_time_seabird
+        attribute: Duration
+        name: "Commute to Seabird"
+        suffix: "min"
+        prefix: "${DISTANCE} mi / "
+- type: iframe
+  url: https://embed.waze.com/iframe?zoom=13&lat=47.652900&lon=-122.331026&pin=1&desc=1

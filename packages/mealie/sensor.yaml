@@ -14,8 +14,9 @@ mealie:
       - 'orgUrl'
     value_template: ''
 
-  camera:
-    name: mealie_todays_meal_image
-    platform: generic
-    still_image_url: "http://mealie.mealie:9000/api/media/recipes/{{state_attr('sensor.mealie_todays_meal', 'id')}}/images/min-original.webp"
-    limit_refetch_to_url_change: true
+  template:
+  - camera:
+      name: mealie_todays_meal_image
+      platform: generic
+      still_image_url: "http://mealie.mealie:9000/api/media/recipes/{{state_attr('sensor.mealie_todays_meal', 'id')}}/images/min-original.webp"
+      limit_refetch_to_url_change: true

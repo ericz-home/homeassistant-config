@@ -17,8 +17,3 @@ tts:
   - platform: google_translate
 
 lovelace: !include lovelace.yaml
-
-logger:
-  default: error
-  logs:
-    custom_components.gtfs_rt: debug
