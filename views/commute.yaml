@@ -45,6 +45,6 @@ cards:
   - sensor.3_2_e_seattlechildrens
   - sensor.link_anglelake
   - sensor.link_northgate
-  default_zoom: 30
+  default_zoom: 12
 
 
