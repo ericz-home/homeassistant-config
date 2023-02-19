@@ -40,7 +40,7 @@ cards:
       attribute: "Due in"
       suffix: min
   - type: map
-    default_zoom: 15
+    default_zoom: 12
     entities:
     - zone.home
     - sensor.3_1_w_centralmagnolia
@@ -59,26 +59,24 @@ cards:
           DISTANCE: states['sensor.waze_travel_time_splunk'].attributes.distance
         entities:
         - sensor.waze_travel_time_splunk
-        element:
+        row:
           type: attribute
           entity: sensor.waze_travel_time_splunk
           attribute: duration
-          name: "Commute to Splunk"
+          name: "${'Commute to Splunk   (' + DISTANCE.toFixed(2) + ' mi)'}"
           suffix: "min"
-          prefix: "${DISTANCE DISTANCE.toFixed(2) + ' mi\\n'}"
       - type: divider
       - type: 'custom:config-template-card'
         variables:
           DISTANCE: states['sensor.waze_travel_time_seabird'].attributes.distance
         entities:
         - sensor.waze_travel_time_splunk
-        element:
+        row:
           type: attribute
           entity: sensor.waze_travel_time_seabird
           attribute: duration
-          name: "Commute to Seabird"
+          name: "${'Commute to Seabird    (' + DISTANCE.toFixed(2) + ' mi)'}"
           suffix: "min"
-          prefix: "${DISTANCE.toFixed(2) + ' mi\\n'}"
   - type: iframe
     url: https://embed.waze.com/iframe?zoom=12&lat=47.652900&lon=-122.331026&pin=1&desc=1
     aspect_ratio: 100%
