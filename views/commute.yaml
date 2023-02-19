@@ -64,7 +64,7 @@ cards:
           attribute: Duration
           name: "Commute to Splunk"
           suffix: "min"
-          prefix: "`${DISTANCE} mi / `"
+          prefix: "DISTANCE + \"mi / \""
       - type: divider
       - type: 'custom:config-template-card'
         variables:
@@ -77,6 +77,6 @@ cards:
           attribute: Duration
           name: "Commute to Seabird"
           suffix: "min"
-          prefix: "`${DISTANCE} mi / `"
+          prefix: "DISTANCE + \"mi / \""
   - type: iframe
     url: https://embed.waze.com/iframe?zoom=13&lat=47.652900&lon=-122.331026&pin=1&desc=1
