@@ -2,9 +2,9 @@ path: commute
 title: Commute
 icon: mdi:train-car
 cards:
-- type: vertical-stack
+- type: horizontal-stack
   cards:
-  - type: horizontal-stack
+  - type: vertical-stack
     cards:
     - type: entities
       title: "Transit Schedule"
@@ -51,7 +51,7 @@ cards:
       - sensor.link_anglelake
       - sensor.link_northgate
       default_zoom: 13
-  - type: horizontal-stack
+  - type: vertical-stack
     cards:
     - type: entities
       title: Commute Time
@@ -67,7 +67,7 @@ cards:
             attribute: Duration
             name: "Commute to Splunk"
             suffix: "min"
-            prefix: "${DISTANCE} mi / "
+            prefix: "${DISTANCE + ' mi / '}"
         - type: divider
         - type: 'custom:config-template-card'
           variables:
@@ -80,6 +80,6 @@ cards:
             attribute: Duration
             name: "Commute to Seabird"
             suffix: "min"
-            prefix: "${DISTANCE} mi / "
+            prefix: "${DISTANCE + ' mi / '}"
     - type: iframe
       url: https://embed.waze.com/iframe?zoom=13&lat=47.652900&lon=-122.331026&pin=1&desc=1
