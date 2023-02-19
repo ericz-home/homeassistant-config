@@ -59,7 +59,7 @@ cards:
           DISTANCE: states['sensor.waze_travel_time_splunk'].attributes.distance
         entities:
         - sensor.waze_travel_time_splunk
-        card:
+        element:
           type: attribute
           entity: sensor.waze_travel_time_splunk
           attribute: duration
@@ -72,13 +72,13 @@ cards:
           DISTANCE: states['sensor.waze_travel_time_seabird'].attributes.distance
         entities:
         - sensor.waze_travel_time_splunk
-        card:
+        element:
           type: attribute
           entity: sensor.waze_travel_time_seabird
           attribute: duration
-          name: "Commute to Seabird\\n"
+          name: "Commute to Seabird"
           suffix: "min"
           prefix: "${DISTANCE.toFixed(2) + ' mi\\n'}"
   - type: iframe
-    url: https://embed.waze.com/iframe?zoom=13&lat=47.652900&lon=-122.331026&pin=1&desc=1
+    url: https://embed.waze.com/iframe?zoom=12&lat=47.652900&lon=-122.331026&pin=1&desc=1
     aspect_ratio: 100%
