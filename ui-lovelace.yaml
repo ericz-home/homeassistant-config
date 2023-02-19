@@ -55,44 +55,45 @@ views:
           title: "Transit Schedule"
           entities:
           - type: attribute
-            entity: sensor.31wcentralmagnolia
+            entity: sensor.3_1_w_centralmagnolia
             name: "31 Central Magnolia"
             attribute: "Due in"
             suffix: min
           - type: attribute
-            entity: sensor.32wseattlecenter
+            entity: sensor.3_2_w_seattlecenter
             name: "32 Seattle Center"
             attribute: "Due in"
             suffix: min
           - type: divider
           - type: attribute
-            entity: sensor.31eseattlechildrens
+            entity: sensor.3_1_e_seattlechildrens
             name: "31 Seattle Children's"
             attribute: "Due in"
             suffix: min
           - type: attribute
-            entity: sensor.32eseattlechildrens
+            entity: sensor.3_2_e_seattlechildrens
             name: "32 Seattle Children's"
             attribute: "Due in"
             suffix: min
           - type: divider
           - type: attribute
-            entity: sensor.lksanglelake
+            entity: sensor.link_anglelake
             name: "Link Angle Lake"
             attribute: "Due in"
             suffix: min
           - type: attribute
-            entity: sensor.lknnorthgate
+            entity: sensor.link_northgate
             name: "Link Northgate"
             attribute: "Due in"
             suffix: min
         - type: map
           entities:
-          - sensor.31wcentralmagnolia
-          - sensor.32wseattlecenter
-          - sensor.31eseattlechildrens
-          - sensor.32eseattlechildrens
-          - sensor.lksanglelake
-          - sensor.lknnorthgate
           - zone.home
+          - sensor.3_1_w_centralmagnolia
+          - sensor.3_2_w_seattlecenter
+          - sensor.3_1_e_seattlechildrens
+          - sensor.3_2_e_seattlechildrens
+          - sensor.link_anglelake
+          - sensor.link_northgate
+          default_zoom: 5
 
