@@ -54,8 +54,10 @@ views:
         - type: glance
           title: "Transit Schedule"
           entities:
-          - sensor.31_Seattle_Center
-          - sensor.32_Central_Magnolia
+          - sensor.31_central_magnolia
+          - sensor.32_seattle_center
+          - sensor.31_seattle_childrens
+          - sensor.32_seattle_childrens
           show_name: true
           show_icon: true
           show_state: true

@@ -4,12 +4,12 @@ gtfs_rt:
       trip_update_url: 'http://api.pugetsound.onebusaway.org/api/gtfs_realtime/trip-updates-for-agency/1.pb?key=TEST'
       vehicle_position_url: 'http://api.pugetsound.onebusaway.org/api/gtfs_realtime/vehicle-positions-for-agency/1.pb?key=TEST'
       departures:
-      - name: "32_Seattle_Center"
+      - name: "32 Seattle Center"
         route: "100193"
         stopid: "26381"
         icon: mdi:bus
         service_type: "Bus"
-      - name: "31_Central_Magnolia"
+      - name: "31 Central Magnolia"
         route: "100184"
         stopid: "26381"
         icon: mdi:bus
@@ -28,12 +28,12 @@ gtfs_rt:
       trip_update_url: 'http://api.pugetsound.onebusaway.org/api/gtfs_realtime/trip-updates-for-agency/40.pb?key=TEST'
       vehicle_position_url: 'http://api.pugetsound.onebusaway.org/api/gtfs_realtime/vehicle-positions-for-agency/40.pb?key=TEST'
       departures:
-      - name: "Link - Angle Lake"
+      - name: "Link Angle Lake"
         route: "100479"
         stopid: "990001"
         icon: mdi:train
         service_type: "Train"
-      - name: "Link - Northgate"
+      - name: "Link Northgate"
         route: "100479"
         stopid: "990002"
         icon: mdi:train
