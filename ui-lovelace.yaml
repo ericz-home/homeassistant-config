@@ -51,15 +51,26 @@ views:
           entity: media_player.basement_tv
       - type: vertical-stack
         cards:
-        - type: glance
+        - type: entities
           title: "Transit Schedule"
+          entities:
+          - type: attribute
+            entity: sensor.31_central_magnolia
+            attribute: state
+          - type: attribute
+            entity: sensor.32_seattle_center
+            attribute: state
+          - type: divider
+          - type: attribute
+            entity: sensor.31_seattle_childrens
+            attribute: state
+          - type: attribute
+            entity: sensor.32_seattle_childrens
+            attribute: state
+        - type: map
           entities:
           - sensor.31_central_magnolia
           - sensor.32_seattle_center
           - sensor.31_seattle_childrens
           - sensor.32_seattle_childrens
-          show_name: true
-          show_icon: true
-          show_state: true
-          columns: 1
 
