@@ -56,17 +56,17 @@ views:
           entities:
           - type: attribute
             entity: sensor.31_central_magnolia
-            attribute: state
+            attribute: "Due in"
           - type: attribute
             entity: sensor.32_seattle_center
-            attribute: state
+            attribute: "Due in"
           - type: divider
           - type: attribute
             entity: sensor.31_seattle_childrens
-            attribute: state
+            attribute: "Due in"
           - type: attribute
             entity: sensor.32_seattle_childrens
-            attribute: state
+            attribute: "Due in"
         - type: map
           entities:
           - sensor.31_central_magnolia
