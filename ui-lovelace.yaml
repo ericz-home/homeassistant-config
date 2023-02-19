@@ -57,16 +57,29 @@ views:
           - type: attribute
             entity: sensor.31_central_magnolia
             attribute: "Due in"
+            suffix: min
           - type: attribute
             entity: sensor.32_seattle_center
             attribute: "Due in"
+            suffix: min
           - type: divider
           - type: attribute
             entity: sensor.31_seattle_childrens
             attribute: "Due in"
+            suffix: min
           - type: attribute
             entity: sensor.32_seattle_childrens
             attribute: "Due in"
+            suffix: min
+          - type: divider
+          - type: attribute
+            entity: sensor.link_angle_lake
+            attribute: "Due in"
+            suffix: min
+          - type: attribute
+            entity: sensor.link_northgate
+            attribute: "Due in"
+            suffix: min
         - type: map
           entities:
           - sensor.31_central_magnolia
