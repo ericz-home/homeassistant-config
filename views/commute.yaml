@@ -4,6 +4,7 @@ icon: mdi:train-car
 cards:
 - type: grid
   columns: 2
+  square: false
   cards:
   - type: entities
     title: "Transit Schedule"
