@@ -14,7 +14,7 @@ gtfs_rt:
         stopid: "26381"
         icon: mdi:bus
         service_type: "Bus"
-      - name: "3 2 ESeattleChildrens"
+      - name: "3 2 E SeattleChildrens"
         route: "100193"
         stopid: "26980"
         icon: mdi:bus

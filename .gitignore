@@ -7,10 +7,10 @@
 !packages/**
 !custom_components
 !custom_components/**
-!.gitignore
-!*.md
 !www
 !www/**
+!.gitignore
+!*.md
 
 # Ignore folders.
 .storage
