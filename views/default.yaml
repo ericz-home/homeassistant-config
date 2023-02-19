@@ -1,0 +1,49 @@
+path: default_view
+title: Overview
+cards:
+  - type: vertical-stack
+    cards:
+    - show_current: true
+      show_forecast: true
+      secondary_info_attribute: humidity
+      name: Home
+      type: weather-forecast
+      entity: weather.ksea_hourly
+    - show_current: false
+      show_forecast: true
+      type: weather-forecast
+      entity: weather.ksea_daynight
+    - type: "custom:sun-card"
+      entity: sun.sun
+  - type: vertical-stack
+    cards:
+    - type: picture-elements
+      entity: camera.mealie_todays_meal_image
+      camera_image: camera.mealie_todays_meal_image
+      title: Tonight's Dinner
+      elements:
+      - type: 'custom:config-template-card'
+        variables:
+          URL: states['sensor.mealie_todays_meal'].attributes['orgUrl']
+        entities:
+        - sensor.mealie_todays_meal
+        style: 
+          left: 50%
+          bottom: 5%
+          width: 100%
+          background-color: var(--primary-background-color)
+          opacity: 0.8
+          text-align: right
+          font-size: 2vw
+          padding-bottom: 5px
+        element:
+          type: state-label
+          entity: sensor.mealie_todays_meal
+          attribute: name
+          tap_action:
+            action: url
+            url_path: "${URL}"
+    - type: media-control
+      entity: media_player.sound_system
+    - type: media-control
+      entity: media_player.basement_tv
