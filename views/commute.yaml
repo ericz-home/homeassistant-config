@@ -48,7 +48,7 @@ cards:
     - sensor.3_2_e_seattlechildrens
     - sensor.link_anglelake
     - sensor.link_northgate
-    default_zoom: 13
+    default_zoom: 14
 - type: horizontal-stack
   cards:
   - type: entities
@@ -62,10 +62,10 @@ cards:
         row:
           type: attribute
           entity: sensor.waze_travel_time_splunk
-          attribute: Duration
+          attribute: duration
           name: "Commute to Splunk"
           suffix: "min"
-          prefix: "${DISTANCE + ' mi / '}"
+          prefix: "${DISTANCE.toFixed(2) + ' mi / '}"
       - type: divider
       - type: 'custom:config-template-card'
         variables:
@@ -75,9 +75,10 @@ cards:
         row:
           type: attribute
           entity: sensor.waze_travel_time_seabird
-          attribute: Duration
+          attribute: duration
           name: "Commute to Seabird"
           suffix: "min"
-          prefix: "${DISTANCE + ' mi / '}"
+          prefix: "${DISTANCE.toFixed(2) + ' mi / '}"
   - type: iframe
     url: https://embed.waze.com/iframe?zoom=13&lat=47.652900&lon=-122.331026&pin=1&desc=1
+    aspect_ratio: 100%
