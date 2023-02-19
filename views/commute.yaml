@@ -4,82 +4,80 @@ icon: mdi:train-car
 cards:
 - type: horizontal-stack
   cards:
-  - type: vertical-stack
-    cards:
-    - type: entities
-      title: "Transit Schedule"
-      entities:
-      - type: attribute
-        entity: sensor.3_1_w_centralmagnolia
-        name: "31 Central Magnolia"
-        attribute: "Due in"
-        suffix: min
-      - type: attribute
-        entity: sensor.3_2_w_seattlecenter
-        name: "32 Seattle Center"
-        attribute: "Due in"
-        suffix: min
+  - type: entities
+    title: "Transit Schedule"
+    entities:
+    - type: attribute
+      entity: sensor.3_1_w_centralmagnolia
+      name: "31 Central Magnolia"
+      attribute: "Due in"
+      suffix: min
+    - type: attribute
+      entity: sensor.3_2_w_seattlecenter
+      name: "32 Seattle Center"
+      attribute: "Due in"
+      suffix: min
+    - type: divider
+    - type: attribute
+      entity: sensor.3_1_e_seattlechildrens
+      name: "31 Seattle Children's"
+      attribute: "Due in"
+      suffix: min
+    - type: attribute
+      entity: sensor.3_2_e_seattlechildrens
+      name: "32 Seattle Children's"
+      attribute: "Due in"
+      suffix: min
+    - type: divider
+    - type: attribute
+      entity: sensor.link_anglelake
+      name: "Link Angle Lake"
+      attribute: "Due in"
+      suffix: min
+    - type: attribute
+      entity: sensor.link_northgate
+      name: "Link Northgate"
+      attribute: "Due in"
+      suffix: min
+  - type: map
+    entities:
+    - zone.home
+    - sensor.3_1_w_centralmagnolia
+    - sensor.3_2_w_seattlecenter
+    - sensor.3_1_e_seattlechildrens
+    - sensor.3_2_e_seattlechildrens
+    - sensor.link_anglelake
+    - sensor.link_northgate
+    default_zoom: 13
+- type: horizontal-stack
+  cards:
+  - type: entities
+    title: Commute Time
+    entities:
+      - type: 'custom:config-template-card'
+        variables:
+          DISTANCE: states['sensor.waze_travel_time_splunk'].attributes.distance
+        entities:
+        - sensor.waze_travel_time_splunk
+        row:
+          type: attribute
+          entity: sensor.waze_travel_time_splunk
+          attribute: Duration
+          name: "Commute to Splunk"
+          suffix: "min"
+          prefix: "${DISTANCE + ' mi / '}"
       - type: divider
-      - type: attribute
-        entity: sensor.3_1_e_seattlechildrens
-        name: "31 Seattle Children's"
-        attribute: "Due in"
-        suffix: min
-      - type: attribute
-        entity: sensor.3_2_e_seattlechildrens
-        name: "32 Seattle Children's"
-        attribute: "Due in"
-        suffix: min
-      - type: divider
-      - type: attribute
-        entity: sensor.link_anglelake
-        name: "Link Angle Lake"
-        attribute: "Due in"
-        suffix: min
-      - type: attribute
-        entity: sensor.link_northgate
-        name: "Link Northgate"
-        attribute: "Due in"
-        suffix: min
-    - type: map
-      entities:
-      - zone.home
-      - sensor.3_1_w_centralmagnolia
-      - sensor.3_2_w_seattlecenter
-      - sensor.3_1_e_seattlechildrens
-      - sensor.3_2_e_seattlechildrens
-      - sensor.link_anglelake
-      - sensor.link_northgate
-      default_zoom: 13
-  - type: vertical-stack
-    cards:
-    - type: entities
-      title: Commute Time
-      entities:
-        - type: 'custom:config-template-card'
-          variables:
-            DISTANCE: states['sensor.waze_travel_time_splunk'].attributes['Distance']
-          entities:
-          - sensor.waze_travel_time_splunk
-          row:
-            type: attribute
-            entity: sensor.waze_travel_time_splunk
-            attribute: Duration
-            name: "Commute to Splunk"
-            suffix: "min"
-            prefix: "${DISTANCE + ' mi / '}"
-        - type: divider
-        - type: 'custom:config-template-card'
-          variables:
-            DISTANCE: states['sensor.waze_travel_time_splunk'].attributes['Distance']
-          entities:
-          - sensor.waze_travel_time_splunk
-          row:
-            type: attribute
-            entity: sensor.waze_travel_time_seabird
-            attribute: Duration
-            name: "Commute to Seabird"
-            suffix: "min"
-            prefix: "${DISTANCE + ' mi / '}"
-    - type: iframe
-      url: https://embed.waze.com/iframe?zoom=13&lat=47.652900&lon=-122.331026&pin=1&desc=1
+      - type: 'custom:config-template-card'
+        variables:
+          DISTANCE: states['sensor.waze_travel_time_splunk'].attributes.distance
+        entities:
+        - sensor.waze_travel_time_splunk
+        row:
+          type: attribute
+          entity: sensor.waze_travel_time_seabird
+          attribute: Duration
+          name: "Commute to Seabird"
+          suffix: "min"
+          prefix: "${DISTANCE + ' mi / '}"
+  - type: iframe
+    url: https://embed.waze.com/iframe?zoom=13&lat=47.652900&lon=-122.331026&pin=1&desc=1
