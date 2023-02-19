@@ -21,4 +21,4 @@ lovelace: !include lovelace.yaml
 logger:
   default: error
   logs:
-    custom_component.gtfs_rt: debug
+    custom_components.gtfs_rt: debug
