@@ -20,9 +20,13 @@ cards:
     cards:
     - type: picture-elements
       entity: camera.mealie_todays_meal_image
-      camera_image: camera.mealie_todays_meal_image
       title: Tonight's Dinner
       elements:
+      - type: image:
+        camera_image: camera.mealie_todays_meal_image
+        tap_action:
+          action: url
+          url_path: "https://mealie.lab.home:8443/group/mealplan/planner"
       - type: 'custom:config-template-card'
         variables:
           URL: states['sensor.mealie_todays_meal'].attributes['orgURL']
