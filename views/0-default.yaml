@@ -24,14 +24,16 @@ cards:
         IMAGE: states['sensor.mealie_todays_image'].state
       entities:
       - sensor.mealie_todays_meal
+      - sensor.mealie_todays_image
       card:
         type: picture-entity
+        entity: sensor.mealie_todays_meal
         image: "${IMAGE}" 
         name: "Tonight's Dinner"
         show_name: true
         show_state: true
         tap_action:
-          action: "${ URL == null ? 'none' : 'url'}"
+          action: "${ URL == null ? 'none' : 'url' }"
           url_path: "${URL}"
         double_tap_action:
           action: url
