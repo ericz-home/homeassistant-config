@@ -22,7 +22,7 @@ cards:
       entity: camera.mealie_todays_meal_image
       title: Tonight's Dinner
       elements:
-      - type: image:
+      - type: image
         camera_image: camera.mealie_todays_meal_image
         tap_action:
           action: url
