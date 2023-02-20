@@ -21,7 +21,7 @@ cards:
     - type: "custom:config-template-card"
       variables:
         URL: states['sensor.mealie_todays_meal'].attributes['orgURL']
-        IMAGE: states['sesnor.mealie_todays_image'].state
+        IMAGE: states['sensor.mealie_todays_image'].state
       entities:
       - sensor.mealie_todays_meal
       card:
