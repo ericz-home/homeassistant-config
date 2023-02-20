@@ -17,4 +17,4 @@ mealie:
   template:
   - sensor:
     - name: mealie_todays_image
-      state: "http://mealie.mealie:9000/api/media/recipes/{{state_attr('sensor.mealie_todays_meal', 'id')}}/images/original.webp"
+      state: "https://mealie.lab.home:8443/api/media/recipes/{{state_attr('sensor.mealie_todays_meal', 'id')}}/images/original.webp"
