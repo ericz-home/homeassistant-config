@@ -11,11 +11,11 @@ mealie:
       - 'name'
       - 'slug'
       - 'id'
-      - 'orgUrl'
+      - 'orgURL'
     value_template: ''
 
   camera:
     name: mealie_todays_meal_image
     platform: generic
-    still_image_url: "http://mealie.mealie:9000/api/media/recipes/{{state_attr('sensor.mealie_todays_meal', 'id')}}/images/min-original.webp"
+    still_image_url: "http://mealie.mealie:9000/api/media/recipes/{{state_attr('sensor.mealie_todays_meal', 'id')}}/images/original.webp"
     limit_refetch_to_url_change: true
