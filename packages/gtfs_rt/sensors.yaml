@@ -4,36 +4,36 @@ gtfs_rt:
       trip_update_url: 'http://api.pugetsound.onebusaway.org/api/gtfs_realtime/trip-updates-for-agency/1.pb?key=TEST'
       vehicle_position_url: 'http://api.pugetsound.onebusaway.org/api/gtfs_realtime/vehicle-positions-for-agency/1.pb?key=TEST'
       departures:
-      - name: "3 2 W SeattleCenter"
-        route: "100193"
-        stopid: "26381"
-        icon: mdi:bus
-        service_type: "Bus"
-      - name: "3 1 W CentralMagnolia"
-        route: "100184"
-        stopid: "26381"
-        icon: mdi:bus
-        service_type: "Bus"
-      - name: "3 2 E SeattleChildrens"
-        route: "100193"
-        stopid: "26980"
-        icon: mdi:bus
-        service_type: "Bus"
-      - name: "3 1 E SeattleChildrens"
-        route: "100184"
-        stopid: "26980"
-        icon: mdi:bus
-        service_type: "Bus"
+        - name: "3 2 W SeattleCenter"
+          route: "100193"
+          stopid: "26381"
+          icon: mdi:bus
+          service_type: "Bus"
+        - name: "3 1 W CentralMagnolia"
+          route: "100184"
+          stopid: "26381"
+          icon: mdi:bus
+          service_type: "Bus"
+        - name: "3 2 E SeattleChildrens"
+          route: "100193"
+          stopid: "26980"
+          icon: mdi:bus
+          service_type: "Bus"
+        - name: "3 1 E SeattleChildrens"
+          route: "100184"
+          stopid: "26980"
+          icon: mdi:bus
+          service_type: "Bus"
     - platform: gtfs_rt
       trip_update_url: 'http://api.pugetsound.onebusaway.org/api/gtfs_realtime/trip-updates-for-agency/40.pb?key=TEST'
       departures:
-      - name: "Link AngleLake"
-        route: "100479"
-        stopid: "990001"
-        icon: mdi:train
-        service_type: "Train"
-      - name: "Link Northgate"
-        route: "100479"
-        stopid: "990002"
-        icon: mdi:train
-        service_type: "Train"
+        - name: "Link AngleLake"
+          route: "100479"
+          stopid: "990001"
+          icon: mdi:train
+          service_type: "Train"
+        - name: "Link Northgate"
+          route: "100479"
+          stopid: "990002"
+          icon: mdi:train
+          service_type: "Train"

@@ -41,8 +41,9 @@ cards:
       - type: media-control
         entity: media_player.sound_system
       - type: "custom:expander-card"
+        title-card-padding: -5px
         title-card:
-          type:  entities
+          type: entities
           entities:
             - entity: remote.sony_xr_75x90j
               name: Sony TV
@@ -50,16 +51,14 @@ cards:
               state_color: true
           title-card-button-overlay: true
         cards:
-          - type: entities
-            entities:
-              - type: "custom:expander-card"
-                title: Sony Bravia TV
-                expanded: true
-                cards:
-                  - type: media-control
-                    entity: media_player.sony_xr_75x90j
-              - type: "custom:expander-card"
-                title: ChromeCast
-                cards:
-                  - type: media-control
-                    entity: media_player.basement_tv
+          - type: "custom:expander-card"
+            title: Sony Bravia TV
+            expanded: true
+            cards:
+              - type: media-control
+                entity: media_player.sony_xr_75x90j
+          - type: "custom:expander-card"
+            title: ChromeCast
+            cards:
+              - type: media-control
+                entity: media_player.basement_tv

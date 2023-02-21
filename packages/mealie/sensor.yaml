@@ -1,20 +1,20 @@
 mealie:
   sensor:
-  - platform: rest
-    resource: 'http://mealie.mealie:9000/api/groups/mealplans/today'
-    method: GET
-    name: mealie_todays_meal
-    headers:
-      Authorization: !secret mealie_api_token
-    json_attributes_path: '$.[0].recipe'
-    json_attributes:
-      - 'name'
-      - 'slug'
-      - 'id'
-      - 'orgURL'
-    value_template: '{{ value_json[0].recipe.name }}'
-
+    - platform: rest
+      resource: 'http://mealie.mealie:9000/api/groups/mealplans/today'
+      method: GET
+      name: mealie_todays_meal
+      headers:
+        Authorization: !secret mealie_api_token
+      json_attributes_path: '$.[0].recipe'
+      json_attributes:
+        - 'name'
+        - 'slug'
+        - 'id'
+        - 'orgURL'
+      value_template: '{{ value_json[0].recipe.name }}'
   template:
-  - sensor:
-    - name: mealie_todays_image
-      state: "https://mealie.lab.home:8443/api/media/recipes/{{state_attr('sensor.mealie_todays_meal', 'id')}}/images/original.webp"
+    - sensor:
+        - name: mealie_todays_image
+          state: "https://mealie.lab.home:8443/api/media/recipes/{{state_attr('sensor.mealie_todays_meal',
+            'id')}}/images/original.webp"
