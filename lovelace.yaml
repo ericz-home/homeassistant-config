@@ -4,3 +4,5 @@ resources:
   type: module
 - url: /local/community/config-template-card/config-template-card.js
   type: module
+- url: /local/community/expander-card/expander-card.js
+  type: module
