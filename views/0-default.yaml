@@ -44,7 +44,10 @@ cards:
         title-card:
           type:  entities
           entities:
-            - type: remote.sony_xr_75x90j
+            - entity: remote.sony_xr_75x90j
+              name: Sony TV
+              icon: remote-tv
+              state_color: true
           title-card-button-overlay: true
         cards:
           - type: entities
