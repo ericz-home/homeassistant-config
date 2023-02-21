@@ -41,7 +41,6 @@ cards:
       - type: media-control
         entity: media_player.sound_system
       - type: "custom:expander-card"
-        title-card-padding: -5px
         title-card:
           type: entities
           entities:
@@ -51,14 +50,6 @@ cards:
               state_color: true
           title-card-button-overlay: true
         cards:
-          - type: "custom:expander-card"
-            title: Sony Bravia TV
-            expanded: true
-            cards:
-              - type: media-control
-                entity: media_player.sony_xr_75x90j
-          - type: "custom:expander-card"
-            title: ChromeCast
-            cards:
-              - type: media-control
-                entity: media_player.basement_tv
+          - type: media-control
+            entity: media_player.android_tv_sony_x90j
+
