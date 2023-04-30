@@ -14,4 +14,4 @@ tts:
   - platform: google_translate
 lovelace: !include lovelace.yaml
 logger:
-  defautl: debug
+  default: debug
