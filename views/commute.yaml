@@ -7,6 +7,8 @@ cards:
       - type: entities
         title: "Transit Schedule"
         entities:
+          - type: section
+            label: "40th & Bagley"
           - type: attribute
             entity: sensor.3_1_w_centralmagnolia
             name: "31 Central Magnolia"
@@ -18,6 +20,8 @@ cards:
             attribute: "Due in"
             suffix: min
           - type: divider
+          - type: section
+            label: "40th & Bagley"
           - type: attribute
             entity: sensor.3_1_e_seattlechildrens
             name: "31 Seattle Children's"
@@ -29,17 +33,8 @@ cards:
             attribute: "Due in"
             suffix: min
           - type: divider
-          - type: attribute
-            entity: sensor.link_anglelake
-            name: "Link Angle Lake"
-            attribute: "Due in"
-            suffix: min
-          - type: attribute
-            entity: sensor.link_northgate
-            name: "Link Northgate"
-            attribute: "Due in"
-            suffix: min
-          - type: divider
+          - type: section
+            label: "University Bridge & 40th"
           - type: attribute
             entity: sensor.7_0_downtownfairview
             name: "70 Fairview"
@@ -48,6 +43,19 @@ cards:
           - type: attribute
             entity: sensor.4_9_downtownbroadway
             name: "49 Broadway"
+            attribute: "Due in"
+            suffix: min
+          - type: divider
+          - type: section
+            label: "U District"
+          - type: attribute
+            entity: sensor.link_anglelake
+            name: "Link Angle Lake"
+            attribute: "Due in"
+            suffix: min
+          - type: attribute
+            entity: sensor.link_northgate
+            name: "Link Northgate"
             attribute: "Due in"
             suffix: min
       - type: map
