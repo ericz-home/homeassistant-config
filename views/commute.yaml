@@ -20,8 +20,6 @@ cards:
             attribute: "Due in"
             suffix: min
           - type: divider
-          - type: section
-            label: "40th & Bagley"
           - type: attribute
             entity: sensor.3_1_e_seattlechildrens
             name: "31 Seattle Children's"
@@ -32,7 +30,6 @@ cards:
             name: "32 Seattle Children's"
             attribute: "Due in"
             suffix: min
-          - type: divider
           - type: section
             label: "University Bridge & 40th"
           - type: attribute
@@ -45,7 +42,6 @@ cards:
             name: "49 Broadway"
             attribute: "Due in"
             suffix: min
-          - type: divider
           - type: section
             label: "U District"
           - type: attribute
