@@ -39,6 +39,17 @@ cards:
             name: "Link Northgate"
             attribute: "Due in"
             suffix: min
+          - type: divider
+          - type: attribute
+            entity: sensor.7_0_downtownfairview
+            name: "70 Fairview"
+            attribute: "Due in"
+            suffix: min
+          - type: attribute
+            entity: sensor.4_9_downtownbroadway
+            name: "49 Broadway"
+            attribute: "Due in"
+            suffix: min
       - type: map
         default_zoom: 12
         entities:
@@ -49,6 +60,8 @@ cards:
           - sensor.3_2_e_seattlechildrens
           - sensor.link_anglelake
           - sensor.link_northgate
+          - sensor.7_0_downtownfairview
+          - sensor.4_9_downtownbroadway
   - type: vertical-stack
     cards:
       - type: entities

@@ -24,6 +24,16 @@ gtfs_rt:
           stopid: "26980"
           icon: mdi:bus
           service_type: "Bus"
+        - name: "7 0 DowntownFairview"
+          route: "100264"
+          stopid: "9140"
+          icon: mdi:bus
+          service_type: "Bus"
+        - name: "4 9 DowntownBroadway"
+          route: "100447"
+          stopid: "9140"
+          icon: mdi:bus
+          service_type: "Bus"
     - platform: gtfs_rt
       trip_update_url: 'http://api.pugetsound.onebusaway.org/api/gtfs_realtime/trip-updates-for-agency/40.pb?key=TEST'
       departures:
