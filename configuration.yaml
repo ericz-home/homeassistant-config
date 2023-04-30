@@ -13,3 +13,5 @@ http: !include http.yaml
 tts:
   - platform: google_translate
 lovelace: !include lovelace.yaml
+logger:
+  defautl: debug
