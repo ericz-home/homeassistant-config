@@ -55,7 +55,7 @@ cards:
             attribute: "Due in"
             suffix: min
       - type: map
-        default_zoom: 12
+        default_zoom: 15
         entities:
           - zone.home
           - sensor.3_1_w_centralmagnolia
