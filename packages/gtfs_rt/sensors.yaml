@@ -36,13 +36,14 @@ gtfs_rt:
           service_type: "Bus"
     - platform: gtfs_rt
       trip_update_url: 'http://api.pugetsound.onebusaway.org/api/gtfs_realtime/trip-updates-for-agency/40.pb?key=TEST'
+      vehicle_position_url: 'http://api.pugetsound.onebusaway.org/api/gtfs_realtime/vehicle-positions-for-agency/40.pb?key=TEST'
       departures:
-        - name: "Link AngleLake"
+        - name: "1 Line AngleLake"
           route: "100479"
           stopid: "990001"
           icon: mdi:train
           service_type: "Train"
-        - name: "Link Northgate"
+        - name: "1 Line  Northgate"
           route: "100479"
           stopid: "990002"
           icon: mdi:train
