@@ -11,17 +11,13 @@ cards:
         type: weather-forecast
         entity: weather.ksea
         forecast_type: hourly
-      - show_current: true
+      - show_current: false
         show_forecast: true
         secondary_info_attribute: humidity
         name: Home Daily
         type: weather-forecast
         entity: weather.ksea
         forecast_type: twice_daily
-      - show_current: false
-        show_forecast: true
-        type: weather-forecast
-        entity: weather.ksea_daynight
       - type: "custom:sun-card"
         entity: sun.sun
   - type: vertical-stack
