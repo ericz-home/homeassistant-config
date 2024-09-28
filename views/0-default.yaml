@@ -7,7 +7,7 @@ cards:
       - show_current: true
         show_forecast: true
         secondary_info_attribute: humidity
-        name: Home Hourly
+        name: Home (SEA)
         type: weather-forecast
         entity: weather.ksea
         forecast_type: hourly
