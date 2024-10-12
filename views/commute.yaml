@@ -62,8 +62,8 @@ cards:
           - sensor.3_2_w_seattlecenter
           - sensor.3_1_e_seattlechildrens
           - sensor.3_2_e_seattlechildrens
-          - sensor.link_anglelake
-          - sensor.link_northgate
+          - sensor.1_line_anglelake
+          - sensor.1_line_northgate
           - sensor.7_0_downtownfairview
           - sensor.4_9_downtownbroadway
   - type: vertical-stack
