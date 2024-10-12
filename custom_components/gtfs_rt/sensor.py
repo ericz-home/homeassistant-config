@@ -23,6 +23,7 @@ ATTR_ICON = "Icon"
 
 CONF_API_KEY = "api_key"
 CONF_X_API_KEY = "x_api_key"
+CONF_API_KEY_HEADER_NAME = "api_key_header"
 CONF_STOP_ID = "stopid"
 CONF_ROUTE = "route"
 CONF_DIRECTION_ID = "directionid"
@@ -36,6 +37,7 @@ CONF_SERVICE_TYPE = "service_type"
 DEFAULT_SERVICE = "Service"
 DEFAULT_ICON = "mdi:bus"
 DEFAULT_DIRECTION = "0"
+DEFAULT_API_KEY_HEADER_NAME = 'Authorization'
 
 MIN_TIME_BETWEEN_UPDATES = timedelta(seconds=60)
 TIME_STR_FORMAT = "%H:%M"
@@ -45,6 +47,10 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
         vol.Required(CONF_TRIP_UPDATE_URL): cv.string,
         vol.Optional(CONF_API_KEY): cv.string,
         vol.Optional(CONF_X_API_KEY): cv.string,
+        vol.Optional(
+            CONF_API_KEY_HEADER_NAME,
+            default=DEFAULT_API_KEY_HEADER_NAME, # type: ignore
+        ): cv.string,
         vol.Optional(CONF_VEHICLE_POSITION_URL): cv.string,
         vol.Optional(CONF_ROUTE_DELIMITER): cv.string,
         vol.Optional(CONF_DEPARTURES): [
@@ -55,7 +61,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
                 vol.Optional(
                     CONF_DIRECTION_ID,
                     default=DEFAULT_DIRECTION,  # type: ignore
-                ): str,
+                ): cv.string,
                 vol.Optional(
                     CONF_ICON, default=DEFAULT_ICON  # type: ignore
                 ): cv.string,
@@ -101,6 +107,7 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
         config.get(CONF_ROUTE_DELIMITER),
         config.get(CONF_API_KEY),
         config.get(CONF_X_API_KEY),
+        config.get(CONF_API_KEY_HEADER_NAME),
     )
     sensors = []
     for departure in config.get(CONF_DEPARTURES):
@@ -273,13 +280,14 @@ class PublicTransportData(object):
         route_delimiter=None,
         api_key=None,
         x_api_key=None,
+        api_key_header=None,
     ):
         """Initialize the info object."""
         self._trip_update_url = trip_update_url
         self._vehicle_position_url = vehicle_position_url
         self._route_delimiter = route_delimiter
         if api_key is not None:
-            self._headers = {"Authorization": api_key}
+            self._headers = {api_key_header: api_key}
         elif x_api_key is not None:
             self._headers = {"x-api-key": x_api_key}
         else:

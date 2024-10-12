@@ -43,7 +43,7 @@ gtfs_rt:
           stopid: "990001"
           icon: mdi:train
           service_type: "Train"
-        - name: "1 Line  Northgate"
+        - name: "1 Line Northgate"
           route: "100479"
           stopid: "990002"
           icon: mdi:train

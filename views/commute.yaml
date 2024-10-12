@@ -45,13 +45,13 @@ cards:
           - type: section
             label: "U District"
           - type: attribute
-            entity: sensor.link_anglelake
-            name: "Link Angle Lake"
+            entity: sensor.1_line_anglelake.
+            name: "1 Line Angle Lake"
             attribute: "Due in"
             suffix: min
           - type: attribute
-            entity: sensor.link_northgate
-            name: "Link Northgate"
+            entity: sensor.1_line_northgate
+            name: "1 Line Northgate"
             attribute: "Due in"
             suffix: min
       - type: map
