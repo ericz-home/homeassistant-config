@@ -1,6 +1,20 @@
 gtfs_rt:
   sensor:
     - platform: gtfs_rt
+      trip_update_url: !secret rail_trip_update_url
+      vehicle_position_url: !secret rail_vehicle_position_url
+      departures:
+        - name: "1 Line AngleLake"
+          route: "100479"
+          stopid: "990001"
+          icon: mdi:train
+          service_type: "Train"
+        - name: "1 Line Northgate"
+          route: "100479"
+          stopid: "990002"
+          icon: mdi:train
+          service_type: "Train"
+    - platform: gtfs_rt
       trip_update_url: !secret bus_trip_update_url
       vehicle_position_url: !secret bus_vehicle_position_url
       departures:
@@ -34,17 +48,3 @@ gtfs_rt:
           stopid: "9140"
           icon: mdi:bus
           service_type: "Bus"
-    - platform: gtfs_rt
-      trip_update_url: !secret rail_trip_update_url
-      vehicle_position_url: !secret rail_vehicle_position_url
-      departures:
-        - name: "1 Line AngleLake"
-          route: "100479"
-          stopid: "990001"
-          icon: mdi:train
-          service_type: "Train"
-        - name: "1 Line Northgate"
-          route: "100479"
-          stopid: "990002"
-          icon: mdi:train
-          service_type: "Train"
