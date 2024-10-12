@@ -45,7 +45,7 @@ cards:
           - type: section
             label: "U District"
           - type: attribute
-            entity: sensor.1_line_anglelake.
+            entity: sensor.1_line_anglelake
             name: "1 Line Angle Lake"
             attribute: "Due in"
             suffix: min
