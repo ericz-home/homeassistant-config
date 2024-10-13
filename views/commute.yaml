@@ -71,17 +71,15 @@ cards:
       - type: entities
         title: Commute Time
         entities:
-          - type: 'custom:config-template-card'
-            variables:
-              DISTANCE: states['sensor.waze_travel_time_splunk'].attributes.distance
+          - type: 'custom:multiple-entity-row'
+            entity: sensor.waze_travel_time_splunk
+            attribute: duration
+            name: "Splunk"
+            unit: "min"
             entities:
-              - sensor.waze_travel_time_splunk
-            row:
-              type: attribute
-              entity: sensor.waze_travel_time_splunk
-              attribute: duration
-              name: "${'Commute to Splunk   (' + DISTANCE.toFixed(2) + ' mi)'}"
-              suffix: "min"
+              - attribute: distance
+                unit: 'mi'
+              - attribute: route
           - type: divider
           - type: 'custom:config-template-card'
             variables:
