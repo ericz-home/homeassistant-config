@@ -234,15 +234,15 @@ class PublicTransportSensor(Entity):
     def update(self):
         """Get the latest data from opendata.ch and update the states."""
         self.data.update()
-        log_info(["Sensor Update:"], 0)
-        log_info(["Name", self._name], 1)
-        log_info([ATTR_ROUTE, self._route], 1)
-        log_info([ATTR_STOP_ID, self._stop], 1)
-        log_info([ATTR_DIRECTION_ID, self._direction], 1)
-        log_info([ATTR_ICON, self._icon], 1)
-        log_info(["Service Type", self._service_type], 1)
-        log_info(["unit_of_measurement", self.unit_of_measurement], 1)
-        log_info([ATTR_DUE_IN, self.state], 1)
+        log_debug(["Sensor Update:"], 0)
+        log_debug(["Name", self._name], 1)
+        log_debug([ATTR_ROUTE, self._route], 1)
+        log_debug([ATTR_STOP_ID, self._stop], 1)
+        log_debug([ATTR_DIRECTION_ID, self._direction], 1)
+        log_debug([ATTR_ICON, self._icon], 1)
+        log_debug(["Service Type", self._service_type], 1)
+        log_debug(["unit_of_measurement", self.unit_of_measurement], 1)
+        log_debug([ATTR_DUE_IN, self.state], 1)
 
         try:
             log_info(
@@ -440,7 +440,8 @@ class PublicTransportData(object):
                     )
 
         log_info(["count of departure_times", len(departure_times)], 0)
-        self.info = departure_times
+        if len(departure_times) > 0:
+            self.info = departure_times
 
     def _get_vehicle_positions(self):
         positions = {}
