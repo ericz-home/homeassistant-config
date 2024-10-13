@@ -137,7 +137,7 @@ def get_gtfs_feed_entities(url: str, headers, label: str):
     while not has_response:
         response = requests.get(url, headers=headers, timeout=20)
         if response.status_code == 200:
-            log_info([f"Successfully updated {label}", response.status_code, "response"], 0)
+            log_info([f"Successfully updated {label}", response.status_code], 0)
             has_response = True
         else:
             log_error(
@@ -439,7 +439,7 @@ class PublicTransportData(object):
                         key=lambda t: t.arrival_time
                     )
 
-        log_info(["count of departure_times", len(departure_times)])
+        log_info(["count of departure_times", len(departure_times)], 0)
         self.info = departure_times
 
     def _get_vehicle_positions(self):
