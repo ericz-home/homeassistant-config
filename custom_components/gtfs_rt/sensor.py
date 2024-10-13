@@ -129,6 +129,7 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
 
 
 def get_gtfs_feed_entities(url: str, headers, label: str):
+    log_info(["getting feed", "", "url", url], 0)
     # sleep in between fetches
     time.sleep(1)
     feed = gtfs_realtime_pb2.FeedMessage()  # type: ignore
@@ -136,7 +137,7 @@ def get_gtfs_feed_entities(url: str, headers, label: str):
     # TODO add timeout to requests call
     response = requests.get(url, headers=headers, timeout=20)
     if response.status_code == 200:
-        log_info([f"Successfully updated {label}", response.status_code], 0)
+        log_info([f"Successfully updated {label}", response.status_code, "response"], 0)
     else:
         log_error(
             [
@@ -435,6 +436,7 @@ class PublicTransportData(object):
                         key=lambda t: t.arrival_time
                     )
 
+        log_info(["count of departure_times", len(departure_times)])
         self.info = departure_times
 
     def _get_vehicle_positions(self):
