@@ -72,9 +72,9 @@ cards:
         title: Commute Time
         entities:
           - type: 'custom:multiple-entity-row'
+            name: "Splunk"
             entity: sensor.waze_travel_time_splunk
             attribute: route
-            name: "Splunk"
             entities:
               - attribute: duration
                 unit: min
@@ -82,9 +82,9 @@ cards:
                 unit: mi
           - type: divider
           - type: 'custom:multiple-entity-row'
-            type: route
-            entity: sensor.waze_travel_time_seabird
             name: "Seabird"
+            entity: sensor.waze_travel_time_seabird
+            attribute: route
             entities:
               - attribute: duration
                 unit: min
