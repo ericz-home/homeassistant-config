@@ -130,23 +130,26 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
 
 def get_gtfs_feed_entities(url: str, headers, label: str):
     log_info(["getting feed", "", "url", url], 0)
-    # sleep in between fetches
-    time.sleep(1)
     feed = gtfs_realtime_pb2.FeedMessage()  # type: ignore
 
     # TODO add timeout to requests call
-    response = requests.get(url, headers=headers, timeout=20)
-    if response.status_code == 200:
-        log_info([f"Successfully updated {label}", response.status_code, "response"], 0)
-    else:
-        log_error(
-            [
-                f"Updating {label} got",
-                response.status_code,
-                response.content,
-            ],
-            0,
-        )
+    has_response = False 
+    while not has_response:
+        response = requests.get(url, headers=headers, timeout=20)
+        if response.status_code == 200:
+            log_info([f"Successfully updated {label}", response.status_code, "response"], 0)
+            has_response = True
+        else:
+            log_error(
+                [
+                    f"Updating {label} got",
+                    response.status_code,
+                    response.content,
+                ],
+                0,
+            )
+            if response.status_code == 429:
+                time.sleep(0.5)
 
     feed.ParseFromString(response.content)
     return feed.entity
