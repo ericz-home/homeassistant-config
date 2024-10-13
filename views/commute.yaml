@@ -71,7 +71,6 @@ cards:
       - type: entities
         title: Commute Time
         entities:
-          - type: section
           - type: 'custom:multiple-entity-row'
             name: "Splunk"
             secondary_info: last-updated
@@ -82,6 +81,7 @@ cards:
                 unit: min
               - attribute: distance
                 unit: mi
+          - type: section
           - type: 'custom:multiple-entity-row'
             name: "Seabird"
             secondary_info: last-updated
