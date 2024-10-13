@@ -1,8 +1,0 @@
-waze:
-  sensor:
-    - platform: waze_travel_time
-      origin: zone.home
-      destination: "1730 Minor Ave, Seattle WA 98101"
-      region: us
-      units: imperial
-      name: waze_travel_time_splunk
