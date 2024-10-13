@@ -129,6 +129,8 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
 
 
 def get_gtfs_feed_entities(url: str, headers, label: str):
+    # sleep in between fetches
+    time.sleep(1)
     feed = gtfs_realtime_pb2.FeedMessage()  # type: ignore
 
     # TODO add timeout to requests call
@@ -298,7 +300,6 @@ class PublicTransportData(object):
 
     @Throttle(MIN_TIME_BETWEEN_UPDATES)
     def update(self):
-        self._jitter()
         log_info(["trip_update_url", self._trip_update_url], 0)
         log_info(["vehicle_position_url", self._vehicle_position_url], 0)
         log_info(["route_delimiter", self._route_delimiter], 0)
@@ -310,12 +311,6 @@ class PublicTransportData(object):
             else {}
         )
         self._update_route_statuses(positions)
-
-    def _jitter(self):
-        """ add some jitter to space out platform updates """
-        jitter = random.randint(0, 5)
-        log_info(["jitter", jitter], 0)  
-        time.sleep(jitter)
 
 
     def _update_route_statuses(self, vehicle_positions):
