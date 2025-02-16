@@ -69,4 +69,4 @@ fi
 
 export UV_PYTHON=$VENV_PATH/bin/python3
 bashio::log.info "Starting homeassistant"
-exec python3 -m homeassistant --config "$CONFIG_PATH"
+exec $UV_PYTHON -m homeassistant --config "$CONFIG_PATH"
