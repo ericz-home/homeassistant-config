@@ -1,0 +1,72 @@
+#!/usr/bin/with-contenv bashio
+# shellcheck shell=bash
+
+USER="homeassistant"
+GROUP="$USER"
+PUID="${PUID:-1000}"
+PGID="${PGID:-1000}"
+
+UMASK="${UMASK:-}"
+
+# If s6-applyuidgid is missing, install s6-ipcserver
+REQUIRED_PACKAGES=""
+type -t s6-applyuidgid >/dev/null || REQUIRED_PACKAGES="s6-ipcserver"
+
+PACKAGES="${PACKAGES:-}"
+
+VENV_PATH="${VENV:-/tmp/homeassistant-venv}"
+CONFIG_PATH=/config
+
+#
+# Install extra packages
+#
+
+for package in $REQUIRED_PACKAGES $PACKAGES; do
+  if ! apk info --quiet --installed -- "$package"; then
+    bashio::log.info "Installing package: $package"
+    apk add --quiet --no-progress --no-cache -- "$package"
+  fi
+done
+
+#
+# Create virtual environment
+#
+
+bashio::log.info "Initializing venv in $VENV_PATH"
+sh -c "python3 -m venv --system-site-packages '$VENV_PATH'"
+
+#
+# Fix permissions
+#
+
+if [ -n "${UMASK}" ]; then
+  bashio::log.info "Setting umask: $UMASK"
+  umask "$UMASK"
+fi
+
+#
+# Run homeassistant
+#
+
+bashio::log.info "Activating venv"
+# shellcheck source=/dev/null
+. "$VENV_PATH/bin/activate"
+export UV_SYSTEM_PYTHON=false
+
+bashio::log.info "Installing uv into venv"
+uv --version && sh \
+  -c "uv pip freeze --system|grep ^uv=|xargs uv pip install"
+
+# Everything below should be kept in sync with upstream's
+#   https://github.com/home-assistant/core/blob/dev/rootfs/etc/services.d/home-assistant/run
+cd "$CONFIG_PATH" || bashio::exit.nok "Can't find config folder: $CONFIG_PATH"
+
+# Enable mimalloc for Home Assistant Core, unless disabled
+if [[ -z "${DISABLE_JEMALLOC+x}" ]]; then
+  export LD_PRELOAD="/usr/local/lib/libjemalloc.so.2"
+  export MALLOC_CONF="background_thread:true,metadata_thp:auto,dirty_decay_ms:20000,muzzy_decay_ms:20000"
+fi
+
+bashio::log.info "Starting homeassistant"
+exec \
+  python3 -m homeassistant --config "$CONFIG_PATH"

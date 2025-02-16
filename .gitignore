@@ -13,6 +13,8 @@
 !www/**
 !.gitignore
 !*.md
+!container-venv
+!container-venv/run
 
 # Ignore folders.
 .storage
