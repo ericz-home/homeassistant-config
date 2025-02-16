@@ -44,12 +44,5 @@ cards:
             url_path: "https://mealie.lab.home:8443/group/mealplan/planner"
       - type: media-control
         entity: media_player.sound_system
-      - type: "custom:expander-card"
-        title-card-padding: -5px
-        title-card:
-          type: media-control
-          entity: media_player.sony_xr_75x90j
-        title-card-button-overlay: true
-        cards:
-          - type: media-control
-            entity: media_player.basement_tv
+      - type: media-control
+        entity: media_player.sony_tv

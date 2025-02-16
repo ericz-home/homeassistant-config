@@ -1,0 +1,51 @@
+sony:
+  media_player:
+    - platform: universal
+      name: Sony TV
+      unique_id: sony_tv
+      device_class: tv
+      children:
+        - media_player.sony_xr_75x90j
+        - media_player.basement_tv
+      active_child_template: >
+        {% if state_attr('media_player.sony_xr_75x90j', 'media_content_id') %}
+           media_player.sony_xr_75x90j
+        {% endif %}
+      attributes:
+        source: media_player.sony_xr_75x90j|source
+        source_list: media_player.sony_xr_75x90j|source_list
+      browse_media_entity: media_player.sony_xr_75x90j
+      commands:
+        turn_off:
+          action: media_player.turn_off
+          data:
+            entity_id: media_player.sony_xr_75x90j
+        turn_on:
+          action: media_player.turn_on
+          data:
+            entity_id: media_player.sony_xr_75x90j
+        select_source:
+          action: media_player.select_source
+          data:
+            entity_id: media_player.sony_xr_75x90j
+            source: "{{ source }}"
+        media_play:
+          action: media_player.media_play
+          target:
+            entity_id: media_player.sony_xr_75x90j
+        media_pause:
+          action: media_player.media_pause
+          target:
+            entity_id: media_player.sony_xr_75x90j
+        media_play_pause:
+          action: media_player.media_play_pause
+          target:
+            entity_id: media_player.sony_xr_75x90j
+        media_previous_track:
+          action: media_player.media_previous_track
+          target:
+            entity_id: media_player.sony_xr_75x90j
+        media_next_track:
+          action: media_player.media_next_track
+          target:
+            entity_id: media_player.sony_xr_75x90j
