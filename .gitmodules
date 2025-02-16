@@ -1,3 +1,0 @@
-[submodule "homeassistant-docker-venv"]
-	path = homeassistant-docker-venv
-	url = git@github.com:tribut/homeassistant-docker-venv.git

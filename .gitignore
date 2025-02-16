@@ -13,7 +13,6 @@
 !www/**
 !.gitignore
 !*.md
-!homeassistant-docker-venv
 
 # Ignore folders.
 .storage
