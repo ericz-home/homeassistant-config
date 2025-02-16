@@ -1,8 +1,6 @@
 #!/usr/bin/with-contenv bashio
 # shellcheck shell=bash
 
-USER="homeassistant"
-GROUP="$USER"
 PUID="${PUID:-1000}"
 PGID="${PGID:-1000}"
 
@@ -14,7 +12,7 @@ type -t s6-applyuidgid >/dev/null || REQUIRED_PACKAGES="s6-ipcserver"
 
 PACKAGES="${PACKAGES:-}"
 
-VENV_PATH="${VENV:-/tmp/homeassistant-venv}"
+VENV_PATH="${VENV:-/config/container-venv/.homeassistant-venv}"
 CONFIG_PATH=/config
 
 #
@@ -68,5 +66,5 @@ if [[ -z "${DISABLE_JEMALLOC+x}" ]]; then
 fi
 
 export UV_PYTHON=$VENV_PATH/bin/python3
-bashio::log.info "Starting homeassistant $(which python3) $UV_PYTHON"
-exec $UV_PYTHON -m homeassistant --config "$CONFIG_PATH"
+bashio::log.info "Starting homeassistant $(which python3)"
+exec python3 -m homeassistant --config "$CONFIG_PATH"
