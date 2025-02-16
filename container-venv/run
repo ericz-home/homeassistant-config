@@ -52,7 +52,6 @@ bashio::log.info "Activating venv"
 # shellcheck source=/dev/null
 . "$VENV_PATH/bin/activate"
 export UV_SYSTEM_PYTHON=false
-export UV_PYTHON=$VENV_PATH/bin/python
 
 bashio::log.info "Installing uv into venv"
 uv --version && sh \
@@ -68,6 +67,7 @@ if [[ -z "${DISABLE_JEMALLOC+x}" ]]; then
   export MALLOC_CONF="background_thread:true,metadata_thp:auto,dirty_decay_ms:20000,muzzy_decay_ms:20000"
 fi
 
+export UV_PYTHON=$VENV_PATH/bin/python3
 bashio::log.info "Starting homeassistant"
 exec \
   python3 -m homeassistant --config "$CONFIG_PATH"
