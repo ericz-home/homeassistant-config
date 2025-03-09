@@ -46,3 +46,13 @@ cards:
         entity: media_player.sound_system
       - type: media-control
         entity: media_player.sony_tv
+  - type: vertical-stack
+    cards:
+      - type: picture-entity
+        entity: image.flavortown_qr_code
+        name: "FlavorTown"
+        show_name: true
+      - type: picture-entity
+        entity: image.flavortown_iot_qr_code
+        name: "FlavorTown-IoT"
+        show_name: true
