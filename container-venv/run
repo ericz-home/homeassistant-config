@@ -12,7 +12,7 @@ type -t s6-applyuidgid >/dev/null || REQUIRED_PACKAGES="s6-ipcserver"
 
 PACKAGES="${PACKAGES:-}"
 
-VENV_PATH="${VENV:-/config/container-venv/.homeassistant-venv}"
+VENV_PATH="${VENV:-/tmp/container-venv/.homeassistant-venv}"
 CONFIG_PATH=/config
 
 #
