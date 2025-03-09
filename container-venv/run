@@ -52,9 +52,6 @@ bashio::log.info "Activating venv"
 export UV_SYSTEM_PYTHON=false
 
 bashio::log.info "Installing uv into venv"
-bashio::log.info "uv pip freeze $(uv pip freeze)"
-uv pip freeze
-uv pip freeze --system
 uv --version && sh \
   -c "uv pip freeze --system|grep ^uv=|xargs uv pip install"
 
