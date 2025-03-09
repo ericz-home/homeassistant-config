@@ -22,6 +22,7 @@ cards:
               - max
               - mean
             title: "CPU"
+            hide_legend: true
           - type: statistics-graph
             entities: 
               - sensor.cloud_gateway_ultra_cpu_temperature
@@ -32,6 +33,7 @@ cards:
               - max
               - mean
             title: "CPU Temperature"
+            hide_legend: true
       - type: vertical-stack
         title: U6 Pro
         cards:
@@ -49,22 +51,26 @@ cards:
               - max
               - mean
             title: "CPU"
-  - type: entities
+            hide_legend: true
+  - type: vertical-stack 
     title: WiFi
     view_layout:
       position: sidebar
     cards:
-      - type: section
-        label: "FlavorTown"
-      - type: picture-entity
-        entity: image.flavortown_qr_code
-        show_name: false
-        show_state: false
-      - type: divider
-      - type: section
-        label: "FlavorTown - IoT"
-      - type: picture-entity
-        entity: image.flavortown_iot_qr_code
-        show_name: false
-        show_state: false
+      - type: entities
+        cards:
+          - type: section
+            label: "FlavorTown"
+          - type: picture-entity
+            entity: image.flavortown_qr_code
+            show_name: false
+            show_state: false
+      - type: entities
+        cards:
+          - type: section
+            label: "FlavorTown - IoT"
+          - type: picture-entity
+            entity: image.flavortown_iot_qr_code
+            show_name: false
+            show_state: false
 
