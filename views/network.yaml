@@ -3,13 +3,6 @@ title: Network
 icon: mdi:wifi
 type: sidebar
 cards:
-  - type: glance
-    entities:
-      - entity: update.cloud_gateway_ultra
-        double_tap_action:
-          action: url
-          url_path: "https://unifi.home"
-      - entity: update.u6_pro
   - type: horizontal-stack
     cards:
       - type: vertical-stack
@@ -59,27 +52,28 @@ cards:
               - mean
             title: "CPU"
             hide_legend: true
-  - type: vertical-stack 
+  - type: glance
+    view_layout:
+      position: sidebar
+    entities:
+      - entity: update.cloud_gateway_ultra
+        double_tap_action:
+          action: url
+          url_path: "https://unifi.home"
+      - entity: update.u6_pro
+  - type: entities
     title: WiFi
     view_layout:
       position: sidebar
-    cards:
-      - type: entities
-        entities:
-          - type: divider
-          - type: section
-            label: "FlavorTown"
-      - type: picture-entity
-        entity: image.flavortown_qr_code
-        show_name: false
-        show_state: false
-      - type: entities
-        entities:
-        - type: divider
-        - type: section
-          label: "FlavorTown - IoT"
-      - type: picture-entity
-        entity: image.flavortown_iot_qr_code
-        show_name: false
-        show_state: false
+    entities:
+      - type: section
+        label: "FlavorTown"
+      - entity: image.flavortown_qr_code
+        name: ""
+      - type: divider
+      - type: section
+        label: "FlavorTown - IoT"
+      - entity: image.flavortown_iot_qr_code
+        name: ""
+
 
