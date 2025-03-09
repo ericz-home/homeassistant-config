@@ -30,6 +30,17 @@ cards:
             hide_legend: true
           - type: statistics-graph
             entities: 
+              - sensor.cloud_gateway_ultra_memory_utilization
+            days_to_show: 14
+            chart_type: line
+            stat_types:
+              - min
+              - max
+              - mean
+            title: "Mem"
+            hide_legend: true
+          - type: statistics-graph
+            entities: 
               - sensor.cloud_gateway_ultra_cpu_temperature
             days_to_show: 14
             chart_type: line
@@ -59,6 +70,17 @@ cards:
               - mean
             title: "CPU"
             hide_legend: true
+          - type: statistics-graph
+            entities: 
+              - sensor.u6_pro_memory_utilization
+            days_to_show: 14
+            chart_type: line
+            stat_types:
+              - min
+              - max
+              - mean
+            title: "Mem"
+            hide_legend: true
   - type: vertical-stack
     title: WiFi
     view_layout:
@@ -74,6 +96,7 @@ cards:
             show_name: false
             show_state: false
       - type: heading
+        heading: " "
       - type: vertical-stack
         cards:
           - type: heading
