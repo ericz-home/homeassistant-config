@@ -6,7 +6,7 @@ cards:
   - type: horizontal-stack
     cards:
       - type: vertical-stack
-        title: CloudGateway-Ultra
+        title: Gateway
         cards:
           - type: glance
             entities:
@@ -97,8 +97,6 @@ cards:
             type: picture-entity
             show_name: false
             show_state: false
-      - type: heading
-        heading: " "
       - type: vertical-stack
         cards:
           - type: heading
