@@ -5,18 +5,11 @@ type: sidebar
 cards:
   - type: glance
     entities:
-      - entity: sensor.cloud_gateway_ultra_state
-        name: CGU
-        tap_action:
+      - entity: update.cloud_gateway_ultra
+        double_tap_action:
           action: url
           url_path: "https://unifi.home"
-      - entity: sensor.u6_pro_state
-        name: U6Pro
-      - update.cloud_gateway_ultra
-      - update.u6_pro
-      - sensor.flavortown
-      - sensor.flavortown_iot
-    title: Network
+      - entity: update.u6_pro
   - type: horizontal-stack
     cards:
       - type: vertical-stack
@@ -66,20 +59,25 @@ cards:
               - mean
             title: "CPU"
             hide_legend: true
-  - type: entities
+  - type: vertical-stack 
     title: WiFi
     view_layout:
       position: sidebar
-    entities:
-      - type: section
-        label: "FlavorTown"
+    cards:
+      - type: entities
+        entities:
+          - type: divider
+          - type: section
+            label: "FlavorTown"
       - type: picture-entity
         entity: image.flavortown_qr_code
         show_name: false
         show_state: false
-      - type: divider
-      - type: section
-        label: "FlavorTown - IoT"
+      - type: entities
+        entities:
+        - type: divider
+        - type: section
+          label: "FlavorTown - IoT"
       - type: picture-entity
         entity: image.flavortown_iot_qr_code
         show_name: false
