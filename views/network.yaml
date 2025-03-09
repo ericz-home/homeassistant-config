@@ -22,6 +22,8 @@ cards:
         title: "CloudGateway-Ultra CPU"
   - type: vertical-stack
     title: WiFi
+    view_layout:
+      position: sidebar
     cards:
       - type: picture-entity
         entity: image.flavortown_qr_code

@@ -1,0 +1,6 @@
+unifi:
+  template:
+    - sensor:
+        - name: "CloudGateway-Ultra Uptime"
+          state: >- 
+            {{ time_since( states('sensor.cloud_gateway_ultra_uptime'), 0 ) }}
