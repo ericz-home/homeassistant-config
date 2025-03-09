@@ -1,6 +1,6 @@
 path: network
 title: Network
-icon: mdi:wifi
+icon: mdi:lan
 type: sidebar
 cards:
   - type: horizontal-stack
@@ -16,7 +16,7 @@ cards:
                   url_path: "https://unifi.home"
               - entity: sensor.cloud_gateway_ultra_uptime_duration
                 name: "Uptime" 
-                show_icon: false
+                icon: mdi:clock-outline
           - type: statistics-graph
             entities: 
               - sensor.cloud_gateway_ultra_cpu_utilization
@@ -45,12 +45,9 @@ cards:
           - type: glance
             entities:
               - entity: update.u6_pro
-                double_tap_action:
-                  action: url
-                  url_path: "https://unifi.home"
               - entity: sensor.u6_pro_uptime_duration
                 name: "Uptime" 
-                show_icon: false
+                icon: mdi:clock-outline
           - type: statistics-graph
             entities: 
               - sensor.u6_pro_cpu_utilization
@@ -71,6 +68,7 @@ cards:
         cards:
           - type: heading
             heading: "FlavorTown"
+            icon: mdi:wifi
           - entity: image.flavortown_qr_code
             type: picture-entity
             show_name: false
@@ -79,6 +77,7 @@ cards:
         cards:
           - type: heading
             heading: "FlavorTown - IoT"
+            icon: mdi:wifi
           - entity: image.flavortown_iot_qr_code
             type: picture-entity
             show_name: false
