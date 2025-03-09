@@ -2,7 +2,6 @@ homeassistant:
   auth_mfa_modules:
     - type: totp
   packages: !include_dir_merge_named packages/
-  mqtt: !include mqtt.yaml
 #
 # Loads default set of integrations. Do not remove.
 default_config:
@@ -20,3 +19,11 @@ http: !include http.yaml
 tts:
   - platform: google_translate
 lovelace: !include lovelace.yaml
+
+mqtt: 
+  broker: "mqtt.mqtt.svc.cluster.local"
+  port: 8883
+  certificate: '/mqtt/certs/ca.crt'
+  client_key: '/mqtt/certs/tls.key'
+  client_cert: '/mqtt/certs/tls.crt'
+  tls_insecure: false
