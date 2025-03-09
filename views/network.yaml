@@ -5,12 +5,12 @@ type: sidebar
 cards:
   - type: glance
     entities:
-      - sensor.cloud_gateway_ultra_state
+      - entity: sensor.cloud_gateway_ultra_state
         name: CGU
         tap_action:
           action: url
           url_path: "https://unifi.home"
-      - sensor.u6_pro_state
+      - entity: sensor.u6_pro_state
         name: U6Pro
       - update.cloud_gateway_ultra
       - update.u6_pro
