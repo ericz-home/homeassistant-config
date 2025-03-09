@@ -3,7 +3,7 @@ unifi:
     - sensor:
         - name: "Cloud Gateway Ultra Uptime Duration"
           state: >- 
-            {{ time_since( as_datetime(states('sensor.cloud_gateway_ultra_uptime')), 0 ) }}
+            {{ time_since( as_datetime(states('sensor.cloud_gateway_ultra_uptime')), 2 ) }}
         - name: "U6 Pro Uptime Duration"
           state: >- 
-            {{ time_since( as_datetime(states('sensor.u6_pro_uptime')), 0 ) }}
+            {{ time_since( as_datetime(states('sensor.u6_pro_uptime')), 2 ) }}

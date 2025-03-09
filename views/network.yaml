@@ -8,10 +8,15 @@ cards:
       - type: vertical-stack
         title: CloudGateway-Ultra
         cards:
-          - type: sensor
-            entity: sensor.cloud_gateway_ultra_uptime_duration
-            name: "Uptime" 
-            icon: mdi:timer-outline
+          - type: glance
+            entities:
+              - entity: update.cloud_gateway_ultra
+                double_tap_action:
+                  action: url
+                  url_path: "https://unifi.home"
+              - entity: sensor.cloud_gateway_ultra_uptime_duration
+                name: "Uptime" 
+                show_icon: false
           - type: statistics-graph
             entities: 
               - sensor.cloud_gateway_ultra_cpu_utilization
@@ -37,10 +42,15 @@ cards:
       - type: vertical-stack
         title: U6 Pro
         cards:
-          - type: sensor
-            entity: sensor.u6_pro_uptime_duration
-            name: "Uptime" 
-            icon: mdi:timer-outline
+          - type: glance
+            entities:
+              - entity: update.u6_pro
+                double_tap_action:
+                  action: url
+                  url_path: "https://unifi.home"
+              - entity: sensor.u6_pro_uptime_duration
+                name: "Uptime" 
+                show_icon: false
           - type: statistics-graph
             entities: 
               - sensor.u6_pro_cpu_utilization
@@ -52,28 +62,26 @@ cards:
               - mean
             title: "CPU"
             hide_legend: true
-  - type: glance
-    view_layout:
-      position: sidebar
-    entities:
-      - entity: update.cloud_gateway_ultra
-        double_tap_action:
-          action: url
-          url_path: "https://unifi.home"
-      - entity: update.u6_pro
-  - type: entities
+  - type: vertical-stack
     title: WiFi
     view_layout:
       position: sidebar
-    entities:
-      - type: section
-        label: "FlavorTown"
-      - entity: image.flavortown_qr_code
-        name: ""
-      - type: divider
-      - type: section
-        label: "FlavorTown - IoT"
-      - entity: image.flavortown_iot_qr_code
-        name: ""
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: heading
+            heading: "FlavorTown"
+          - entity: image.flavortown_qr_code
+            type: picture-entity
+            show_name: false
+            show_state: false
+      - type: vertical-stack
+        cards:
+          - type: heading
+            heading: "FlavorTown - IoT"
+          - entity: image.flavortown_iot_qr_code
+            type: picture-entity
+            show_name: false
+            show_state: false
 
 
