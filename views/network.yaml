@@ -3,11 +3,11 @@ title: Network
 icon: mdi:wifi
 type: sidebar
 cards:
-  - type: horizontal-stack
+  - type: vertical-stack
     title: CloudGateway-Ultra
     cards:
       - type: sensor
-        entity: sensor.cloud_gateway_ultra_uptime
+        entity: sensor.cloud_gateway_ultra_uptime_duration
         name: "CloudGateway-Ultra Uptime" 
         icon: mdi:timer-outline
       - type: statistics-graph
@@ -20,6 +20,16 @@ cards:
           - max
           - mean
         title: "CloudGateway-Ultra CPU"
+      - type: statistics-graph
+        entities: 
+          - sensor.cloud_gateway_ultra_cpu_temperature
+        days_to_show: 14
+        chart_type: line
+        stat_types:
+          - min
+          - max
+          - mean
+        title: "CloudGateway-Ultra CPU Temperature"
   - type: vertical-stack
     title: WiFi
     view_layout:
