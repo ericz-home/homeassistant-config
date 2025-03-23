@@ -15,6 +15,8 @@
 !*.md
 !container-venv
 !container-venv/run
+!scenes
+!scenes/**
 
 # Ignore folders.
 .storage

@@ -1,5 +1,5 @@
 path: default_view
-title: Overview
+title: Home
 icon: mdi:home
 cards:
   - type: vertical-stack

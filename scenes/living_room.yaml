@@ -1,0 +1,24 @@
+- name: Living Room Evening
+  icon: mdi:weather-sunset-down
+  entities:
+    light.torch_light:
+      state: "on"
+      color_temp: "cool"
+      brightness: 250
+    switch.tinkle_lights: "on"
+
+- name: Living Room Night
+  icon: mdi:weather-night
+  entities:
+    light.torch_light:
+      state: "on"
+      color_temp: "warmest"
+      brightness: 100
+    switch.tinkle_lights: "on"
+
+- name: Living Room Off
+  icon: mdi:lightbulb-off-outline
+  entities:
+    light.torch_light: "off"
+    switch.tinkle_lights: "off"
+

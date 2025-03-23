@@ -1,7 +1,7 @@
 homeassistant:
   auth_mfa_modules:
     - type: totp
-  packages: !include_dir_merge_named packages/
+  packages: !include_dir_merge_named packages
 #
 # Loads default set of integrations. Do not remove.
 default_config:
@@ -19,3 +19,4 @@ http: !include http.yaml
 tts:
   - platform: google_translate
 lovelace: !include lovelace.yaml
+scene: !include_dir_merge_list scenes
