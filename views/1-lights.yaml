@@ -2,22 +2,57 @@ path: lights
 title: Lights
 icon: mdi:lightbulb-outline
 cards:
-  - type: button
-    name: "Evening"
-    show_state: false
-    icon: mdi:weather-sunset-down
-    tap_action:
-      action: 'perform-action'
-      perform_action: scene.turn_on
-      target: 
-        entity_id: scenes.living_room_evening
-  - type: button
-    name: "Night"
-    show_state: false
-    icon: mdi:weather-night
-    tap_action:
-      action: 'perform-action'
-      perform_action: scene.turn_on
-      target: 
-        entity_id: scenes.living_room_night
+  - type: vertical-stack
+    cards:
+      - type: heading
+        heading: "Living Room"
+        icon: mdi:sofa-outline
+      - type: horizontal-stack
+        cards:
+          - type: button
+            name: "Off"
+            show_state: false
+            icon: mdi:lightbulb-off-outline
+            tap_action:
+              action: "perform-action"
+              perform_action: scene.turn_on
+              target: 
+                entity_id: scene.living_room_off
+          - type: button
+            name: "Evening"
+            show_state: false
+            icon: mdi:weather-sunset-down
+            tap_action:
+              action: "perform-action"
+              perform_action: scene.turn_on
+              target: 
+                entity_id: scene.living_room_evening
+          - type: button
+            name: "Night"
+            show_state: false
+            icon: mdi:weather-night
+            tap_action:
+              action: "perform-action"
+              perform_action: scene.turn_on
+              target: 
+                entity_id: scene.living_room_night
 
+      - type: grid
+        columns: 2
+        square: false
+        cards:
+          - type: tile
+            entity: light.torch_light
+            name: "Torch"
+            icon: mdi:floor-lamp-torchiere-outline
+            state_content:
+              - brightness
+              - color_temp
+            icon_tap_action: "toggle"
+            features:
+              - type: "light-brightness"
+              - type: "light-color-temp"
+          - type: tile
+            entity: switch.twinkle_lights
+            icon: mdi:string-lights
+            icon_tap_action: "toggle"
