@@ -17,3 +17,5 @@ tts:
   - platform: google_translate
 lovelace: !include lovelace.yaml
 scene: !include_dir_merge_list scenes
+
+auth_oidc: !include auth_oidc.yaml
