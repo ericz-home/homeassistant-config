@@ -3,7 +3,7 @@
   entities:
     light.torch_light:
       state: "on"
-      color_temp: "cool"
+      color_temp: 300
       brightness: 250
     switch.tinkle_lights: "on"
 
@@ -12,7 +12,7 @@
   entities:
     light.torch_light:
       state: "on"
-      color_temp: "warmest"
+      color_temp: 450
       brightness: 100
     switch.tinkle_lights: "on"
 
