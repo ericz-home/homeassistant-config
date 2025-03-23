@@ -1,12 +1,13 @@
 path: lights
 title: Lights
 icon: mdi:lightbulb-outline
-type: button
-name: "Evening"
-show_state: false
-icon: mdi:weather-sunset-down
-tap_action:
-  action: 'perform-action'
-  perform_action: scene.turn_on
-  target: scenes.living_room_evening
+cards:
+  - type: button
+    name: "Evening"
+    show_state: false
+    icon: mdi:weather-sunset-down
+    tap_action:
+      action: 'perform-action'
+      perform_action: scene.turn_on
+      target: scenes.living_room_evening
 
