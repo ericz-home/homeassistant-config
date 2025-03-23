@@ -3,7 +3,7 @@
   entities:
     light.torch_light:
       state: "on"
-      color_temp: 300
+      color_temp_kelvin: 2500
       brightness: 250
     switch.twinkle_lights: "on"
 
@@ -12,9 +12,9 @@
   entities:
     light.torch_light:
       state: "on"
-      color_temp: 450
+      color_temp_kelvin: 4000
       brightness: 100
-    switch.tinkle_lights: "on"
+    switch.twinkle_lights: "on"
 
 - name: Living Room Off
   icon: mdi:lightbulb-off-outline

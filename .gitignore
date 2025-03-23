@@ -5,7 +5,9 @@
 !*.yaml
 !packages
 !packages/**
+!custom_components
 !custom_components/hacs
+!custom_components/hacs/**
 !views
 !views/**
 !www
