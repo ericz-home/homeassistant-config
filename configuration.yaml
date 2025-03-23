@@ -7,9 +7,6 @@ homeassistant:
 default_config:
 logger:
   default: warning
-  logs:
-    custom_components.gtfs_rt: info
-    homeassistant.util.package: debug
 #
 # Load frontend themes from the themes folder
 frontend:
