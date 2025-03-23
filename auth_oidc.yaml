@@ -7,4 +7,5 @@ network:
   tls_ca_path: "/vault/tls/ca.crt"
 claims:
   username: "username"
+  display_name: "username"
 
