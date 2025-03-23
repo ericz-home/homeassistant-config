@@ -46,13 +46,12 @@ cards:
             name: "Torch"
             icon: mdi:floor-lamp-torchiere-outline
             state_content:
+              - state
               - brightness
               - color_temp
-            icon_tap_action: "toggle"
             features:
               - type: "light-brightness"
               - type: "light-color-temp"
           - type: tile
             entity: switch.twinkle_lights
             icon: mdi:string-lights
-            icon_tap_action: "toggle"
