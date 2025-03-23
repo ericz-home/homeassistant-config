@@ -5,7 +5,7 @@
       state: "on"
       color_temp: 300
       brightness: 250
-    switch.tinkle_lights: "on"
+    switch.twinkle_lights: "on"
 
 - name: Living Room Night
   icon: mdi:weather-night
@@ -20,5 +20,5 @@
   icon: mdi:lightbulb-off-outline
   entities:
     light.torch_light: "off"
-    switch.tinkle_lights: "off"
+    switch.twinkle_lights: "off"
 

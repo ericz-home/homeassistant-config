@@ -9,7 +9,8 @@ cards:
     tap_action:
       action: 'perform-action'
       perform_action: scene.turn_on
-      target: scenes.living_room_evening
+      target: 
+        entity_id: scenes.living_room_evening
   - type: button
     name: "Night"
     show_state: false
@@ -17,5 +18,6 @@ cards:
     tap_action:
       action: 'perform-action'
       perform_action: scene.turn_on
-      target: scenes.living_room_night
+      target: 
+        entity_id: scenes.living_room_night
 
