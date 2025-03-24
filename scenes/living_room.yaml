@@ -1,31 +1,31 @@
 - name: Living Room Hi
-  icon: mdi:brightness-7
+  icon: mdi:lightbulb-on-70
   entities:
     light.torch_light:
       state: "on"
       color_temp_kelvin: 3500
-      brightness_pct: 85
+      brightness: 216
     light.arc_lamp:
       state: "on"
       color_temp_kelvin: 3500
-      brightness_pct: 85
+      brightness: 216
     switch.twinkle_lights: "on"
 
 - name: Living Room Mid
-  icon: mdi:brightness-4
+  icon: mdi:lightbulb-on-50
   entities:
     light.torch_light:
       state: "on"
       color_temp_kelvin: 2500
-      brightness_pct: 40
+      brightness: 102
     light.arc_lamp:
       state: "on"
       color_temp_kelvin: 2500
-      brightness_pct: 40 
+      brightness: 102
     switch.twinkle_lights: "on"
 
 - name: Living Room Lo
-  icon: mdi:brightness-3
+  icon: mdi:lightbulb-on-20
   entities:
     light.torch_light: "off"
     light.arc_lamp: "off"
@@ -38,11 +38,11 @@
     light.torch_light:
       state: "on"
       color_temp_kelvin: 4000
-      brightness_pct: 100
+      brightness: 250
     light.arc_lamp:
       state: "on"
       color_temp_kelvin: 4000
-      brightness_pct: 100
+      brightness: 250
 
 - name: Living Room Off
   icon: mdi:lightbulb-off-outline

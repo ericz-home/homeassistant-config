@@ -23,6 +23,7 @@ cards:
           - type: button
             name: "Low"
             show_state: false
+            show_name: false
             icon: mdi:lightbulb-on-30
             tap_action:
               action: "perform-action"
@@ -34,6 +35,7 @@ cards:
           - type: button
             name: "Medium"
             show_state: false
+            show_name: false
             icon: mdi:lightbulb-on-50
             tap_action:
               action: "perform-action"
@@ -44,6 +46,7 @@ cards:
                 transition: 2.5
           - type: button
             name: "High"
+            show_name: false
             show_state: false
             icon: mdi:lightbulb-on-70
             tap_action:
@@ -54,9 +57,9 @@ cards:
               data:
                 transition: 2.5
           - type: button
-            name: "Max"
+            name: "On"
             show_state: false
-            icon: mdi:lightbulb-on7
+            icon: mdi:lightbulb-on
             tap_action:
               action: "perform-action"
               perform_action: scene.turn_on
