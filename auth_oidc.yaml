@@ -1,8 +1,6 @@
 client_id: "YeAnII7jgB7iUT6hZ4PDahboepYY2w2L"
 discovery_url: "https://vault.vault.svc.cluster.local:8200/v1/identity/oidc/provider/lab-oidc-provider/.well-known/openid-configuration"
 display_name: "Vault"
-features:
-  automatic_user_linking: true
 network:
   tls_ca_path: "/vault/tls/ca.crt"
 claims:
