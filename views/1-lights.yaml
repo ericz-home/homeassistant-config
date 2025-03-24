@@ -11,6 +11,7 @@ cards:
         cards:
           - type: button
             name: "Off"
+            show_name: false
             show_state: false
             icon: mdi:lightbulb-off-outline
             tap_action:
@@ -59,6 +60,7 @@ cards:
           - type: button
             name: "On"
             show_state: false
+            show_name: false
             icon: mdi:lightbulb-on
             tap_action:
               action: "perform-action"
