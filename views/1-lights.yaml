@@ -53,5 +53,16 @@ cards:
               - type: "light-brightness"
               - type: "light-color-temp"
           - type: tile
+            entity: light.arc_lamp
+            name: "Arc"
+            icon: mdi:floor-lamp-outline
+            state_content:
+              - state
+              - brightness
+              - color_temp_kelvin
+            features:
+              - type: "light-brightness"
+              - type: "light-color-temp"
+          - type: tile
             entity: switch.twinkle_lights
             icon: mdi:string-lights

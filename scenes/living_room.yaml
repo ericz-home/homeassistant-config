@@ -3,7 +3,11 @@
   entities:
     light.torch_light:
       state: "on"
-      color_temp_kelvin: 2500
+      color_temp_kelvin: 4000
+      brightness: 250
+    light.arc_lamp:
+      state: "on"
+      color_temp_kelvin: 4000
       brightness: 250
     switch.twinkle_lights: "on"
 
@@ -12,7 +16,11 @@
   entities:
     light.torch_light:
       state: "on"
-      color_temp_kelvin: 4000
+      color_temp_kelvin: 2500
+      brightness: 100
+    light.arc_lamp:
+      state: "on"
+      color_temp_kelvin: 2500
       brightness: 100
     switch.twinkle_lights: "on"
 
@@ -20,5 +28,6 @@
   icon: mdi:lightbulb-off-outline
   entities:
     light.torch_light: "off"
+    light.arc_lamp: "off"
     switch.twinkle_lights: "off"
 
