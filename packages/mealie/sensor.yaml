@@ -12,9 +12,9 @@ mealie:
         - 'slug'
         - 'id'
         - 'orgURL'
-      value_template: '{{ value_json[0].recipe.name }}'
+      value_template: '{{ value_json[0].recipe.name | default("none") }}'
   template:
     - sensor:
         - name: mealie_todays_image
-          state: "https://mealie.lab.home:8443/api/media/recipes/{{state_attr('sensor.mealie_todays_meal',
+          state: "https://mealie.lab.home:4443/api/media/recipes/{{state_attr('sensor.mealie_todays_meal',
             'id')}}/images/original.webp"
