@@ -18,8 +18,9 @@ cards:
         type: weather-forecast
         entity: weather.ksea
         forecast_type: twice_daily
-      - type: "custom:sun-card"
-        entity: sun.sun
+      - type: "custom:horizon-card"
+        moon: false
+        refresh_period: 1800
   - type: vertical-stack
     cards:
       - type: "custom:config-template-card"
