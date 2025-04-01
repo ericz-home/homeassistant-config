@@ -1,12 +1,12 @@
 mode: yaml
 resources:
-  - url: /www/community/lovelace-horizon-card/lovelace-horizon-card.js
+  - url: /local/community/lovelace-horizon-card/lovelace-horizon-card.js
     type: module
-  - url: /www/community/config-template-card/config-template-card.js
+  - url: /local/community/config-template-card/config-template-card.js
     type: module
-  - url: /www/community/lovelace-multiple-entity-row/multiple-entity-row.js
+  - url: /local/community/lovelace-multiple-entity-row/multiple-entity-row.js
     type: module
-  - url: /www/community/lovelace-multiple-entity-row/multiple-entity-row.js
+  - url: /local/community/lovelace-multiple-entity-row/multiple-entity-row.js
     type: module
-  - url: /www/community/lovelace-mushroom/mushroom.js
+  - url: /local/community/lovelace-mushroom/mushroom.js
     type: module
