@@ -17,7 +17,7 @@
       condition: zone
       entity_id: 
       - device_tracker.galaxys24
-      state: zone.home
+      zone: zone.home
   actions:
     - action: scene.turn_on
       target:
