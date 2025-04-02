@@ -16,6 +16,8 @@
 !container-venv/run
 !scenes
 !scenes/**
+!automations
+!automations/**
 
 # Ignore folders.
 .storage

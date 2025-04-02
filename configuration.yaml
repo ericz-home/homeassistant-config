@@ -18,4 +18,6 @@ tts:
 lovelace: !include lovelace.yaml
 scene: !include_dir_merge_list scenes
 
+automation config: !include_dir_merge_list automations/
+
 auth_oidc: !include auth_oidc.yaml
