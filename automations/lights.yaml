@@ -1,23 +1,32 @@
-- alias: "Turn on Living Room Lights"
+- id: evening lights
+  alias: "Turn on Living Room Lights"
   triggers:
     - trigger: state 
       entity_id:
         - device_tracker.eric_s_s24
-        - device_tracker.galaxys24
+        - device_tracker.laura_s_pixel_5a
       to: "home"
     - trigger: sun
       event: sunset
-      offset: "00:30:00"
+      offset: "-00:15:00"
   conditions:
     - alias: "sun down"
       condition: state 
       entity_id: sun.sun
       state: "below_horizon"
-    - alias: "at home"
-      condition: zone
-      entity_id: 
-      - device_tracker.galaxys24
-      zone: zone.home
+    - condition: or
+      alias: "at home"
+      conditions:
+        - condition: zone
+          alias: "eric at home"
+          entity_id: 
+            - device_tracker.eric_s_s24
+          zone: zone.home
+        - condition: zone
+          alias: "laura at home"
+          entity_id: 
+            - device_tracker.laura_s_pixel_5a
+          zone: zone.home
   actions:
     - action: scene.turn_on
       target:
