@@ -19,12 +19,10 @@
       conditions:
         - condition: state
           alias: "eric at home"
-          entity_id: 
-            - device_tracker.eric_s_s24
+          entity_id: device_tracker.eric_s_s24
         - condition: state
           alias: "laura at home"
-          entity_id: 
-            - device_tracker.laura_s_pixel_5a
+          entity_id: device_tracker.laura_s_pixel_5a
           state: "home"
   actions:
     - action: scene.turn_on
