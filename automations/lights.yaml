@@ -11,9 +11,9 @@
       offset: "-00:15:00"
   conditions:
     - alias: "sun down"
-      condition: state 
-      entity_id: sun.sun
-      state: "below_horizon"
+      condition: sun
+      after: sunset
+      after_offset: "-00:15:00"
     - condition: or
       alias: "at home"
       conditions:
