@@ -14,9 +14,8 @@
       condition: sun
       after: sunset
       after_offset: "-00:15:00"
-    - condition: or
-      alias: "at home"
-      conditions:
+    - alias: "at home"
+      or:
         - condition: state
           alias: "eric at home"
           entity_id: device_tracker.eric_s_s24
@@ -25,9 +24,27 @@
           alias: "laura at home"
           entity_id: device_tracker.laura_s_pixel_5a
           state: "home"
+    - alias: "do not disturb"
+      not:
+        - condition: state
+          alias: "eric do not disturb"
+          entity_id: sensor.galaxys24_do_not_disturb_sensor
+          state: "on"
+
   actions:
     - action: scene.turn_on
       target:
         entity_id: scene.living_room_mid
 
 
+- id: sleep_lights
+  alias: "Turn Off Living Room Lights"
+  triggers:
+    - trigger: state
+      entity_id: sensor.galaxys24_do_not_disturb_sensor
+      to: "on"
+
+  actions:
+    - action: scene.turn_on
+      target:
+        entity_id: scene.living_room_off
