@@ -29,7 +29,10 @@
         - condition: state
           alias: "eric do not disturb"
           entity_id: sensor.galaxys24_do_not_disturb_sensor
-          state: "on"
+          match: any
+          state:
+            - "off"
+            - "unknown"
 
   actions:
     - action: scene.turn_on
@@ -42,7 +45,9 @@
   triggers:
     - trigger: state
       entity_id: sensor.galaxys24_do_not_disturb_sensor
-      to: "on"
+      not_to: 
+        - "off"
+        - "unknown"
 
   actions:
     - action: scene.turn_on
