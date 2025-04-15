@@ -8,11 +8,12 @@ cards:
         title: Home (SEA)
         sun_entity: sun.sun
         entity: weather.ksea
-        hourly_forecast: true
         show_humidity: true
       - type: custom:clock-weather-card
         sun_entity: sun.sun
         entity: weather.ksea
+        hourly_forecast: true
+        forecast_rows: 8
         hide_today_section: true
       - type: "custom:horizon-card"
         moon: false
