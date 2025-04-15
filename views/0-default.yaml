@@ -4,20 +4,16 @@ icon: mdi:home
 cards:
   - type: vertical-stack
     cards:
-      - show_current: true
-        show_forecast: true
-        secondary_info_attribute: humidity
-        name: Home (SEA)
-        type: weather-forecast
+      - type: custom:clock-weather-card
+        title: Home (SEA)
+        sun_entity: sun.sun
         entity: weather.ksea
-        forecast_type: hourly
-      - show_current: false
-        show_forecast: true
-        secondary_info_attribute: humidity
-        name: Home Daily
-        type: weather-forecast
+        hourly_forecast: true
+        show_humidity: true
+      - type: custom:clock-weather-card
+        sun_entity: sun.sun
         entity: weather.ksea
-        forecast_type: twice_daily
+        hide_today_section: true
       - type: "custom:horizon-card"
         moon: false
         refresh_period: 1800
