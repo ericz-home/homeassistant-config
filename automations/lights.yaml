@@ -29,7 +29,6 @@
         - condition: state
           alias: "eric do not disturb"
           entity_id: sensor.galaxys24_do_not_disturb_sensor
-          match: any
           state:
             - "off"
             - "unknown"
