@@ -25,13 +25,11 @@
           entity_id: device_tracker.laura_s_pixel_5a
           state: "home"
     - alias: "do not disturb"
-      not:
-        - condition: state
-          alias: "eric do not disturb"
-          entity_id: sensor.galaxys24_do_not_disturb_sensor
-          state:
-            - "off"
-            - "unknown"
+      condition: state
+      entity_id: sensor.galaxys24_do_not_disturb_sensor
+      state:
+        - "off"
+        - "unknown"
 
   actions:
     - action: scene.turn_on
