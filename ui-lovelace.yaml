@@ -1,2 +1,5 @@
 title: Home
-views: !include_dir_list views
+views:
+  - views/home.yaml
+  - views/commute.yaml
+  - views/network.yaml
