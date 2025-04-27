@@ -7,15 +7,16 @@ homeassistant:
 default_config:
 logger:
   default: warning
-#
-# Load frontend themes from the themes folder
+
+lovelace: !include lovelace.yaml
 frontend:
-  themes: !include_dir_merge_named themes
+  extra_module_url: /local/community/lovelace-card-mod/card-mod.js
+
 http: !include http.yaml
 # Text to speech
 tts:
   - platform: google_translate
-lovelace: !include lovelace.yaml
+
 scene: !include_dir_merge_list scenes
 
 automation config: !include_dir_merge_list automations/
