@@ -1,8 +1,8 @@
   - type: vertical-stack
     cards:
-    - type: heading
-      heading: "Media Player"
-      icon: mdi:multimedia
+      - type: heading
+        heading: "Media Player"
+        icon: mdi:multimedia
       # - type: "custom:config-template-card"
       #   variables:
       #     URL: states['sensor.mealie_todays_meal'].attributes['orgURL']
