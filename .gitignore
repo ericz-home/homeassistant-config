@@ -18,6 +18,8 @@
 !scenes/**
 !automations
 !automations/**
+!device_trackers
+!device_trackers/**
 
 # Ignore folders.
 .storage
