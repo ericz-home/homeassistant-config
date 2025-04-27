@@ -10,7 +10,8 @@ logger:
 
 lovelace: !include lovelace.yaml
 frontend:
-  extra_module_url: /local/community/lovelace-card-mod/card-mod.js
+  extra_module_url: 
+    - /local/community/lovelace-card-mod/card-mod.js
 
 http: !include http.yaml
 # Text to speech
