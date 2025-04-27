@@ -1,0 +1,29 @@
+  - type: vertical-stack
+    cards:
+    - type: heading
+      heading: "Media Player"
+      icon: mdi:multimedia
+      # - type: "custom:config-template-card"
+      #   variables:
+      #     URL: states['sensor.mealie_todays_meal'].attributes['orgURL']
+      #     IMAGE: states['sensor.mealie_todays_image'].state
+      #   entities:
+      #     - sensor.mealie_todays_meal
+      #     - sensor.mealie_todays_image
+      #   card:
+      #     type: picture-entity
+      #     entity: sensor.mealie_todays_meal
+      #     image: "${IMAGE}"
+      #     name: "Tonight's Dinner"
+      #     show_name: true
+      #     show_state: true
+      #     tap_action:
+      #       action: "${ URL == null ? 'none' : 'url' }"
+      #       url_path: "${URL}"
+      #     double_tap_action:
+      #       action: url
+      #       url_path: "https://mealie.lab.home:4443/group/mealplan/planner"
+      - type: media-control
+        entity: media_player.sound_system
+      - type: media-control
+        entity: media_player.sony_tv
