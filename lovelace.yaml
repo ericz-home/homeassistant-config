@@ -1,6 +1,6 @@
 mode: storage
 dashboards:
-  home:
+  home-dashboard:
     mode: yaml
     title: Home
     icon: mdi:home
