@@ -11,6 +11,7 @@
         hide_forecast_section: true
       - type: custom:hourly-weather 
         entity: weather.ksea
+        name: null
         icons: true
         round_temperatures: true
         show_precipitation_amounts: true
