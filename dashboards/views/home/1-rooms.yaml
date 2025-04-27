@@ -5,7 +5,7 @@
       cards:
       - type: heading
         heading: "Living Room"
-        icon: mdi:lightbulb-outline
+        icon: mdi:sofa-outline
       - type: horizontal-stack
         cards:
           - type: button
@@ -108,8 +108,21 @@
               name: "Front Door"
               secondary_info: last-changed
               state_color: true
-              toggle: true
               entities:
+                - icon: mdi:lock
+                  state_color: true
+                  tap_action:
+                    action: call-service
+                    service: lock.lock
+                    service_data:
+                      entity_id: lock.front_door
+                - icon: mdi:lock-open-variant
+                  state_color: true
+                  tap_action:
+                    action: call-service
+                    service: lock.unlock
+                    service_data:
+                      entity_id: lock.front_door
                 - entity: sensor.front_door_battery
                   name: Battery
 
