@@ -1,46 +1,4 @@
 path: default_view
 title: Home
 icon: mdi:home
-cards:
-  - type: vertical-stack
-    cards:
-      - type: custom:clock-weather-card
-        title: Home (SEA)
-        sun_entity: sun.sun
-        entity: weather.ksea
-        show_humidity: true
-      - type: custom:clock-weather-card
-        sun_entity: sun.sun
-        entity: weather.ksea
-        hourly_forecast: true
-        forecast_rows: 8
-        hide_today_section: true
-      - type: "custom:horizon-card"
-        moon: false
-        refresh_period: 1800
-  - type: vertical-stack
-    cards:
-      - type: "custom:config-template-card"
-        variables:
-          URL: states['sensor.mealie_todays_meal'].attributes['orgURL']
-          IMAGE: states['sensor.mealie_todays_image'].state
-        entities:
-          - sensor.mealie_todays_meal
-          - sensor.mealie_todays_image
-        card:
-          type: picture-entity
-          entity: sensor.mealie_todays_meal
-          image: "${IMAGE}"
-          name: "Tonight's Dinner"
-          show_name: true
-          show_state: true
-          tap_action:
-            action: "${ URL == null ? 'none' : 'url' }"
-            url_path: "${URL}"
-          double_tap_action:
-            action: url
-            url_path: "https://mealie.lab.home:4443/group/mealplan/planner"
-      - type: media-control
-        entity: media_player.sound_system
-      - type: media-control
-        entity: media_player.sony_tv
+cards: !include_dir_merge_list home
