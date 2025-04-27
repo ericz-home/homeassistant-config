@@ -106,24 +106,24 @@
             - entity: lock.front_door
               type: custom:multiple-entity-row
               name: "Front Door"
-              secondary_info: last-changed
+              secondary_info: 
+                entity: sensor.front_door_battery
+                hide_unavailable: true
+                name: Battery
               state_color: true
+              show_state: false
               entities:
                 - icon: mdi:lock
-                  state_color: true
                   tap_action:
                     action: call-service
                     service: lock.lock
                     service_data:
                       entity_id: lock.front_door
                 - icon: mdi:lock-open-variant
-                  state_color: true
                   tap_action:
                     action: call-service
                     service: lock.unlock
                     service_data:
                       entity_id: lock.front_door
-                - entity: sensor.front_door_battery
-                  name: Battery
 
 
