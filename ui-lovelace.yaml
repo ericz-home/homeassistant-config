@@ -1,5 +1,5 @@
 title: Home
 views:
-  - views/home.yaml
-  - views/commute.yaml
-  - views/network.yaml
+  - !include views/home.yaml
+  - !include views/commute.yaml
+  - !include views/network.yaml
