@@ -2,3 +2,6 @@
   host: 192.168.1.219
   username: !secret unifi_username
   password: !secret unifi_password
+  consider_home: 30
+  new_device_defaults:
+    track_new_devices: true
