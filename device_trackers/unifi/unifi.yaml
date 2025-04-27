@@ -1,5 +1,5 @@
 - platform: unifi_direct
-  host: 192.168.1.219
+  host: !secret unifi_ip
   username: !secret unifi_username
   password: !secret unifi_password
   consider_home: 30
