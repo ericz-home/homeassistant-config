@@ -1,4 +1,12 @@
 path: default_view
 title: Home
 icon: mdi:home
-cards: !include_dir_merge_list home
+type: sections
+badges:
+  - type: entity
+    entity: person.eric
+    show_name: true
+  - type: entity
+    entity: person.Laura
+    show_name: true
+sections: !include_dir_merge_list home
