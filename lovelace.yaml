@@ -25,3 +25,5 @@ resources:
     type: module
   - url: /local/community/lovelace-mushroom/mushroom.js
     type: module
+  - url: /local/community/lovelace-expander-card/lovelace-expander-card.js
+    type: module
