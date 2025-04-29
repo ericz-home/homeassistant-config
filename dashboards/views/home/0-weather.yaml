@@ -1,7 +1,6 @@
 - column_span: 3
-  row_span: 3
   cards:
-    - type: custom:vertical-stack-in-card
+    - type: horizontal-stack
       cards:
         - type: custom:clock-weather-card
           entity: weather.ksea
@@ -11,23 +10,25 @@
           show_humidity: true
           hide_forecast_section: true
           aqi_sensor: sensor.olive_st_seattle_washington_usa_air_quality_index
-        - type: custom:hourly-weather 
-          entity: weather.ksea
-          name: null
-          icons: true
-          round_temperatures: true
-          show_precipitation_amounts: true
-          show_precipitation_probability: true
-          card_mod:
-            style: |
-              ha-card {
-                border: none;
-              }
-        - type: custom:clock-weather-card
-          sun_entity: sun.sun
-          entity: weather.ksea
-          forecast_rows: 5
-          hide_today_section: true
+        - type: custom:vertical-stack-in-card
+          cards:
+            - type: custom:hourly-weather 
+              entity: weather.ksea
+              name: null
+              icons: true
+              round_temperatures: true
+              show_precipitation_amounts: true
+              show_precipitation_probability: true
+              card_mod:
+                style: |
+                  ha-card {
+                    border: none;
+                  }
+            - type: custom:clock-weather-card
+              sun_entity: sun.sun
+              entity: weather.ksea
+              forecast_rows: 5
+              hide_today_section: true
         - type: "custom:horizon-card"
           moon: false
           refresh_period: 1800
