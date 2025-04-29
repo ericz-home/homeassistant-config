@@ -1,0 +1,42 @@
+- id: unlock_door
+  alias: "Unlock the Door"
+  triggers:
+    - trigger: time
+      at:
+        entity_id: sensor.galaxys24_next_alarm
+        offset: 00:15:00
+  conditions:
+    - alias: "at home"
+      condition: numeric_state
+      entity_id: zone.home
+      above: 0
+    - alias: "door locked"
+      not:
+        condition: state
+        entity_id: lock.front_door
+        state: "unlocked"
+  actions:
+    - action: lock.unlock
+      target:
+        entity_id: lock.front_door
+    - action: notify.mobile_app_galaxys24
+      data: 
+        message: "Unlocked the front door."
+
+- id: lock_door
+  alias: "Lock the Door"
+  - trigger: state
+    entity_id: sensor.galaxys24_do_not_disturb_sensor
+    not_to: 
+      - "off"
+      - "unknown"
+      - "unavailable"
+  conditions:
+    not: 
+      condition: state
+      entity_id: lock.front_door
+      state: "locked"
+  actions:
+    - action: lock.lock
+      target:
+        entity_id: lock.front_door

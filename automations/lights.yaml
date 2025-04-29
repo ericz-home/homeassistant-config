@@ -15,15 +15,9 @@
       after: sunset
       after_offset: "-00:15:00"
     - alias: "at home"
-      or:
-        - condition: state
-          alias: "eric at home"
-          entity_id: device_tracker.eric_s_s24
-          state: "home"
-        - condition: state
-          alias: "laura at home"
-          entity_id: device_tracker.laura_s_pixel_5a
-          state: "home"
+      condition: numeric_state
+      entity_id: zone.home
+      above: 0
     - alias: "do not disturb"
       condition: state
       entity_id: sensor.galaxys24_do_not_disturb_sensor
@@ -48,7 +42,7 @@
       not_to: 
         - "off"
         - "unknown"
-
+        - "unavailable"
   actions:
     - action: scene.turn_on
       target:
