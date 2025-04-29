@@ -10,6 +10,7 @@ logger:
 
 lovelace: !include lovelace.yaml
 frontend:
+  javascript_version: latest
   extra_module_url: 
     - /local/community/lovelace-card-mod/card-mod.js
 

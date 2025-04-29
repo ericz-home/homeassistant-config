@@ -1,8 +1,7 @@
 - title: 🛋️ Living Room
   cards:
-    - type: horizontal-stack
-      title: Scenes
-      cards:
+    - type: custom:mushroom-chips-card
+      chips:
         - type: button
           name: "Off"
           show_name: false
@@ -88,7 +87,7 @@
     - type: tile
       entity: switch.twinkle_lights
       icon: mdi:string-lights
-    - type: tile
+    - type: custom:mushroom-media-player-card
       icon: mdi:speaker
       name: "Sound System"
       entity: media_player.sound_system

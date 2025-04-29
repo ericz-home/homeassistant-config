@@ -1,10 +1,10 @@
 - cards:
   - type: custom:expander-card
-    clear-children: true
     title-card-button-overlay: true
     title-card:
       type: custom:simple-weather-card
       entity: weather.ksea
+      name: " "
       primary_info:
         - extrema
         - wind
@@ -16,6 +16,11 @@
         wind: sensor.olive_st_seattle_washington_usa_air_quality_index
     cards:
       - type: custom:vertical-stack-in-card
+        card_mod:
+          style: |
+            ha-card {
+              border: none;
+            }
         cards:
           - type: custom:hourly-weather 
             entity: weather.ksea
