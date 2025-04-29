@@ -1,5 +1,5 @@
-- cards:
-  column_span: 3
+- column_span: 3
+  cards:
   - type: custom:expander-card
     title-card-button-overlay: true
     title-card:
