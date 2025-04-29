@@ -1,5 +1,4 @@
-- title: Basement
-  icon: mdi:television
+- title: 📺 TV Room
   cards:
     # - type: "custom:config-template-card"
     #   variables:

@@ -1,68 +1,68 @@
-- title: Living Room
-  icon: mdi:sofa-outline
+- title: 🛋️ Living Room
   cards:
-  - type: horizontal-stack
-    cards:
-      - type: button
-        name: "Off"
-        show_name: false
-        show_state: false
-        icon: mdi:lightbulb-off-outline
-        tap_action:
-          action: "perform-action"
-          perform_action: scene.turn_on
-          target: 
-            entity_id: scene.living_room_off
-          data:
-            transition: 1
-      - type: button
-        name: "Low"
-        show_state: false
-        show_name: false
-        icon: mdi:lightbulb-on-30
-        tap_action:
-          action: "perform-action"
-          perform_action: scene.turn_on
-          target: 
-            entity_id: scene.living_room_lo
-          data:
-            transition: 2.5
-      - type: button
-        name: "Medium"
-        show_state: false
-        show_name: false
-        icon: mdi:lightbulb-on-50
-        tap_action:
-          action: "perform-action"
-          perform_action: scene.turn_on
-          target: 
-            entity_id: scene.living_room_mid
-          data:
-            transition: 2.5
-      - type: button
-        name: "High"
-        show_name: false
-        show_state: false
-        icon: mdi:lightbulb-on-70
-        tap_action:
-          action: "perform-action"
-          perform_action: scene.turn_on
-          target: 
-            entity_id: scene.living_room_hi
-          data:
-            transition: 2.5
-      - type: button
-        name: "On"
-        show_state: false
-        show_name: false
-        icon: mdi:lightbulb-on
-        tap_action:
-          action: "perform-action"
-          perform_action: scene.turn_on
-          target: 
-            entity_id: scene.living_room_max
-          data:
-            transition: 2.5
+    - type: horizontal-stack
+      title: Scenes
+      cards:
+        - type: button
+          name: "Off"
+          show_name: false
+          show_state: false
+          icon: mdi:lightbulb-off-outline
+          tap_action:
+            action: "perform-action"
+            perform_action: scene.turn_on
+            target: 
+              entity_id: scene.living_room_off
+            data:
+              transition: 1
+        - type: button
+          name: "Low"
+          show_state: false
+          show_name: false
+          icon: mdi:lightbulb-on-30
+          tap_action:
+            action: "perform-action"
+            perform_action: scene.turn_on
+            target: 
+              entity_id: scene.living_room_lo
+            data:
+              transition: 2.5
+        - type: button
+          name: "Medium"
+          show_state: false
+          show_name: false
+          icon: mdi:lightbulb-on-50
+          tap_action:
+            action: "perform-action"
+            perform_action: scene.turn_on
+            target: 
+              entity_id: scene.living_room_mid
+            data:
+              transition: 2.5
+        - type: button
+          name: "High"
+          show_name: false
+          show_state: false
+          icon: mdi:lightbulb-on-70
+          tap_action:
+            action: "perform-action"
+            perform_action: scene.turn_on
+            target: 
+              entity_id: scene.living_room_hi
+            data:
+              transition: 2.5
+        - type: button
+          name: "On"
+          show_state: false
+          show_name: false
+          icon: mdi:lightbulb-on
+          tap_action:
+            action: "perform-action"
+            perform_action: scene.turn_on
+            target: 
+              entity_id: scene.living_room_max
+            data:
+              transition: 2.5
       - type: tile
         entity: light.torch_light
         name: "Torch"
