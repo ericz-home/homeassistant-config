@@ -1,15 +1,19 @@
 - cards:
   - type: custom:expander-card
+    clear-children: true
     title-card-button-overlay: true
     title-card:
-      type: custom:clock-weather-card
-      sun_entity: sun.sun
+      type: custom:simple-weather-card
       entity: weather.ksea
-      show_humidity: true
-      aqi_sensor: sensor.olive_st_seattle_washington_usa_air_quality_index
-      hide_date: true
-      hide_clock: true
-      hide_forecast_section: true
+      primary_info:
+        - extrema
+        - wind
+      secondary_info:
+        - humidity
+        - precipitation_probability
+      backdrop: true
+      custom: 
+        wind: sensor.olive_st_seattle_washington_usa_air_quality_index
     cards:
       - type: custom:vertical-stack-in-card
         cards:

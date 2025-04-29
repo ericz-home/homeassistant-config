@@ -1,8 +1,6 @@
-- title: ▶️  Media
+- title: Basement
+  icon: mdi:television
   cards:
-    - type: heading
-      heading: "Media Player"
-      icon: mdi:multimedia
     # - type: "custom:config-template-card"
     #   variables:
     #     URL: states['sensor.mealie_todays_meal'].attributes['orgURL']
@@ -23,7 +21,5 @@
     #     double_tap_action:
     #       action: url
     #       url_path: "https://mealie.lab.home:4443/group/mealplan/planner"
-    - type: media-control
-      entity: media_player.sound_system
     - type: media-control
       entity: media_player.sony_tv
