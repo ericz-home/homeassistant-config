@@ -33,10 +33,11 @@
         - "unknown"
         - "unavailable"
   conditions:
-    not: 
-      condition: state
-      entity_id: lock.front_door
-      state: "locked"
+    - alias: "door unlocked"
+      not: 
+        condition: state
+        entity_id: lock.front_door
+        state: "locked"
   actions:
     - action: lock.lock
       target:

@@ -2,7 +2,7 @@
   row_span: 3
   cards:
     - type: custom:expander-card
-      padding: 0.5em
+      padding: 0.1em
       overlay-margin: 1em
       clear-children: true
       title-card-button-overlay: true
