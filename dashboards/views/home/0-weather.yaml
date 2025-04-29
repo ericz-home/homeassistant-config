@@ -1,7 +1,7 @@
-- cards:
+- column_span: 3
+  row_span: 3
+  cards:
     - type: custom:vertical-stack-in-card
-      horizontal: true
-      column_span: 4
       cards:
         - type: custom:clock-weather-card
           entity: weather.ksea
