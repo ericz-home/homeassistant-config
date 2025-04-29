@@ -1,4 +1,5 @@
 - cards:
+  column_span: 3
   - type: custom:expander-card
     title-card-button-overlay: true
     title-card:
@@ -7,13 +8,13 @@
       name: " "
       primary_info:
         - extrema
-        - wind
+        - pressure
       secondary_info:
         - humidity
         - precipitation_probability
       backdrop: true
       custom: 
-        - wind: sensor.olive_st_seattle_washington_usa_air_quality_index
+        - pressure: sensor.olive_st_seattle_washington_usa_air_quality_index
     cards:
       - type: custom:vertical-stack-in-card
         card_mod:
