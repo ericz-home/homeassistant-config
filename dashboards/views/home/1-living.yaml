@@ -2,10 +2,7 @@
   cards:
     - type: custom:mushroom-chips-card
       chips:
-        - type: button
-          name: "Off"
-          show_name: false
-          show_state: false
+        - type: action
           icon: mdi:lightbulb-off-outline
           tap_action:
             action: "perform-action"
@@ -14,10 +11,7 @@
               entity_id: scene.living_room_off
             data:
               transition: 1
-        - type: button
-          name: "Low"
-          show_state: false
-          show_name: false
+        - type: action
           icon: mdi:lightbulb-on-30
           tap_action:
             action: "perform-action"
@@ -26,10 +20,7 @@
               entity_id: scene.living_room_lo
             data:
               transition: 2.5
-        - type: button
-          name: "Medium"
-          show_state: false
-          show_name: false
+        - type: action
           icon: mdi:lightbulb-on-50
           tap_action:
             action: "perform-action"
@@ -38,10 +29,7 @@
               entity_id: scene.living_room_mid
             data:
               transition: 2.5
-        - type: button
-          name: "High"
-          show_name: false
-          show_state: false
+        - type: action
           icon: mdi:lightbulb-on-70
           tap_action:
             action: "perform-action"
@@ -50,10 +38,7 @@
               entity_id: scene.living_room_hi
             data:
               transition: 2.5
-        - type: button
-          name: "On"
-          show_state: false
-          show_name: false
+        - type: action
           icon: mdi:lightbulb-on
           tap_action:
             action: "perform-action"

@@ -13,7 +13,7 @@
         - precipitation_probability
       backdrop: true
       custom: 
-        wind: sensor.olive_st_seattle_washington_usa_air_quality_index
+        - wind: sensor.olive_st_seattle_washington_usa_air_quality_index
     cards:
       - type: custom:vertical-stack-in-card
         card_mod:
