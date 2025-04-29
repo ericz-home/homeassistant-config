@@ -25,12 +25,13 @@
 
 - id: lock_door
   alias: "Lock the Door"
-  - trigger: state
-    entity_id: sensor.galaxys24_do_not_disturb_sensor
-    not_to: 
-      - "off"
-      - "unknown"
-      - "unavailable"
+  triggers:
+    - trigger: state
+      entity_id: sensor.galaxys24_do_not_disturb_sensor
+      not_to: 
+        - "off"
+        - "unknown"
+        - "unavailable"
   conditions:
     not: 
       condition: state
