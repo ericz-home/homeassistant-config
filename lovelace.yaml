@@ -23,9 +23,5 @@ resources:
     type: module
   - url: /local/community/vertical-stack-in-card/vertical-stack-in-card.js
     type: module
-  - url: /local/community/lovelace-expander-card/lovelace-expander-card.js
-    type: module
-  - url: /local/community/simple-weather-card/simple-weather-card-bundle.js
-    type: module
   - url: /local/community/lovelace-mushroom/mushroom.js
     type: module
