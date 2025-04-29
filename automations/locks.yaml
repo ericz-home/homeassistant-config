@@ -41,3 +41,6 @@
     - action: lock.lock
       target:
         entity_id: lock.front_door
+    - action: notify.mobile_app_galaxys24
+      data: 
+        message: "Locked the front door."
