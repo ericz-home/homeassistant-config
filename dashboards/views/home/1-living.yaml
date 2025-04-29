@@ -63,33 +63,32 @@
             entity_id: scene.living_room_max
           data:
             transition: 2.5
-
-    - type: tile
-      entity: light.torch_light
-      name: "Torch"
-      icon: mdi:floor-lamp-torchiere
-      state_content:
-        - state
-        - brightness
-        - color_temp_kelvin
-      features:
-        - type: "light-brightness"
-        - type: "light-color-temp"
-    - type: tile
-      entity: light.arc_lamp
-      name: "Arc"
-      icon: mdi:floor-lamp
-      state_content:
-        - state
-        - brightness
-        - color_temp_kelvin
-      features:
-        - type: "light-brightness"
-        - type: "light-color-temp"
-    - type: tile
-      entity: switch.twinkle_lights
-      icon: mdi:string-lights
-    - type: tile
-      icon: mdi:speaker
-      name: "Sound System"
-      entity: media_player.sound_system
+      - type: tile
+        entity: light.torch_light
+        name: "Torch"
+        icon: mdi:floor-lamp-torchiere
+        state_content:
+          - state
+          - brightness
+          - color_temp_kelvin
+        features:
+          - type: "light-brightness"
+          - type: "light-color-temp"
+      - type: tile
+        entity: light.arc_lamp
+        name: "Arc"
+        icon: mdi:floor-lamp
+        state_content:
+          - state
+          - brightness
+          - color_temp_kelvin
+        features:
+          - type: "light-brightness"
+          - type: "light-color-temp"
+      - type: tile
+        entity: switch.twinkle_lights
+        icon: mdi:string-lights
+      - type: tile
+        icon: mdi:speaker
+        name: "Sound System"
+        entity: media_player.sound_system
