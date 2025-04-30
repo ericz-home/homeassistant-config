@@ -31,9 +31,9 @@
           name: "Door"
           state_color: true
           secondary_info:
-            - entity: sensor.front_door_battery
-              hide_unavailable: true
-              name: Battery
+            entity: sensor.front_door_battery
+            hide_unavailable: true
+            name: Battery
           entities:
             - entity: input_boolean.auto_lock_front_door
               toggle: true
