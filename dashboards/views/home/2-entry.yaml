@@ -24,3 +24,15 @@
                 service: lock.unlock
                 service_data:
                   entity_id: lock.front_door_lock
+        - entity: binary_sensor.front_door_contact
+          type: custom:multiple-entity-row
+          name: "Front Door"
+          secondary_info: last-changed
+          state_color: true
+          entities:
+            - icon: mdi:lock-reset
+              state_color: true
+              tap_action:
+                action: input_boolean.turn_on
+                target:
+                  entity_id: input_boolean.auto_lock_front_door
