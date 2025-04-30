@@ -84,9 +84,8 @@
       not_to: "unavailable"
       not_from: "unavailable" 
   actions:
-    - action: notify.send_message
+    - action: notify.mobile_app_galaxys24
       data:
-        entity_id: notify.mobile_app_galaxys24
         message: "Front door is {{ states('lock.front_door_lock') }}."
 
 
