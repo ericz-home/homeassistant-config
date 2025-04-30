@@ -13,7 +13,7 @@ mealie:
         - 'id'
         - 'orgURL'
       value_template: '{{ value_json[0].recipe.name }}'
-      availability: '{{ value_json | length > 0 }}'
+      availability: '{{ value_json|length }}'
   template:
     - sensor:
         - name: mealie_todays_image
