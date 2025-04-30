@@ -1,10 +1,12 @@
 - title: 🚪 Entryway
   cards:
     - type: entities
+      title: "Front Door"
+      icon: mdi:door
       entities:
         - entity: lock.front_door_lock
           type: custom:multiple-entity-row
-          name: "Front Door"
+          name: "Lock"
           secondary_info: 
             entity: sensor.front_door_lock_battery
             hide_unavailable: true
@@ -26,13 +28,13 @@
                   entity_id: lock.front_door_lock
         - entity: binary_sensor.front_door_contact
           type: custom:multiple-entity-row
-          name: "Front Door"
-          secondary_info: last-changed
+          name: "Door"
           state_color: true
+          secondary_info:
+            - entity: sensor.front_door_battery
+              hide_unavailable: true
+              name: Battery
           entities:
-            - icon: mdi:lock-reset
-              state_color: true
-              tap_action:
-                action: input_boolean.turn_on
-                target:
-                  entity_id: input_boolean.auto_lock_front_door
+            - entity: input_boolean.auto_lock_front_door
+              toggle: true
+              name: Auto-Lock

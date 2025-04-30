@@ -3,7 +3,7 @@
   triggers:
     - trigger: template
       # entity_id: sensor.galaxys24_next_alarm
-      value_template: "{{ (now() < today_at('8:00')) and (states('sensor.galaxys24_next_alarm') > today_at('23:59')) }}"
+      value_template: "{{ (now() > today_at('6:30')) && (now() < today_at('8:00')) and (states('sensor.galaxys24_next_alarm') > today_at('23:59')) }}"
   conditions:
     - alias: "at home"
       condition: numeric_state
@@ -39,6 +39,24 @@
       target:
         entity_id: lock.front_door_lock
 
+- id: auto_lock_door
+  alias: "Auto Lock the Door"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.front_door_contact
+      from: "open"
+      to: "closed"
+      for: 
+        seconds: 3
+  conditions:
+    - condition: state
+      entity_id: input_boolean.auto_lock_front_door
+      state: "on"
+  actions:
+    - action: lock.lock
+      target:
+        entity_id: lock.front_door_lock
+
 - id: notify_door
   alias: "Notify Front Door Lock"
   triggers:
@@ -53,3 +71,38 @@
         message: "Front door is {{ states('lock.front_door_lock') }}."
 
 
+- id: reset_auto_lock
+  alias: "Reset AutoLock" 
+  triggers:
+    - trigger: time
+      at: 
+        entity_id: sensor.galaxys24_next_alarm
+        offset: -00:05:00
+  conditions:  
+    - alias: Yes autolock
+      condition: state
+      entity_id: input_boolean.auto_lock_front_door
+      state: "on"
+  actions:
+    - action: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.auto_lock_front_door
+
+- id: set_auto_lock
+  alias: "Set AutoLock" 
+  triggers:
+    - trigger: state
+      entity_id: sensor.galaxys24_do_not_disturb_sensor
+      not_to: 
+        - "off"
+        - "unknown"
+        - "unavailable"
+  conditions:  
+    - alias: No autolock
+      condition: state
+      entity_id: input_boolean.auto_lock_front_door
+      state: "off"
+  actions:
+    - action: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.auto_lock_front_door
