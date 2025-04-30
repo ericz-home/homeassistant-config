@@ -1,10 +1,9 @@
 - id: unlock_door
   alias: "Unlock the Door"
   triggers:
-    - trigger: time
-      at:
-        entity_id: sensor.galaxys24_next_alarm
-        offset: 00:15:00
+    - trigger: template
+      entity_id: sensor.galaxys24_next_alarm
+      value_template: {{ (now() < today_at("8:00")) && (states.sensor.galaxys24_next_alarm > today_at("23:59") }} 
   conditions:
     - alias: "at home"
       condition: numeric_state
@@ -19,9 +18,6 @@
     - action: lock.unlock
       target:
         entity_id: lock.front_door
-    - action: notify.mobile_app_galaxys24
-      data: 
-        message: "Unlocked the front door."
 
 - id: lock_door
   alias: "Lock the Door"
@@ -42,6 +38,18 @@
     - action: lock.lock
       target:
         entity_id: lock.front_door
-    - action: notify.mobile_app_galaxys24
-      data: 
-        message: "Locked the front door."
+
+- id: notify_door
+  alias: "Notify Front Door Lock"
+  triggers:
+    - trigger: state
+      entity_id: lock.front_door
+      not_to: "unavailable"
+      not_from: "unavailable" 
+  actions:
+    - action: notify.send_message
+      data:
+        entity_id: notify.mobile_app_galaxys24
+        message: "Front door is {{ states.lock.front_door }}."
+
+
