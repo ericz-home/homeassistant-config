@@ -2,9 +2,8 @@
   alias: "Unlock the Door"
   triggers:
     - trigger: template
-      entity_id: sensor.galaxys24_next_alarm
-      # value_template: {{ (now() < today_at('8:00')) and (states('sensor.galaxys24_next_alarm') > today_at('23:59') }} 
-      value_template: {{ now() < today_at('8:00') }}
+      # entity_id: sensor.galaxys24_next_alarm
+      value_template: {{ (now() < today_at('8:00')) and (states('sensor.galaxys24_next_alarm') > today_at('23:59') }} 
   conditions:
     - alias: "at home"
       condition: numeric_state
