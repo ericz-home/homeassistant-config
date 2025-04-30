@@ -1,4 +1,4 @@
 auto_lock:
   input_boolean:
     name: "Auto Lock Front Door"
-    icon: mdi:lock_reset
+    icon: mdi:lock-reset
