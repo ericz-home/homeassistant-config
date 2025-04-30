@@ -30,6 +30,7 @@
           type: custom:multiple-entity-row
           name: "Door"
           state_color: true
+          show_state: false
           secondary_info:
             entity: sensor.front_door_battery
             hide_unavailable: true

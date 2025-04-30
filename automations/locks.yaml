@@ -63,8 +63,8 @@
   triggers:
     - trigger: state
       entity_id: binary_sensor.front_door_contact
-      from: "open"
-      to: "closed"
+      from: "on"
+      to: "off"
       for: 
         seconds: 3
   conditions:
