@@ -2,11 +2,11 @@
   cards:
     - type: entities
       entities:
-        - entity: lock.front_door
+        - entity: lock.front_door_lock
           type: custom:multiple-entity-row
           name: "Front Door"
           secondary_info: 
-            entity: sensor.front_door_battery
+            entity: sensor.front_door_lock_battery
             hide_unavailable: true
             name: Battery
           state_color: true
@@ -17,10 +17,10 @@
                 action: call-service
                 service: lock.lock
                 service_data:
-                  entity_id: lock.front_door
+                  entity_id: lock.front_door_lock
             - icon: mdi:lock-open-variant
               tap_action:
                 action: call-service
                 service: lock.unlock
                 service_data:
-                  entity_id: lock.front_door
+                  entity_id: lock.front_door_lock

@@ -12,12 +12,12 @@
     - alias: "door locked"
       not:
         condition: state
-        entity_id: lock.front_door
+        entity_id: lock.front_door_lock
         state: "unlocked"
   actions:
     - action: lock.unlock
       target:
-        entity_id: lock.front_door
+        entity_id: lock.front_door_lock
 
 - id: lock_door
   alias: "Lock the Door"
@@ -32,24 +32,24 @@
     - alias: "door unlocked"
       not: 
         condition: state
-        entity_id: lock.front_door
+        entity_id: lock.front_door_lock
         state: "locked"
   actions:
     - action: lock.lock
       target:
-        entity_id: lock.front_door
+        entity_id: lock.front_door_lock
 
 - id: notify_door
   alias: "Notify Front Door Lock"
   triggers:
     - trigger: state
-      entity_id: lock.front_door
+      entity_id: lock.front_door_lock
       not_to: "unavailable"
       not_from: "unavailable" 
   actions:
     - action: notify.send_message
       data:
         entity_id: notify.mobile_app_galaxys24
-        message: "Front door is {{ states.lock.front_door }}."
+        message: "Front door is {{ states.lock.front_door_lock }}."
 
 
