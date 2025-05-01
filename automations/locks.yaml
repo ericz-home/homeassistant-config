@@ -4,7 +4,8 @@
   triggers:
     - trigger: state
       entity_id: input_boolean.sleep_mode
-      state: "off"
+      from: "off"
+      to: "on"
   conditions:
     - alias: "at home"
       condition: state
@@ -26,7 +27,8 @@
   triggers:
     - trigger: state
       entity_id: input_boolean.sleep_mode
-      state: "on"
+      from: "off"
+      to: "on"
   conditions:
     - alias: "door unlocked"
       not: 

@@ -40,7 +40,8 @@
   triggers:
     - trigger: state
       entity_id: input_boolean.sleep_mode
-      state: "on"
+      from: "off"
+      to: "on"
   actions:
     - action: scene.turn_on
       target:
