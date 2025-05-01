@@ -1,0 +1,79 @@
+modes:
+  input_boolean:
+    sleep_mode:
+      name: "Sleep Mode"
+      icon: mdi:sleep
+    home_mode:
+      name: "Home Mode"
+      icon: mdi:home-account
+    guest_mode:
+      name: "Guest Mode"
+      icon: mdi:account-group
+    away_mode:
+      name: "Away Mode"
+      icon: mdi:airplane
+  automation:
+    - id: set_home_mode
+      alias: "Set Home Mode"
+      triggers:
+        - trigger: numeric_state
+          entity_id: zone.home
+          above: 0
+      actions:
+        - action: input_boolean.turn_on
+          data:
+            entity_id: input_boolean.home_mode
+    - id: unset_home_mode
+      alias: "Unset Home Mode"
+      triggers:
+        - trigger: numeric_state
+          entity_id: zone.home
+          below: 1
+      actions:
+        - action: input_boolean.turn_off
+          data:
+            entity_id: input_boolean.home_mode
+    - id: set_sleep_mode
+      alias: "Set Sleep Mode"
+      triggers:
+        - trigger: state
+          entity_id: sensor.galaxys24_do_not_disturb_sensor
+          not_to: 
+            - "off"
+            - "unknown"
+            - "unavailable"
+      actions:
+        - action: input_boolean.turn_on
+          data:
+            entity_id: input_boolean.sleep_mode
+    - id: unset_sleep_mode
+      alias: "Unset Sleep Mode"
+      triggers:
+        - trigger: template
+          # next alarm is tomorrow (today's alarms are dismissed)
+          value_template: "{{ as_datetime(states('sensor.galaxys24_next_alarm')) > today_at('23:59') }}"
+      conditions:
+        - alias: "morning"
+          or:
+            - alias: "weekday"
+              condition: time
+              after: "06:30:00"
+              before: "08:30:00"
+              weekday:
+                - mon
+                - tue
+                - wed
+                - thu
+                - fri
+            - alias: "weekend"
+              condition: time
+              after: "08:00"
+              before: "09:00"
+              weekday:
+                - sat
+                - sun
+      actions:
+        - action: input_boolean.turn_off
+          data:
+            entity_id: input_boolean.sleep_mode
+

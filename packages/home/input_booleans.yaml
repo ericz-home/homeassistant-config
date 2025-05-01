@@ -1,8 +1,0 @@
-home:
-  input_boolean:
-    auto_lock_front_door:
-      name: "Auto Lock Front Door"
-      icon: mdi:lock-reset
-    sleep_mode:
-      name: "Sleep Mode"
-      icon: mdi:sleep

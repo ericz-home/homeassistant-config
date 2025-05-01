@@ -3,8 +3,8 @@
   triggers:
     - trigger: state 
       entity_id:
-        - device_tracker.eric_s_s24
-        - device_tracker.laura_s_pixel_5a
+        - person.eric
+        - person.laura
       to: "home"
     - trigger: sun
       event: sunset
@@ -15,16 +15,17 @@
       after: sunset
       after_offset: "-00:15:00"
     - alias: "at home"
-      condition: numeric_state
-      entity_id: zone.home
-      above: 0
-    - alias: "do not disturb"
       condition: state
-      entity_id: sensor.galaxys24_do_not_disturb_sensor
-      state:
-        - "off"
-        - "unknown"
-
+      entity_id: input_boolean.home_mode
+      state: "on"
+    - alias: "not away"
+      condition: state
+      entity_id: input_boolean.away_mode
+      state: "off"
+    - alias: "not sleep"
+      condition: state
+      entity_id: input_boolean.sleep_mode
+      state: "off"
   actions:
     - action: scene.turn_on
       target:
@@ -38,11 +39,8 @@
   alias: "Turn Off Living Room Lights"
   triggers:
     - trigger: state
-      entity_id: sensor.galaxys24_do_not_disturb_sensor
-      not_to: 
-        - "off"
-        - "unknown"
-        - "unavailable"
+      entity_id: input_boolean.sleep_mode
+      state: "on"
   actions:
     - action: scene.turn_on
       target:

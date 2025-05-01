@@ -9,4 +9,56 @@ badges:
   - type: entity
     entity: person.laura
     show_name: true
+  - type: entity
+    entity: input_boolean.home_mode
+    name: "Home Mode"
+    show_name: true
+    show_state: false
+    card_mod:
+      style: |
+        :host {
+            --card-mod-icon-color {% if is_state('input_boolean.home_mode', 'on') %} green {% else %} red {% endif %};
+        }
+  - type: entity
+    entity: input_boolean.guest_mode
+    name: "Guest Mode"
+    show_name: true
+    show_state: false
+    tap_action:
+      action: toggle
+      target:
+        entity_id: input_boolean.guest_mode
+    card_mod:
+      style: |
+        :host {
+            --card-mod-icon-color {% if is_state('input_boolean.home_mode', 'on') %} green {% else %} blue-grey {% endif %};
+        }
+  - type: entity
+    entity: input_boolean.away_mode
+    name: "Away Mode"
+    show_name: true
+    show_state: false
+    tap_action:
+      action: toggle
+      target:
+        entity_id: input_boolean.guest_mode
+    card_mod:
+      style: |
+        :host {
+            --card-mod-icon-color {% if is_state('input_boolean.home_mode', 'on') %} green {% else %} blue-grey {% endif %};
+        }
+  - type: entity
+    entity: input_boolean.sleep_mode
+    name: "Sleep Mode"
+    show_name: true
+    show_state: false
+    tap_action:
+      action: toggle
+      target:
+        entity_id: input_boolean.guest_mode
+    card_mod:
+      style: |
+        :host {
+            --card-mod-icon-color {% if is_state('input_boolean.home_mode', 'on') %} green {% else %} blue-grey {% endif %};
+        }
 sections: !include_dir_merge_list home

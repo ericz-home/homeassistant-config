@@ -1,0 +1,39 @@
+auto_lock:
+  input_boolean:
+    auto_lock_front_door:
+      name: "Auto Lock Front Door"
+      icon: mdi:lock-reset
+  automation:
+    # reset the auto lock boolean to false every morning
+    - id: reset_auto_lock
+      alias: "Reset AutoLock" 
+      triggers:
+        - trigger: time
+          at: 
+            entity_id: sensor.galaxys24_next_alarm
+            offset: -00:05:00
+      conditions:  
+        - alias: Yes autolock
+          condition: state
+          entity_id: input_boolean.auto_lock_front_door
+          state: "on"
+      actions:
+        - action: input_boolean.turn_off
+          data:
+            entity_id: input_boolean.auto_lock_front_door
+
+    # set auto lock to be true at night
+    - id: set_auto_lock
+      alias: "Set AutoLock" 
+      triggers:
+        - trigger: sun
+          event: sunset
+      conditions:  
+        - alias: No autolock
+          condition: state
+          entity_id: input_boolean.auto_lock_front_door
+          state: "off"
+      actions:
+        - action: input_boolean.turn_on
+          data:
+            entity_id: input_boolean.auto_lock_front_door
