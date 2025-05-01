@@ -9,16 +9,11 @@ badges:
   - type: entity
     entity: person.laura
     show_name: true
-  - type: entity
+  - type: custom:mushroom-template-badge
     entity: input_boolean.home_mode
-    name: "Home Mode"
-    show_name: true
-    show_state: false
-    card_mod:
-      style: |
-        :host {
-            --card-mod-icon-color {% if is_state('input_boolean.home_mode', 'on') %} green {% else %} red {% endif %};
-        }
+    content: "Home Mode"
+    icon: {% if is_state('input_boolean.home_mode', 'on') %} mdi:home-account {% else %} mdi:home-alert-outline {% endif %}
+    color: {% if is_state('input_boolean.home_mode', 'on') %} green {% else %} red {% endif %}
   - type: entity
     entity: input_boolean.guest_mode
     name: "Guest Mode"
@@ -28,11 +23,6 @@ badges:
       action: toggle
       target:
         entity_id: input_boolean.guest_mode
-    card_mod:
-      style: |
-        :host {
-            --card-mod-icon-color {% if is_state('input_boolean.home_mode', 'on') %} green {% else %} blue-grey {% endif %};
-        }
   - type: entity
     entity: input_boolean.away_mode
     name: "Away Mode"
@@ -42,11 +32,6 @@ badges:
       action: toggle
       target:
         entity_id: input_boolean.guest_mode
-    card_mod:
-      style: |
-        :host {
-            --card-mod-icon-color {% if is_state('input_boolean.home_mode', 'on') %} green {% else %} blue-grey {% endif %};
-        }
   - type: entity
     entity: input_boolean.sleep_mode
     name: "Sleep Mode"
@@ -56,9 +41,4 @@ badges:
       action: toggle
       target:
         entity_id: input_boolean.guest_mode
-    card_mod:
-      style: |
-        :host {
-            --card-mod-icon-color {% if is_state('input_boolean.home_mode', 'on') %} green {% else %} blue-grey {% endif %};
-        }
 sections: !include_dir_merge_list home
