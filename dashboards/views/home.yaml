@@ -6,9 +6,11 @@ badges:
   - type: entity
     entity: person.eric
     show_name: true
+    show_entity_picture: true
   - type: entity
     entity: person.laura
     show_name: true
+    show_entity_picture: true
   - type: custom:mushroom-template-badge
     entity: input_boolean.home_mode
     content: "Home Mode"
