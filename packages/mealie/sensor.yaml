@@ -12,7 +12,7 @@ mealie:
         - 'slug'
         - 'id'
         - 'orgURL'
-      value_template: '{{ value_json[0].recipe.name }}'
+      value_template: '{% if value_json|length > 0 %} {{ value_json[0].recipe.name }} {% endif %}' 
       availability: '{{ value_json|length }}'
   template:
     - sensor:
