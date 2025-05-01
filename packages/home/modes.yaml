@@ -19,6 +19,10 @@ modes:
         - trigger: numeric_state
           entity_id: zone.home
           above: 0
+      conditions:
+        - condition: state
+          entity_id: input_boolean.home_mode
+          state: "off"
       actions:
         - action: input_boolean.turn_on
           data:
@@ -29,6 +33,10 @@ modes:
         - trigger: numeric_state
           entity_id: zone.home
           below: 1
+      conditions:
+        - condition: state
+          entity_id: input_boolean.home_mode
+          state: "on"
       actions:
         - action: input_boolean.turn_off
           data:
@@ -42,6 +50,10 @@ modes:
             - "off"
             - "unknown"
             - "unavailable"
+      conditions:
+        - condition: state
+          entity_id: input_boolean.sleep_mode
+          state: "off"
       actions:
         - action: input_boolean.turn_on
           data:
@@ -72,6 +84,9 @@ modes:
               weekday:
                 - sat
                 - sun
+        - condition: state
+          entity_id: input_boolean.sleep_mode
+          state: "on"
       actions:
         - action: input_boolean.turn_off
           data:
