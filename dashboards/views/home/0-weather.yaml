@@ -39,13 +39,13 @@
         style: |
           .bubble-sub-button-3 {
             background-color:
-              {% if state_attr(config.sub_button[3].entity 'forecast[0].precipitation') < 10 %}
+              {% if state_attr(config.sub_button[3].entity, 'forecast[0].precipitation') < 10 %}
                 var(transparent)
-              {% elif state_attr(config.sub_button[3].entity 'forecast[0].precipitation') > 20 %}
+              {% elif state_attr(config.sub_button[3].entity, 'forecast[0].precipitation') > 20 %}
                 var(--info-color)
-              {% elif state_attr(config.sub_button[3].entity 'forecast[0].precipitation') > 30 %}
+              {% elif state_attr(config.sub_button[3].entity, 'forecast[0].precipitation') > 30 %}
                 var(--warning-color)
-              {% elif state_attr(config.sub_button[3].entity 'forecast[0].precipitation') > 50 %}
+              {% elif state_attr(config.sub_button[3].entity, 'forecast[0].precipitation') > 50 %}
                 var(--amber-color)
               {% endif %}
               ;
