@@ -1,10 +1,12 @@
-- cards:
+- title: 🌡️ Climate
+  cards:
     - type: custom:bubble-card
       card_type: button
       button_type: state
       card_layout: large-2-rows
       entity: weather.ksea
       show_state: true
+      show_name: false
       button_action:
         tap_action:
           action: navigate
@@ -29,28 +31,55 @@
           show_attribute: true
           attribute: humidity
           show_icon: true
-      style: |
-        .bubble-sub-button-1::before {
-          content: "°F"
-        }
-        .bubble-sub-button-2 > ha-icon {
-          color: ${state < 51 ? 'var(--success-color)' : 
-          state < 101 ? 'var(--warning-color)' :
-            state < 151 ? 'var(--orange-color)' :
-              state < 201 ? 'var(--error-color)' :
-                state < 301 ? 'var(--purple-color)' :
-                  '#800000' 
-          } !important;
-        }
-        .bubble-sub-button-3::before {
-          content: "%";
-        }
+      card_mod: 
+        style: |
+          .bubble-sub-button-1::before {
+            content: "°F"
+          }
+          .bubble-sub-button-1 > ha-icon {
+            color: 
+            {% if state_attr(config.entity, 'temperature') < 65 %}
+              var(--info-color)
+            {% elif state_attr(config.entity, 'temperature') < 80 %}
+              var(--success-color)
+            {% elif state_attr(config.entity, 'temperature') < 100 %}
+              var(--amber-color)
+            {% else %}
+              var(--error-color)
+            {% endif %}
+            ;
+          }
+          .bubble-sub-button-2 > ha-icon {
+            color: 
+            {% if states(config.entity) < 51 %}
+              var(--success-color)
+            {% elif states(config.entity) < 101 %}
+              var(--warning-color)
+            {% elif states(config.entity) < 151 %}
+              var(--orange-color)
+            {% elif states(config.entity) < 201 %}
+              var(--error-color)
+            {% elif states(config.entity) < 301 %}
+              var(--purple-color)
+            {% else %}
+              '#800000' 
+            {% endif %}
+            ;
+          }
+          .bubble-sub-button-3::before {
+            content: "%";
+          }
     - type: vertical-stack
       cards:
         - type: custom:bubble-card
           card_type: pop-up
           hash: '#weather'
         - type: custom:vertical-stack-in-card
+          card_mod:
+            style: |
+              ha-card {
+                border: none;
+              }
           cards:
           - type: custom:clock-weather-card
             entity: weather.ksea
