@@ -23,14 +23,14 @@
           show_icon: true
         - name: Rain
           icon: mdi:weather-pouring
-          entity: 'weather.ksea'
+          entity: weather.ksea
           show_background: false
           show_attribute: true
-          attribute: forecast[0].precipitation
+          attribute: forecast[0].precipitation_probability
           show_icon: true
         - name: Humidity 
           icon: mdi:water
-          entity: 'weather.ksea'
+          entity: weather.ksea
           show_background: false
           show_attribute: true
           attribute: humidity
@@ -39,13 +39,13 @@
         style: |
           .bubble-sub-button-3 {
             background-color:
-              {% if state_attr(config.sub_button[3].entity, 'forecast')[0].precipitation < 10 %}
+              {% if state_attr(config.sub_button[3].entity, 'forecast')[0].precipitation_probability < 10 %}
                 var(transparent)
-              {% elif state_attr(config.sub_button[3].entity, 'forecast')[0].precipitation > 20 %}
+              {% elif state_attr(config.sub_button[3].entity, 'forecast')[0].precipitation_probability > 20 %}
                 var(--info-color)
-              {% elif state_attr(config.sub_button[3].entity, 'forecast')[0].precipitation > 30 %}
+              {% elif state_attr(config.sub_button[3].entity, 'forecast')[0].precipitation_probability > 30 %}
                 var(--warning-color)
-              {% elif state_attr(config.sub_button[3].entity, 'forecast')[0].precipitation > 50 %}
+              {% elif state_attr(config.sub_button[3].entity, 'forecast')[0].precipitation_probability > 50 %}
                 var(--amber-color)
               {% endif %}
               ;
