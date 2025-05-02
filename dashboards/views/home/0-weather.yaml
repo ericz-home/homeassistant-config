@@ -33,24 +33,24 @@
           show_attribute: true
           attribute: humidity
           show_icon: true
-    card_mod:
-      style: |
-        .bubble-sub-button-3 {
-          background-color:
-            {% if state_attr(config.sub_button[3].entity 'forecast[0].precipitation') < 10 %}
-              var(transparent)
-            {% elif state_attr(config.sub_button[3].entity 'forecast[0].precipitation') > 20 %}
-              var(--info-color)
-            {% elif state_attr(config.sub_button[3].entity 'forecast[0].precipitation') > 30 %}
-              var(--warning-color)
-            {% elif state_attr(config.sub_button[3].entity 'forecast[0].precipitation') > 50 %}
-              var(--amber-color)
-            {% endif %}
-            ;
-        }
-        .bubble-sub-button-3::before {
-          content: " in";
-        }
+      card_mod:
+        style: |
+          .bubble-sub-button-3 {
+            background-color:
+              {% if state_attr(config.sub_button[3].entity 'forecast[0].precipitation') < 10 %}
+                var(transparent)
+              {% elif state_attr(config.sub_button[3].entity 'forecast[0].precipitation') > 20 %}
+                var(--info-color)
+              {% elif state_attr(config.sub_button[3].entity 'forecast[0].precipitation') > 30 %}
+                var(--warning-color)
+              {% elif state_attr(config.sub_button[3].entity 'forecast[0].precipitation') > 50 %}
+                var(--amber-color)
+              {% endif %}
+              ;
+          }
+          .bubble-sub-button-3::before {
+            content: " in";
+          }
     - type: custom:clock-weather-card
       entity: weather.ksea
       sun_entity: sun.sun
