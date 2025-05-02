@@ -21,13 +21,6 @@
           entity: sensor.olive_st_seattle_washington_usa_air_quality_index
           show_background: false
           show_icon: true
-        - name: Rain
-          icon: mdi:weather-pouring
-          entity: weather.ksea
-          show_background: false
-          show_attribute: true
-          attribute: forecast[0].precipitation_probability
-          show_icon: true
         - name: Humidity 
           icon: mdi:water
           entity: weather.ksea
@@ -37,21 +30,28 @@
           show_icon: true
       card_mod:
         style: |
-          .bubble-sub-button-3 {
+          .bubble-sub-button-1::before {
+            content: "°F"
+          }
+          .bubble-sub-button-2 {
             background-color:
-              {% if state_attr(config.sub_button[3].entity, 'forecast')[0].precipitation_probability < 10 %}
-                var(transparent)
-              {% elif state_attr(config.sub_button[3].entity, 'forecast')[0].precipitation_probability > 20 %}
-                var(--info-color)
-              {% elif state_attr(config.sub_button[3].entity, 'forecast')[0].precipitation_probability > 30 %}
+              {% if state(config.sub_button[2].entity) <  51 %}
+                var(--success-color)
+              {% elif state_attr(config.sub_button[3].entity, 'forecast')[0].precipitation_probability < 101 %}
                 var(--warning-color)
-              {% elif state_attr(config.sub_button[3].entity, 'forecast')[0].precipitation_probability > 50 %}
-                var(--amber-color)
+              {% elif state_attr(config.sub_button[3].entity, 'forecast')[0].precipitation_probability < 151  %}
+                var(--orange-color)
+              {% elif state_attr(config.sub_button[3].entity, 'forecast')[0].precipitation_probability > 201 %}
+                var(--error-color)
+              {% elif state_attr(config.sub_button[3].entity, 'forecast')[0].precipitation_probability > 301 %}
+                var(--purple-color)
+              {% else %}
+                #800000
               {% endif %}
               ;
           }
           .bubble-sub-button-3::before {
-            content: " in";
+            content: "%";
           }
     - type: vertical-stack
       cards:
