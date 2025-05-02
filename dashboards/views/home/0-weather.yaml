@@ -20,6 +20,7 @@
           icon: mdi:leaf
           entity: sensor.olive_st_seattle_washington_usa_air_quality_index
           show_background: false
+          show_state: true
           show_icon: true
         - name: Humidity 
           icon: mdi:water
@@ -28,31 +29,22 @@
           show_attribute: true
           attribute: humidity
           show_icon: true
-      card_mod:
-        style: |
-          .bubble-sub-button-1::before {
-            content: "°F"
-          }
-          .bubble-sub-button-2 {
-            background-color:
-              {% if state(config.sub_button[2].entity) <  51 %}
-                var(--success-color)
-              {% elif state_attr(config.sub_button[3].entity, 'forecast')[0].precipitation_probability < 101 %}
-                var(--warning-color)
-              {% elif state_attr(config.sub_button[3].entity, 'forecast')[0].precipitation_probability < 151  %}
-                var(--orange-color)
-              {% elif state_attr(config.sub_button[3].entity, 'forecast')[0].precipitation_probability > 201 %}
-                var(--error-color)
-              {% elif state_attr(config.sub_button[3].entity, 'forecast')[0].precipitation_probability > 301 %}
-                var(--purple-color)
-              {% else %}
-                #800000
-              {% endif %}
-              ;
-          }
-          .bubble-sub-button-3::before {
-            content: "%";
-          }
+      style: |
+        .bubble-sub-button-1::before {
+          content: "°F"
+        }
+        .bubble-sub-button-2 > ha-icon {
+          color: ${state < 51 ? 'var(--success-color)' : 
+          state < 101 ? 'var(--warning-color)' :
+            state < 151 ? 'var(--orange-color)' :
+              state < 201 ? 'var(--error-color)' :
+                state < 301 ? 'var(--purple-color)' :
+                  '#800000' 
+          } !important;
+        }
+        .bubble-sub-button-3::before {
+          content: "%";
+        }
     - type: vertical-stack
       cards:
         - type: custom:bubble-card
