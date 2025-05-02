@@ -69,6 +69,9 @@
           .bubble-sub-button-3::before {
             content: "%";
           }
+          .bubble-sub-button-3 > ha-icon {
+            color: red; 
+          }
     - type: vertical-stack
       cards:
         - type: custom:bubble-card
