@@ -21,6 +21,9 @@
 !device_trackers
 !device_trackers/**
 
+# ignore pycache
+**/__pycache__/
+
 # Ignore folders.
 .storage
 .cloud
