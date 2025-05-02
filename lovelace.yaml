@@ -27,3 +27,5 @@ resources:
     type: module
   - url: /local/community/lovelace-expander-card/lovelace-expander-card.js
     type: module
+  - url: /local/community/Bubble-Card/bubble-card.js
+    type: module

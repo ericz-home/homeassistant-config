@@ -1,38 +1,81 @@
-- type: grid
-  row_span: 3
+- type: vertical-stack
   cards:
-    - type: custom:expander-card
-      padding: 0.1em
-      overlay-margin: 1em
-      clear-children: true
-      title-card-button-overlay: true
-      title-card:
-        type: custom:clock-weather-card
-        entity: weather.ksea
-        sun_entity: sun.sun
-        hide_date: true
-        hide_clock: true
-        show_humidity: true
-        hide_forecast_section: true
-        aqi_sensor: sensor.olive_st_seattle_washington_usa_air_quality_index
-      cards:
-        - type: custom:hourly-weather 
+    - type: custom:bubble-card
+      card_type: pop-up
+        hash: '#weather'
+      button_type: state
+      card_layout: large-2-rows
+      entity: weather.ksea
+      show_state: true
+      sub_button:
+        - name: Temp
+          icon: mdi:thermometer
           entity: weather.ksea
-          name: null
-          icons: true
-          round_temperatures: true
-          show_precipitation_amounts: true
-          show_precipitation_probability: true
-          card_mod:
-            style: |
-              ha-card {
-                border: none;
-              }
-        - type: custom:clock-weather-card
-          sun_entity: sun.sun
-          entity: weather.ksea
-          forecast_rows: 5
-          hide_today_section: true
-        - type: "custom:horizon-card"
-          moon: false
-          refresh_period: 1800
+          attribute: temperature
+          show_background: false
+          show_attribute: true
+        - name: AQI
+          icon: mdi:leaf
+          entity: sensor.olive_st_seattle_washington_usa_air_quality_index
+          show_background: false
+          show_icon: true
+        - name: Rain
+          icon: mdi:weather-pouring
+          entity: 'weather.ksea'
+          show_background: false
+          show_attribute: true
+          attribute: forecast[0].precipitation
+          show_icon: true
+        - name: Humidity 
+          icon: mdi:water
+          entity: 'weather.ksea'
+          show_background: false
+          show_attribute: true
+          attribute: humidity
+          show_icon: true
+    card_mod:
+      style: |
+        .bubble-sub-button-3 {
+          background-color:
+            {% if state_attr(config.sub_button[3].entity 'forecast[0].precipitation') < 10 %}
+              var(transparent)
+            {% elif state_attr(config.sub_button[3].entity 'forecast[0].precipitation') > 20 %}
+              var(--info-color)
+            {% elif state_attr(config.sub_button[3].entity 'forecast[0].precipitation') > 30 %}
+              var(--warning-color)
+            {% elif state_attr(config.sub_button[3].entity 'forecast[0].precipitation') > 50 %}
+              var(--amber-color)
+            {% endif %}
+            ;
+        }
+        .bubble-sub-button-3::before {
+          content: " in";
+        }
+    - type: custom:clock-weather-card
+      entity: weather.ksea
+      sun_entity: sun.sun
+      hide_date: true
+      hide_clock: true
+      show_humidity: true
+      hide_forecast_section: true
+      aqi_sensor: sensor.olive_st_seattle_washington_usa_air_quality_index
+    - type: custom:hourly-weather 
+      entity: weather.ksea
+      name: null
+      icons: true
+      round_temperatures: true
+      show_precipitation_amounts: true
+      show_precipitation_probability: true
+      card_mod:
+        style: |
+          ha-card {
+            border: none;
+          }
+    - type: custom:clock-weather-card
+      sun_entity: sun.sun
+      entity: weather.ksea
+      forecast_rows: 5
+      hide_today_section: true
+    - type: "custom:horizon-card"
+      moon: false
+      refresh_period: 1800
