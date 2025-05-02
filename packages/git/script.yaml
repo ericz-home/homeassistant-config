@@ -1,7 +1,7 @@
 git:
   shell_command:
     git_pull: cd /config && GIT_SSH_COMMAND='ssh -i /vault/secrets/ssh-privatekey -o "StrictHostKeyChecking" no' git pull
-    git_clone: cd /config && GIT_SSH_COMMAND='ssh -i /vault/secrets/ssh-privatekey -o "StrictHostKeyChecking" no' git clone git@github.com:ericz-home/homeassistant-config.git .
+    git_clone: cd /config && GIT_SSH_COMMAND='ssh -i /vault/secrets/ssh-privatekey -o "StrictHostKeyChecking" no' git clone https://github.com/ericz-home/homeassistant-config.git
   script:
     pull_reload:
       sequence:
