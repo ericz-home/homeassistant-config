@@ -38,11 +38,11 @@
           }
           .bubble-sub-button-1 > ha-icon {
             color: 
-            {% if state_attr(config.entity, 'temperature') < 65 %}
+            {% if state_attr(config.sub_button[0].entity, 'temperature') < 65 %}
               var(--info-color)
-            {% elif state_attr(config.entity, 'temperature') < 80 %}
+            {% elif state_attr(config.sub_button[0].entity, 'temperature') < 80 %}
               var(--success-color)
-            {% elif state_attr(config.entity, 'temperature') < 100 %}
+            {% elif state_attr(config.sub_button[0].entity, 'temperature') < 100 %}
               var(--amber-color)
             {% else %}
               var(--error-color)
@@ -51,15 +51,15 @@
           }
           .bubble-sub-button-2 > ha-icon {
             color: 
-            {% if states(config.entity) < 51 %}
+            {% if states(config.sub_button[1].entity) < 51 %}
               var(--success-color)
-            {% elif states(config.entity) < 101 %}
+            {% elif states(config.sub_button[1].entity) < 101 %}
               var(--warning-color)
-            {% elif states(config.entity) < 151 %}
+            {% elif states(config.sub_button[1].entity) < 151 %}
               var(--orange-color)
-            {% elif states(config.entity) < 201 %}
+            {% elif states(config.sub_button[1].entity) < 201 %}
               var(--error-color)
-            {% elif states(config.entity) < 301 %}
+            {% elif states(config.sub_button[1].entity) < 301 %}
               var(--purple-color)
             {% else %}
               '#800000' 
