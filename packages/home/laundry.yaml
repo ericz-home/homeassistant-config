@@ -3,18 +3,18 @@ laundry:
     washing_machine:
       name: "Washing Machine Status"
       options:
-        - off
+        - "off"
         - running
         - completed
-      initial: off
+      initial: "off"
       icon: mdi:washing-machine
     dryer:
       name: "Dryer Status"
       options:
-        - off
+        - "off"
         - running
         - completed
-      initial: off
+      initial: "off"
       icon: mdi:tumble-dryer
   input_datetime:
     washing_machine:
