@@ -67,7 +67,7 @@
               .: |
                 ha-card {
                   border: none;
-                  --ha-card-border-width: 0
+                  outline: none;
                 }
           cards:
           - type: custom:clock-weather-card
@@ -89,8 +89,8 @@
               style: 
                 .: |
                   ha-card {
-                    border: none !important;
-                    --ha-card-border-width: 0
+                    border: none;
+                    outline: none;
                   }
           - type: custom:clock-weather-card
             sun_entity: sun.sun
