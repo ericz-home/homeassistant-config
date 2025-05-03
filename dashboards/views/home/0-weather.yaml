@@ -45,15 +45,15 @@
           .bubble-sub-button-2 {
             color: 
             ${subButtonState[1] < 51 ? 
-            'var(--success-color)' :
-            subButtonState[1]  < 101 ?
-            'var(--warning-color)' :
-            subButtonState[1]  < 151 ?
-            'var(--orange-color)' :
-            subButtonState[1]  < 201 ?
-            'var(--error-color)' :
-            subButtonState[1]  < 301 ? 
-            'var(--purple-color)' : '#800000'}
+              'var(--success-color)' :
+              subButtonState[1]  < 101 ?
+              'var(--warning-color)' :
+              subButtonState[1]  < 151 ?
+              'var(--orange-color)' :
+              subButtonState[1]  < 201 ?
+              'var(--error-color)' :
+              subButtonState[1]  < 301 ? 
+              'var(--purple-color)' : '#800000'}
             ;
           }
     - type: vertical-stack
