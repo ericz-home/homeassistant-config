@@ -1,0 +1,74 @@
+- cards:
+    - type: custom:bubble-card
+      name: 'Laundry'
+      icon: mdi:washing-machine
+    - type: custom:vertical-stack-in-card
+      horizontal: true
+      cards:
+        - type: custom:mushroom-template-card
+          primary: 'Washing Machine'
+          secondary: >
+            {% if is_state('input_select.washing_machine_status', 'running') or 
+              is_state('input_select.washing_machine_status', 'completed') %}
+              {{ relative_time(as_datetime(states('input_datetime.washing_machine.start'))) }}
+            {% endif %}
+          icon: >
+            {% if is_state('input_select.washing_machine_status', 'off') %}
+              mdi:washing-machine-off
+            {% else %}
+              mdi:washing-machine
+            {% endif %}
+          icon_color: >
+            {% if is_state('input_select.washing_machine_status', 'off') %}
+              var(--secondary-text-color)
+            {% elif is_state('input_select.washing_machine_status', 'running') %}
+              var(--success-color)
+            {% elif is_state('input_select.washing_machine_status', 'completed') %}
+              var(--info-color)
+            {% else %}
+              var(--error-color)
+            {% endif %}
+          badge_icon: >
+            {% if is_state('input_select.washing_machine_status', 'running') %}
+              mdi:flash
+            {% elif is_state('input_select.washing_machine_status', 'completed') %}
+              mdi:timer-sand
+            {% endif %}
+          badge_color: >
+            {% set t = now() - as_datetime(states('input_datetime.washing_machine_start')) %}
+            {% if is_state('input_select.washing_machine_status', 'running') %}
+              {% if t < timedelta(minutes=60) %}
+                var(--success-color)
+              {% elif t < timedelta(minutes=75)}
+                var(--warning-color)
+              {% else %}
+                var(--amber-color)
+              {% endif %}
+            {% elif is_state('input_select.washing_machine_status', 'completed') %}
+              {% if t < timedelta(minutes=30) %}
+                var(--info-color)
+              {% elif t < timedelta(minutes=60)}
+                var(--warning-color)
+              {% else %}
+                var(--error-color)
+              {% endif %}
+            {% endif %}
+        - type: custom:mushroom-chips-card
+          chips:
+            - type: conditional 
+              conditions:
+                - type: state
+                  entity_id: input_select.washing_machine_status
+                  state: completed
+              chip:
+                type: action
+                icon: mdi:check-box-marked
+                tap_action:
+                  action: perform-action
+                  perform_action: input_select.select_option
+                  target:
+                    entity_id: input_select.washing_machine_status
+                    data:
+                      option: off
+
+

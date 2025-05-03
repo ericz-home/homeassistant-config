@@ -1,0 +1,118 @@
+laundry:
+  input_select:
+    washing_machine:
+      name: "Washing Machine Status"
+      options:
+        - off
+        - running
+        - completed
+      initial: off
+      icon: mdi:washing-machine
+    dryer:
+      name: "Dryer Status"
+      options:
+        - off
+        - running
+        - completed
+      initial: off
+      icon: mdi:tumble-dryer
+  input_datetime:
+    washing_machine:
+      name: "Washing Machine Start"
+      has_date: true
+      has_time: true
+      icon: mdi:washing-machine
+    dryer:
+      name: "Dryer Start"
+      has_date: true
+      has_time: true
+
+  automation:
+    - id: start_washing_machine
+      triggers:
+        - trigger: state
+          entity_id: binary_sensor.washing_machine_vibration
+          state: "on"
+          for: 
+            seconds: 10
+      conditions:
+        - condition: state
+          entity_id: input_select.washing_machine_status
+          state: off
+      actions:
+        - action: input_select.select_option
+          target:
+            entity_id: input_select.washing_machine_status
+          data:
+            option: running
+        - action: input_datetime.set_datetime
+          target:
+            entity_id: input_datetime.washing_machine_start
+            data:
+              timestamp: "{{ now().timestamp() }}"
+    - id: complete_washing_machine
+      triggers:
+        - trigger: state
+          entity_id: binary_sensor.washing_machine_vibration
+          state: "off"
+          for: 
+            minutes: 5
+      conditions:
+        - condition: state
+          entity_id: input_select.washing_machine_status
+          state: running
+      actions:
+        - action: input_select.select_option
+          target:
+            entity_id: input_select.washing_machine_status
+          data:
+            option: completed
+        - action: input_datetime.set_datetime
+          target:
+            entity_id: input_datetime.washing_machine_start
+            data:
+              timestamp: "{{ now().timestamp() }}"
+    - id: start_dryer
+      triggers:
+        - trigger: state
+          entity_id: binary_sensor.dryer_vibration
+          state: "on"
+          for: 
+            seconds: 10
+      conditions:
+        - condition: state
+          entity_id: input_select.dryer_status
+          state: off
+      actions:
+        - action: input_select.select_option
+          target:
+            entity_id: input_select.dryer_status
+          data:
+            option: running
+        - action: input_datetime.set_datetime
+          target:
+            entity_id: input_datetime.dryer_start
+            data:
+              timestamp: "{{ now().timestamp() }}"
+    - id: complete_dryer
+      triggers:
+        - trigger: state
+          entity_id: binary_sensor.dryer_vibration
+          state: "off"
+          for: 
+            minutes: 2
+      conditions:
+        - condition: state
+          entity_id: input_select.dryer_status
+          state: running
+      actions:
+        - action: input_select.select_option
+          target:
+            entity_id: input_select.dryer_status
+          data:
+            option: completed
+        - action: input_datetime.set_datetime
+          target:
+            entity_id: input_datetime.dryer_start
+            data:
+              timestamp: "{{ now().timestamp() }}"

@@ -7,20 +7,10 @@ badges:
     entity: person.eric
     show_name: true
     show_entity_picture: true
-    card_mod:
-      style: |
-        .label {
-          color: blue;
-        }
   - type: entity
     entity: person.laura
     show_name: true
     show_entity_picture: true
-    card_mod:
-      style: |
-        .label {
-          color: {% if is_state(config.entity, 'home') %} var(--state-person-home-color) {% else %} var(--secondary-text-color) {% endif %};
-        }
   - type: custom:mod-card
     card_mod:
       style: |

@@ -29,3 +29,5 @@ resources:
     type: module
   - url: /local/community/Bubble-Card/bubble-card.js
     type: module
+  - url: /local/community/lovelace-entity-progress-card/entity-progress-card.js
+    type: module
