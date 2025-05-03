@@ -6,10 +6,12 @@ git:
     pull_reload:
       sequence:
         - action: shell_command.git_pull
+          response_variable: git
         - action: homeassistant.reload_all
     pull_restart:
       sequence:
         - action: shell_command.git_pull
+          response_variable: git
         - action: homeassistant.restart
 
 
