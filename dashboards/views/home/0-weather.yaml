@@ -63,12 +63,13 @@
           hash: '#weather'
         - type: custom:vertical-stack-in-card
           card_mod:
-            style: |
-              :host {
-                border: none;
-                border-width: 0;
-                border-radius: 0;
-              }
+            style: 
+              .: |
+                ha-card {
+                  border: none;
+                  border-width: 0;
+                  border-radius: 0;
+                }
           cards:
           - type: custom:clock-weather-card
             entity: weather.ksea
@@ -86,12 +87,13 @@
             show_precipitation_amounts: true
             show_precipitation_probability: true
             card_mod:
-              style: |
-                :host {
-                  border: none !important;
-                  border-width: 0;
-                  border-radius: 0;
-                }
+              style: 
+                .: |
+                  ha-card {
+                    border: none !important;
+                    border-width: 0;
+                    border-radius: 0;
+                  }
           - type: custom:clock-weather-card
             sun_entity: sun.sun
             entity: weather.ksea
