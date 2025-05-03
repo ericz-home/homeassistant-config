@@ -37,9 +37,6 @@
             color: red !important;
             background-color: red !important;
           }
-          # .bubble-sub-button-1::before {
-          #   content: "°F"
-          # }
           .bubble-sub-button-2 > ha-icon {
             color: 
             {% if states(config.sub_button[1].entity) < 51 %}
