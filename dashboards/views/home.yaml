@@ -10,7 +10,7 @@ badges:
     card_mod:
       style: |
         .label {
-          color: {% if is_state('person.eric', 'home') %} var(--state-person-home-color) {% else %} var(--disabled-text-color) {% endif %};
+          color: blue;
         }
   - type: entity
     entity: person.laura
@@ -19,7 +19,7 @@ badges:
     card_mod:
       style: |
         .label {
-          color: {% if is_state('person.laura', 'home') %} var(--state-person-home-color) {% else %} var(--disabled-text-color) {% endif %};
+          color: {% if is_state(config.entity, 'home') %} var(--state-person-home-color) {% else %} var(--secondary-text-color) {% endif %};
         }
   - type: custom:mod-card
     card_mod:
