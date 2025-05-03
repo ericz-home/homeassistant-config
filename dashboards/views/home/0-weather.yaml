@@ -87,8 +87,7 @@
               style: |
                   ha-card {
                     border: none !important;
-                    --webkit-border-width: 0;
-                    border-width: none !important;
+                    background-color: red;
                   }
           - type: custom:clock-weather-card
             sun_entity: sun.sun
