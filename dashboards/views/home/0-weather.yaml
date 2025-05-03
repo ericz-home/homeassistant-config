@@ -64,7 +64,7 @@
         - type: custom:vertical-stack-in-card
           card_mod:
             style: |
-              ha-card {
+              :host {
                 border: none;
                 border-width: 0;
                 border-radius: 0;
@@ -87,7 +87,7 @@
             show_precipitation_probability: true
             card_mod:
               style: |
-                ha-card {
+                :host {
                   border: none !important;
                   border-width: 0;
                   border-radius: 0;
