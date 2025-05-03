@@ -61,11 +61,6 @@
         - type: custom:bubble-card
           card_type: pop-up
           hash: '#weather'
-          card_mod:
-            style: |
-              ha-card {
-                border: none !important;
-              }
         - type: custom:vertical-stack-in-card
           card_mod:
             style: |
@@ -91,8 +86,8 @@
             card_mod:
               style: |
                   ha-card {
-                    border-style: none;
                     border: none !important;
+                    box-shadow: none
                   }
           - type: custom:clock-weather-card
             sun_entity: sun.sun
