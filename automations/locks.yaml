@@ -80,6 +80,10 @@
         condition: state
         entity_id: lock.front_door_lock
         state: "unlocked"
+    - alias: "not sleep"
+      condition: state
+      entity_id: input_boolean.sleep_mode
+      state: "off"
   actions:
     - action: lock.unlock
       target:

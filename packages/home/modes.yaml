@@ -64,6 +64,9 @@ modes:
         - trigger: template
           # next alarm is tomorrow (today's alarms are dismissed)
           value_template: "{{ as_datetime(states('sensor.galaxys24_next_alarm')) > today_at('23:59') }}"
+        - trigger: time
+          # trigger at 8:30 in the morning in case there are no alarms
+          at: "08:30"
       conditions:
         - alias: "morning"
           or:
