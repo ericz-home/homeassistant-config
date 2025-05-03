@@ -26,6 +26,12 @@ badges:
       {% else %} 
         red 
       {% endif %}
+    card_mod:
+      style: |
+        ha-card {
+          width: 3vw;
+          align-items: right;
+        }
   - type: entity
     entity: input_boolean.guest_mode
     name: "Guest Mode"
@@ -55,7 +61,7 @@ badges:
         entity_id: input_boolean.guest_mode
   - type: custom:mushroom-template-badge
     icon: mdi:file-refresh
-    content: "Reload Config"
+    content: "Reload"
     tap_action:
       action: perform-action
       confirmation: 
@@ -66,4 +72,10 @@ badges:
       confirmation: 
         text: "Are you sure you want to restart?"
       perform_action: script.pull_restart
+    card_mod:
+      style: |
+        ha-card {
+          width: 3vw;
+          align-items: right;
+        }
 sections: !include_dir_merge_list home
