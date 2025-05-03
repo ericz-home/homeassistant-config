@@ -4,6 +4,7 @@
       cards:
         - type: custom:bubble-card
           card_type: pop-up
+          hash: '#weather'
           button_type: state
           card_layout: large-2-rows
           entity: weather.ksea
