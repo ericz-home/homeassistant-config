@@ -12,6 +12,7 @@ lovelace: !include lovelace.yaml
 frontend:
   extra_module_url: 
     - /local/community/lovelace-card-mod/card-mod.js
+    - /local/community/Bubble-Card/bubble-pop-up-fix.js
 
 http: !include http.yaml
 # Text to speech
