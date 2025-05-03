@@ -33,7 +33,16 @@
           show_icon: true
       styles: >
           .bubble-sub-button-1 > ha-icon {
-            color: var(--info-color)
+            color:
+            {% if hass.states[entity].attributes.temperature|int < 65 %}
+              var(--info-color)
+            {% elif hass.states[entity].attributes.temperature|int < 80 %}
+              var(--success-color)
+            {% elif hass.states[entity].attributes.temperature|int < 100 %}
+              var(--amber-color)
+            {% else %}
+              var(--error-color)
+            {% endif %}
             ;
           }
           .bubble-sub-button-2 > ha-icon {
