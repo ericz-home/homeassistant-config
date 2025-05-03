@@ -53,4 +53,11 @@ badges:
       action: toggle
       target:
         entity_id: input_boolean.guest_mode
+  - type: custom:mushroom-template-badge
+    icon: mdi:file-refresh
+    content: "Reload Config"
+    tap_action:
+      action: perform-action
+      confirmation: true
+      perform_action: script.pull_reload
 sections: !include_dir_merge_list home
