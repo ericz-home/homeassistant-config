@@ -1,6 +1,6 @@
 laundry:
   input_select:
-    washing_machine:
+    washing_machine_status:
       name: "Washing Machine Status"
       options:
         - "off"
@@ -8,7 +8,7 @@ laundry:
         - completed
       initial: "off"
       icon: mdi:washing-machine
-    dryer:
+    dryer_status:
       name: "Dryer Status"
       options:
         - "off"
@@ -17,12 +17,12 @@ laundry:
       initial: "off"
       icon: mdi:tumble-dryer
   input_datetime:
-    washing_machine:
+    washing_machine_start:
       name: "Washing Machine Start"
       has_date: true
       has_time: true
       icon: mdi:washing-machine
-    dryer:
+    dryer_start:
       name: "Dryer Start"
       has_date: true
       has_time: true
