@@ -3,7 +3,7 @@ title: Home
 icon: mdi:home
 type: sections
 badges:
-  - type: custom:mushroom-template-badge
+  - type: entity
     entity: person.eric
     show_name: true
     show_entity_picture: true
@@ -19,7 +19,7 @@ badges:
     card_mod:
       style: |
         .label {
-          color: {% if is_state('person.eric', 'home') %} var(--state-person-home-color) {% else %} var(--disabled-text-color) {% endif %};
+          color: {% if is_state('person.laura', 'home') %} var(--state-person-home-color) {% else %} var(--disabled-text-color) {% endif %};
         }
   - type: custom:mod-card
     card_mod:
