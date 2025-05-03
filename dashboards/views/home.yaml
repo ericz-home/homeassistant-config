@@ -29,7 +29,7 @@ badges:
     card_mod:
       style: |
         ha-card {
-          width: 3vw;
+          width: 10vw;
           align-items: right;
         }
   - type: entity
@@ -75,7 +75,7 @@ badges:
     card_mod:
       style: |
         ha-card {
-          width: 3vw;
+          width: 10vw;
           align-items: right;
         }
 sections: !include_dir_merge_list home
