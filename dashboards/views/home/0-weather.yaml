@@ -64,15 +64,13 @@
           card_mod:
             style: |
               ha-card {
-                border: none;
-                outline: none;
+                border: none !important;
               }
         - type: custom:vertical-stack-in-card
           card_mod:
             style: |
                 ha-card {
-                  border: none;
-                  outline: none;
+                  border: none !important;
                 }
           cards:
           - type: custom:clock-weather-card
@@ -93,8 +91,8 @@
             card_mod:
               style: |
                   ha-card {
-                    border: none;
-                    outline: none;
+                    border-style: none;
+                    border: none !important;
                   }
           - type: custom:clock-weather-card
             sun_entity: sun.sun
