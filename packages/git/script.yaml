@@ -9,7 +9,8 @@ git:
           response_variable: git_out
         - action: logbook.log
           data: 
-            shell: "{{ git_out }}"
+            name: "git pull"
+            message: "output: {{ git_out }}"
         - action: homeassistant.reload_all
     pull_restart:
       sequence:
