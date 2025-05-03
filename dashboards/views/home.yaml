@@ -58,10 +58,10 @@ badges:
     content: "Reload Config"
     tap_action:
       action: perform-action
-      confirmation: true
+      confirmation: "Are you sure you want to reload"
       perform_action: script.pull_reload
     hold_action:
       action: perform-action
-      confirmation: true
+      confirmation: "Are you sure you want to restart"
       perform_action: script.pull_restart
 sections: !include_dir_merge_list home
