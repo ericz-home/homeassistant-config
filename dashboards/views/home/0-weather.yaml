@@ -32,9 +32,17 @@
           attribute: humidity
           show_icon: true
       styles: >
-          .bubble-sub-button-1 {
-            color: red !important;
-            background-color: red !important;
+          .bubble-sub-button-1 > ha-icon {
+            color:
+            {% if state.attributes.temperature < 65 %}
+              var(--info-color)
+            {% elif state.attributes.temperature < 80 %}
+              var(--success-color)
+            {% elif state.attributes.temperature < 100 %}
+              var(--amber-color)
+            {% else %}
+              var(--error-color)
+            {% endif %}
           }
           .bubble-sub-button-2 > ha-icon {
             color: 
@@ -52,12 +60,6 @@
               '#800000' 
             {% endif %}
             ;
-          }
-          .bubble-sub-button-3::before {
-            content: "%";
-          }
-          .bubble-sub-button-3 > ha-icon {
-            color: red; 
           }
     - type: vertical-stack
       cards:
