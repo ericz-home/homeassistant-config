@@ -87,6 +87,7 @@
               style: |
                   ha-card {
                     border: none !important;
+                    --webkit-border-width: 0;
                     border-width: none !important;
                   }
           - type: custom:clock-weather-card
