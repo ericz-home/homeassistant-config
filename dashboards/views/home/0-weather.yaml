@@ -37,17 +37,7 @@
             content: "°F"
           }
           .bubble-sub-button-1 {
-            background-color: 
-            {% if state_attr(config.sub_button[0].entity, 'temperature') < 65 %}
-              var(--info-color)
-            {% elif state_attr(config.sub_button[0].entity, 'temperature') < 80 %}
-              var(--success-color)
-            {% elif state_attr(config.sub_button[0].entity, 'temperature') < 100 %}
-              var(--amber-color)
-            {% else %}
-              var(--error-color)
-            {% endif %}
-            ;
+            background-color: var(--error-color);
           }
           .bubble-sub-button-2 > ha-icon {
             color: 
