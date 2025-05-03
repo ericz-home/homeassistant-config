@@ -82,7 +82,7 @@ laundry:
       conditions:
         - condition: state
           entity_id: input_select.dryer_status
-          state: off
+          state: "off"
       actions:
         - action: input_select.select_option
           target:
