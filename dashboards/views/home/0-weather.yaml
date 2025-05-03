@@ -34,7 +34,8 @@
       card_mod: 
         style: |
           .bubble-sub-button-1 {
-            color: red;
+            color: red !important;
+            background-color: red !important;
           }
           .bubble-sub-button-1::before {
             content: "°F"

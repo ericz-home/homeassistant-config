@@ -9,7 +9,7 @@ git:
           response_variable: git_out
         - action: logbook.log
           data: 
-            shell: "ran git pull"
+            shell: "{{ git_out }}"
         - action: homeassistant.reload_all
     pull_restart:
       sequence:
