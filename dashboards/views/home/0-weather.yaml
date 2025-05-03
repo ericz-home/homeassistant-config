@@ -34,11 +34,11 @@
       styles: >
           .bubble-sub-button-1 > ha-icon {
             color:
-            ${hass.states[entity].attributes.temperature|int < 65 ? 
+            ${hass.states[entity].attributes.temperature < 65 ? 
               'var(--info-color)' :
-              hass.states[entity].attributes.temperature|int < 80 ?
+              hass.states[entity].attributes.temperature < 80 ?
               'var(--success-color)' :
-              hass.states[entity].attributes.temperature|int < 100 ?
+              hass.states[entity].attributes.temperature < 100 ?
               'var(--amber-color)': 'var(--error-color)' };
           }
           .bubble-sub-button-2 > ha-icon {
