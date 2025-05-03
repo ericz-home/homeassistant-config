@@ -33,11 +33,11 @@
           show_icon: true
       card_mod: 
         style: |
-          .bubble-sub-button-1::before {
-            content: "°F"
-          }
           .bubble-sub-button-1 {
             background-color: var(--error-color);
+          }
+          .bubble-sub-button-1::before {
+            content: "°F"
           }
           .bubble-sub-button-2 > ha-icon {
             color: 
