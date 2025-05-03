@@ -43,6 +43,7 @@
             {% else %}
               var(--error-color)
             {% endif %}
+            ;
           }
           .bubble-sub-button-2 > ha-icon {
             color: 
