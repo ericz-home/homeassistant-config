@@ -18,7 +18,8 @@ git:
           response_variable: git_out
         - action: logbook.log
           data: 
-            shell: "ran git pull"
+            name: "git pull"
+            message: "output: {{ git_out }}"
         - action: homeassistant.restart
 
 
