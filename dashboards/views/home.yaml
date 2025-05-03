@@ -60,4 +60,8 @@ badges:
       action: perform-action
       confirmation: true
       perform_action: script.pull_reload
+    hold_action:
+      action: perform-action
+      confirmation: true
+      perform_action: script.pull_restart
 sections: !include_dir_merge_list home
