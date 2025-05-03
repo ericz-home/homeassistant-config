@@ -32,30 +32,28 @@
           attribute: humidity
           show_icon: true
       styles: >
-          .bubble-sub-button-1 > ha-icon {
+          .bubble-sub-button-1 {
             color:
             ${hass.states[entity].attributes.temperature < 65 ? 
               'var(--info-color)' :
               hass.states[entity].attributes.temperature < 80 ?
               'var(--success-color)' :
               hass.states[entity].attributes.temperature < 100 ?
-              'var(--amber-color)': 'var(--error-color)' };
+              'var(--amber-color)': 'var(--error-color)' }
+              ;
           }
-          .bubble-sub-button-2 > ha-icon {
+          .bubble-sub-button-2 {
             color: 
-            {% if states(config.sub_button[1].entity) < 51 %}
-              var(--success-color)
-            {% elif states(config.sub_button[1].entity) < 101 %}
-              var(--warning-color)
-            {% elif states(config.sub_button[1].entity) < 151 %}
-              var(--orange-color)
-            {% elif states(config.sub_button[1].entity) < 201 %}
-              var(--error-color)
-            {% elif states(config.sub_button[1].entity) < 301 %}
-              var(--purple-color)
-            {% else %}
-              '#800000' 
-            {% endif %}
+            ${subButtonState[1] < 51 ? 
+            'var(--success-color)' :
+            subButtonState[1]  < 101 ?
+            'var(--warning-color)' :
+            subButtonState[1]  < 151 ?
+            'var(--orange-color)' :
+            subButtonState[1]  < 201 ?
+            'var(--error-color)' :
+            subButtonState[1]  < 301 ? 
+            'var(--purple-color)' : '#800000'}
             ;
           }
     - type: vertical-stack
