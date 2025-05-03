@@ -31,8 +31,7 @@
           show_attribute: true
           attribute: humidity
           show_icon: true
-      card_mod: 
-        style: |
+      styles: >
           .bubble-sub-button-1 {
             color: red !important;
             background-color: red !important;
