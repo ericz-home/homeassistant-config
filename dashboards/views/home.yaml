@@ -3,20 +3,30 @@ title: Home
 icon: mdi:home
 type: sections
 badges:
-  - type: entity
+  - type: custom:mushroom-template-badge
     entity: person.eric
     show_name: true
     show_entity_picture: true
+    card_mod:
+      style: |
+        ha-badge {
+          color: {% if is_state('person.eric', 'home') %} var(--success-color) {% else %} var(--disabled-text-color) {% endif %};
+        }
   - type: entity
     entity: person.laura
     show_name: true
     show_entity_picture: true
+    card_mod:
+      style: |
+        ha-badge {
+          color: {% if is_state('person.eric', 'home') %} var(--success-color) {% else %} var(--disabled-text-color) {% endif %};
+        }
   - type: custom:mod-card
     card_mod:
       style: |
         ha-card {
           border-style: none;
-          width: 10vw;
+          width: 3vw;
         }
   - type: custom:mushroom-template-badge
     entity: input_boolean.home_mode
@@ -60,6 +70,13 @@ badges:
       action: toggle
       target:
         entity_id: input_boolean.guest_mode
+  - type: custom:mod-card
+    card_mod:
+      style: |
+        ha-card {
+          border-style: none;
+          width: 3vw;
+        }
   - type: custom:mushroom-template-badge
     icon: mdi:file-refresh
     content: "Reload"
@@ -73,10 +90,4 @@ badges:
       confirmation: 
         text: "Are you sure you want to restart?"
       perform_action: script.pull_restart
-    card_mod:
-      style: |
-        ha-card {
-          width: 10vw;
-          align-items: right;
-        }
 sections: !include_dir_merge_list home
