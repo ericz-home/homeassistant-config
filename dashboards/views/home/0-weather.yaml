@@ -1,68 +1,63 @@
 - title: 🌡️ Climate
   cards:
-    - type: custom:bubble-card
-      card_type: button
-      button_type: state
-      card_layout: large-2-rows
-      entity: weather.ksea
-      show_state: true
-      show_name: false
-      button_action:
-        tap_action:
-          action: navigate
-          navigation_path: '#weather'
-      sub_button:
-        - name: Temp
-          icon: mdi:thermometer
-          entity: weather.ksea
-          attribute: temperature
-          show_background: false
-          show_attribute: true
-        - name: AQI
-          icon: mdi:leaf
-          entity: sensor.olive_st_seattle_washington_usa_air_quality_index
-          show_background: false
-          show_state: true
-          show_icon: true
-        - name: Humidity 
-          icon: mdi:water
-          entity: weather.ksea
-          show_background: false
-          show_attribute: true
-          attribute: humidity
-          show_icon: true
-      styles: >
-          .bubble-sub-button-1 {
-            color:
-            ${hass.states[entity].attributes.temperature < 65 ? 
-              'var(--info-color)' :
-              hass.states[entity].attributes.temperature < 80 ?
-              'var(--success-color)' :
-              hass.states[entity].attributes.temperature < 100 ?
-              'var(--amber-color)': 'var(--error-color)' }
-              ;
-          }
-          .bubble-sub-button-2 {
-            color: 
-            ${subButtonState[1] < 51 ? 
-              'var(--success-color)' :
-              subButtonState[1]  < 101 ?
-              'var(--warning-color)' :
-              subButtonState[1]  < 151 ?
-              'var(--orange-color)' :
-              subButtonState[1]  < 201 ?
-              'var(--error-color)' :
-              subButtonState[1]  < 301 ? 
-              'var(--purple-color)' : '#800000'}
-            ;
-          }
     - type: vertical-stack
       cards:
-        - type: custom:bubble-card
-          card_type: pop-up
-          hash: '#weather'
-          styles: |
-            
+      - type: custom:bubble-card
+        card_type: pop-up
+        button_type: state
+        card_layout: large-2-rows
+        entity: weather.ksea
+        show_state: true
+        show_name: false
+        button_action:
+          tap_action:
+            action: navigate
+            navigation_path: '#weather'
+        sub_button:
+          - name: Temp
+            icon: mdi:thermometer
+            entity: weather.ksea
+            attribute: temperature
+            show_background: false
+            show_attribute: true
+          - name: AQI
+            icon: mdi:leaf
+            entity: sensor.olive_st_seattle_washington_usa_air_quality_index
+            show_background: false
+            show_state: true
+            show_icon: true
+          - name: Humidity 
+            icon: mdi:water
+            entity: weather.ksea
+            show_background: false
+            show_attribute: true
+            attribute: humidity
+            show_icon: true
+        styles: >
+            .bubble-sub-button-1 {
+              color:
+              ${hass.states[entity].attributes.temperature < 65 ? 
+                'var(--info-color)' :
+                hass.states[entity].attributes.temperature < 80 ?
+                'var(--success-color)' :
+                hass.states[entity].attributes.temperature < 100 ?
+                'var(--amber-color)': 'var(--error-color)' }
+                ;
+            }
+            .bubble-sub-button-2 {
+              color: 
+              ${subButtonState[1] < 51 ? 
+                'var(--success-color)' :
+                subButtonState[1]  < 101 ?
+                'var(--warning-color)' :
+                subButtonState[1]  < 151 ?
+                'var(--orange-color)' :
+                subButtonState[1]  < 201 ?
+                'var(--error-color)' :
+                subButtonState[1]  < 301 ? 
+                'var(--purple-color)' : '#800000'}
+              ;
+            }
         - type: custom:vertical-stack-in-card
           card_mod: 
             style: |
