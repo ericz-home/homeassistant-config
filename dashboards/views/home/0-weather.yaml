@@ -61,11 +61,12 @@
         - type: custom:bubble-card
           card_type: pop-up
           hash: '#weather'
-          styles: |
-            ha-card {
-                  border: none !important;
-            }
         - type: custom:vertical-stack-in-card
+          card_mod: 
+            style: |
+              ha-card {
+                background-color: red;
+              }
           cards:
           - type: custom:clock-weather-card
             entity: weather.ksea
@@ -83,6 +84,10 @@
             show_precipitation_amounts: true
             show_precipitation_probability: true
             card_mod:
+              style: |
+                ha-card {
+                  border: none !important;
+                }
           - type: custom:clock-weather-card
             sun_entity: sun.sun
             entity: weather.ksea
