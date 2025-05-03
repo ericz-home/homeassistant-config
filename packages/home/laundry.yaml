@@ -76,7 +76,7 @@ laundry:
       triggers:
         - trigger: state
           entity_id: binary_sensor.dryer_vibration
-          state: "on"
+          to: "on"
           for: 
             seconds: 10
       conditions:
@@ -98,7 +98,7 @@ laundry:
       triggers:
         - trigger: state
           entity_id: binary_sensor.dryer_vibration
-          state: "off"
+          to: "off"
           for: 
             minutes: 2
       conditions:
