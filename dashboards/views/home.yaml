@@ -11,6 +11,13 @@ badges:
     entity: person.laura
     show_name: true
     show_entity_picture: true
+  - type: custom:mod-card
+    card_mod:
+      style: |
+        ha-card {
+          border-style: none;
+          width: 10vw;
+        }
   - type: custom:mushroom-template-badge
     entity: input_boolean.home_mode
     content: "Home Mode"
@@ -26,12 +33,6 @@ badges:
       {% else %} 
         red 
       {% endif %}
-    card_mod:
-      style: |
-        ha-card {
-          width: 10vw;
-          align-items: right;
-        }
   - type: entity
     entity: input_boolean.guest_mode
     name: "Guest Mode"
