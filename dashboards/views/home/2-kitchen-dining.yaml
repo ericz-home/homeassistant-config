@@ -7,7 +7,7 @@
       card_type: button
       button_type: state
       entity: binary_sensor.sliding_door_contact
-      name: Balcony Door
+      name: Sliding Door
       sub_button:
         - entity: sensor.sliding_door_battery
           icon: none
