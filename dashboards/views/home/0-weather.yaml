@@ -41,7 +41,7 @@
 
           .bubble-sub-button-1 {
             color:
-            ${hass.states[entity].attributes.temperature < 65 ? 
+            ${hass.states[entity].attributes.temperature < 50 ? 
               'var(--info-color)' :
               hass.states[entity].attributes.temperature < 80 ?
               'var(--success-color)' :
