@@ -54,6 +54,11 @@
                 var(--rgb-danger)
               {% endif %}
             {% endif %}
+          card_mod:
+            style: |
+              ha-card {
+                width: max-content !important;
+              }
           style: |
             ha-card {
               width: max-content !important;
