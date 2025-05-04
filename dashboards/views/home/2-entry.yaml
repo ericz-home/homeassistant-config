@@ -12,9 +12,11 @@
         - type: custom:bubble-card
           card_type: button
           card_layout: large
-          button_type: switch
+          button_type: state
           entity: lock.front_door_lock
           name: Lock
+          tap_action:
+            action: toggle
           sub_button:
             - entity: sensor.front_door_lock_battery
               icon: none
@@ -24,6 +26,9 @@
             .bubble-wrapper {
               background-color: var(--card-background-color);
             }
+
+            ${icon.setAttribute('icon', state === 'locked' ? 'mdi:lock' : 'mdi:lock-open-variant')} 
+
             ${subButtonIcon[0].setAttribute('icon',
               subButtonState[0] === 100 ? 'mdi:battery' :
               subButtonState[0] > 90 ? 'mdi:battery-90' :
@@ -62,6 +67,7 @@
             .bubble-sub-button-1 {
               flex-direction: column-reverse;
               font-weight: ${state === 'on' ? 'bold' : ''};
+              margin-top: 20px;
             }
 
             .bubble-sub-button-1 > .bubble-sub-button-name-container {

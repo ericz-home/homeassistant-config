@@ -10,7 +10,7 @@
           primary: 'Washing Machine'
           multiline_secondary: true
           secondary: >
-            ${ set age = relative_time(as_datetime(states('input_datetime.washing_machine_start'))) }
+            {% set age = relative_time(as_datetime(states('input_datetime.washing_machine_start'))) %}
             {% if is_state('input_select.washing_machine_status', 'running') %} 
               Running for {{ age }}.
             {% elif is_state('input_select.washing_machine_status', 'completed') %}
@@ -88,7 +88,7 @@
           primary: 'Dryer'
           multiline_secondary: true
           secondary: >
-            ${ set age = relative_time(as_datetime(states('input_datetime.dryer_start'))) }
+            {% set age = relative_time(as_datetime(states('input_datetime.dryer_start'))) %}
             {% if is_state('input_select.dryer_status', 'running') %} 
               Running for {{ age }}.
             {% elif is_state('input_select.dryer_status', 'completed') %}
