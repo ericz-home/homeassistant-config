@@ -33,7 +33,7 @@
                   entity_id: lock.front_door_lock
           styles: |
             .bubble-wrapper {
-              background-color: 'var(--card-background-color)';
+              background-color: var(--card-background-color);
             }
             .bubble-sub-button-2 {
               background-color: ${state === 'locked' ? 'var(--disable-text-color)' : 'var(--info-color)'};
@@ -73,7 +73,7 @@
                 action: toggle
           styles: >
             .bubble-wrapper {
-              background-color: 'var(--card-background-color)';
+              background-color: var(--card-background-color);
             }
 
             .bubble-sub-button-2 {
@@ -85,7 +85,7 @@
             }
 
             $(subButtonIcon[1].setAttribute('icon', 
-              subButtonState[1] === 'on' ? 'mdi:checkbox-marked' : 'mdi:checkbox-blank-outline'))
+              subButtonState[1] === 'on' ? 'mdi:checkbox' : 'mdi:checkbox-outline'))
 
             ${subButtonIcon[0].setAttribute('icon',
               subButtonState[0] === 100 ? 'mdi:battery' :
