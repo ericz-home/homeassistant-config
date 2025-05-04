@@ -44,9 +44,9 @@
             ${hass.states[entity].attributes.temperature < 50 ? 
               'var(--info-color)' :
               hass.states[entity].attributes.temperature > 80 ?
-              'var(--amber-color)'
+              'var(--amber-color)' :
               hass.states[entity].attributes.temperature > 100 ?
-              'var(--error-color)': '' }
+              'var(--error-color)' : '' }
               ;
           }
           .bubble-sub-button-2 {
