@@ -1,0 +1,12 @@
+notifications:
+  script:
+    notify_apps:
+      description: "push notifications to mobile apps"
+      fields:
+        message: 
+          description: "body of the notification"
+      sequence:
+        - alias: "notify eric"
+          action: notify.mobile_app_galaxy_s24
+          data:
+            message: "{{ message }}"

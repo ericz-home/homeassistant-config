@@ -32,7 +32,7 @@ lights:
         - action: scene.turn_on
           target:
             entity_id: scene.living_room_mid
-        - action: notify.mobile_app_galaxys24
+        - action: script.notify_apps
           data: 
             message: "Turned on lights in the living room."
 

@@ -118,3 +118,22 @@ laundry:
             entity_id: input_datetime.dryer_start
           data:
             timestamp: "{{ now().timestamp() }}"
+    - id: notify_laundry_completion
+      alias: "notify_laundry_complete"
+      triggers:
+        - trigger: state
+          alias: "Washing machine cycle complete"
+          entity_id: input_select.washing_machine_status
+          from: running
+          to: complete
+        - trigger: state
+          alias: "Dryer cycle complete"
+          entity_id: input_select.dryer_status
+          from: running
+          to: complete
+      actions:
+        - action: script.notify_apps
+          data: 
+            message: "{{ trigger.alias }}."
+          
+

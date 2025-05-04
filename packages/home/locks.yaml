@@ -105,6 +105,6 @@ locks:
             - "unavailable" 
             - "unknown" 
       actions:
-        - action: notify.mobile_app_galaxys24
+        - action: script.notify_apps
           data:
             message: "Front door is {{ states('lock.front_door_lock') }}."
