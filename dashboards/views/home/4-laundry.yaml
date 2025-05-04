@@ -89,7 +89,7 @@
                   target:
                     entity_id: input_select.washing_machine_status
                   data:
-                    option: off
+                    option: 'off'
           card_mod:
             style: |
               ha-card {
@@ -184,7 +184,7 @@
                   target:
                     entity_id: input_select.dryer_status
                   data:
-                    option: off
+                    option: 'off'
           card_mod:
             style: |
               ha-card {
