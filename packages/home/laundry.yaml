@@ -29,6 +29,7 @@ laundry:
 
   automation:
     - id: start_washing_machine
+      alias: "Start Washing Machine"
       triggers:
         - trigger: state
           entity_id: binary_sensor.washing_machine_vibration
@@ -51,6 +52,7 @@ laundry:
           data:
             timestamp: "{{ now().timestamp() }}"
     - id: complete_washing_machine
+      alias: "Complete Washing Machine"
       triggers:
         - trigger: state
           entity_id: binary_sensor.washing_machine_vibration
@@ -73,6 +75,7 @@ laundry:
           data:
             timestamp: "{{ now().timestamp() }}"
     - id: start_dryer
+      alias: "Start Dryer"
       triggers:
         - trigger: state
           entity_id: binary_sensor.dryer_vibration
@@ -95,6 +98,7 @@ laundry:
           data:
             timestamp: "{{ now().timestamp() }}"
     - id: complete_dryer
+      alias: "Complete Dryer"
       triggers:
         - trigger: state
           entity_id: binary_sensor.dryer_vibration

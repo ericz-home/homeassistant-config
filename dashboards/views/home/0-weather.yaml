@@ -32,6 +32,10 @@
           attribute: humidity
           show_icon: true
       styles: >
+          .bubble-sub-button {
+            padding: 0;
+          }
+
           .bubble-sub-button-1 {
             color:
             ${hass.states[entity].attributes.temperature < 65 ? 

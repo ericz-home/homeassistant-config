@@ -12,7 +12,7 @@
         - type: custom:bubble-card
           card_type: button
           card_layout: large
-          button_type: state
+          button_type: switch
           entity: lock.front_door_lock
           name: Lock
           sub_button:
@@ -20,27 +20,9 @@
               icon: none
               show_state: true
               show_background: false
-            - icon: mdi:lock
-              tap_action:
-                action: call-service
-                service: lock.lock
-                service_data:
-                  entity_id: lock.front_door_lock
-            - icon: mdi:lock-open-variant
-              tap_action:
-                action: call-service
-                service: lock.unlock
-                service_data:
-                  entity_id: lock.front_door_lock
           styles: |
             .bubble-wrapper {
               background-color: var(--card-background-color);
-            }
-            .bubble-sub-button-2 {
-              background-color: ${state === 'locked' ? 'var(--disable-text-color)' : 'var(--info-color)'};
-            }
-            .bubble-sub-button-3 {
-              background-color: ${state === 'unlocked' ? 'var(--disable-text-color)' : 'var(--info-color)'};
             }
             ${subButtonIcon[0].setAttribute('icon',
               subButtonState[0] === 100 ? 'mdi:battery' :
@@ -60,10 +42,6 @@
           entity: binary_sensor.front_door_contact
           name: Door
           sub_button:
-            - entity: sensor.front_door_battery
-              icon: none
-              show_state: true
-              show_background: false
             - entity: input_boolean.auto_lock_front_door
               icon: none
               name: Auto-Lock
@@ -72,32 +50,36 @@
               show_name: true
               tap_action:
                 action: toggle
+            - entity: sensor.front_door_battery
+              icon: none
+              show_state: true
+              show_background: false
           styles: |
             .bubble-wrapper {
               background-color: var(--card-background-color);
             }
 
-            .bubble-sub-button-2 {
+            .bubble-sub-button-1 {
               flex-direction: column-reverse;
               font-weight: ${state === 'on' ? 'bold' : ''};
             }
 
-            .bubble-sub-button-2 > .bubble-sub-button-name-container {
+            .bubble-sub-button-1 > .bubble-sub-button-name-container {
               font-size: 9px;
             }
 
-            ${subButtonIcon[1].setAttribute('icon', 
-              subButtonState[1] === 'on' ? 'mdi:checkbox-marked' : 'mdi:checkbox-blank-outline')}
+            ${subButtonIcon[0].setAttribute('icon', 
+              subButtonState[0] === 'on' ? 'mdi:checkbox-marked' : 'mdi:checkbox-blank-outline')}
 
-            ${subButtonIcon[0].setAttribute('icon',
-              subButtonState[0] === 100 ? 'mdi:battery' :
-              subButtonState[0] > 90 ? 'mdi:battery-90' :
-              subButtonState[0] > 80 ? 'mdi:battery-80' :
-              subButtonState[0] > 70 ? 'mdi:battery-70' :
-              subButtonState[0] > 60 ? 'mdi:battery-60' :
-              subButtonState[0] > 50 ? 'mdi:battery-50' :
-              subButtonState[0] > 40 ? 'mdi:battery-30' :
-              subButtonState[0] > 30 ? 'mdi:battery-30' :
-              subButtonState[0] > 20 ? 'mdi:battery-20' :
-              subButtonState[0] > 10 ? 'mdi:battery-10' :
+            ${subButtonIcon[1].setAttribute('icon',
+              subButtonState[1] === 100 ? 'mdi:battery' :
+              subButtonState[1] > 90 ? 'mdi:battery-90' :
+              subButtonState[1] > 80 ? 'mdi:battery-80' :
+              subButtonState[1] > 70 ? 'mdi:battery-70' :
+              subButtonState[1] > 60 ? 'mdi:battery-60' :
+              subButtonState[1] > 50 ? 'mdi:battery-50' :
+              subButtonState[1] > 40 ? 'mdi:battery-30' :
+              subButtonState[1] > 30 ? 'mdi:battery-30' :
+              subButtonState[1] > 20 ? 'mdi:battery-20' :
+              subButtonState[1] > 10 ? 'mdi:battery-10' :
               'mdi:battery-outline')}
