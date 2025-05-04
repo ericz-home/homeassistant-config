@@ -26,13 +26,13 @@
             {% endif %}
           icon_color: >
             {% if is_state('input_select.washing_machine_status', 'off') %}
-              var(--disabled-color)
+              var(--rgb-disabled)
             {% elif is_state('input_select.washing_machine_status', 'running') %}
-              var(--success-color)
+              var(--rgb-success)
             {% elif is_state('input_select.washing_machine_status', 'completed') %}
-              var(--info-color)
+              var(--rgb-info)
             {% else %}
-              var(--warning-color)
+              var(--rgb-warning)
             {% endif %}
           badge_icon: >
             {% if is_state('input_select.washing_machine_status', 'running') %}
@@ -41,22 +41,22 @@
               mdi:timer-sand
             {% endif %}
           badge_color: >
-            {% set t = now() - as_datetime(states('input_datetime.washing_machine_start')) %}
+            {% set t = now() - as_local(as_datetime(states('input_datetime.washing_machine_start'))) %}
             {% if is_state('input_select.washing_machine_status', 'running') %}
               {% if t < timedelta(minutes=60) %}
-                var(--success-color)
-              {% elif t < timedelta(minutes=75)}
-                var(--warning-color)
+                var(--rgb-success)
+              {% elif t < timedelta(minutes=75) %}
+                var(--rgb-warning)
               {% else %}
-                var(--error-color)
+                var(--rgb-danger)
               {% endif %}
             {% elif is_state('input_select.washing_machine_status', 'completed') %}
               {% if t < timedelta(minutes=30) %}
-                var(--info-color)
-              {% elif t < timedelta(minutes=60)}
-                var(--warning-color)
+                var(--rgb-info)
+              {% elif t < timedelta(minutes=60) %}
+                var(--rgb-warning)
               {% else %}
-                var(--error-color)
+                var(--rgb-danger)
               {% endif %}
             {% endif %}
           card_mod:
@@ -65,7 +65,7 @@
                 width: max-content !important;
               }
               .secondary {
-                color: var(--secondary-text-color)
+                color: var(--rgb-secondary-text)
               }
           tap_action: 
             action: more-info
@@ -78,7 +78,7 @@
           chips:
             - type: conditional 
               conditions:
-                - type: state
+                - condition: state
                   entity_id: input_select.washing_machine_status
                   state: completed
               chip:
@@ -114,13 +114,13 @@
             {% endif %}
           icon_color: >
             {% if is_state('input_select.dryer_status', 'off') %}
-              var(--disabled-color)
+              var(--rgb-disabled)
             {% elif is_state('input_select.dryer_status', 'running') %}
-              var(--success-color)
+              var(--rgb-success)
             {% elif is_state('input_select.dryer_status', 'completed') %}
-              var(--info-color)
+              var(--rgb-info)
             {% else %}
-              var(--warning-color)
+              var(--rgb-warning)
             {% endif %}
           badge_icon: >
             {% if is_state('input_select.dryer_status', 'running') %}
@@ -129,22 +129,22 @@
               mdi:timer-sand
             {% endif %}
           badge_color: >
-            {% set t = now() - as_datetime(states('input_datetime.dryer_start')) %}
+            {% set t = now() - as_local(as_datetime(states('input_datetime.dryer_start'))) %}
             {% if is_state('input_select.dryer_status', 'running') %}
               {% if t < timedelta(minutes=60) %}
-                var(--success-color)
-              {% elif t < timedelta(minutes=75)}
-                var(--warning-color)
+                var(--rgb-success)
+              {% elif t < timedelta(minutes=75) %}
+                var(--rgb-warning)
               {% else %}
-                var(--error-color)
+                var(--rgb-danger)
               {% endif %}
             {% elif is_state('input_select.dryer_status', 'completed') %}
               {% if t < timedelta(minutes=30) %}
-                var(--info-color)
-              {% elif t < timedelta(minutes=60)}
-                var(--warning-color)
+                var(--rgb-info)
+              {% elif t < timedelta(minutes=60) %}
+                var(--rgb-warning)
               {% else %}
-                var(--error-color)
+                var(--rgb-danger)
               {% endif %}
             {% endif %}
           card_mod:
@@ -153,7 +153,7 @@
                 width: max-content !important;
               }
               .secondary {
-                color: var(--secondary-text-color)
+                color: var(--rgb-secondary-text)
               }
           tap_action: 
             action: more-info
