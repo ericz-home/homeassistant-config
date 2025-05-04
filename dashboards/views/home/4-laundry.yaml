@@ -15,7 +15,7 @@
               Running for {{ age }}.
             {% elif is_state('input_select.washing_machine_status', 'completed') %}
               Completed {{ age }} ago.
-            {% elif is_state('input_select.washing_machine_status', 'idle') %}
+            {% elif is_state('input_select.washing_machine_status', 'off') %}
               Last ran {{ age }} ago.
             {% endif %}
           icon: >
@@ -64,6 +64,13 @@
               ha-card {
                 width: max-content !important;
               }
+          tap_action: 
+            action: more-info
+            entity: input_select.washing_machine_status
+          double_tap_action:
+            action: more-info
+            entity: binary_sensor.washing_machine_vibration
+          hold_action: none
         - type: custom:mushroom-chips-card
           chips:
             - type: conditional 
@@ -93,7 +100,7 @@
               Running for {{ age }}.
             {% elif is_state('input_select.dryer_status', 'completed') %}
               Completed {{ age }} ago.
-            {% elif is_state('input_select.dryer_status', 'idle') %}
+            {% elif is_state('input_select.dryer_status', 'off') %}
               Last ran {{ age }} ago.
             {% endif %}
           icon: >
@@ -142,6 +149,13 @@
               ha-card {
                 width: max-content !important;
               }
+          tap_action: 
+            action: more-info
+            entity: input_select.dryer_status
+          double_tap_action:
+            action: more-info
+            entity: binary_sensor.dryer_vibration
+          hold_action: none
         - type: custom:mushroom-chips-card
           chips:
             - type: conditional 
