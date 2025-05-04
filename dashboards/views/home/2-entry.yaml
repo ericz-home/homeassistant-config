@@ -7,6 +7,7 @@
       cards:
         - type: custom:bubble-card
           card_type: button
+          card_layout: large
           button_type: state
           entity: lock.front_door_lock
           name: Lock
@@ -14,6 +15,7 @@
             - entity: sensor.front_door_lock_battery
               icon: mdi:battery
               show_state: true
+              show_background: false
             - icon: mdi:lock
               tap_action:
                 action: call-service
@@ -26,6 +28,25 @@
                 service: lock.unlock
                 service_data:
                   entity_id: lock.front_door_lock
+            styles: |
+              .bubble-sub-button-2 {
+                background-color: ${state == "locked" ? var(--disable-text-color) : var(--info-color)};
+              }
+              .bubble-sub-button-3 {
+                background-color: ${state == "unlocked" ? var(--disable-text-color) : var(--info-color)};
+              }
+              ${subButtonState[0].setAttribute("icon",
+                subButtonState[0] == 100 ? mdi:battery :
+                subButtonState[0] > 90 ? mdi:battery-90 :
+                subButtonState[0] > 80 ? mdi:battery-80 :
+                subButtonState[0] > 70 ? mdi:battery-70 :
+                subButtonState[0] > 60 ? mdi:battery-60 :
+                subButtonState[0] > 50 ? mdi:battery-50 :
+                subButtonState[0] > 40 ? mdi:battery-30 :
+                subButtonState[0] > 30 ? mdi:battery-30 :
+                subButtonState[0] > 20 ? mdi:battery-20 :
+                subButtonState[0] > 10 ? mdi:battery-10 :
+                mdi:battery-outline)}
         - entity: binary_sensor.front_door_contact
           type: custom:multiple-entity-row
           name: "Door"

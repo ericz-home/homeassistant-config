@@ -2,6 +2,7 @@
   cards:
     - type: custom:bubble-card
       card_type: button
+      card_layout: large
       button_type: state
       entity: weather.ksea
       show_state: true
