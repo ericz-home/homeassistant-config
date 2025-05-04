@@ -36,7 +36,7 @@
                 background-color: ${state === 'unlocked' ? var(--disable-text-color) : var(--info-color)};
               }
               ${subButtonState[0].setAttribute('icon',
-                subButtonState[0] == 100 ? mdi:battery :
+                subButtonState[0] === 100 ? mdi:battery :
                 subButtonState[0] > 90 ? mdi:battery-90 :
                 subButtonState[0] > 80 ? mdi:battery-80 :
                 subButtonState[0] > 70 ? mdi:battery-70 :
