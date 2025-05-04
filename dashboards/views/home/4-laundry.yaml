@@ -78,8 +78,7 @@
           chips:
             - type: conditional 
               conditions:
-                - condition: state
-                  entity_id: input_select.washing_machine_status
+                - entity: input_select.washing_machine_status
                   state: completed
               chip:
                 type: action
@@ -166,8 +165,7 @@
           chips:
             - type: conditional 
               conditions:
-                - type: state
-                  entity_id: input_select.dryer_status
+                - entity: input_select.dryer_status
                   state: completed
               chip:
                 type: action

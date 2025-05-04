@@ -6,7 +6,6 @@ laundry:
         - "off"
         - running
         - completed
-      initial: "off"
       icon: mdi:washing-machine
     dryer_status:
       name: "Dryer Status"
@@ -14,7 +13,6 @@ laundry:
         - "off"
         - running
         - completed
-      initial: "off"
       icon: mdi:tumble-dryer
   input_datetime:
     washing_machine_start:
