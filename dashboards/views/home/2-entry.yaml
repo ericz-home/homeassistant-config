@@ -8,6 +8,7 @@
         - type: custom:bubble-card
           card_type: separator
           name: 'Front Door'
+          icon: mdi:lock-smart
         - type: custom:bubble-card
           card_type: button
           card_layout: large
