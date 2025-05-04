@@ -11,6 +11,8 @@ badges:
     entity: person.laura
     show_name: true
     show_entity_picture: true
+  - type: custom:bubble-card
+    card_type: empty-column
   - type: custom:mod-card
     card_mod:
       style: |
