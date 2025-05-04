@@ -1,19 +1,18 @@
-- title: 🚪 Entryway
-  cards:
-    - type: entities
-      title: "Front Door"
+- cards:
+    - type: custom:bubble-card
+      card_type: separator
+      name: 'Entryway'
       icon: mdi:door
-      entities:
-        - entity: lock.front_door_lock
-          type: custom:multiple-entity-row
-          name: "Lock"
-          secondary_info: 
-            entity: sensor.front_door_lock_battery
-            hide_unavailable: true
-            name: Battery
-          state_color: true
-          show_state: false
-          entities:
+    - type: custom:vertical-stack-in-card
+      cards:
+        - type: custom:bubble-card
+          button_type: state
+          entity: lock.front_door_lock
+          name: Lock
+          sub_button:
+            - entity: sensor.front_door_lock_battery
+              icon: mdi:battery
+              show_state: true
             - icon: mdi:lock
               tap_action:
                 action: call-service
@@ -26,6 +25,16 @@
                 service: lock.unlock
                 service_data:
                   entity_id: lock.front_door_lock
+        - entity: lock.front_door_lock
+          type: custom:multiple-entity-row
+          name: "Lock"
+          secondary_info: 
+            entity: sensor.front_door_lock_battery
+            hide_unavailable: true
+            name: Battery
+          state_color: true
+          show_state: false
+          entities:
         - entity: binary_sensor.front_door_contact
           type: custom:multiple-entity-row
           name: "Door"
