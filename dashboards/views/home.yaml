@@ -13,13 +13,8 @@ badges:
     show_entity_picture: true
   - type: custom:bubble-card
     card_type: empty-column
-  - type: custom:mod-card
     card_mod:
-      style: |
-        ha-card {
-          border-style: none;
-          width: 3vw;
-        }
+      style: ha-card { width: 3vw }
   - type: custom:mushroom-template-badge
     entity: input_boolean.home_mode
     content: "Home Mode"
@@ -62,13 +57,10 @@ badges:
       action: toggle
       target:
         entity_id: input_boolean.guest_mode
-  - type: custom:mod-card
+  - type: custom:bubble-card
+    card_type: empty-column
     card_mod:
-      style: |
-        ha-card {
-          border-style: none;
-          width: 3vw;
-        }
+      style: ha-card { width: 3vw }
   - type: custom:mushroom-template-badge
     icon: mdi:file-refresh
     content: "Reload"
