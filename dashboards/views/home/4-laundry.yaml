@@ -54,11 +54,10 @@
                 var(--rgb-danger)
               {% endif %}
             {% endif %}
-          card_mod:
-            style: |
-              ha-card {
-                width: max-content;
-              }
+          style: |
+            ha-card {
+              width: fit-content;
+            }
         - type: custom:mushroom-chips-card
           chips:
             - type: conditional 

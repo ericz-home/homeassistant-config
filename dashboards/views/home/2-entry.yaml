@@ -4,8 +4,10 @@
       name: 'Entryway'
       icon: mdi:door
     - type: custom:vertical-stack-in-card
-      title: 🚪 Front Door
       cards:
+        - type: custom:bubble-card
+          card_type: separator
+          name: 'Front Door'
         - type: custom:bubble-card
           card_type: button
           card_layout: large
@@ -30,7 +32,7 @@
                 service_data:
                   entity_id: lock.front_door_lock
           styles: |
-            .bubble-button {
+            .bubble-button-container {
               background-color: 'var(--card-background-color)';
             }
             .bubble-sub-button-2 {
@@ -70,7 +72,7 @@
               tap_action:
                 action: toggle
           styles: |
-            .bubble-button {
+            .bubble-button-container {
               background-color: 'var(--card-background-color)';
             }
             $(subButtonIcon[1].setAttribute('icon', 
