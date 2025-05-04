@@ -1,5 +1,8 @@
-- title: 🌡️ Climate
-  cards:
+- cards:
+    - type: custom:bubble-card
+      card_type: separator
+      name: 'Climate'
+      icon: mdi:thermometer
     - type: custom:bubble-card
       card_type: button
       card_layout: large
