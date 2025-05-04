@@ -3,8 +3,10 @@
       card_type: separator
       name: 'Living Room'
       icon: mdi:sofa
-      sub_button:
+    - type: custom:mushroom-chips-card:
+      chips:
         - icon: mdi:lightbulb-off-outline
+          type: action
           tap_action:
             action: "perform-action"
             perform_action: scene.turn_on
@@ -13,6 +15,7 @@
             data:
               transition: 1
         - icon: mdi:lightbulb-on-30
+          type: action
           tap_action:
             action: "perform-action"
             perform_action: scene.turn_on
@@ -21,6 +24,7 @@
             data:
               transition: 2.5
         - icon: mdi:lightbulb-on-50
+          type: action
           tap_action:
             action: "perform-action"
             perform_action: scene.turn_on
@@ -29,6 +33,7 @@
             data:
               transition: 2.5
         - icon: mdi:lightbulb-on-70
+          type: action
           tap_action:
             action: "perform-action"
             perform_action: scene.turn_on
@@ -37,6 +42,7 @@
             data:
               transition: 2.5
         - icon: mdi:lightbulb-on
+          type: action
           tap_action:
             action: "perform-action"
             perform_action: scene.turn_on
