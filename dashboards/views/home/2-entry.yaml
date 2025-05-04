@@ -78,6 +78,7 @@
 
             .bubble-sub-button-2 {
               flex-direction: column-reverse;
+              font-weight: ${state === 'on' ? 'bold' : ''};
             }
 
             .bubble-sub-button-2 > .bubble-sub-button-name-container {
