@@ -134,6 +134,7 @@ laundry:
       actions:
         - action: script.notify_apps
           data: 
+            title: "Laundry"
             message: "{{ trigger.alias }}."
           
 

@@ -34,6 +34,7 @@ lights:
             entity_id: scene.living_room_mid
         - action: script.notify_apps
           data: 
+            title: "Lights"
             message: "Turned on lights in the living room."
 
 

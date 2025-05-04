@@ -3,10 +3,13 @@ notifications:
     notify_apps:
       description: "push notifications to mobile apps"
       fields:
+        title:
+          description: "heading of the notification"
         message: 
           description: "body of the notification"
       sequence:
         - alias: "notify eric"
           action: notify.mobile_app_galaxys24
           data:
+            title: "{{ title }}"
             message: "{{ message }}"

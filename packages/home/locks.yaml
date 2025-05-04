@@ -107,4 +107,5 @@ locks:
       actions:
         - action: script.notify_apps
           data:
+            title: "Doors"
             message: "Front door is {{ states('lock.front_door_lock') }}."
