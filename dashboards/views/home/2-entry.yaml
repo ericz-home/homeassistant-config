@@ -67,7 +67,7 @@
               icon: none
               name: Auto-Lock
               show_background: false
-              show_state: true 
+              show_state: false
               show_name: true
               tap_action:
                 action: toggle
@@ -84,8 +84,8 @@
               font-size: 9px;
             }
 
-            $(subButtonIcon[1].setAttribute('icon', 
-              subButtonState[1] === 'on' ? 'mdi:check-bold' : 'mdi:checkbox-blank-outline'))
+            ${subButtonIcon[1].setAttribute('icon', 
+              subButtonState[1] === 'on' ? 'mdi:checkbox-marked' : 'mdi:checkbox-blank-outline')}
 
             ${subButtonIcon[0].setAttribute('icon',
               subButtonState[0] === 100 ? 'mdi:battery' :
