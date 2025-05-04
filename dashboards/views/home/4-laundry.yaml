@@ -64,6 +64,9 @@
               ha-card {
                 width: max-content !important;
               }
+              .secondary {
+                color: var(--secondary-text-color)
+              }
           tap_action: 
             action: more-info
             entity: input_select.washing_machine_status
@@ -105,9 +108,9 @@
             {% endif %}
           icon: >
             {% if is_state('input_select.dryer_status', 'off') %}
-              mdi:washing-machine-off
+              mdi:tumble-dryer-off
             {% else %}
-              mdi:washing-machine
+              mdi:tumble-dryer
             {% endif %}
           icon_color: >
             {% if is_state('input_select.dryer_status', 'off') %}
@@ -148,6 +151,9 @@
             style: |
               ha-card {
                 width: max-content !important;
+              }
+              .secondary {
+                color: var(--secondary-text-color)
               }
           tap_action: 
             action: more-info
