@@ -52,6 +52,4 @@ living_room:
         light.torch_light: "off"
         light.arc_lamp: "off"
         light.twinkle_lights: "off"
-        living_room:
-          scenes:
 
