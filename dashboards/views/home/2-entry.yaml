@@ -25,16 +25,6 @@
                 service: lock.unlock
                 service_data:
                   entity_id: lock.front_door_lock
-        - entity: lock.front_door_lock
-          type: custom:multiple-entity-row
-          name: "Lock"
-          secondary_info: 
-            entity: sensor.front_door_lock_battery
-            hide_unavailable: true
-            name: Battery
-          state_color: true
-          show_state: false
-          entities:
         - entity: binary_sensor.front_door_contact
           type: custom:multiple-entity-row
           name: "Door"
