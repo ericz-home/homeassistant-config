@@ -30,12 +30,12 @@
                   entity_id: lock.front_door_lock
             styles: |
               .bubble-sub-button-2 {
-                background-color: ${state == "locked" ? var(--disable-text-color) : var(--info-color)};
+                background-color: ${state === 'locked' ? var(--disable-text-color) : var(--info-color)};
               }
               .bubble-sub-button-3 {
-                background-color: ${state == "unlocked" ? var(--disable-text-color) : var(--info-color)};
+                background-color: ${state === 'unlocked' ? var(--disable-text-color) : var(--info-color)};
               }
-              ${subButtonState[0].setAttribute("icon",
+              ${subButtonState[0].setAttribute('icon',
                 subButtonState[0] == 100 ? mdi:battery :
                 subButtonState[0] > 90 ? mdi:battery-90 :
                 subButtonState[0] > 80 ? mdi:battery-80 :
