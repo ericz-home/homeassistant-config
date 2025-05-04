@@ -90,6 +90,20 @@
                     entity_id: input_select.washing_machine_status
                     data:
                       option: off
+          card_mod:
+            style: |
+              mushroom-chips-card {
+                align-content: center;
+              }
+
+              .chips-container {
+                justify-content: flex-end ;
+              }
+
+              ha-card {
+                margin: 0 8px;
+              }
+
     - type: custom:vertical-stack-in-card
       horizontal: true
       cards:
@@ -169,7 +183,7 @@
                   state: completed
               chip:
                 type: action
-                icon: mdi:check-box-marked
+                icon: mdi:check-decagram
                 tap_action:
                   action: perform-action
                   perform_action: input_select.select_option
@@ -177,3 +191,17 @@
                     entity_id: input_select.dryer_status
                     data:
                       option: off
+          card_mod:
+            style: |
+              mushroom-chips-card {
+                align-content: center;
+              }
+
+              .chips-container {
+                justify-content: flex-end ;
+              }
+
+              ha-card {
+                margin: 0 8px;
+              }
+
