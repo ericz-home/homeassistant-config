@@ -6,6 +6,7 @@
     - type: custom:vertical-stack-in-card
       cards:
         - type: custom:bubble-card
+          card_type: button
           button_type: state
           entity: lock.front_door_lock
           name: Lock
