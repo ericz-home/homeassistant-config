@@ -95,7 +95,7 @@
               ha-card {
                 display: flex;
                 justify-content: flex-end;
-                margin: var(--chips-spacing);
+                margin: var(--chip-spacing);
               }
 
     - type: custom:vertical-stack-in-card
@@ -190,6 +190,6 @@
               ha-card {
                 display: flex;
                 justify-content: flex-end;
-                margin: var(--chips-spacing);
+                margin: var(--chip-spacing);
               }
 
