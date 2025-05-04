@@ -1,11 +1,13 @@
 - cards:
     - type: custom:bubble-card
+      card_type: separator
       name: 'Laundry'
       icon: mdi:washing-machine
     - type: custom:vertical-stack-in-card
       horizontal: true
       cards:
         - type: custom:mushroom-template-card
+          fill_container: true
           primary: 'Washing Machine'
           secondary: >
             {% if is_state('input_select.washing_machine_status', 'running') or 
@@ -53,29 +55,21 @@
                 var(--rgb-danger)
               {% endif %}
             {% endif %}
-        - type: custom:mod-card
-          card_mod:
-            style: |
-                ha-card {
-                  width:25% !important;
-                  float: right;
-                }
-          cards:
-            - type: custom:mushroom-chips-card
-              chips:
-                - type: conditional 
-                  conditions:
-                    - type: state
-                      entity_id: input_select.washing_machine_status
-                      state: completed
-                  chip:
-                    type: action
-                    icon: mdi:check-box-marked
-                    tap_action:
-                      action: perform-action
-                      perform_action: input_select.select_option
-                      target:
-                        entity_id: input_select.washing_machine_status
-                        data:
-                          option: off
+        - type: custom:mushroom-chips-card
+          chips:
+            - type: conditional 
+              conditions:
+                - type: state
+                  entity_id: input_select.washing_machine_status
+                  state: completed
+              chip:
+                type: action
+                icon: mdi:check-box-marked
+                tap_action:
+                  action: perform-action
+                  perform_action: input_select.select_option
+                  target:
+                    entity_id: input_select.washing_machine_status
+                    data:
+                      option: off
 
