@@ -71,7 +71,7 @@
               show_name: true
               tap_action:
                 action: toggle
-          styles: >
+          styles: |
             .bubble-wrapper {
               background-color: var(--card-background-color);
             }
@@ -85,7 +85,7 @@
             }
 
             $(subButtonIcon[1].setAttribute('icon', 
-              subButtonState[1] === 'on' ? 'mdi:checkbox' : 'mdi:checkbox-outline'))
+              subButtonState[1] === 'on' ? 'mdi:check-bold' : 'mdi:checkbox-blank-outline'))
 
             ${subButtonIcon[0].setAttribute('icon',
               subButtonState[0] === 100 ? 'mdi:battery' :
