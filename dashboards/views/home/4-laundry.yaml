@@ -7,7 +7,6 @@
       horizontal: true
       cards:
         - type: custom:mushroom-template-card
-          fill_container: true
           primary: 'Washing Machine'
           secondary: >
             {% if is_state('input_select.washing_machine_status', 'running') or 
@@ -55,6 +54,11 @@
                 var(--rgb-danger)
               {% endif %}
             {% endif %}
+          card_mod:
+            styles: |
+              ha-card {
+                width: max-content;
+              }
         - type: custom:mushroom-chips-card
           chips:
             - type: conditional 
