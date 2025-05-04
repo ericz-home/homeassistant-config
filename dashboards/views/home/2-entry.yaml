@@ -32,7 +32,7 @@
                 service_data:
                   entity_id: lock.front_door_lock
           styles: |
-            .bubble-button-container {
+            .bubble-content-container {
               background-color: 'var(--card-background-color)';
             }
             .bubble-sub-button-2 {
@@ -72,11 +72,17 @@
               tap_action:
                 action: toggle
           styles: |
-            .bubble-button-container {
+            .bubble-content-container {
               background-color: 'var(--card-background-color)';
             }
+            .bubble-sub-button-2 {
+              flex-direction: column-reverse;
+            }
+            .bubble-sub-button-2 > bubble-sub-button-name-container {
+              font-size: 10px;
+            }
             $(subButtonIcon[1].setAttribute('icon', 
-              subButtonState[1] === 'on' ? 'mdi:check-box-marked' : 'mdi:check-box-outline'))
+              subButtonState[1] === 'on' ? 'mdi:checkbox-marked' : 'mdi:checkbox-blank-outline'))
             ${subButtonIcon[0].setAttribute('icon',
               subButtonState[0] === 100 ? 'mdi:battery' :
               subButtonState[0] > 90 ? 'mdi:battery-90' :
