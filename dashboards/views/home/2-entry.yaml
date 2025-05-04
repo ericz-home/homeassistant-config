@@ -13,7 +13,7 @@
           name: Lock
           sub_button:
             - entity: sensor.front_door_lock_battery
-              icon: mdi:battery
+              icon: none
               show_state: true
               show_background: false
             - icon: mdi:lock
@@ -29,6 +29,9 @@
                 service_data:
                   entity_id: lock.front_door_lock
           styles: |
+            .bubble-card {
+              border: none;
+            }
             .bubble-sub-button-2 {
               background-color: ${state === 'locked' ? 'var(--disable-text-color)' : 'var(--info-color)'};
             }
@@ -47,16 +50,20 @@
               subButtonState[0] > 20 ? 'mdi:battery-20' :
               subButtonState[0] > 10 ? 'mdi:battery-10' :
               'mdi:battery-outline')}
-        - entity: binary_sensor.front_door_contact
-          type: custom:multiple-entity-row
-          name: "Door"
-          state_color: true
-          show_state: false
-          secondary_info:
-            entity: sensor.front_door_battery
-            hide_unavailable: true
-            name: Battery
-          entities:
+        - type: custom:bubble-card
+          card_type: button
+          button_type: state
+          entity: binary_sensor.front_door_contact
+          name: Door
+          sub_button:
+            - entity: sensor.front_door_battery
+              icon: none
+              show_state: true
+              show_background: false
             - entity: input_boolean.auto_lock_front_door
-              toggle: true
+              icon: none
               name: Auto-Lock
+              show_state: false
+              show_name: true
+              tap_action:
+                action: toggle
