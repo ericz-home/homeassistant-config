@@ -82,7 +82,7 @@
                   state: completed
               chip:
                 type: action
-                icon: mdi:check-box-marked
+                icon: mdi:check-decagram
                 tap_action:
                   action: perform-action
                   perform_action: input_select.select_option
@@ -92,16 +92,9 @@
                       option: off
           card_mod:
             style: |
-              mushroom-chips-card {
-                align-content: center;
-              }
-
-              .chips-container {
-                justify-content: flex-end ;
-              }
-
               ha-card {
-                margin: 0 8px;
+                display: flex;
+                justify-content: flex-end;
               }
 
     - type: custom:vertical-stack-in-card
@@ -193,15 +186,8 @@
                       option: off
           card_mod:
             style: |
-              mushroom-chips-card {
-                align-content: center;
-              }
-
-              .chips-container {
-                justify-content: flex-end ;
-              }
-
               ha-card {
-                margin: 0 8px;
+                display: flex;
+                justify-content: flex-end;
               }
 
