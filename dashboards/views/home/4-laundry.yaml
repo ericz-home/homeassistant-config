@@ -53,27 +53,29 @@
                 var(--rgb-danger)
               {% endif %}
             {% endif %}
+        - type: horizontal-stack 
           card_mod:
             style: |
-              mushroom-template-card {
-                flex-grow: 3;                
-              }
-
-        - type: custom:mushroom-chips-card
-          chips:
-            - type: conditional 
-              conditions:
-                - type: state
-                  entity_id: input_select.washing_machine_status
-                  state: completed
-              chip:
-                type: action
-                icon: mdi:check-box-marked
-                tap_action:
-                  action: perform-action
-                  perform_action: input_select.select_option
-                  target:
-                    entity_id: input_select.washing_machine_status
-                    data:
-                      option: off
+                ha-card {
+                  width:25% !important;
+                  float: right;
+                }
+          cards:
+            - type: custom:mushroom-chips-card
+              chips:
+                - type: conditional 
+                  conditions:
+                    - type: state
+                      entity_id: input_select.washing_machine_status
+                      state: completed
+                  chip:
+                    type: action
+                    icon: mdi:check-box-marked
+                    tap_action:
+                      action: perform-action
+                      perform_action: input_select.select_option
+                      target:
+                        entity_id: input_select.washing_machine_status
+                        data:
+                          option: off
 
