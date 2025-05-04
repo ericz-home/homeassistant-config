@@ -55,7 +55,7 @@
             {% endif %}
           card_mod:
             style: |
-              ha-card {
+              mushroom-template-card {
                 flex-grow: 3;                
               }
 
