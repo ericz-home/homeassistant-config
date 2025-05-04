@@ -1,6 +1,7 @@
 living_room:
   scene:
     - name: Living Room Hi
+      unique_id: living_room_hi
       icon: mdi:lightbulb-on-70
       entities:
         light.torch_light:
@@ -14,6 +15,7 @@ living_room:
         light.twinkle_lights: "on"
 
     - name: Living Room Mid
+      unique_id: living_room_mid
       icon: mdi:lightbulb-on-50
       entities:
         light.torch_light:
@@ -27,6 +29,7 @@ living_room:
         light.twinkle_lights: "on"
 
     - name: Living Room Lo
+      unique_id: living_room_lo
       icon: mdi:lightbulb-on-20
       entities:
         light.torch_light: "off"
@@ -34,6 +37,7 @@ living_room:
         light.twinkle_lights: "on"
 
     - name: Living Room Max
+      unique_id: living_room_max
       icon: mdi:lightbulb-on
       entities:
         light.twinkle_lights: "on"
@@ -47,6 +51,7 @@ living_room:
           brightness: 250
 
     - name: Living Room Off
+      unique_id: living_room_off
       icon: mdi:lightbulb-off-outline
       entities:
         light.torch_light: "off"
