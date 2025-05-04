@@ -4,6 +4,7 @@
       name: 'Entryway'
       icon: mdi:door
     - type: custom:vertical-stack-in-card
+      title: 🚪 Front Door
       cards:
         - type: custom:bubble-card
           card_type: button
@@ -29,8 +30,8 @@
                 service_data:
                   entity_id: lock.front_door_lock
           styles: |
-            .bubble-card {
-              border: none;
+            .bubble-button {
+              background-color: 'var(--card-background-color)';
             }
             .bubble-sub-button-2 {
               background-color: ${state === 'locked' ? 'var(--disable-text-color)' : 'var(--info-color)'};
@@ -63,7 +64,26 @@
             - entity: input_boolean.auto_lock_front_door
               icon: none
               name: Auto-Lock
+              show_background: false
               show_state: false
               show_name: true
               tap_action:
                 action: toggle
+          styles: |
+            .bubble-button {
+              background-color: 'var(--card-background-color)';
+            }
+            $(subButtonIcon[1].setAttribute('icon', 
+              subButtonState[1] === 'on' ? 'mdi:check-box-marked' : 'mdi:check-box-outline'))
+            ${subButtonIcon[0].setAttribute('icon',
+              subButtonState[0] === 100 ? 'mdi:battery' :
+              subButtonState[0] > 90 ? 'mdi:battery-90' :
+              subButtonState[0] > 80 ? 'mdi:battery-80' :
+              subButtonState[0] > 70 ? 'mdi:battery-70' :
+              subButtonState[0] > 60 ? 'mdi:battery-60' :
+              subButtonState[0] > 50 ? 'mdi:battery-50' :
+              subButtonState[0] > 40 ? 'mdi:battery-30' :
+              subButtonState[0] > 30 ? 'mdi:battery-30' :
+              subButtonState[0] > 20 ? 'mdi:battery-20' :
+              subButtonState[0] > 10 ? 'mdi:battery-10' :
+              'mdi:battery-outline')}
