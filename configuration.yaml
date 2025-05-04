@@ -19,10 +19,6 @@ http: !include http.yaml
 tts:
   - platform: google_translate
 
-scene: !include_dir_merge_list scenes
-
-automation config: !include_dir_merge_list automations/
-
 auth_oidc: !include auth_oidc.yaml
 
 device_tracker: !include_dir_merge_list device_trackers/

@@ -1,0 +1,50 @@
+lights:
+  automation:
+    - id: evening_lights
+      alias: "Turn on Living Room Lights"
+      triggers:
+        - trigger: state 
+          entity_id:
+            - person.eric
+            - person.laura
+          to: "home"
+        - trigger: sun
+          event: sunset
+          offset: "-00:15:00"
+      conditions:
+        - alias: "sun down"
+          condition: sun
+          after: sunset
+          after_offset: "-00:15:00"
+        - alias: "at home"
+          condition: state
+          entity_id: input_boolean.home_mode
+          state: "on"
+        - alias: "not away"
+          condition: state
+          entity_id: input_boolean.away_mode
+          state: "off"
+        - alias: "not sleep"
+          condition: state
+          entity_id: input_boolean.sleep_mode
+          state: "off"
+      actions:
+        - action: scene.turn_on
+          target:
+            entity_id: scene.living_room_mid
+        - action: notify.mobile_app_galaxys24
+          data: 
+            message: "Turned on lights in the living room."
+
+
+    - id: sleep_lights
+      alias: "Turn Off Living Room Lights"
+      triggers:
+        - trigger: state
+          entity_id: input_boolean.sleep_mode
+          from: "off"
+          to: "on"
+      actions:
+        - action: scene.turn_on
+          target:
+            entity_id: scene.living_room_off

@@ -1,0 +1,57 @@
+living_room:
+  scene:
+    - name: Living Room Hi
+      icon: mdi:lightbulb-on-70
+      entities:
+        light.torch_light:
+          state: "on"
+          color_temp_kelvin: 3500
+          brightness: 216
+        light.arc_lamp:
+          state: "on"
+          color_temp_kelvin: 3500
+          brightness: 216
+        light.twinkle_lights: "on"
+
+    - name: Living Room Mid
+      icon: mdi:lightbulb-on-50
+      entities:
+        light.torch_light:
+          state: "on"
+          color_temp_kelvin: 2500
+          brightness: 102
+        light.arc_lamp:
+          state: "on"
+          color_temp_kelvin: 2500
+          brightness: 102
+        light.twinkle_lights: "on"
+
+    - name: Living Room Lo
+      icon: mdi:lightbulb-on-20
+      entities:
+        light.torch_light: "off"
+        light.arc_lamp: "off"
+        light.twinkle_lights: "on"
+
+    - name: Living Room Max
+      icon: mdi:lightbulb-on
+      entities:
+        light.twinkle_lights: "on"
+        light.torch_light:
+          state: "on"
+          color_temp_kelvin: 4000
+          brightness: 250
+        light.arc_lamp:
+          state: "on"
+          color_temp_kelvin: 4000
+          brightness: 250
+
+    - name: Living Room Off
+      icon: mdi:lightbulb-off-outline
+      entities:
+        light.torch_light: "off"
+        light.arc_lamp: "off"
+        light.twinkle_lights: "off"
+        living_room:
+          scenes:
+
