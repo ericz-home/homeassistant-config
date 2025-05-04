@@ -12,6 +12,10 @@ auto_lock:
           at: 
             entity_id: sensor.galaxys24_next_alarm
             offset: -00:05:00
+        - trigger: state
+          entity_id: input_boolean.home_mode
+          from: "off"
+          to: "on"
       conditions:  
         - condition: state
           entity_id: input_boolean.auto_lock_front_door
