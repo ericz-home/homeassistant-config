@@ -70,5 +70,12 @@
                     entity_id: input_select.washing_machine_status
                     data:
                       option: off
+          card_mod:
+            style: |
+              ha-card {
+                alignment: end;
+                right: 10%;
+                margin-left: 3vw;
+              }
 
 
