@@ -1,5 +1,8 @@
-- title: 📺 TV Room
-  cards:
+- cards:
+    - type: custom:bubble-card
+      card_type: separator
+      name: 'TV Room'
+      icon: mdi:television
     # - type: "custom:config-template-card"
     #   variables:
     #     URL: states['sensor.mealie_todays_meal'].attributes['orgURL']
