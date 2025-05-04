@@ -10,7 +10,7 @@
           secondary: >
             {% if is_state('input_select.washing_machine_status', 'running') or 
               is_state('input_select.washing_machine_status', 'completed') %}
-              {{ relative_time(as_datetime(states('input_datetime.washing_machine.start'))) }}
+              {{ relative_time(as_datetime(states('input_datetime.washing_machine_start'))) }}
             {% endif %}
           icon: >
             {% if is_state('input_select.washing_machine_status', 'off') %}
@@ -20,13 +20,13 @@
             {% endif %}
           icon_color: >
             {% if is_state('input_select.washing_machine_status', 'off') %}
-              var(--secondary-text-color)
+              var(--rgb-disabled)
             {% elif is_state('input_select.washing_machine_status', 'running') %}
-              var(--success-color)
+              var(--rgb-success)
             {% elif is_state('input_select.washing_machine_status', 'completed') %}
-              var(--info-color)
+              var(--rgb-info)
             {% else %}
-              var(--error-color)
+              var(--rgb-warning)
             {% endif %}
           badge_icon: >
             {% if is_state('input_select.washing_machine_status', 'running') %}
@@ -38,21 +38,27 @@
             {% set t = now() - as_datetime(states('input_datetime.washing_machine_start')) %}
             {% if is_state('input_select.washing_machine_status', 'running') %}
               {% if t < timedelta(minutes=60) %}
-                var(--success-color)
+                var(--rgb-success)
               {% elif t < timedelta(minutes=75)}
-                var(--warning-color)
+                var(--rgb-warning)
               {% else %}
-                var(--amber-color)
+                var(--rgb-danger)
               {% endif %}
             {% elif is_state('input_select.washing_machine_status', 'completed') %}
               {% if t < timedelta(minutes=30) %}
-                var(--info-color)
+                var(--rgb-info)
               {% elif t < timedelta(minutes=60)}
-                var(--warning-color)
+                var(--rgb-warning)
               {% else %}
-                var(--error-color)
+                var(--rgb-danger)
               {% endif %}
             {% endif %}
+          card_mod:
+            style: |
+              ha-card {
+                flex-grow: 3;                
+              }
+
         - type: custom:mushroom-chips-card
           chips:
             - type: conditional 
@@ -70,12 +76,4 @@
                     entity_id: input_select.washing_machine_status
                     data:
                       option: off
-          card_mod:
-            style: |
-              ha-card {
-                alignment: end;
-                right: 10%;
-                margin-left: 3vw;
-              }
-
 
