@@ -32,7 +32,7 @@
                 service_data:
                   entity_id: lock.front_door_lock
           styles: |
-            .bubble-content-container {
+            .bubble-wrapper {
               background-color: 'var(--card-background-color)';
             }
             .bubble-sub-button-2 {
@@ -67,22 +67,26 @@
               icon: none
               name: Auto-Lock
               show_background: false
-              show_state: false
+              show_state: true 
               show_name: true
               tap_action:
                 action: toggle
-          styles: |
-            .bubble-content-container {
+          styles: >
+            .bubble-wrapper {
               background-color: 'var(--card-background-color)';
             }
+
             .bubble-sub-button-2 {
               flex-direction: column-reverse;
             }
-            .bubble-sub-button-2 > bubble-sub-button-name-container {
-              font-size: 10px;
+
+            .bubble-sub-button-2 > .bubble-sub-button-name-container {
+              font-size: 9px;
             }
+
             $(subButtonIcon[1].setAttribute('icon', 
               subButtonState[1] === 'on' ? 'mdi:checkbox-marked' : 'mdi:checkbox-blank-outline'))
+
             ${subButtonIcon[0].setAttribute('icon',
               subButtonState[0] === 100 ? 'mdi:battery' :
               subButtonState[0] > 90 ? 'mdi:battery-90' :
