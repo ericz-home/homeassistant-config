@@ -3,7 +3,7 @@
       card_type: separator
       name: 'Living Room'
       icon: mdi:sofa
-    - type: custom:mushroom-chips-card:
+    - type: custom:mushroom-chips-card
       chips:
         - icon: mdi:lightbulb-off-outline
           type: action
