@@ -55,7 +55,7 @@
               {% endif %}
             {% endif %}
           card_mod:
-            styles: |
+            style: |
               ha-card {
                 width: max-content;
               }
