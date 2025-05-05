@@ -5,7 +5,7 @@
       icon: mdi:television
     - type: media-control
       entity: media_player.sony_tv
-    - type: custom:mushroom-chips
+    - type: custom:mushroom-chips-card
       chips:
         - type: action
           icon: mdi:youtube
