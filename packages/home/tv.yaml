@@ -23,8 +23,8 @@ tv:
           target:
             entity_id: media_player.sony_xr_75x90j
           data:
-            media_content_id: {{ media_content_id }}
-            media_content_type: {{ media_content_type }}
+            media_content_id: "{{ media_content_id }}"
+            media_content_type: "{{ media_content_type }}"
 
 
 
