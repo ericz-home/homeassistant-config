@@ -20,7 +20,7 @@
             action: perform-action
             perform_action: script.play_tv
             data:
-              media_content_id: "AppleTV"
+              media_content_id: "Apple TV"
               media_content_type: "app"
         - type: template
           content: "max" 
@@ -31,19 +31,13 @@
             data:
               media_content_id: "Max"
               media_content_type: "app"
-          card_mod:
-            style: |
-              ha-card {
-                color: purple;
-
-              }
         - type: action
           icon: mdi:broadcast
           tap_action:
             action: perform-action
             perform_action: script.play_tv
             data:
-              media_content_id: 5
+              media_content_id: "King HD"
               media_content_type: "channel"
     - type: media-control
       entity: media_player.sony_tv
