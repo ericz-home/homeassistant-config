@@ -1,0 +1,30 @@
+tv:
+  script:
+    play_tv:
+      description: "play media on tv"
+      fields:
+        media_content_id:
+          description: "content id"
+        media_content_type:
+          description: "content type"
+      sequence:
+        - if: 
+            - alias: "tv is off"
+              condition: state
+              entity_id: media_player.sony_xr_75x90j
+              state: "off"
+          then:
+            - alias: "turn tv on"
+              action: media_player.turn_on
+              target:
+                entity_id: media_player.sony_xr_75x90j
+        - alias: "switch to media"
+          action: media_player.play_media
+          target:
+            entity_id: media_player.sony_xr_75x90j
+          data:
+            media_content_id: {{ media_content_id }}
+            media_content_type: {{ media_content_type }}
+
+
+
