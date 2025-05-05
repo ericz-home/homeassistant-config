@@ -24,10 +24,8 @@
             data:
               media_content_id: "AppleTV"
               media_content_type: "app"
-        - type: entity
-          entity: media_player.sony_tv
-          name: "max" 
-          content_info: "name"
+        - type: template
+          content: "max" 
           icon_color: purple
           tap_action:
             action: perform-action
