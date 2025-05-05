@@ -3,8 +3,6 @@
       card_type: separator
       name: 'TV Room'
       icon: mdi:television
-    - type: media-control
-      entity: media_player.sony_tv
     - type: custom:mushroom-chips-card
       chips:
         - type: action
@@ -33,6 +31,12 @@
             data:
               media_content_id: "Max"
               media_content_type: "app"
+          card_mod:
+            style: |
+              ha-card {
+                color: purple;
+
+              }
         - type: action
           icon: mdi:broadcast
           tap_action:
@@ -41,7 +45,8 @@
             data:
               media_content_id: 5
               media_content_type: "channel"
-
+    - type: media-control
+      entity: media_player.sony_tv
     - type: custom:bubble-card
       card_type: separator
       name: 'Laundry'
