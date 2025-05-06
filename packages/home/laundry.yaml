@@ -119,7 +119,7 @@ laundry:
           data:
             timestamp: "{{ now().timestamp() }}"
     - id: notify_laundry_completion
-      alias: "notify_laundry_complete"
+      alias: "Notify Laundry Complete"
       triggers:
         - trigger: state
           alias: "Washing machine cycle complete"

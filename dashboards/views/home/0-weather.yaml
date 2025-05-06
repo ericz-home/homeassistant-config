@@ -1,4 +1,6 @@
-- cards:
+- type: grid
+  column_span: 3
+  cards:
     - type: custom:bubble-card
       card_type: separator
       name: 'Climate'
