@@ -125,12 +125,12 @@ laundry:
           alias: "Washing machine cycle complete"
           entity_id: input_select.washing_machine_status
           from: running
-          to: complete
+          to: completed
         - trigger: state
           alias: "Dryer cycle complete"
           entity_id: input_select.dryer_status
           from: running
-          to: complete
+          to: completed
       actions:
         - action: script.notify_apps
           data: 

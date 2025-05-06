@@ -1,5 +1,4 @@
-- 
-  cards:
+- cards:
     - type: custom:bubble-card
       card_type: separator
       name: 'Climate'
@@ -11,7 +10,6 @@
       entity: weather.ksea
       show_state: true
       show_name: false
-      column_span: 3
       button_action:
         tap_action:
           action: navigate
