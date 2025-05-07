@@ -232,7 +232,5 @@
               alignment: end
               card_mod:
                 style: |
-                  .chip-container {
-                    margin: 8px;
-                  }
+                  ha-card { top: 20%; }
 
