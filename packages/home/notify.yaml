@@ -33,5 +33,5 @@ notifications:
             data:
               actions:
                 - action: "{{ action_key }}"
-                  action_title: "{{ action_title }}"
+                  title: "{{ action_title }}"
                 
