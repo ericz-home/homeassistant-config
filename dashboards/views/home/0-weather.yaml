@@ -1,105 +1,109 @@
-- cards:
-    - type: custom:bubble-card
-      card_type: separator
-      name: 'Climate'
-      icon: mdi:thermometer
-    - type: custom:bubble-card
-      card_type: button
-      card_layout: large
-      button_type: state
-      entity: weather.ksea
-      show_state: true
-      show_name: false
-      button_action:
-        tap_action:
-          action: navigate
-          navigation_path: '#weather'
-      sub_button:
-        - name: Temp
-          icon: mdi:thermometer
-          entity: weather.ksea
-          attribute: temperature
-          show_background: false
-          show_attribute: true
-        - name: AQI
-          icon: mdi:leaf
-          entity: sensor.olive_st_seattle_washington_usa_air_quality_index
-          show_background: false
-          show_state: true
-          show_icon: true
-        - name: Humidity 
-          icon: mdi:water
-          entity: weather.ksea
-          show_background: false
-          show_attribute: true
-          attribute: humidity
-          show_icon: true
-      styles: >
-          .bubble-sub-button {
-            padding: 0;
-          }
-
-          .bubble-sub-button-1 {
-            color:
-            ${hass.states[entity].attributes.temperature < 50 ? 
-              'var(--info-color)' :
-              hass.states[entity].attributes.temperature > 80 ?
-              'var(--amber-color)' :
-              hass.states[entity].attributes.temperature > 100 ?
-              'var(--error-color)' : '' }
-              ;
-          }
-          .bubble-sub-button-2 {
-            color: 
-            ${subButtonState[1] < 51 ? 
-              'var(--success-color)' :
-              subButtonState[1]  < 101 ?
-              'var(--warning-color)' :
-              subButtonState[1]  < 151 ?
-              'var(--orange-color)' :
-              subButtonState[1]  < 201 ?
-              'var(--error-color)' :
-              subButtonState[1]  < 301 ? 
-              'var(--purple-color)' : '#800000'}
-            ;
-          }
+- type: grid
+  column_span: 3
+  cards:
     - type: vertical-stack
       cards:
         - type: custom:bubble-card
-          card_type: pop-up
-          hash: '#weather'
-        - type: custom:vertical-stack-in-card
-          card_mod: 
-            style: |
-              ha-card {
-                border: none !important;
+          card_type: separator
+          name: 'Climate'
+          icon: mdi:thermometer
+        - type: custom:bubble-card
+          card_type: button
+          card_layout: large
+          button_type: state
+          entity: weather.ksea
+          show_state: true
+          show_name: false
+          button_action:
+            tap_action:
+              action: navigate
+              navigation_path: '#weather'
+          sub_button:
+            - name: Temp
+              icon: mdi:thermometer
+              entity: weather.ksea
+              attribute: temperature
+              show_background: false
+              show_attribute: true
+            - name: AQI
+              icon: mdi:leaf
+              entity: sensor.olive_st_seattle_washington_usa_air_quality_index
+              show_background: false
+              show_state: true
+              show_icon: true
+            - name: Humidity 
+              icon: mdi:water
+              entity: weather.ksea
+              show_background: false
+              show_attribute: true
+              attribute: humidity
+              show_icon: true
+          styles: >
+              .bubble-sub-button {
+                padding: 0;
               }
+
+              .bubble-sub-button-1 {
+                color:
+                ${hass.states[entity].attributes.temperature < 50 ? 
+                  'var(--info-color)' :
+                  hass.states[entity].attributes.temperature > 80 ?
+                  'var(--amber-color)' :
+                  hass.states[entity].attributes.temperature > 100 ?
+                  'var(--error-color)' : '' }
+                  ;
+              }
+              .bubble-sub-button-2 {
+                color: 
+                ${subButtonState[1] < 51 ? 
+                  'var(--success-color)' :
+                  subButtonState[1]  < 101 ?
+                  'var(--warning-color)' :
+                  subButtonState[1]  < 151 ?
+                  'var(--orange-color)' :
+                  subButtonState[1]  < 201 ?
+                  'var(--error-color)' :
+                  subButtonState[1]  < 301 ? 
+                  'var(--purple-color)' : '#800000'}
+                ;
+              }
+        - type: vertical-stack
           cards:
-          - type: custom:clock-weather-card
-            entity: weather.ksea
-            sun_entity: sun.sun
-            hide_date: true
-            hide_clock: true
-            show_humidity: true
-            hide_forecast_section: true
-            aqi_sensor: sensor.olive_st_seattle_washington_usa_air_quality_index
-          - type: custom:hourly-weather 
-            entity: weather.ksea
-            name: null
-            icons: true
-            round_temperatures: true
-            show_precipitation_amounts: true
-            show_precipitation_probability: true
-            card_mod:
-              style: |
-                ha-card {
-                  border: none !important;
-                }
-          - type: custom:clock-weather-card
-            sun_entity: sun.sun
-            entity: weather.ksea
-            forecast_rows: 5
-            hide_today_section: true
-          - type: "custom:horizon-card"
-            moon: false
-            refresh_period: 1800
+            - type: custom:bubble-card
+              card_type: pop-up
+              hash: '#weather'
+            - type: custom:vertical-stack-in-card
+              card_mod: 
+                style: |
+                  ha-card {
+                    border: none !important;
+                  }
+              cards:
+              - type: custom:clock-weather-card
+                entity: weather.ksea
+                sun_entity: sun.sun
+                hide_date: true
+                hide_clock: true
+                show_humidity: true
+                hide_forecast_section: true
+                aqi_sensor: sensor.olive_st_seattle_washington_usa_air_quality_index
+              - type: custom:hourly-weather 
+                entity: weather.ksea
+                name: null
+                icons: true
+                round_temperatures: true
+                show_precipitation_amounts: true
+                show_precipitation_probability: true
+                card_mod:
+                  style: |
+                    ha-card {
+                      border: none !important;
+                    }
+              - type: custom:clock-weather-card
+                sun_entity: sun.sun
+                entity: weather.ksea
+                forecast_rows: 5
+                hide_today_section: true
+              - type: "custom:horizon-card"
+                moon: false
+                refresh_period: 1800
