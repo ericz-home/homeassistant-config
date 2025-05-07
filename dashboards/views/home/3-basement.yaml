@@ -233,7 +233,7 @@
               card_mod:
                 style: |
                   ha-card {
-                    margin: 8px;
-                    padding: 8px;
+                    top: 20%;
+                    right: 10%;
                   }
 
