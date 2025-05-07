@@ -233,7 +233,8 @@
               card_mod:
                 style: |
                   ha-card { 
-                    position: relative;
-                    top: 20% !important;
+                    width: fit-content;
+                    left: 70%;
+                    top: 25%;
                   }
 
