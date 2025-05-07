@@ -132,12 +132,11 @@
                     entity_id: input_select.washing_machine_status
                   data:
                     option: 'off'
+          alignment: end
           card_mod:
             style: |
-              ha-card {
-                display: flex;
-                flex-direction: row-reverse;
-                margin: var(--chip-spacing);
+              ha-card { 
+                margin: var(--chips-spacing);
               }
 
     - type: custom:vertical-stack-in-card
@@ -227,10 +226,13 @@
                     entity_id: input_select.dryer_status
                   data:
                     option: 'off'
-          alignment: end
           card_mod:
             style: |
               ha-card { 
-                width: fit-content;
+                min-height: 100%;
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: center;
+                align-items: center;
               }
 
