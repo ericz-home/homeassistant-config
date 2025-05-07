@@ -212,6 +212,7 @@
             entity: binary_sensor.dryer_vibration
           hold_action: none
         - type: vertical-stack
+          cards:
             type: custom:mushroom-chips-card
             chips:
               - type: conditional 
