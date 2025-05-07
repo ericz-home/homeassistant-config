@@ -193,6 +193,8 @@
                 var(--rgb-danger)
               {% endif %}
             {% endif %}
+          fill_container: true
+          layout: horizontal
           card_mod:
             style: |
               ha-card {
