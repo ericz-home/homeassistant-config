@@ -232,5 +232,5 @@
               alignment: end
               card_mod:
                 style: |
-                  ha-card { top: 20%; }
+                  ha-card { padding: 8px !important; }
 
