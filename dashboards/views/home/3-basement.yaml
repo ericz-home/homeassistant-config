@@ -230,4 +230,8 @@
                       data:
                         option: 'off'
               alignment: end
+              style: |
+                ha-card {
+                  margin: var(--chip-spacing);
+                }
 
