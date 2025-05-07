@@ -136,7 +136,7 @@
             style: |
               ha-card {
                 display: flex;
-                justify-content: flex-end;
+                flex-direction: row-reverse;
                 margin: var(--chip-spacing);
               }
 
@@ -231,7 +231,7 @@
             style: |
               ha-card {
                 display: flex;
-                justify-content: flex-end;
+                flex-direction: row-reverse;
                 margin: var(--chip-spacing);
               }
 
