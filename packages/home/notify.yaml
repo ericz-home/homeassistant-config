@@ -13,3 +13,25 @@ notifications:
           data:
             title: "{{ title }}"
             message: "{{ message }}"
+    notify_single_action_apps:
+      description: "push notifications to mobile apps with actions"
+      fields:
+        title:
+          description: "heading of the notification"
+        message: 
+          description: "body of the notification"
+        action_key:
+          description: "key for the event"
+        action_title:
+          description: "button title on the notification"
+      sequence:
+        - alias: "notify eric"
+          action: notify.mobile_app_galaxys24
+          data:
+            title: "{{ title }}"
+            message: "{{ message }}"
+            data:
+              actions:
+                - action: "{{ action_key }}"
+                  action_title: "{{ action_title }}"
+                

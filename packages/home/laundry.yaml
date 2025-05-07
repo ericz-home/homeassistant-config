@@ -132,9 +132,21 @@ laundry:
           from: running
           to: completed
       actions:
-        - action: script.notify_apps
+        - action: script.notify_single_action_apps
           data: 
             title: "Laundry"
             message: "{{ trigger.alias }}."
+            action_key: "finish_laundry"
+            action_title: "Finish"
+        - wait_for_trigger:
+            - platform: event
+              event_type: mobile_app_notification_action
+              event_data:
+                action: "finish_laundry"
+        - action: input_select.select_option
+          target:
+            entity_id: "{{ trigger.entity_id }}"
+          data:
+            option: "off"
           
 
