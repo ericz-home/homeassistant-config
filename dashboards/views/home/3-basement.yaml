@@ -213,21 +213,21 @@
           hold_action: none
         - type: vertical-stack
           cards:
-            type: custom:mushroom-chips-card
-            chips:
-              - type: conditional 
-                conditions:
-                  - entity: input_select.dryer_status
-                    state: completed
-                chip:
-                  type: action
-                  icon: mdi:check-decagram
-                  tap_action:
-                    action: perform-action
-                    perform_action: input_select.select_option
-                    target:
-                      entity_id: input_select.dryer_status
-                    data:
-                      option: 'off'
-            alignment: end
+            - type: custom:mushroom-chips-card
+              chips:
+                - type: conditional 
+                  conditions:
+                    - entity: input_select.dryer_status
+                      state: completed
+                  chip:
+                    type: action
+                    icon: mdi:check-decagram
+                    tap_action:
+                      action: perform-action
+                      perform_action: input_select.select_option
+                      target:
+                        entity_id: input_select.dryer_status
+                      data:
+                        option: 'off'
+              alignment: end
 
