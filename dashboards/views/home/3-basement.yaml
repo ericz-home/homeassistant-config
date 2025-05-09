@@ -228,5 +228,5 @@
           card_mod:
             style: |
               ha-card { 
-                margin: var(--chips-spacing);
+                margin: var(--chip-spacing);
               }
