@@ -104,6 +104,7 @@
             style: |
               ha-card {
                 width: max-content !important;
+                min-width: 150%;
               }
               .secondary {
                 color: var(--rgb-secondary-text)
@@ -205,6 +206,7 @@
             style: |
               ha-card {
                 width: max-content !important;
+                min-width: 150%;
               }
               .secondary {
                 color: var(--rgb-secondary-text)
