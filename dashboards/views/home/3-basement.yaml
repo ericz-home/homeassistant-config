@@ -137,7 +137,7 @@
               ha-card { 
                 position: absolute;
                 right: 0px;
-                margin: var(--chips-spacing);
+                margin: var(--chip-spacing);
               }
 
     - type: custom:vertical-stack-in-card
@@ -228,6 +228,8 @@
                 button:
                   position: absolute
                   right: 0px
+                  top: 0px
+                  margin: 6px
                   display: |
                     {% if is_state('input_select.dryer_status', 'completed') %}
                       flex 
