@@ -27,5 +27,3 @@ resources:
     type: module
   - url: /local/community/Bubble-Card/bubble-card.js
     type: module
-  - url: /local/community/lovelace-paper-buttons-row/paper-buttons-row.js
-    type: module
