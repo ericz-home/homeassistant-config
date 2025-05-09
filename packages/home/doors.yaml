@@ -1,0 +1,39 @@
+doors:
+  automation:
+    - id: detect_door_open
+      alias: "Detect Door Open"
+      triggers:
+        - trigger: state
+          entity_id: binary_sensor.front_door_contact
+          from: "off"
+          to: "on"
+        - trigger: state
+          entity_id: binary_sensor.sliding_door_contact
+          from: "off"
+          to: "on"
+      conditions:
+        - alias: "not at home"
+          condition: state
+          entity_id: input_boolean.home_mode
+          state: "off"
+      actions:
+        - action: script.notify_apps
+          data:
+            title: "Doors"
+            message: "{{ state_attr(trigger.entity_id, 'friendly_name') }} is open."
+
+    - id: detect_front_door_open
+      alias: "Detect Door Left Open"
+      triggers:
+        - trigger: state
+          entity_id: binary_sensor.front_door_contact
+          to: "on"
+          for: 
+            seconds: 30
+      actions:
+        - action: script.notify_apps
+          data:
+            title: "Doors"
+            message: "Front Door left open for 30 seconds."
+
+

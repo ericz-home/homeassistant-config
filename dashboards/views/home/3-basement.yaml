@@ -241,5 +241,4 @@
             style: |
               ha-card {
                 padding: var(--chip-spacing);
-                width: fit-content;
               }
