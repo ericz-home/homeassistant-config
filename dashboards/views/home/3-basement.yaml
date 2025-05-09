@@ -151,6 +151,8 @@
           }
       cards:
         - type: custom:mushroom-template-card
+          fill_container: true
+          layout: horizontal
           primary: 'Dryer'
           secondary: >
             {% set age = relative_time(as_datetime(states('input_datetime.dryer_start'))) %}
