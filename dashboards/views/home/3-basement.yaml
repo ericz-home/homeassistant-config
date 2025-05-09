@@ -143,6 +143,11 @@
 
     - type: custom:vertical-stack-in-card
       horizontal: true
+      card_mod:
+        styles: |
+          mushroom-template-card {
+            flex-grow: 3; 
+          }
       cards:
         - type: custom:mushroom-template-card
           primary: 'Dryer'
@@ -224,14 +229,14 @@
                 target:
                   entity_id: input_select.dryer_status
                 data:
-                    option: 'off'
+                  option: 'off'
               styles:
                 button:
                   position: absolute
                   right: 0px
+                  border-radius: 19px
                   top: 0px
                   margin: 6px
-                  width: fit-content
                   display: |
                     {% if is_state('input_select.dryer_status', 'completed') %}
                       flex 
