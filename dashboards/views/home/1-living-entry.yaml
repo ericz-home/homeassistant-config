@@ -5,10 +5,8 @@
       icon: mdi:door
     - type: custom:vertical-stack-in-card
       cards:
-        - type: custom:bubble-card
-          card_type: separator
-          name: 'Front Door'
-          icon: mdi:lock-smart
+        - type: custom:mushroom-title-card
+          title: 'Front Door'
         - type: custom:bubble-card
           card_type: button
           card_layout: large

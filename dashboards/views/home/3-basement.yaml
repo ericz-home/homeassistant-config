@@ -141,92 +141,96 @@
     - type: custom:vertical-stack-in-card
       horizontal: true
       cards:
-        - type: custom:mushroom-template-card
-          primary: 'Dryer'
-          secondary: >
-            {% set age = relative_time(as_datetime(states('input_datetime.dryer_start'))) %}
-            {% if is_state('input_select.dryer_status', 'running') %} 
-              Running for {{ age }}.
-            {% elif is_state('input_select.dryer_status', 'completed') %}
-              Completed {{ age }} ago.
-            {% elif is_state('input_select.dryer_status', 'off') %}
-              Last ran {{ age }} ago.
-            {% endif %}
-          icon: >
-            {% if is_state('input_select.dryer_status', 'off') %}
-              mdi:tumble-dryer-off
-            {% else %}
-              mdi:tumble-dryer
-            {% endif %}
-          icon_color: >
-            {% if is_state('input_select.dryer_status', 'off') %}
-              var(--rgb-disabled)
-            {% elif is_state('input_select.dryer_status', 'running') %}
-              var(--rgb-success)
-            {% elif is_state('input_select.dryer_status', 'completed') %}
-              var(--rgb-info)
-            {% else %}
-              var(--rgb-warning)
-            {% endif %}
-          badge_icon: >
-            {% if is_state('input_select.dryer_status', 'running') %}
-              mdi:flash
-            {% elif is_state('input_select.dryer_status', 'completed') %}
-              mdi:timer-sand
-            {% endif %}
-          badge_color: >
-            {% set t = now() - as_local(as_datetime(states('input_datetime.dryer_start'))) %}
-            {% if is_state('input_select.dryer_status', 'running') %}
-              {% if t < timedelta(minutes=60) %}
-                var(--rgb-success)
-              {% elif t < timedelta(minutes=75) %}
-                var(--rgb-warning)
-              {% else %}
-                var(--rgb-danger)
-              {% endif %}
-            {% elif is_state('input_select.dryer_status', 'completed') %}
-              {% if t < timedelta(minutes=30) %}
-                var(--rgb-info)
-              {% elif t < timedelta(minutes=60) %}
-                var(--rgb-warning)
-              {% else %}
-                var(--rgb-danger)
-              {% endif %}
-            {% endif %}
-          card_mod:
-            style: |
-              ha-card {
-                width: max-content !important;
-              }
-              .secondary {
-                color: var(--rgb-secondary-text)
-              }
-          tap_action: 
-            action: more-info
-            entity: input_select.dryer_status
-          double_tap_action:
-            action: more-info
-            entity: binary_sensor.dryer_vibration
-          hold_action: none
-        - type: custom:mushroom-chips-card
-          chips:
-            - type: conditional 
-              conditions:
-                - entity: input_select.dryer_status
-                  state: completed
-              chip:
-                type: action
-                icon: mdi:check-decagram
-                tap_action:
-                  action: perform-action
-                  perform_action: input_select.select_option
-                  target:
-                    entity_id: input_select.dryer_status
-                  data:
-                    option: 'off'
-          alignment: end
-          card_mod:
-            style: |
-              ha-card { 
-                margin: var(--chips-spacing);
-              }
+        - type: grid
+          columns: 2
+          square: false
+          cards:
+            - type: custom:mushroom-template-card
+              primary: 'Dryer'
+              secondary: >
+                {% set age = relative_time(as_datetime(states('input_datetime.dryer_start'))) %}
+                {% if is_state('input_select.dryer_status', 'running') %} 
+                  Running for {{ age }}.
+                {% elif is_state('input_select.dryer_status', 'completed') %}
+                  Completed {{ age }} ago.
+                {% elif is_state('input_select.dryer_status', 'off') %}
+                  Last ran {{ age }} ago.
+                {% endif %}
+              icon: >
+                {% if is_state('input_select.dryer_status', 'off') %}
+                  mdi:tumble-dryer-off
+                {% else %}
+                  mdi:tumble-dryer
+                {% endif %}
+              icon_color: >
+                {% if is_state('input_select.dryer_status', 'off') %}
+                  var(--rgb-disabled)
+                {% elif is_state('input_select.dryer_status', 'running') %}
+                  var(--rgb-success)
+                {% elif is_state('input_select.dryer_status', 'completed') %}
+                  var(--rgb-info)
+                {% else %}
+                  var(--rgb-warning)
+                {% endif %}
+              badge_icon: >
+                {% if is_state('input_select.dryer_status', 'running') %}
+                  mdi:flash
+                {% elif is_state('input_select.dryer_status', 'completed') %}
+                  mdi:timer-sand
+                {% endif %}
+              badge_color: >
+                {% set t = now() - as_local(as_datetime(states('input_datetime.dryer_start'))) %}
+                {% if is_state('input_select.dryer_status', 'running') %}
+                  {% if t < timedelta(minutes=60) %}
+                    var(--rgb-success)
+                  {% elif t < timedelta(minutes=75) %}
+                    var(--rgb-warning)
+                  {% else %}
+                    var(--rgb-danger)
+                  {% endif %}
+                {% elif is_state('input_select.dryer_status', 'completed') %}
+                  {% if t < timedelta(minutes=30) %}
+                    var(--rgb-info)
+                  {% elif t < timedelta(minutes=60) %}
+                    var(--rgb-warning)
+                  {% else %}
+                    var(--rgb-danger)
+                  {% endif %}
+                {% endif %}
+              card_mod:
+                style: |
+                  ha-card {
+                    width: max-content !important;
+                  }
+                  .secondary {
+                    color: var(--rgb-secondary-text)
+                  }
+              tap_action: 
+                action: more-info
+                entity: input_select.dryer_status
+              double_tap_action:
+                action: more-info
+                entity: binary_sensor.dryer_vibration
+              hold_action: none
+            - type: custom:mushroom-chips-card
+              chips:
+                - type: conditional 
+                  conditions:
+                    - entity: input_select.dryer_status
+                      state: completed
+                  chip:
+                    type: action
+                    icon: mdi:check-decagram
+                    tap_action:
+                      action: perform-action
+                      perform_action: input_select.select_option
+                      target:
+                        entity_id: input_select.dryer_status
+                      data:
+                        option: 'off'
+              alignment: end
+              card_mod:
+                style: |
+                  ha-card { 
+                    margin-top: var(--chips-spacing);
+                  }
