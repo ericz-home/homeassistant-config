@@ -208,25 +208,46 @@
             action: more-info
             entity: binary_sensor.dryer_vibration
           hold_action: none
-        - type: custom:mushroom-chips-card
-          chips:
-            - type: conditional 
-              conditions:
-                - entity: input_select.dryer_status
-                  state: completed
-              chip:
-                type: action
-                icon: mdi:check-decagram
-                tap_action:
-                  action: perform-action
-                  perform_action: input_select.select_option
-                  target:
-                    entity_id: input_select.dryer_status
-                  data:
-                    option: 'off'
-          alignment: end
-          card_mod:
-            style: |
-              mushroom-conditional-chip { 
-                margin: var(--chip-spacing);
-              }
+        - type: custom:paper-buttons-row
+          preset: mushroom
+          styles:
+            justify-content: flex-end
+          base_config:
+            styles:
+              button:
+                margin: 6px
+                display: |
+                  {% if is_state('input_select.dryer_status', 'completed') %}
+                    block
+                  {% else %}
+                    none
+                  {% endif %}
+          tap_action:
+            action: perform-action
+            perform_action: input_select.select_option
+            target:
+              entity_id: input_select.dryer_status
+            data:
+              option: 'off'
+        # - type: custom:mushroom-chips-card
+        #   chips:
+        #     - type: conditional 
+        #       conditions:
+        #         - entity: input_select.dryer_status
+        #           state: completed
+        #       chip:
+        #         type: action
+        #         icon: mdi:check-decagram
+        #         tap_action:
+        #           action: perform-action
+        #           perform_action: input_select.select_option
+        #           target:
+        #             entity_id: input_select.dryer_status
+        #           data:
+        #             option: 'off'
+        #   alignment: end
+        #   card_mod:
+        #     style: |
+        #       mushroom-conditional-chip { 
+        #         margin: var(--chip-spacing);
+        #       }
