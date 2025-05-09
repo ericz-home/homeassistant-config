@@ -145,7 +145,7 @@
       horizontal: true
       card_mod:
         styles: |
-          mushroom-template-card {
+          ha-card > mushroom-template-card {
             flex-grow: 3; 
           }
       cards:
@@ -227,7 +227,8 @@
                 action: call-service
                 service: input_select.select_option
                 target:
-                  entity_id: input_select.dryer_status
+                  entity_id: 
+                    - input_select.dryer_status
                 data:
                   option: 'off'
               styles:
