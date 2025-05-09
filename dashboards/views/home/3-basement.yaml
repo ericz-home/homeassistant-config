@@ -210,6 +210,13 @@
           hold_action: none
         - type: custom:paper-buttons-row
           preset: mushroom
+          styles:
+            justify-content: flex-end
+          base_config:
+            styles:
+              button:
+                margin-top: 12px
+                margin-right: 12px
           buttons:
             - layout: icon
               icon: mdi:check-decagram
