@@ -227,6 +227,6 @@
           alignment: end
           card_mod:
             style: |
-              ha-card { 
+              mushroom-conditional-chip { 
                 margin: var(--chip-spacing);
               }
