@@ -216,15 +216,16 @@
             - layout: icon
               icon: mdi:check-decagram
               tap_action:
-                action: perform-action
-                perform_action: input_select.select_option
+                action: call-service
+                service: input_select.select_option
                 target:
                   entity_id: input_select.dryer_status
                 data:
                     option: 'off'
               styles:
                 button:
-                  margin: 6px
+                  position: absolute
+                  right: 0px
                   display: |
                     {% if is_state('input_select.dryer_status', 'completed') %}
                       flex 
