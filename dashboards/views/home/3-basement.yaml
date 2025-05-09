@@ -227,7 +227,7 @@
                   margin: 6px
                   display: |
                     {% if is_state('input_select.dryer_status', 'completed') %}
-                      block
+                      flex 
                     {% else %}
                       none
                     {% endif %}
