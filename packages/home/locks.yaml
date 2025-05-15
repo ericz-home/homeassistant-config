@@ -56,7 +56,7 @@ locks:
           from: "on"
           to: "off"
           for: 
-            seconds: 2
+            seconds: 1
       conditions:
         - condition: state
           entity_id: input_boolean.auto_lock_front_door
