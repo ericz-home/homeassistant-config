@@ -9,10 +9,6 @@ dashboards:
 resources:
   - url: /local/community/lovelace-horizon-card/lovelace-horizon-card.js
     type: module
-  - url: /local/community/config-template-card/config-template-card.js
-    type: module
-  - url: /local/community/lovelace-multiple-entity-row/multiple-entity-row.js
-    type: module
   - url: /local/community/lovelace-multiple-entity-row/multiple-entity-row.js
     type: module
   - url: /local/community/lovelace-mushroom/mushroom.js
