@@ -23,3 +23,5 @@ resources:
     type: module
   - url: /local/community/Bubble-Card/bubble-card.js
     type: module
+  - url: /local/community/lovelace-auto-entities/auto-entities.js
+    type: module

@@ -1,0 +1,27 @@
+path: batteries
+title: Batteries
+icon: mdi:battery-charging
+type: sections
+sections:
+  - cards:
+      - type: custom:bubble-card
+        card_type: separator
+        name: 'Sensors'
+        icon: mdi:chip
+      - type: custom:auto-entities
+        card: 
+          type: tile
+        filter:
+          include:
+            domain: 'sensor',
+            attributes:
+              state_class: 'measurement'
+              device_class: 'battery'
+              unit_of_measurement: '%'
+        sort:
+          method: state
+          reverse: true
+          numeric: true
+
+
+
