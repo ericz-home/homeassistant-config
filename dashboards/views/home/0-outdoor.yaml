@@ -117,7 +117,7 @@
           name: 'Car'
           icon: mdi:car
         - type: custom:mushroom-template-card
-          # entity: sensor.my_ev6_ev_battery_level
+          entity: sensor.my_ev6_ev_battery_level
           fill_container: true
           primary: |
             Battery: {{ states('sensor.my_ev6_ev_battery_level') }}%
@@ -132,7 +132,7 @@
             mdi:garage-variant
             {% endif %}
           icon: >
-            mdi:battery
+            mdi:battery-charging-outline
           icon_color: >
             {% set level = int(states(entity)) %}
             {% if is_state('binary_sensor.my_ev6_ev_battery_charge', 'on') %}
@@ -145,6 +145,8 @@
               {% else %}
                 var(--rgb-success)
               {% endif %}
+            {% else %}
+              var(--rgb-disabled)
             {% endif %}
 
     - type: vertical-stack
