@@ -215,6 +215,7 @@
           icon: mdi:battery-alert
           sub_button:
             - icon: mdi:arrow-expand
+              show_background: false
               tap_action:
                 action: navigate
                 navigation_path: '#batteries'
