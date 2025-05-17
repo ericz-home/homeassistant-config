@@ -126,9 +126,9 @@
                   state: 'on'
               chip:
                 type: template
-                icon: mdi:power-plug
+                icon: mdi:ev-station
                 content: |
-                  {{ time_until(now() + timedelta(minutes=int(states('sensor.my_ev6_estimated_charge_duration'))), 2) }}  
+                  {{ time_until(now() + timedelta(minutes=int(states('sensor.my_ev6_estimated_charge_duration'))), 1) }}  
             - type: spacer
             - type: template
               entity: sensor.my_ev6_last_updated_at
@@ -158,7 +158,7 @@
           secondary: >
             Est: {{ states('sensor.my_ev6_ev_range') }} mi 
             
-            {% if (now() - as_local(as_datetime(input_datetime(states('input_datetime.ev6_last_full_charge'))) > timedelta(days=30) %}
+            {% if (now() - as_datetime(as_datetime(states('input_datetime.ev6_last_full_charge')))) > timedelta(days=30) %}
             Last full charge was {{ relative_time(as_datetime(states('input_datetime.ev6_last_full_charge'))) }} ago.
             {% endif %}
           badge_icon: >

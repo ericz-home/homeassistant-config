@@ -82,7 +82,7 @@
               mdi:timer-sand
             {% endif %}
           badge_color: >
-            {% set t = now() - as_local(as_datetime(states('input_datetime.washing_machine_start'))) %}
+            {% set t = now() - as_datetime(states('input_datetime.washing_machine_start')) %}
             {% if is_state('input_select.washing_machine_status', 'running') %}
               {% if t < timedelta(minutes=60) %}
                 var(--rgb-success)
@@ -186,7 +186,7 @@
               mdi:timer-sand
             {% endif %}
           badge_color: >
-            {% set t = now() - as_local(as_datetime(states('input_datetime.dryer_start'))) %}
+            {% set t = now() - as_datetime(states('input_datetime.dryer_start')) %}
             {% if is_state('input_select.dryer_status', 'running') %}
               {% if t < timedelta(minutes=60) %}
                 var(--rgb-success)
