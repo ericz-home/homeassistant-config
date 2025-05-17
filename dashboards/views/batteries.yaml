@@ -13,11 +13,11 @@ sections:
           type: tile
         filter:
           include:
-            domain: 'sensor'
-            attributes:
-              state_class: 'measurement'
-              device_class: 'battery'
-              unit_of_measurement: '%'
+            - domain: 'sensor'
+            - attributes:
+                state_class: 'measurement'
+                device_class: 'battery'
+                unit_of_measurement: '%'
         sort:
           method: state
           reverse: true
