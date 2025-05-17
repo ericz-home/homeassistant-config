@@ -121,7 +121,7 @@
           fill_container: true
           primary: |
             Battery: {{ states('sensor.my_ev6_ev_battery_level') }}%
-          secondary: |
+          secondary: >
             Est: {{ states('sensor.my_ev6_ev_range') }} mi
             {% if is_state('binary_sensor.my_ev6_ev_battery_charge', 'on') %}
             Charging {{ relative_time(timedelta(minutes=int(states('sensor.my_ev6_estimated_charge_duration')))) }} til done.
@@ -169,7 +169,10 @@
             {% else %}
               var(--rgb-disabled)
             {% endif %}
-
+          tap_action:
+            action: more-info
+          double_tap_action: none
+          hold_aciton: none
     - type: vertical-stack
       cards:
         - type: custom:auto-entities
