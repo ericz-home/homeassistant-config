@@ -211,6 +211,10 @@
       cards:
         - type: custom:bubble-card
           card_type: separator
+          name: 'Battery'
+          icon: mdi:battery-sync
+        - type: custom:bubble-card
+          card_type: separator
           name: 'Low Battery'
           icon: mdi:battery-alert
         - type: custom:auto-entities
@@ -232,4 +236,28 @@
           sort:
             method: state
             numeric: true
+        - type: custom:bubble-card
+          card_type: separator
+          name: 'Others'
+          icon: mdi:battery
+        - type: custom:auto-entities
+          card: 
+            type: grid
+            columns: 1
+            square: false
+          show_empty: false
+          card_param: cards
+          filter:
+            include:
+              - integration: mqtt
+                attributes:
+                  device_class: 'battery'
+                  state_class: 'measurement'
+                state: '>= 30'
+                options:
+                  type: tile
+          sort:
+            method: state
+            numeric: true
+
 
