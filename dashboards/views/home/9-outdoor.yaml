@@ -118,10 +118,10 @@
           icon: mdi:car
         - type: custom:mushroom-chips-card
           chips:
-            - type: alarm-control-panel
+            - type: entity
               entity: lock.my_ev6_door_lock
-              content_info: |
-                Doors {{ states(entity) }}
+              name: Doors
+              content_info: name
               icon_color: >
                 {% if is_state(entity, 'Unlocked') %}
                 var(--rgb-warning)
