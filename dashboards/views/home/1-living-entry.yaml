@@ -29,7 +29,7 @@
         }
 
         .bubble-sub-button-2 {
-          flex-direction: 'column-reverse';
+          flex-direction: column-reverse;
           font-size: 9px;
           margin-top: 10px;
         }
