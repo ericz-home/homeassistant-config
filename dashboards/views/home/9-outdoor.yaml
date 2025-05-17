@@ -211,12 +211,12 @@
       cards:
         - type: custom:bubble-card
           card_type: separator
-          name: 'Battery'
-          icon: mdi:battery-sync
-        - type: custom:bubble-card
-          card_type: separator
           name: 'Low Battery'
           icon: mdi:battery-alert
+          button_action:
+            tap_action:
+              action: navigate
+              navigation_path: '#batteries'
         - type: custom:auto-entities
           card: 
             type: grid
@@ -236,14 +236,19 @@
           sort:
             method: state
             numeric: true
+    - type: vertical-stack 
+      cards:
+        - type: custom:bubble-card
+          card_type: pop-up
+          hash: '#batteries'
         - type: custom:bubble-card
           card_type: separator
-          name: 'Others'
-          icon: mdi:battery
+          name: 'Batteries'
+          icon: mdi:battery-sync
         - type: custom:auto-entities
           card: 
             type: grid
-            columns: 1
+            columns: 2
             square: false
           show_empty: false
           card_param: cards
@@ -253,7 +258,6 @@
                 attributes:
                   device_class: 'battery'
                   state_class: 'measurement'
-                state: '>= 30'
                 options:
                   type: tile
           sort:

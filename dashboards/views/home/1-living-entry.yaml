@@ -24,10 +24,6 @@
           tap_action:
             action: toggle
       styles: |
-        .bubble-wrapper {
-          background-color: var(--card-background-color);
-        }
-
         .bubble-sub-button-2 {
           flex-direction: column-reverse;
           font-size: 9px;
