@@ -217,6 +217,12 @@
                     entity: device_tracker.my_ev6_location
                     content_info: none
                     icon: mdi:garage-variant
+              card_mod:
+                style: |
+                  ha-card > .chip-container {
+                    flex-direction: row-reverse;
+                    margin: var(--chip-spacing);
+                  }
     - type: vertical-stack
       cards:
         - type: custom:bubble-card
