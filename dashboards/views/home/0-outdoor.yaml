@@ -131,7 +131,29 @@
             {% if is_state('device_tracker.my_ev6_location', 'home') %}
             mdi:garage-variant
             {% endif %}
-          icon: mdi:battery-charging-outline
+          icon: >
+            {% set level = int(states(entity)) %}
+            {% if is_state('binary_sensor.my_ev6_ev_battery_charge', 'on') %}
+              {% if level < 10 %}
+                mdi:battery-charging-outline
+              {% elif level < 40 %}
+                mdi:battery-charging-low
+              {% elif level < 70 %}
+                mdi:battery-charging-medium
+              {% else %}
+                mdi:battery-charging-high
+              {% endif %}
+            {% else %}
+              {% if level < 10 %}
+                mdi:battery-outline
+              {% elif level < 40 %}
+                mdi:battery-low
+              {% elif level < 70 %}
+                mdi:battery-medium
+              {% else %}
+                mdi:battery-high
+              {% endif %}
+            {% endif %}
           icon_color: >
             {% set level = int(states(entity)) %}
             {% if is_state('binary_sensor.my_ev6_ev_battery_charge', 'on') %}
