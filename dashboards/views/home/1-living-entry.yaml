@@ -24,7 +24,7 @@
             action: toggle
       styles: |
         .bubble-sub-button-1 {
-          background-color: ${subButtonState[0] === 'on' ? var(--accent-color) : ""};
+          background-color: ${subButtonState[0] === 'on' ? var(--accent-color) : var(--bubble-button-background-color)};
         }
 
         .bubble-sub-button-2 {
