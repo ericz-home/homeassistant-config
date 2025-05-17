@@ -118,7 +118,7 @@
           icon: mdi:car
         - type: custom:mushroom-chips-card
           chips:
-            - type: entity
+            - type: alarm-control-panel
               entity: lock.my_ev6_door_lock
               name: Doors
             - type: conditional
