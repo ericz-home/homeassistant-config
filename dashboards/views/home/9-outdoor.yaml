@@ -118,6 +118,19 @@
           icon: mdi:car
         - type: custom:mushroom-chips-card
           chips:
+            - type: entity
+              entity: lock.my_ev6_door_lock
+              name: Doors
+            - type: conditional
+              conditions:
+                - entity: binary_sensor.my_ev6_ev_battery_charge
+                  state: 'on'
+              chip:
+                type: template
+                icon: mdi:ev-plug-ccs1
+                content: |
+                  {{ time_until(now() + timedelta(minutes=int(states('sensor.my_ev6_estimated_charge_duration'))), 2) }}  
+            - type: spacer
             - type: template
               entity: sensor.my_ev6_last_updated_at
               icon: mdi:update
@@ -130,15 +143,6 @@
                 perform_action: kia_uvo.force_update
                 data:
                   device_id: 81ca1ff26a217b8a89b6a0a9f62c3920
-            - type: conditional
-              conditions:
-                - entity: binary_sensor.my_ev6_ev_battery_charge
-                  state: 'on'
-              chip:
-                type: template
-                icon: mdi:ev-plug-ccs1
-                content: |
-                  {{ time_until(now() + timedelta(minutes=int(states('sensor.my_ev6_estimated_charge_duration'))), 2) }}  
         - type: custom:mushroom-template-card
           entity: sensor.my_ev6_ev_battery_level
           fill_container: true
@@ -212,7 +216,7 @@
                 attributes:
                   device_class: 'battery'
                   state_class: 'measurement'
-                state: '< 90'
+                state: '< 30'
                 options:
                   type: tile
           sort:
