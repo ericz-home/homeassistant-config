@@ -135,11 +135,8 @@
           alignment: end
           card_mod:
             style: |
-              ha-card { 
-                position: absolute;
-                right: var(--chip-spacing);
-                top: var(--chip-spacing);
-                width: fit-content;
+              ha-card > .chip-container { 
+                margin: var(--chip-spacing);
               }
 
     - type: custom:vertical-stack-in-card
@@ -239,6 +236,6 @@
           alignment: end
           card_mod:
             style: |
-              ha-card {
-                padding: var(--chip-spacing);
+              ha-card > .chip-container { 
+                margin: var(--chip-spacing);
               }
