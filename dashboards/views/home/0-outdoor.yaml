@@ -127,7 +127,7 @@
             Charging {{ relative_time(timedelta(minutes=states('sensor.my_ev6_estimated_charge_duration'))) }} til done.
             {% endif %}
           multiline_secondary: true
-          badge_icon: 
+          badge_icon: |
             {% if is_state('device_tracker.my_ev6_location', 'home') %}
             mdi:garage-variant
             {% endif %}
