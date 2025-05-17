@@ -125,10 +125,10 @@
           secondary: >
             Est: {{ states('sensor.my_ev6_ev_range') }} mi 
 
-            Last Updated: {{ relative_time(now() - as_datetime(states('sensor.my_ev6_last_updated_at'))) }} ago.
+            Last Updated: {{ relative_time(as_datetime(states('sensor.my_ev6_last_updated_at'))) }} ago.
 
             {% if is_state('binary_sensor.my_ev6_ev_battery_charge', 'on') %} 
-            Charging {{ relative_time(timedelta(minutes=int(states('sensor.my_ev6_estimated_charge_duration')))) }} til done.  
+            Charging {{ relative_time(now() + timedelta(minutes=int(states('sensor.my_ev6_estimated_charge_duration')))) }} til done.  
             {% endif %}
           multiline_secondary: true
           badge_icon: >
