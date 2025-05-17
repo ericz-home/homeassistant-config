@@ -140,13 +140,6 @@
                 perform_action: kia_uvo.force_update
                 data:
                   device_id: 81ca1ff26a217b8a89b6a0a9f62c3920
-        - type: tile
-          entity: sensor.my_ev6_ac_charging_limit
-          name: "AC Charging Limit"
-          features_position: inline
-          features:
-            - type: numeric-input
-              style: buttons
         - type: custom:mushroom-template-card
           entity: sensor.my_ev6_ev_battery_level
           fill_container: true
@@ -201,6 +194,13 @@
             action: more-info
           double_tap_action: none
           hold_action: none
+        - type: tile
+          entity: number.my_ev6_ac_charging_limit
+          name: "AC Charging Limit"
+          features_position: inline
+          features:
+            - type: numeric-input
+              style: buttons
     - type: vertical-stack
       cards:
         - type: custom:bubble-card
