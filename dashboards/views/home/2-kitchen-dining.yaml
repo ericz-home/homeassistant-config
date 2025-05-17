@@ -28,25 +28,6 @@
       button_type: state
       entity: binary_sensor.sliding_door_contact
       name: Sliding Door
-      sub_button:
-        - entity: sensor.sliding_door_battery
-          icon: none
-          show_state: true
-          show_background: false
       styles: |
         ${icon.setAttribute('icon', 
           state  === 'on' ? 'mdi:door-sliding-open' : 'mdi:door-sliding')}
-
-        ${subButtonIcon[0].setAttribute('icon',
-          subButtonState[0] === 100 ? 'mdi:battery' :
-          subButtonState[0] > 90 ? 'mdi:battery-90' :
-          subButtonState[0] > 80 ? 'mdi:battery-80' :
-          subButtonState[0] > 70 ? 'mdi:battery-70' :
-          subButtonState[0] > 60 ? 'mdi:battery-60' :
-          subButtonState[0] > 50 ? 'mdi:battery-50' :
-          subButtonState[0] > 40 ? 'mdi:battery-30' :
-          subButtonState[0] > 30 ? 'mdi:battery-30' :
-          subButtonState[0] > 20 ? 'mdi:battery-20' :
-          subButtonState[0] > 10 ? 'mdi:battery-10' :
-          'mdi:battery-outline')}
-
