@@ -68,9 +68,10 @@ modes:
               state_attr('sensor.galaxys24_next_alarm', 'Package') != 'com.google.android.deskclock' }}
         - trigger: state
           entity_id: binary_sensor.galaxys24_interactive
-          state: "on"
+          to: "on"
+          from: "off"
           for:
-            minutes: 20
+            minutes: 15
       conditions:
         - alias: "morning"
           or:
