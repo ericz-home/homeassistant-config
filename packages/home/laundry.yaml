@@ -33,7 +33,7 @@ laundry:
           entity_id: binary_sensor.washing_machine_vibration
           to: "on"
           for: 
-            seconds: 10
+            seconds: 8
       conditions:
         - condition: state
           entity_id: input_select.washing_machine_status
