@@ -15,9 +15,9 @@ sections:
           include:
             - attributes:
                 device_class: 'battery'
+                state_class: 'measurement'
         sort:
           method: state
-          reverse: true
           numeric: true
 
 
