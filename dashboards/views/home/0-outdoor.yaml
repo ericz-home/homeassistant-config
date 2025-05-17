@@ -123,9 +123,9 @@
             Battery: {{ states('sensor.my_ev6_ev_battery_level') }}%
           secondary: |
             Est: {{ states('sensor.my_ev6_ev_range') }} mi
-            {% if is_state('binary_sensor.my_ev6_ev_battery_charge', 'on') %}
-            Charging {{ relative_time(timedelta(minutes=states('sensor.my_ev6_estimated_charge_duration'))) }} til done.
-            {% endif %}
+          # {% if is_state('binary_sensor.my_ev6_ev_battery_charge', 'on') %}
+          # Charging {{ relative_time(timedelta(minutes=states('sensor.my_ev6_estimated_charge_duration'))) }} til done.
+          # {% endif %}
           multiline_secondary: true
           badge_icon: >
             {% if is_state('device_tracker.my_ev6_location', 'home') %}
