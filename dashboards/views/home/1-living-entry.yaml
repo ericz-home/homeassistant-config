@@ -28,17 +28,6 @@
           background-color: var(--card-background-color);
         }
 
-        .bubble-sub-button {
-          flex-direction: column-reverse;
-          font-weight: ${state === 'on' ? 'bold' : ''};
-          margin-top: 18px;
-        }
-
-        .bubble-sub-button-2 > .bubble-sub-button-name-container {
-          font-size: 9px;
-          color: var(--secondary-text-color)
-        }
-
         ${subButtonIcon[1].setAttribute('icon', 
           subButtonState[1] === 'on' ? 'mdi:checkbox-marked' : 'mdi:checkbox-blank-outline')}
 
