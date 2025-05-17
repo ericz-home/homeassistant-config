@@ -117,7 +117,7 @@
           name: 'Car'
           icon: mdi:car
         - type: custom:mushroom-template-card
-          entity: sensor.my_ev6_ev_battery_level
+          # entity: sensor.my_ev6_ev_battery_level
           fill_container: true
           primary: |
             Battery: {{ states(entity) }}%
