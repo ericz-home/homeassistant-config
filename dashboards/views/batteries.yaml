@@ -16,9 +16,9 @@ sections:
             - attributes:
                 device_class: 'battery'
                 state_class: 'measurement'
+          exclude:
+            - integration: mobile_app
         sort:
           method: state
           numeric: true
-
-
 
