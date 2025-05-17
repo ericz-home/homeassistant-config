@@ -131,8 +131,7 @@
             {% if is_state('device_tracker.my_ev6_location', 'home') %}
             mdi:garage-variant
             {% endif %}
-          icon: >
-            mdi:battery-charging-outline
+          icon: mdi:battery-charging-outline
           icon_color: >
             {% set level = int(states(entity)) %}
             {% if is_state('binary_sensor.my_ev6_ev_battery_charge', 'on') %}
