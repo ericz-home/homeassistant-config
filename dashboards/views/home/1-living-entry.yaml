@@ -14,7 +14,6 @@
       sub_button:
         - entity: binary_sensor.front_door_contact
           show_state: true
-          show_background: false
         - entity: input_boolean.auto_lock_front_door
           icon: none
           name: Auto-Lock
@@ -24,6 +23,10 @@
           tap_action:
             action: toggle
       styles: |
+        .bubble-sub-button-1 {
+          background-color: ${subButtonState[0] === 'on' ? var(--accent-color) : ""};
+        }
+
         .bubble-sub-button-2 {
           flex-direction: column-reverse;
           font-size: 9px;
