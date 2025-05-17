@@ -213,7 +213,7 @@
           card_type: separator
           name: 'Low Battery'
           icon: mdi:battery-alert
-          sub_buttons:
+          sub_button:
             - icon: mdi:arrow-expand
               tap_action:
                 action: navigate
