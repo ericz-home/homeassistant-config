@@ -120,7 +120,12 @@
           chips:
             - type: alarm-control-panel
               entity: lock.my_ev6_door_lock
-              name: Doors
+              content_info: |
+                Doors {{ states(entity) }}
+              icon_color: >
+                {% if is_state(entity, 'Unlocked') %}
+                var(--rgb-warning)
+                {% endif }
             - type: conditional
               conditions:
                 - entity: binary_sensor.my_ev6_ev_battery_charge
