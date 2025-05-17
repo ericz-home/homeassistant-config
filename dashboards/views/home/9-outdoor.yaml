@@ -118,13 +118,15 @@
           icon: mdi:car
         - type: custom:mushroom-chips-card
           chips:
+            - type: entity
+              entity: number.my_ev6_ac_charging_limit
             - type: conditional
               conditions:
                 - entity: binary_sensor.my_ev6_ev_battery_charge
                   state: 'on'
               chip:
                 type: template
-                icon: mdi:ev-plug-ccs1
+                icon: mdi:power-plug
                 content: |
                   {{ time_until(now() + timedelta(minutes=int(states('sensor.my_ev6_estimated_charge_duration'))), 2) }}  
             - type: spacer
@@ -135,11 +137,18 @@
                 {{ relative_time(as_datetime(states('sensor.my_ev6_last_updated_at'))) }} ago
               tap_action:
                 action: more-info
+              double_tap-action:
+                action: perform-action
+                perform_action: kia_uvo.update
+                data:
+                  device_id: 81ca1ff26a217b8a89b6a0a9f62c3920
+                confirmation: "Are you sure you want to update car?"
               hold_action:
                 action: perform-action
                 perform_action: kia_uvo.force_update
                 data:
                   device_id: 81ca1ff26a217b8a89b6a0a9f62c3920
+                confirmation: "Are you sure you want to force update car?"
         - type: custom:mushroom-template-card
           entity: sensor.my_ev6_ev_battery_level
           fill_container: true
@@ -194,13 +203,6 @@
             action: more-info
           double_tap_action: none
           hold_action: none
-        - type: tile
-          entity: number.my_ev6_ac_charging_limit
-          name: "AC Charging Limit"
-          features_position: inline
-          features:
-            - type: numeric-input
-              style: buttons
     - type: vertical-stack
       cards:
         - type: custom:bubble-card
