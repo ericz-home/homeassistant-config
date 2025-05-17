@@ -120,7 +120,7 @@
           # entity: sensor.my_ev6_ev_battery_level
           fill_container: true
           primary: |
-            Battery: {{ states(entity) }}%
+            Battery: {{ states('sensor.my_ev6_ev_battery_level') }}%
           secondary: |
             Est: {{ states('sensor.my_ev6_ev_range') }} mi
             {% if is_state('binary_sensor.my_ev6_ev_battery_charge', 'on') %}
