@@ -137,18 +137,18 @@
                 {{ relative_time(as_datetime(states('sensor.my_ev6_last_updated_at'))) }} ago
               tap_action:
                 action: more-info
-              double_tap-action:
+              double_tap_action:
                 action: perform-action
                 perform_action: kia_uvo.update
                 data:
                   device_id: 81ca1ff26a217b8a89b6a0a9f62c3920
-                confirmation: "Are you sure you want to update car?"
+                confirmation: true
               hold_action:
                 action: perform-action
                 perform_action: kia_uvo.force_update
                 data:
                   device_id: 81ca1ff26a217b8a89b6a0a9f62c3920
-                confirmation: "Are you sure you want to force update car?"
+                confirmation: true
         - type: custom:mushroom-template-card
           entity: sensor.my_ev6_ev_battery_level
           fill_container: true
