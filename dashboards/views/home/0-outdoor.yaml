@@ -116,6 +116,29 @@
           card_type: separator
           name: 'Car'
           icon: mdi:car
+        - type: custom:mushroom-chips-card
+          chips:
+            - type: template
+              entity: sensor.my_ev6_last_updated_at
+              icon: mdi:update
+              content: |
+                {{ relative_time(as_datetime(states('sensor.my_ev6_last_updated_at'))) }} ago
+              tap_action:
+                action: more-info
+              hold_action:
+                action: perform-action
+                perform_action: kia_uvo.force_update
+                data:
+                  device_id: 81ca1ff26a217b8a89b6a0a9f62c3920
+            - type: conditional
+              conditions:
+                - entity: sensor.my_ev6_ev_battery_charge
+                  state: 'on'
+              chip:
+                type: template
+                icon: mdi:ev-plug-ccs1
+                content: |
+                  {{ time_until(now() + timedelta(minutes=int(states('sensor.my_ev6_estimated_charge_duration'))), 2) }}  
         - type: custom:mushroom-template-card
           entity: sensor.my_ev6_ev_battery_level
           fill_container: true
@@ -124,12 +147,6 @@
             Battery: {{ states('sensor.my_ev6_ev_battery_level') }}%
           secondary: >
             Est: {{ states('sensor.my_ev6_ev_range') }} mi 
-
-            Last Updated: {{ relative_time(as_datetime(states('sensor.my_ev6_last_updated_at'))) }} ago.
-            {% if is_state('binary_sensor.my_ev6_ev_battery_charge', 'on') %} 
-            Charging {{ time_until(now() + timedelta(minutes=int(states('sensor.my_ev6_estimated_charge_duration'))), 2) }} til done.  
-            {% endif %}
-          multiline_secondary: true
           badge_icon: >
             {% if is_state('device_tracker.my_ev6_location', 'home') %}
             mdi:garage-variant
