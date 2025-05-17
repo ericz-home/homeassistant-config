@@ -13,7 +13,6 @@ sections:
           type: tile
         filter:
           include:
-            - domain: 'number'
             - attributes:
                 state_class: 'measurement'
                 device_class: 'battery'
