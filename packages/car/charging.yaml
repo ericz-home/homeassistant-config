@@ -32,12 +32,12 @@ car:
             title: "Car"
             message: >
               Charging complete. Currently at {{ state('sensor.my_ev6_ev_battery_level') }}. Estimated range {{ state('sensor.my_ev6_ev_range') }}
-    - id: charge_full
-      alias: "Charged to 100%"
+    - id: charged_full
+      alias: "Charged to Full"
       triggers:
         - trigger: state
           entity_id: binary_sensor.my_ev6_ev_battery_level
-          to: 100
+          to: '100'
       actions:
         - action: input_datetime.set_datetime
           target:
