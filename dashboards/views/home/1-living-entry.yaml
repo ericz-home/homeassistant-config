@@ -28,10 +28,10 @@
           background-color: var(--card-background-color);
         }
 
-        .bubble-sub-button-2 {
+        .bubble-sub-button {
           flex-direction: column-reverse;
           font-weight: ${state === 'on' ? 'bold' : ''};
-          margin-top: 20px;
+          margin-top: 18px;
         }
 
         .bubble-sub-button-2 > .bubble-sub-button-name-container {
