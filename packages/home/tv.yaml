@@ -20,6 +20,8 @@ tv:
                 entity_id: media_player.sony_xr_75x90j
             - alias: "wait for tv to turn on"
               wait_template: "{{ is_state('media_player.sony_xr_75x90j', 'on') }}"
+            - alias: "wait for tv to be idle"
+              wait_template: "{{ is_state('media_player.basement_tv', 'idle') }}"
         - alias: "switch to media"
           action: media_player.play_media
           target:
