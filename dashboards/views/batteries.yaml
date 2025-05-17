@@ -10,7 +10,7 @@ sections:
         icon: mdi:chip
       - type: custom:auto-entities
         card: 
-          type: tile
+          type: glance
         filter:
           include:
             - attributes:
