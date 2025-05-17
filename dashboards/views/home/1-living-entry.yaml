@@ -3,93 +3,47 @@
       card_type: separator
       name: 'Entryway'
       icon: mdi:door
-    - type: custom:vertical-stack-in-card
-      cards:
-        - type: custom:bubble-card
-          card_type: separator
-          name: 'Front Door'
-          icon: mdi:lock-smart
-        - type: custom:bubble-card
-          card_type: button
-          card_layout: large
-          button_type: state
-          entity: lock.front_door_lock
-          name: Lock
+    - type: custom:bubble-card
+      card_type: button
+      card_layout: large
+      button_type: state
+      entity: lock.front_door_lock
+      name: Front Door
+      tap_action:
+        action: toggle
+      sub_button:
+        - entity: binary_sensor.front_door_contact
+          show_state: true
+          show_bakground: true
+        - entity: input_boolean.auto_lock_front_door
+          icon: none
+          name: Auto-Lock
+          show_background: false
+          show_state: false
+          show_name: true
           tap_action:
             action: toggle
-          sub_button:
-            - entity: sensor.front_door_lock_battery
-              icon: none
-              show_state: true
-              show_background: false
-          styles: |
-            .bubble-wrapper {
-              background-color: var(--card-background-color);
-            }
+      styles: |
+        .bubble-wrapper {
+          background-color: var(--card-background-color);
+        }
 
-            ${icon.setAttribute('icon', state === 'locked' ? 'mdi:lock' : 'mdi:lock-open-variant')} 
+        .bubble-sub-button-2 {
+          flex-direction: column-reverse;
+          font-weight: ${state === 'on' ? 'bold' : ''};
+          margin-top: 20px;
+        }
 
-            ${subButtonIcon[0].setAttribute('icon',
-              subButtonState[0] === 100 ? 'mdi:battery' :
-              subButtonState[0] > 90 ? 'mdi:battery-90' :
-              subButtonState[0] > 80 ? 'mdi:battery-80' :
-              subButtonState[0] > 70 ? 'mdi:battery-70' :
-              subButtonState[0] > 60 ? 'mdi:battery-60' :
-              subButtonState[0] > 50 ? 'mdi:battery-50' :
-              subButtonState[0] > 40 ? 'mdi:battery-30' :
-              subButtonState[0] > 30 ? 'mdi:battery-30' :
-              subButtonState[0] > 20 ? 'mdi:battery-20' :
-              subButtonState[0] > 10 ? 'mdi:battery-10' :
-              'mdi:battery-outline')}
-        - type: custom:bubble-card
-          card_type: button
-          button_type: state
-          entity: binary_sensor.front_door_contact
-          name: Door
-          sub_button:
-            - entity: input_boolean.auto_lock_front_door
-              icon: none
-              name: Auto-Lock
-              show_background: false
-              show_state: false
-              show_name: true
-              tap_action:
-                action: toggle
-            - entity: sensor.front_door_battery
-              icon: none
-              show_state: true
-              show_background: false
-          styles: |
-            .bubble-wrapper {
-              background-color: var(--card-background-color);
-            }
+        .bubble-sub-button-2 > .bubble-sub-button-name-container {
+          font-size: 9px;
+          color: var(--secondary-text-color)
+        }
 
-            .bubble-sub-button-1 {
-              flex-direction: column-reverse;
-              font-weight: ${state === 'on' ? 'bold' : ''};
-              margin-top: 20px;
-            }
+        ${subButtonIcon[1].setAttribute('icon', 
+          subButtonState[1] === 'on' ? 'mdi:checkbox-marked' : 'mdi:checkbox-blank-outline')}
 
-            .bubble-sub-button-1 > .bubble-sub-button-name-container {
-              font-size: 9px;
-              color: var(--secondary-text-color)
-            }
+        ${icon.setAttribute('icon', state === 'locked' ? 'mdi:lock' : 'mdi:lock-open-variant')} 
 
-            ${subButtonIcon[0].setAttribute('icon', 
-              subButtonState[0] === 'on' ? 'mdi:checkbox-marked' : 'mdi:checkbox-blank-outline')}
-
-            ${subButtonIcon[1].setAttribute('icon',
-              subButtonState[1] === 100 ? 'mdi:battery' :
-              subButtonState[1] > 90 ? 'mdi:battery-90' :
-              subButtonState[1] > 80 ? 'mdi:battery-80' :
-              subButtonState[1] > 70 ? 'mdi:battery-70' :
-              subButtonState[1] > 60 ? 'mdi:battery-60' :
-              subButtonState[1] > 50 ? 'mdi:battery-50' :
-              subButtonState[1] > 40 ? 'mdi:battery-30' :
-              subButtonState[1] > 30 ? 'mdi:battery-30' :
-              subButtonState[1] > 20 ? 'mdi:battery-20' :
-              subButtonState[1] > 10 ? 'mdi:battery-10' :
-              'mdi:battery-outline')}
     - type: custom:bubble-card
       card_type: separator
       name: 'Living Room'
