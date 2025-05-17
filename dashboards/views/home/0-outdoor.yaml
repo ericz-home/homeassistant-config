@@ -132,7 +132,7 @@
             mdi:garage-variant
             {% endif %}
           icon: >
-            mdi:battery-charging
+            mdi:battery-charging-outline
           icon_color: >
             {% set level = int(states(entity)) %}
             {% if is_state('binary_sensor.my_ev6_ev_battery_charge', 'on') %}
