@@ -158,7 +158,7 @@
           secondary: >
             Est: {{ states('sensor.my_ev6_ev_range') }} mi 
             
-            {% if (now() - as_datetime(as_datetime(states('input_datetime.ev6_last_full_charge')))) > timedelta(days=30) %}
+            {% if (now() - as_local(as_datetime(states('input_datetime.ev6_last_full_charge')))) > timedelta(days=30) %}
             Last full charge was {{ relative_time(as_datetime(states('input_datetime.ev6_last_full_charge'))) }} ago.
             {% endif %}
           badge_icon: >
