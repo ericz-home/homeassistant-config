@@ -14,7 +14,8 @@ sections:
         card_param: cards
         filter:
           include:
-            - attributes:
+            - integration: mqtt
+              attributes:
                 device_class: 'battery'
                 state_class: 'measurement'
               options:
@@ -25,3 +26,39 @@ sections:
           method: state
           numeric: true
 
+  - cards:
+      - type: custom:bubble-card
+        card_type: separator
+        name: 'Car'
+        icon: mdi:car
+      - type: custom:mushroom-template-card
+        entity: sensor.my_ev6_ev_battery_level
+        primary: |
+          Battery: {{ states(entity) }}%
+        secondary: |
+          Est: {{ states('sensor.my_ev6_ev_range') }} mi
+          {% if is_state('binary_sensor.my_ev6_ev_battery_charge', 'on') %}
+          Charging {{ relative_time(timedelta(minutes=states('sensor.my_ev6_estimated_charge_duration'))) }} til done.
+          {% endif %}
+        multiline_secondary: true
+        badge_icon: |
+          {% if is_state('binary_sensor.my_ev6_ev_battery_charge', 'on') %}
+          mdi:ev-plug-ccs1
+          {% endif %}
+        badge_color: |
+          {% set level = states(binary_sensor.my_ev6_ev_battery_charge) %}
+          {% if is_state('binary_sensor.my_ev6_ev_battery_charge', 'on') %}
+            {% if level < 40 %}
+              var(--rgb-danger)
+            {% elif level < 70 %}
+              var(--rgb-warning)
+            {% else  %}
+              var(--rgb-success)
+            {% endif %}
+          {% endif %}
+        icon: mdi:car-battery
+        entity_id:
+          - sensor.my_ev6_ev_battery_level
+          - sensor.my_ev6_ev_range
+          - binary_sensor.my_ev6_ev_battery_charge
+          - sensor.my_ev6_estimated_charge_duration
