@@ -11,7 +11,8 @@ car:
         - action: script.notify_apps
           data:
             title: "Car"
-            message: "Charging started. Currently at {{ state('sensor.my_ev6_ev_battery_level') }}. Estimated charge duration {{ time_until(now() + as_datetime(state('sensor.my_ev6_estimated_charge_duration')), 2) }}".
+            message: >
+              Charging started. Currently at {{ state('sensor.my_ev6_ev_battery_level') }}. Estimated charge duration {{ time_until(now() + as_datetime(state('sensor.my_ev6_estimated_charge_duration')), 2) }}.
     - id: charging_stopped
       alias: "Charging Stopped"
       triggers:
@@ -23,4 +24,5 @@ car:
         - action: script.notify_apps
           data:
             title: "Car"
-            message: "Charging complete. Currently at {{ state('sensor.my_ev6_ev_battery_level') }}. Estimated range {{ state('sensor.my_ev6_ev_range') }}
+            message: >
+              Charging complete. Currently at {{ state('sensor.my_ev6_ev_battery_level') }}. Estimated range {{ state('sensor.my_ev6_ev_range') }}
