@@ -197,7 +197,9 @@
       cards:
         - type: custom:auto-entities
           card: 
-            type: custom:vertical-stack-in-card
+            type: grid
+            columns: 1
+            square: false
             title: '🪫 Low Battery'
           show_empty: false
           card_param: cards
@@ -207,7 +209,7 @@
                 attributes:
                   device_class: 'battery'
                   state_class: 'measurement'
-                state: '< 30'
+                state: '< 90'
                 options:
                   type: tile
           sort:
