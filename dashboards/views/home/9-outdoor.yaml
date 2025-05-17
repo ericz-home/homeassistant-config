@@ -118,14 +118,6 @@
           icon: mdi:car
         - type: custom:mushroom-chips-card
           chips:
-            - type: entity
-              entity: lock.my_ev6_door_lock
-              name: Doors
-              content_info: name
-              icon_color: >
-                {% if is_state(entity, 'Unlocked') %}
-                var(--rgb-warning)
-                {% endif }
             - type: conditional
               conditions:
                 - entity: binary_sensor.my_ev6_ev_battery_charge
@@ -201,7 +193,7 @@
           tap_action:
             action: more-info
           double_tap_action: none
-          hold_aciton: none
+          hold_action: none
     - type: vertical-stack
       cards:
         - type: custom:bubble-card
