@@ -127,11 +127,11 @@
             Charging {{ relative_time(timedelta(minutes=states('sensor.my_ev6_estimated_charge_duration'))) }} til done.
             {% endif %}
           multiline_secondary: true
-          badge_icon: |
+          badge_icon: >
             {% if is_state('device_tracker.my_ev6_location', 'home') %}
             mdi:garage-variant
             {% endif %}
-          icon: |
+          icon: >
             {% set level = states(entity) %}
             {% if is_state('binary_sensor.my_ev6_ev_battery_charge', 'on') %}
               {% if level < 10 %}
@@ -154,22 +154,19 @@
                 mdi:battery-high
               {% endif %}
             {% endif %}
-          icon_color: |
-            {% set level = states(entity) %}
-            {% if level < 10 %}
-              var(--rgb-danger)
-            {% elif level < 40 %}
-              var(--rgb-danger)
-            {% elif level < 70 %}
-              var(--rgb-warning)
-            {% else %}
-              var(--rgb-success)
+          icon_color: >
+            {% if is_state('binary_sensor.my_ev6_ev_battery_charge', 'on') %}
+              {% set level = states(entity) %}
+              {% if level < 10 %}
+                var(--rgb-danger)
+              {% elif level < 40 %}
+                var(--rgb-danger)
+              {% elif level < 70 %}
+                var(--rgb-warning)
+              {% else %}
+                var(--rgb-success)
+              {% endif %}
             {% endif %}
-          entity_id:
-            - sensor.my_ev6_ev_battery_level
-            - sensor.my_ev6_ev_range
-            - binary_sensor.my_ev6_ev_battery_charge
-            - sensor.my_ev6_estimated_charge_duration
 
     - type: vertical-stack
       cards:
@@ -177,6 +174,7 @@
           card: 
             type: custom:vertical-stack-in-card
             title: '🪫 Low Battery'
+          show_empty: false
           card_param: cards
           filter:
             include:
