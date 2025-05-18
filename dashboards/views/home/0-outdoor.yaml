@@ -228,7 +228,7 @@
           cards:
             - type: tile
               entity: number.my_ev6_ac_charging_limit
-              name: "AC"
+              name: []
               hide_state: true
               features_position: inline
               features: 
@@ -236,7 +236,7 @@
                   style: buttons
             - type: tile
               entity: number.my_ev6_dc_charging_limit
-              name: "DC"
+              name: []
               hide_state: true
               features_position: inline
               features: 
