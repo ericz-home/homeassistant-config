@@ -37,7 +37,7 @@
             action: perform-action
             perform_action: script.play_tv
             data:
-              media_content_id: "King HD"
+              media_content_id: "King-HD"
               media_content_type: "channel"
     - type: media-control
       entity: media_player.sony_tv
