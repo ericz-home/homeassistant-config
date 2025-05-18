@@ -227,12 +227,16 @@
           cards:
             - type: tile
               entity: number.my_ev6_ac_charging_limit
+              name: "AC Limit"
+              state_content: last_changed
               features_position: inline
               features: 
                 - type: numeric-input
                   style: buttons
             - type: tile
               entity: number.my_ev6_dc_charging_limit
+              name: "DC Limit"
+              state_content: last_changed
               features_position: inline
               features: 
                 - type: numeric-input
