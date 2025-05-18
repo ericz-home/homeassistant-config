@@ -228,18 +228,26 @@
           cards:
             - type: tile
               entity: number.my_ev6_ac_charging_limit
-              name: ""
               hide_state: true
               features_position: inline
               features: 
                 - type: numeric-input
                   style: buttons
+              card_mod:
+                style: |
+                  ha-card .tile {
+                    display: none;
+                  }
             - type: tile
               entity: number.my_ev6_dc_charging_limit
-              name: ""
               hide_state: true
               features_position: inline
               features: 
                 - type: numeric-input
                   style: buttons
+              card_mod:
+                style: |
+                  ha-card .tile {
+                    display: none;
+                  }
 
