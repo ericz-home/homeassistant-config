@@ -118,8 +118,6 @@
           icon: mdi:car
         - type: custom:mushroom-chips-card
           chips:
-            - type: entity
-              entity: number.my_ev6_ac_charging_limit
             - type: conditional
               conditions:
                 - entity: binary_sensor.my_ev6_ev_battery_charge
@@ -208,6 +206,8 @@
               hold_action: none
             - type: custom:mushroom-chips-card
               chips:
+                - type: entity
+                  entity: sensor.my_ev6_car_battery_level
                 - type: conditional
                   conditions:
                     - entity: device_tracker.my_ev6_location
@@ -223,3 +223,18 @@
                   ha-card > .chip-container {
                     margin: var(--chip-spacing);
                   }
+        - type: custom:vertical-stack-in-card
+          cards:
+            - type: tile
+              entity: number.my_ev6_ac_charging_limit
+              features_position: inline
+              features: 
+                - type: numeric-input
+                  style: buttons
+            - type: tile
+              entity: number.my_ev6_dc_charging_limit
+              features_position: inline
+              features: 
+                - type: numeric-input
+                  style: buttons
+
