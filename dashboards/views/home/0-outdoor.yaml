@@ -236,7 +236,7 @@
                   style: buttons
               card_mod:
                 style: |
-                  .container.horizontal > hui-card-features {
+                  .container.horizontal hui-card-features {
                     flex-grow: 2;
                   }
             - type: tile
@@ -249,6 +249,6 @@
                   style: buttons
               card_mod:
                 style: |
-                  .container.horizontal > hui-card-features {
+                  .container.horizontal hui-card-features {
                     flex-grow: 2;
                   }
