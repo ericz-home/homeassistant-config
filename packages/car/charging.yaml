@@ -18,7 +18,7 @@ car:
           data:
             title: "Car"
             message: >
-              Charging started. Currently at {{ state('sensor.my_ev6_ev_battery_level') }}. Estimated charge duration {{ time_until(now() + as_datetime(state('sensor.my_ev6_estimated_charge_duration')), 2) }}.
+              Charging started. Currently at {{ states('sensor.my_ev6_ev_battery_level') }}. Estimated charge duration {{ time_until(now() + as_datetime(states('sensor.my_ev6_estimated_charge_duration')), 2) }}.
     - id: charging_stopped
       alias: "Charging Stopped"
       triggers:
@@ -31,7 +31,7 @@ car:
           data:
             title: "Car"
             message: >
-              Charging complete. Currently at {{ state('sensor.my_ev6_ev_battery_level') }}. Estimated range {{ state('sensor.my_ev6_ev_range') }}
+              Charging complete. Currently at {{ states('sensor.my_ev6_ev_battery_level') }}. Estimated range {{ states('sensor.my_ev6_ev_range') }}
     - id: charged_full
       alias: "Charged to Full"
       triggers:
