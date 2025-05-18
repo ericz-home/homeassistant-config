@@ -234,6 +234,11 @@
               features: 
                 - type: numeric-input
                   style: buttons
+              card_mod:
+                style: |
+                  ha-card > hui-card-features {
+                    flex-grow: 2;
+                  }
             - type: tile
               entity: number.my_ev6_dc_charging_limit
               name: []
@@ -242,4 +247,8 @@
               features: 
                 - type: numeric-input
                   style: buttons
-
+              card_mod:
+                style: |
+                  ha-card > hui-card-features {
+                    flex-grow: 2;
+                  }
