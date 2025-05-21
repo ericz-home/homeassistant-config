@@ -29,13 +29,19 @@ lights:
           entity_id: input_boolean.sleep_mode
           state: "off"
       actions:
-        - action: scene.turn_on
-          target:
-            entity_id: scene.living_room_mid
-        - action: script.notify_apps
-          data: 
-            title: "Lights"
-            message: "Turned on lights in the living room."
+        - choose:
+            - conditions:
+                - condition: state
+                  entity_id: media_player.sony_xr_75x90j
+                  state: "on"
+              sequence:
+                - action: scene.turn_on
+                  target:
+                    entity_id: scene.living_room_low
+          default:
+            - action: scene.turn_on
+              target:
+                entity_id: scene.living_room_mid
 
 
     - id: sleep_lights
