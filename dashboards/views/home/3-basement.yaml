@@ -39,6 +39,13 @@
             data:
               media_content_id: "King-HD"
               media_content_type: "channel"
+        - type: action
+          icon: mdi:desktop-tower
+          tap_action:
+            action: perform-action
+            perform_action: script.play_source
+            data:
+              source: "HDMI 3"
     - type: media-control
       entity: media_player.sony_tv
     - type: custom:bubble-card
