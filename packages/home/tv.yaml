@@ -28,7 +28,7 @@ tv:
             media_content_id: "{{ media_content_id }}"
             media_content_type: "{{ media_content_type }}"
 
-    select_source:
+    play_source:
       description: "select source on tv"
       fields:
         source:
