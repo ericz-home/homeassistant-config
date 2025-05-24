@@ -45,7 +45,7 @@
             action: perform-action
             perform_action: script.play_source
             data:
-              source: "HDMI 3"
+              source: "HDMI 1"
     - type: media-control
       entity: media_player.sony_tv
     - type: custom:bubble-card
