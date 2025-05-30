@@ -57,4 +57,34 @@
             method: state
             numeric: true
 
-
+    - type: custom:bubble-card
+      card_type: separator
+      name: 'Maintenance'
+      icon: mdi:tools
+      sub_button:
+        - icon: mdi:arrow-expand
+          show_background: false
+          tap_action:
+            action: navigate
+            navigation_path: '#maintenance'
+    - type: custom:auto-entities
+      card: 
+        type: grid
+        columns: 1
+        square: false
+      card_param: cards
+      filter:
+        include:
+          - entity_id: input_datetime.erics_meds_last
+            state: "> 20h ago" 
+    - type: vertical-stack 
+      cards:
+        - type: custom:bubble-card
+          card_type: pop-up
+          hash: '#maintenance'
+        - type: custom:bubble-card
+          card_type: separator
+          name: 'Meds'
+          icon: mdi:pill
+        - type: custom:mushroom-entity-card
+          entity: input_datetime.erics_meds_last
