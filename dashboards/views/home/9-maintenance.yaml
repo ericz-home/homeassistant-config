@@ -88,6 +88,9 @@
           icon: mdi:pill
         - type: custom:mushroom-template-card
           entity: input_datetime.erics_meds_last
+          primary: "{{ entity }}"
+          secondary: "{{ states(entity) }}"
+          icon: mdi:pill
           icon_color: >
             {% set age = now() - as_local(as_datetime(states('input_datetime.erics_meds_last'))) %}
             {% if age > timedelta(hours=20) %}
