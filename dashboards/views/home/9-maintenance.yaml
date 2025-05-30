@@ -86,18 +86,18 @@
           card_type: separator
           name: 'Meds'
           icon: mdi:pill
-        - type: custom:mushroom-template-card
+        - type: custom:mushroom-entity-card
           entity: input_datetime.erics_meds_last
-          primary: "{{ entity }}"
-          secondary: "{{ states(entity) }}"
-          icon: mdi:pill
-          icon_color: >
-            {% set age = now() - as_local(as_datetime(states('input_datetime.erics_meds_last'))) %}
-            {% if age > timedelta(hours=20) %}
-              var(--rgb-warning)
-            {% elif t >= timedelta(hours=24) %}
-              var(--rbg-danger)
-            {% else %}
-              var(--rgb-info)
-            {% endif %}
+          card_mod:
+            style: |
+              ha-state-icon {
+                {% set age = now() - as_local(as_datetime(states('input_datetime.erics_meds_last'))) %}
+                {% if age > timedelta(hours=20) %}
+                  color: var(--rgb-warning);
+                {% elif t >= timedelta(hours=24) %}
+                  color: var(--rbg-danger);
+                {% else %}
+                  color: var(--rgb-info);
+                {% endif %};
+              }
  
