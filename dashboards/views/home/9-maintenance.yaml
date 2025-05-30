@@ -88,8 +88,8 @@
           icon: mdi:pill
         - type: custom:mushroom-template-card
           entity: input_datetime.erics_meds_last
-          icon_color: |
-            {% set age = relative_time(as_datetime(states('input_datetime.erics_meds_last'))) %}
+          icon_color: >
+            {% set age = now() - as_local(as_datetime(states('input_datetime.erics_meds_last'))) %}
             {% if age > timedelta(hours=20) %}
               var(--rgb-warning)
             {% elif t >= timedelta(hours=24) %}
