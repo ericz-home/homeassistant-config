@@ -1,0 +1,39 @@
+meds:
+  input_datetime:
+    erics_meds_last:
+      name: "Eric's Last Medication Time"
+      has_date: true
+      has_time: true
+      icon: mdi:pill 
+  automation:
+    - id: update_erics_meds
+      alias: "Update Eric's Meds"
+      triggers:
+        - trigger: tag
+          tag_id: b47d9601-9f16-4ab4-b31e-11f6a529817e
+      actions:
+        - action: input_datetime.set_datetime
+          target:
+            entity_id: input_datetime.erics_meds_last
+          data:
+            timestamp: "{{ now().timestamp() }}"
+
+    - id: remind_eric_meds
+      alias: "Remind Eric to Take Meds"
+      triggers:
+        - trigger: state
+          entity-id: input_boolean.sleep_mode
+          from: "on"
+          to: "off"
+          for:
+            hours: 1
+      conditions:
+        - "{{ as_datetime(states('input_datetime.erics_meds_last')) < today_at('00:00') }}"
+      actions:
+        - action: script.notify_apps
+          data:
+            title: "Medications"
+            message: "Reminder to take your meds."
+
+
+
