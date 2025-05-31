@@ -100,11 +100,11 @@
                   ha-state-icon {
                     {% set age = now() - as_local(as_datetime(states('input_datetime.erics_meds_last'))) %}
                     {% if age > timedelta(hours=20) %}
-                      color: var(--rgb-warning);
+                      color: var(--warning-color);
                     {% elif t >= timedelta(hours=24) %}
-                      color: var(--rbg-danger);
+                      color: var(--alert-color);
                     {% else %}
-                      color: var(--rgb-info);
+                      color: var(--info-color);
                     {% endif %};
                   }
      
