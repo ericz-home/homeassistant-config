@@ -77,6 +77,8 @@
         include:
           - entity_id: input_datetime.erics_meds_last
             state: "> 20h ago" 
+            options:
+              type: custom:mushroom-entity-card
     - type: vertical-stack 
       cards:
         - type: custom:bubble-card
