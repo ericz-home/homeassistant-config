@@ -28,7 +28,7 @@ meds:
           for:
             hours: 1
       conditions:
-        - "{{ as_datetime(states('input_datetime.erics_meds_last')) < today_at('00:00') }}"
+        - "{{ as_local(as_datetime(states('input_datetime.erics_meds_last'))) < today_at('00:00') }}"
       actions:
         - action: script.notify_apps
           data:
