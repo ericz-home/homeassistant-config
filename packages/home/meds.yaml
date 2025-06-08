@@ -26,8 +26,11 @@ meds:
           from: "on"
           to: "off"
           for:
-            hours: 1
+            minutes: 30
       conditions:
+        - alias: "at home"
+          condition: state
+          entity_id: input_boolean.home_mode
         - "{{ as_local(as_datetime(states('input_datetime.erics_meds_last'))) < today_at('00:00') }}"
       actions:
         - action: script.notify_apps
