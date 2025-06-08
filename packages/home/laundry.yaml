@@ -147,10 +147,18 @@ laundry:
               event_type: mobile_app_notification_action
               event_data:
                 action: "finish_laundry"
-        - action: input_select.select_option
-          target:
-            entity_id: "{{ trigger.entity_id }}"
-          data:
-            option: "off"
-          
-
+            - platform: event
+              event_type: mobile_app_notification_cleared
+              event_data:
+                action: "finish_laundry"
+          timeout:
+            minutes: 30
+          continue_on_timeout: false
+        - choose:
+            - conditions: "{{ wait.trigger.event.event_type == 'mobile_app_notification_action' }}"
+              sequence:
+                - action: input_select.select_option
+                  target:
+                    entity_id: "{{ trigger.entity_id }}"
+                  data:
+                    option: "off"
