@@ -36,7 +36,7 @@ car:
       alias: "Charged to Full"
       triggers:
         - trigger: state
-          entity_id: binary_sensor.my_ev6_ev_battery_level
+          entity_id: sensor.my_ev6_ev_battery_level
           to: '100'
       actions:
         - action: input_datetime.set_datetime
