@@ -114,7 +114,7 @@
                     {% set age = now() - as_local(as_datetime(entity)) %}
                     {% if age > timedelta(hours=20) %}
                       color: var(--warning-color);
-                    {% elif t >= timedelta(hours=24) %}
+                    {% elif age >= timedelta(hours=24) %}
                       color: var(--alert-color);
                     {% else %}
                       color: var(--info-color);
@@ -132,7 +132,7 @@
                     {% set age = now() - as_local(as_datetime(entity)) %}
                     {% if age > timedelta(days=25) %}
                       color: var(--warning-color);
-                    {% elif t >= timedelta(days=31) %}
+                    {% elif age >= timedelta(days=31) %}
                       color: var(--alert-color);
                     {% else %}
                       color: var(--info-color);
