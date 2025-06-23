@@ -43,7 +43,7 @@ notifications:
           entity_id: input_boolean.sleep_mode
           to: "on"
       actions:
-        - action: number
+        - action: number.set_value
           data:
             value: 200
           target:
@@ -57,7 +57,7 @@ notifications:
           entity_id: input_boolean.sleep_mode
           to: "off"
       actions:
-        - action: number
+        - action: number.set_value
           data:
             value: 170
           target:
