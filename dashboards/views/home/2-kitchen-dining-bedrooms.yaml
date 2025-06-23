@@ -31,3 +31,15 @@
       styles: |
         ${icon.setAttribute('icon', 
           state  === 'on' ? 'mdi:door-sliding-open' : 'mdi:door-sliding')}
+
+    - type: custom:bubble-card
+      card_type: separator
+      name: 'Bedroom'
+      icon: mdi:bed-queen
+    - type: tile
+      entity: light.bedroom_light
+      name: "Light"
+      icon: mdi:ceiling-light
+      state_content:
+        - state
+        - brightness
