@@ -20,13 +20,13 @@ badges:
     entity: input_boolean.home_mode
     content: "Home"
     icon: |
-      {% if is_state('input_boolean.home_mode', 'on') %} 
+      {% if is_state(entity, 'on') %} 
         mdi:home-account 
       {% else %} 
         mdi:home-alert-outline 
       {% endif %}
     color: |
-      {% if is_state('input_boolean.home_mode', 'on') %}
+      {% if is_state(entity, 'on') %}
         green 
       {% else %} 
         red 
@@ -45,22 +45,19 @@ badges:
     show_state: false
     tap_action:
       action: toggle
-  - type: entity
+  - type: custom:mushroom-template-badge
     entity: input_boolean.sleep_mode
     name: "Sleep"
     show_name: true
     show_state: false
+    color: |
+      {% if is_state(entity, 'on') %}
+        purple
+      {% else %}
+        gray
+      {% endif %}
     tap_action:
       action: toggle
-    card_mod:
-      style: |
-        ha-badge {
-          --badge-color:
-          {% if states(config.entity) == "on" }
-            var(--purple-color)
-          {% endif %}
-            var(--state-inactive-color)
-        }  
   - type: custom:bubble-card
     card_type: empty-column
     card_mod:
