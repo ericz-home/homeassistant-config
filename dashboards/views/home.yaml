@@ -56,7 +56,7 @@ badges:
       style: |
         ha-badge {
           {% if states('input_boolean.sleep_mode') == "on" }
-            --badge-color: var(--purple-color) 
+            --badge-color: var(--purple-color);
           {% endif %}
         }  
   - type: custom:bubble-card
