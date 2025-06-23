@@ -55,7 +55,7 @@ badges:
     card_mod:
       style: |
         ha-badge {
-          {% if states(entity) == "on" }
+          {% if states('input_boolean.sleep_mode') == "on" }
             --badge-color: var(--purple-color) 
           {% endif %}
         }  
