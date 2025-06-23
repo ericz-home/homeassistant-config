@@ -34,4 +34,36 @@ notifications:
               actions:
                 - action: "{{ action_key }}"
                   title: "{{ action_title }}"
+
+  automation:
+    - id: sleep_mode_on_led
+      alias: "Sleep mode ON LED color"
+      triggers:
+        - trigger: state
+          entity_id: input_boolean.sleep_mode
+          to: "on"
+      actions:
+        - action: number
+          data:
+            value: 200
+          target:
+            entity_id:
+              - number.bedroom_light_ledcolorwhenon
+              - number.bedroom_light_ledcolorwhenoff
+    - id: sleep_mode_off_led
+      alias: "Sleep mode OFF LED color"
+      triggers:
+        - trigger: state
+          entity_id: input_boolean.sleep_mode
+          to: "off"
+      actions:
+        - action: number
+          data:
+            value: 170
+          target:
+            entity_id:
+              - number.bedroom_light_ledcolorwhenon
+              - number.bedroom_light_ledcolorwhenoff
+
+                
                 
