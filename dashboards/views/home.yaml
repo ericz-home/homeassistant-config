@@ -47,9 +47,8 @@ badges:
       action: toggle
   - type: custom:mushroom-template-badge
     entity: input_boolean.sleep_mode
-    name: "Sleep"
-    show_name: true
-    show_state: false
+    content: "Sleep"
+    icon: mdi:sleep
     color: |
       {% if is_state(entity, 'on') %}
         purple
