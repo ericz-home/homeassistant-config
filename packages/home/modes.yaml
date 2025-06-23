@@ -78,6 +78,11 @@ modes:
           from: "off"
           for:
             minutes: 15
+        - trigger: device
+          domain: mqtt
+          device_id: 9670c4fd4d208a0f5cce5158f1b7c786
+          type: action
+          subtype: config_double
       conditions:
         - alias: "morning"
           or:
