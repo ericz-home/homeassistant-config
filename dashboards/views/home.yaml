@@ -52,6 +52,13 @@ badges:
     show_state: false
     tap_action:
       action: toggle
+    card_mod:
+      style: |
+        ha-badge {
+          {% if states(entity) == "on" }
+            --badge-color: var(--purple-color) 
+          {% endif %}
+        }  
   - type: custom:bubble-card
     card_type: empty-column
     card_mod:
