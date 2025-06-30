@@ -1,6 +1,17 @@
 lights:
+  input_select:
+    living_room_scene:
+      name: "Living Room Scene"
+      icon: mdi:lightbulb-on-50
+      initial: "off"
+      options:
+        - "off"
+        - lo
+        - mid
+        - hi
+        - max
   automation:
-    - id: evening_lights
+    - id: living_room_lights
       alias: "Turn on Living Room Lights"
       triggers:
         - trigger: state 
@@ -35,14 +46,90 @@ lights:
                   entity_id: media_player.sony_xr_75x90j
                   state: "on"
               sequence:
+                - action: input_select.select_option
+                  target:
+                    entity_id: input_select.living_room_scene
+                  data:
+                    option: lo
+          default:
+            - action: input_select.select_option
+              target:
+                entity_id: input_select.living_room_scene
+              data:
+                option: mid
+
+    - id: select_living_room_scene
+      alias: "Select Living Room Scene"
+      triggers:
+        - trigger: state
+          entity_id: input_select.living_room_scene
+      actions:
+        - choose:
+            - conditions:
+                - condition: state
+                  entity_id: input_select.living_room_scene
+                  state: "off"
+              sequence:
+                - action: scene.turn_on
+                  target:
+                    entity_id: scene.living_room_off
+            - conditions:
+                - condition: state
+                  entity_id: input_select.living_room_scene
+                  state: lo
+              sequence:
                 - action: scene.turn_on
                   target:
                     entity_id: scene.living_room_lo
-          default:
-            - action: scene.turn_on
-              target:
-                entity_id: scene.living_room_mid
+            - conditions:
+                - condition: state
+                  entity_id: input_select.living_room_scene
+                  state: mid
+              sequence:
+                - action: scene.turn_on
+                  target:
+                    entity_id: scene.living_room_mid
+            - conditions:
+                - condition: state
+                  entity_id: input_select.living_room_scene
+                  state: hi
+              sequence:
+                - action: scene.turn_on
+                  target:
+                    entity_id: scene.living_room_hi
+            - conditions:
+                - condition: state
+                  entity_id: input_select.living_room_scene
+                  state: max
+              sequence:
+                - action: scene.turn_on
+                  target:
+                    entity_id: scene.living_room_max
 
+    - id: select_next_living_room_scene
+      alias: "Select Next Living Room Scene"
+      triggers:
+        - trigger: device
+          domain: mqtt
+          device_id: 9d09874393e2b3fd2b18669638d127be
+          type: action
+          subtype: up_double
+      actions:
+        - action: input_select.select_next
+          target:
+            entity_id: input_select.living_room_scene
+    - id: select_prev_living_room_scene
+      alias: "Select Previous Living Room Scene"
+      triggers:
+        - trigger: device
+          domain: mqtt
+          device_id: 9d09874393e2b3fd2b18669638d127be
+          type: action
+          subtype: down_double
+      actions:
+        - action: input_select.select_previous
+          target:
+            entity_id: input_select.living_room_scene
 
     - id: sleep_lights
       alias: "Turn Off All Lights"
@@ -58,32 +145,3 @@ lights:
         - action: light.turn_off
           target:
             entity_id: light.bedroom_light
-
-    - id: sleep_mode_on_led
-      alias: "Sleep mode ON LED color"
-      triggers:
-        - trigger: state
-          entity_id: input_boolean.sleep_mode
-          to: "on"
-      actions:
-        - action: number.set_value
-          data:
-            value: 200
-          target:
-            entity_id:
-              - number.bedroom_light_ledcolorwhenon
-              - number.bedroom_light_ledcolorwhenoff
-    - id: sleep_mode_off_led
-      alias: "Sleep mode OFF LED color"
-      triggers:
-        - trigger: state
-          entity_id: input_boolean.sleep_mode
-          to: "off"
-      actions:
-        - action: number.set_value
-          data:
-            value: 170
-          target:
-            entity_id:
-              - number.bedroom_light_ledcolorwhenon
-              - number.bedroom_light_ledcolorwhenoff

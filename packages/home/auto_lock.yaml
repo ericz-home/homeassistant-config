@@ -4,10 +4,10 @@ auto_lock:
       name: "Auto Lock Front Door"
       icon: mdi:lock-reset
   automation:
-    # reset the auto lock boolean to false every morning
     - id: unset_auto_lock 
       alias: "Unset AutoLock" 
       triggers:
+        # reset the auto lock boolean to false every morning
         - trigger: time
           at: 
             entity_id: sensor.galaxys24_next_alarm
@@ -16,10 +16,17 @@ auto_lock:
           entity_id: input_boolean.sleep_mode
           from: "on"
           to: "off"
+        # disable auto lock when home
         - trigger: state
           entity_id: input_boolean.home_mode
           from: "off"
           to: "on"
+        # unset auto lock using button
+        - trigger: device
+          domain: mqtt
+          device_id: 9d09874393e2b3fd2b18669638d127be
+          type: action
+          subtype: config_double
       conditions:  
         - condition: state
           entity_id: input_boolean.auto_lock_front_door
@@ -29,12 +36,18 @@ auto_lock:
           data:
             entity_id: input_boolean.auto_lock_front_door
 
-    # set auto lock to be true at night
     - id: set_auto_lock
       alias: "Set AutoLock" 
       triggers:
+        # set auto lock to be true at night
         - trigger: sun
           event: sunset
+        # set auto lock using button
+        - trigger: device
+          domain: mqtt
+          device_id: 9d09874393e2b3fd2b18669638d127be
+          type: action
+          subtype: config_single
       conditions:  
         - condition: state
           entity_id: input_boolean.auto_lock_front_door
@@ -43,3 +56,44 @@ auto_lock:
         - action: input_boolean.turn_on
           data:
             entity_id: input_boolean.auto_lock_front_door
+
+    - id: auto_lock_on_led
+      alias: "Auto lock ON LED color"
+      triggers:
+        - trigger: state
+          entity_id: input_boolean.auto_lock_front_door
+          to: "on"
+      actions:
+        - action: mqtt.publish
+          data:
+            topic: zigbee2mqtt/Entryway Light/set
+            qos: "0"
+            payload: >
+              {"led_effect": {"color":20,"duration":30,"effect":"chase"},"level":100}
+        - action: number.set_value
+          data:
+            value: 20
+          target:
+            entity_id:
+              - number.entryway_light_ledcolorwhenon
+              - number.entryway_light_ledcolorwhenoff
+    - id: auto_lock_off_led
+      alias: "Auto lock OFF LED color"
+      triggers:
+        - trigger: state
+          entity_id: input_boolean.auto_lock_front_door
+          to: "off"
+      actions:
+        - action: number.set_value
+          data:
+            value: 170
+          target:
+            entity_id:
+              - number.entryway_light_ledcolorwhenon
+              - number.entryway_light_ledcolorwhenoff
+        - action: mqtt.publish
+          data:
+            topic: zigbee2mqtt/Entryway Light/set
+            qos: "0"
+            payload: >
+              {"led_effect": {"effect":"off"}}
