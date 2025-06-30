@@ -42,10 +42,22 @@
 
         ${icon.setAttribute('icon', state === 'locked' ? 'mdi:lock' : 'mdi:lock-open-variant')} 
 
+    - type: tile
+      entity: light.entryway_light
+      name: "Light"
+      icon: mdi:ceiling-light
+      features_position: inline
+      state_content:
+        - state
+        - brightness
+      features:
+        - type: "light-brightness"
+
     - type: custom:bubble-card
       card_type: separator
       name: 'Living Room'
       icon: mdi:sofa
+
     - type: custom:mushroom-chips-card
       chips:
         - icon: mdi:lightbulb-off-outline

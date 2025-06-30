@@ -40,6 +40,7 @@
       entity: light.bedroom_light
       name: "Light"
       icon: mdi:ceiling-light
+      features_position: inline
       state_content:
         - state
         - brightness
