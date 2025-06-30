@@ -64,19 +64,19 @@ auto_lock:
           entity_id: input_boolean.auto_lock_front_door
           to: "on"
       actions:
-        - action: number.set_value
-          data:
-            value: 10
-          target:
-            entity_id:
-              - number.entryway_light_ledcolorwhenon
-              - number.entryway_light_ledcolorwhenoff
         - action: mqtt.publish
           data:
             topic: zigbee2mqtt/Entryway Light/set
             qos: "0"
             payload: >
-              {"led_effect": {"effect":"chase","color":10,"duration":10,"level":25}}
+              {"led_effect": {"effect":"chase","color":1,"duration":10,"level":25}}
+        - action: number.set_value
+          data:
+            value: 20
+          target:
+            entity_id:
+              - number.entryway_light_ledcolorwhenon
+              - number.entryway_light_ledcolorwhenoff
     - id: auto_lock_off_led
       alias: "Auto lock OFF LED color"
       triggers:
