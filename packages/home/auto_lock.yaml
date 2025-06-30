@@ -72,7 +72,7 @@ auto_lock:
               - number.entryway_light_ledcolorwhenon
         - action: number.set_value
           data:
-            value: 21
+            value: 23
           target:
             entity_id:
               - number.entryway_light_ledcolorwhenoff
