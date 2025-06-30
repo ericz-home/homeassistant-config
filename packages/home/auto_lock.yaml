@@ -69,7 +69,7 @@ auto_lock:
             topic: zigbee2mqtt/Entryway Light/set
             qos: "0"
             payload: >
-              {"led_effect": {"color":20,"effect":"aurora"}}
+              {"led_effect": {"effect":"aurora"}}
         - action: number.set_value
           data:
             value: 20
@@ -89,7 +89,7 @@ auto_lock:
             topic: zigbee2mqtt/Entryway Light/set
             qos: "0"
             payload: >
-              {"led_effect": {"effect":"solid","color":170}}
+              {"led_effect": {"effect":"solid"}}
         - action: number.set_value
           data:
             value: 170
