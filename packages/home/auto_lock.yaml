@@ -76,7 +76,7 @@ auto_lock:
             topic: zigbee2mqtt/Entryway Light/set
             qos: "0"
             payload: >
-              {"led_effect": {"effect":"aurora","color":10,"duration":10,"level":25}}
+              {"led_effect": {"effect":"chase","color":10,"duration":10,"level":25}}
     - id: auto_lock_off_led
       alias: "Auto lock OFF LED color"
       triggers:
