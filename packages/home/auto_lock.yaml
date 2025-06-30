@@ -69,7 +69,7 @@ auto_lock:
             topic: zigbee2mqtt/Entryway Light/set
             qos: "0"
             payload: >
-              {"led_effect": {"color":20,"duration":30,"effect":"chase"},"level":100}
+              {"led_effect": {"color":20,"effect":"aurora"}}
         - action: number.set_value
           data:
             value: 20
@@ -84,6 +84,12 @@ auto_lock:
           entity_id: input_boolean.auto_lock_front_door
           to: "off"
       actions:
+        - action: mqtt.publish
+          data:
+            topic: zigbee2mqtt/Entryway Light/set
+            qos: "0"
+            payload: >
+              {"led_effect": {"effect":"solid","color":170}}
         - action: number.set_value
           data:
             value: 170
@@ -91,9 +97,3 @@ auto_lock:
             entity_id:
               - number.entryway_light_ledcolorwhenon
               - number.entryway_light_ledcolorwhenoff
-        - action: mqtt.publish
-          data:
-            topic: zigbee2mqtt/Entryway Light/set
-            qos: "0"
-            payload: >
-              {"led_effect": {"effect":"off"}}
