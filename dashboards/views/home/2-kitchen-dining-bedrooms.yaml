@@ -68,7 +68,7 @@
           display: ${state === "on" ? '' : 'none'};
         }
         ${icon.setAttribute('icon', 
-          hass.states['timer.stop_fan']=== 'idle' ? 'mdi:fan' : 'mdi:fan-clock')}
+          hass.states['timer.stop_fan'].state === "idle" ? 'mdi:fan' : 'mdi:fan-clock')}
       sub_button:
         - name: stop
           icon: mdi:timer-off
