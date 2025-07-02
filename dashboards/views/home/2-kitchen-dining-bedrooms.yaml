@@ -49,14 +49,37 @@
     - type: custom:bubble-card
       card_type: button
       button_type: switch
+      show_background: false
+      show_state: true
       icon: mdi:fan
       entity: switch.bedroom_fan
       name: Fan
+      styles: |
+        .bubble-sub-button-1 {
+          display: ${state === "on" ? '' : 'none'};
+        }
+        .bubble-sub-button-2 {
+          display: ${state === "on" ? '' : 'none'};
+        }
+        .bubble-sub-button-3 {
+          display: ${state === "on" ? '' : 'none'};
+        }
+        .bubble-sub-button-4 {
+          display: ${state === "on" ? '' : 'none'};
+        }
+        ${icon.setAttribute('icon', 
+          hass.states['timer.stop_fan']=== 'idle' ? 'mdi:fan' : 'mdi:fan-clock')}
       sub_button:
         - name: stop
           icon: mdi:timer-off
           show_name: false
           show_icon: true
+          tap_action:
+            action: call-service
+            service: timer.cancel
+            data:
+              entity_id: timer.stop_fan
+              duration: "00:30:00"
         - name: 30m
           show_name: true
           show_icon: false
