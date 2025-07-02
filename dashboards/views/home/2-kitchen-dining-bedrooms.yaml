@@ -46,3 +46,43 @@
         - brightness
       features:
         - type: "light-brightness"
+    - type: custom:bubble-card
+      card_type: button
+      button_type: switch
+      icon: mdi:fan
+      entity: switch.bedroom_fan
+      name: Fan
+      sub_button:
+        - name: stop
+          icon: mdi:timer-off
+          show_name: false
+          show_icon: true
+        - name: 30m
+          show_name: true
+          show_icon: false
+          tap_action:
+            action: call-service
+            service: timer.start
+            data:
+              entity_id: timer.stop_fan
+              duration: "00:30:00"
+        - name: 1h
+          show_name: true
+          show_icon: false
+          tap_action:
+            action: call-service
+            service: timer.start
+            data:
+              entity_id: timer.stop_fan
+              duration: "01:00:00"
+        - name: 2h
+          show_name: true
+          show_icon: false
+          tap_action:
+            action: call-service
+            service: timer.start
+            data:
+              entity_id: timer.stop_fan
+              duration: "02:00:00"
+
+

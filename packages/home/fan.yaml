@@ -1,0 +1,17 @@
+fan:
+  timer:
+    stop_fan:
+      duration: "00:30:00"
+  automation:
+    - id: fan_timer_stop
+      alias: "Fan Timer Stop"
+      triggers:
+        - trigger: event
+          event_type: timer.finished
+          event_data:
+            entity_id: timer.stop_fan
+      actions:
+        - action: switch.turn_off
+          target:
+            entity_id: switch.bedroom_fan
+
