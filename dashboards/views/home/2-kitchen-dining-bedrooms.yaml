@@ -48,12 +48,15 @@
         - type: "light-brightness"
     - type: custom:bubble-card
       card_type: button
-      button_type: switch
+      button_type: state
       show_background: false
       show_state: true
       icon: mdi:fan
       entity: switch.bedroom_fan
       name: Fan
+      tap_action:
+        action: toggle
+        target: switch.bedroom_fan
       styles: |
         .bubble-sub-button-1 {
           display: ${state === "on" ? '' : 'none'};
