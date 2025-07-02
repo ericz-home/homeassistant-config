@@ -83,7 +83,6 @@
             service: timer.cancel
             data:
               entity_id: timer.stop_fan
-              duration: "00:30:00"
         - name: 30m
           show_name: true
           show_icon: false

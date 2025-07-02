@@ -14,4 +14,21 @@ fan:
         - action: switch.turn_off
           target:
             entity_id: switch.bedroom_fan
+    - id: fan_cancel_timer
+      alias: "Fan Cancel Timer"
+      triggers:
+        - trigger: state
+          entity_id: switch.bedroom_fan
+          to: "off"
+      conditions:
+        - condition: state
+          entity_id: timer.stop_fan
+          state: 
+            - "active"
+            - "paused"
+      actions:
+        - action: timer.cancel
+          target:
+            entity_id: timer.stop_fan
+            
 
