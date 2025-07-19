@@ -30,5 +30,16 @@ fan:
         - action: timer.cancel
           target:
             entity_id: timer.stop_fan
-            
+    - id: fan_switch_on
+      alias: "Switch on Fan"
+      triggers:
+        - trigger: device
+          domain: mqtt
+          device_id: 9670c4fd4d208a0f5cce5158f1b7c786
+          type: action
+          subtype: up_double
+      actions:
+        - action: switch.turn_on
+          target:
+            entity_id: switch.bedroom_fan
 

@@ -70,6 +70,9 @@
         .bubble-sub-button-4 {
           display: ${state === "on" ? '' : 'none'};
         }
+        .bubble-state {
+          text-transform: capitalize;
+        }
         ${card.querySelector('.bubble-state').innerText = hass.states['timer.stop_fan'].state === "idle" ? state : hass.states['timer.stop_fan'].attributes.duration}
         ${icon.setAttribute('icon', 
           hass.states['timer.stop_fan'].state === "idle" ? 'mdi:fan' : 'mdi:fan-clock')}
