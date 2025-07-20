@@ -125,8 +125,11 @@
               chip:
                 type: template
                 icon: mdi:ev-station
+                entity: sensor.my_ev6_estimated_charge_duration
                 content: |
                   {{ time_until(now() + timedelta(minutes=int(states('sensor.my_ev6_estimated_charge_duration'))), 1) }}  
+                tap_action:
+                  action: more-info
             - type: spacer
             - type: template
               entity: sensor.my_ev6_last_updated_at
@@ -158,10 +161,6 @@
                 Battery: {{ states('sensor.my_ev6_ev_battery_level') }}%
               secondary: >
                 Est: {{ states('sensor.my_ev6_ev_range') }} mi 
-                
-                {% if (now() - as_local(as_datetime(states('input_datetime.ev6_last_full_charge')))) > timedelta(days=30) %}
-                Last full charge was {{ relative_time(as_datetime(states('input_datetime.ev6_last_full_charge'))) }} ago.
-                {% endif %}
               icon: >
                 {% set level = int(states(entity)) %}
                 {% if is_state('binary_sensor.my_ev6_ev_battery_charge', 'on') %}
