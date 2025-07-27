@@ -21,6 +21,11 @@ auto_lock:
           entity_id: input_boolean.home_mode
           from: "off"
           to: "on"
+        # disable auto lock when door is unlocked
+        - trigger: state
+          entity_id: lock.front_door_lock
+          from: "locked"
+          to: "unlocked"
         # unset auto lock using button
         - trigger: device
           domain: mqtt
