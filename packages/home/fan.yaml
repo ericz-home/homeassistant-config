@@ -38,6 +38,15 @@ fan:
           device_id: 9670c4fd4d208a0f5cce5158f1b7c786
           type: action
           subtype: up_double
+        - trigger: numeric_state
+          entity_id:
+            - weather.ksea
+          attribute: temperature
+          above: 80
+      conditions:
+        - condition: state
+          entity_id: switch.bedroom_fan
+          state: "off"
       actions:
         - action: switch.turn_on
           target:
