@@ -34,6 +34,19 @@
 
     - type: custom:bubble-card
       card_type: separator
+      name: 'Dining'
+      icon: mdi:silverware
+    - type: tile
+      entity: light.bedroom_light
+      name: "Light"
+      icon: mdi:globe-light
+      features_position: inline
+      state_content:
+        - state
+        - brightness
+
+    - type: custom:bubble-card
+      card_type: separator
       name: 'Bedroom'
       icon: mdi:bed-queen
     - type: tile

@@ -48,6 +48,15 @@
               source: "HDMI 1"
     - type: media-control
       entity: media_player.sony_tv
+    - type: tile
+      entity: light.tv_room_light
+      name: "Light"
+      icon: mdi:light-recessed
+      features_position: inline
+      state_content:
+        - state
+        - brightness
+
     - type: custom:bubble-card
       card_type: separator
       name: 'Laundry'
