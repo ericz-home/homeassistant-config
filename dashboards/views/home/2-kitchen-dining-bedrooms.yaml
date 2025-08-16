@@ -41,9 +41,8 @@
       name: "Light"
       icon: mdi:globe-light
       features_position: inline
-      state_content:
-        - state
-        - brightness
+      features:
+        - type: "light-brightness"
 
     - type: custom:bubble-card
       card_type: separator
@@ -54,9 +53,6 @@
       name: "Light"
       icon: mdi:ceiling-light
       features_position: inline
-      state_content:
-        - state
-        - brightness
       features:
         - type: "light-brightness"
     - type: custom:bubble-card

@@ -53,9 +53,8 @@
       name: "Light"
       icon: mdi:light-recessed
       features_position: inline
-      state_content:
-        - state
-        - brightness
+      features:
+g       - type: "light-brightness"
 
     - type: custom:bubble-card
       card_type: separator
