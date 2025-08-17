@@ -16,10 +16,6 @@ tv:
         - condition: state
           entity_id: media_player.sony_xr_75x90j
           state: "off"
-        - condition: sun
-          after: sunset
-          before: sunrise
-          before_offset: "-00:30:00"
       actions:
         - alias: "turn on light"
           action: light.turn_on
@@ -33,9 +29,9 @@ tv:
     - id: turn_off_light_when_playing_media
       alias: "Turn off Light when Playing Media"
       triggers:
-        - platform: state
-          entity_id: media_player.sony_xr_75x90j
-          to: "playing"
+        - platform: template
+          entity_id: media_player.sony_tv
+          template: {{ state_attr('media_player.sony_tv', 'media_content_type' ) is not none }}
       conditions:
         - condition: state
           entity_id: light.tv_room_light
@@ -49,7 +45,7 @@ tv:
       alias: "Turn on Light when TV is Off"
       triggers:
         - platform: state
-          entity_id: media_player.sony_tv
+          entity_id: media_player.sony_xr_75x90j
           to: "off"
       conditions:
         - condition: state
