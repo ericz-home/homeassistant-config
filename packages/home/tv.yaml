@@ -9,6 +9,17 @@ tv:
           type: action
           subtype: config_single
           trigger: device
+      conditions:
+        - condition: state
+          entity_id: light.tv_room_light
+          state: "off"
+        - condition: state
+          entity_id: media_player.sony_xr_75x90j
+          state: "off"-
+        - condition: sun
+          after: sunset
+          before: sunrise
+          before_offset: "-00:30:00"
       actions:
         - alias: "turn on light"
           action: light.turn_on
@@ -47,6 +58,7 @@ tv:
         - condition: sun
           after: sunset
           before: sunrise
+          before_offset: "-00:30:00"
       actions:
         - alias: "turn on light"
           action: light.turn_on
