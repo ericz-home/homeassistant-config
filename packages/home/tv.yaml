@@ -31,7 +31,7 @@ tv:
       triggers:
         - platform: template
           entity_id: media_player.sony_tv
-          template: {{ state_attr('media_player.sony_tv', 'media_content_type' ) is not none }}
+          template: "{{ state_attr('media_player.sony_tv', 'media_content_type') is not none }}"
       conditions:
         - condition: state
           entity_id: light.tv_room_light
