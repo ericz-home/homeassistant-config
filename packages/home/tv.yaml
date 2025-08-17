@@ -1,4 +1,58 @@
 tv:
+  automation:
+    # turn on light and tv
+    - id: turn_on_light_and_tv
+      alias: "Turn on Light and TV"
+      triggers:
+        - device_id: 0d1e1ef71dff51f437db183f4d67d7ed
+          domain: mqtt
+          type: action
+          subtype: config_single
+          trigger: device
+      actions:
+        - alias: "turn on light"
+          action: light.turn_on
+          target:
+            entity_id: light.tv_room_light
+        - alias: "turn on tv"
+          action: media_player.turn_on
+          target:
+            entity_id: media_player.sony_xr_75x90j
+    # turn off light when playing media
+    - id: turn_off_light_when_playing_media
+      alias: "Turn off Light when Playing Media"
+      triggers:
+        - platform: state
+          entity_id: media_player.sony_xr_75x90j
+          to: "playing"
+      conditions:
+        - condition: state
+          entity_id: light.tv_room_light
+          state: "on"
+      actions:
+        - alias: "turn off light"
+          action: light.turn_off
+          target:
+            entity_id: light.tv_room_light
+    - id: turn_on_light_when_tv_off
+      alias: "Turn on Light when TV is Off"
+      triggers:
+        - platform: state
+          entity_id: media_player.sony_tv
+          to: "off"
+      conditions:
+        - condition: state
+          entity_id: light.tv_room_light
+          state: "off"
+        - condition: sun
+          after: sunset
+          before: sunrise
+      actions:
+        - alias: "turn on light"
+          action: light.turn_on
+          target:
+            entity_id: light.tv_room_light
+
   script:
     play_tv:
       description: "play media on tv"
@@ -52,8 +106,3 @@ tv:
             entity_id: media_player.sony_xr_75x90j
           data:
             source: "{{ source }}"
-
-
-
-
-
