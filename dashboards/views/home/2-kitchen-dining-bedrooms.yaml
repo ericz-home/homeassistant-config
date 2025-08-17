@@ -37,7 +37,7 @@
       name: 'Dining'
       icon: mdi:silverware
     - type: tile
-      entity: light.bedroom_light
+      entity: light.dining_light
       name: "Light"
       icon: mdi:globe-light
       features_position: inline
