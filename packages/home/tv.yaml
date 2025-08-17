@@ -30,7 +30,7 @@ tv:
       alias: "Turn off Light when Playing Media"
       triggers:
         - platform: template
-          template: "{{ state_attr('media_player.sony_tv', 'media_content_type') is not none }}"
+          value_template: "{{ state_attr('media_player.sony_tv', 'media_content_type') is not none }}"
       conditions:
         - condition: state
           entity_id: light.tv_room_light
