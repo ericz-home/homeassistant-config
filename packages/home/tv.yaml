@@ -15,7 +15,7 @@ tv:
           state: "off"
         - condition: state
           entity_id: media_player.sony_xr_75x90j
-          state: "off"-
+          state: "off"
         - condition: sun
           after: sunset
           before: sunrise
