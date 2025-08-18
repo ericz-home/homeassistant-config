@@ -151,3 +151,24 @@ lights:
         - action: light.turn_off
           target:
             entity_id: light.dining_light
+
+    - id: notify_away_lights
+      alias: "Notify When Lights Are On and Not Home"
+      triggers:
+        - trigger: state
+          entity_id: 
+            - light.torch_light
+            - light.arc_lamp
+            - light.twinkle_lights
+            - light.dining_light
+            - light.bedroom_light
+          to: "on"
+      conditions:
+        - condition: state
+          entity_id: input_boolean.home_mode
+          state: "off"
+      actions:
+        - action: script.notify_apps
+          data:
+            title: "Lights"
+            message: "The {{ trigger.entity_id }} light is on."
