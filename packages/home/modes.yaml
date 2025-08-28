@@ -70,11 +70,6 @@ modes:
     - id: unset_sleep_mode
       alias: "Unset Sleep Mode"
       triggers:
-        - trigger: template
-          # next alarm is tomorrow (today's alarms are dismissed)
-          value_template: |
-            {{ as_datetime(states('sensor.galaxys24_next_alarm')) > today_at('23:59') or 
-              state_attr('sensor.galaxys24_next_alarm', 'Package') != 'com.google.android.deskclock' }}
         - trigger: device
           domain: mqtt
           device_id: 9670c4fd4d208a0f5cce5158f1b7c786
