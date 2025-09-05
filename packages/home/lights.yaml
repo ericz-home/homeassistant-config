@@ -164,6 +164,7 @@ lights:
             - light.twinkle_lights
             - light.dining_light
             - light.bedroom_light
+            - light.tv_room_light
           to: "on"
       conditions:
         - condition: state
