@@ -29,7 +29,7 @@ doors:
           entity_id: binary_sensor.front_door_contact
           to: "on"
           for: 
-            minute: 1
+            minutes: 1
       actions:
         - action: script.notify_apps
           data:
