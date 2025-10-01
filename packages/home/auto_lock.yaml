@@ -44,9 +44,6 @@ auto_lock:
     - id: set_auto_lock
       alias: "Set AutoLock" 
       triggers:
-        # set auto lock to be true at night
-        - trigger: sun
-          event: sunset
         # set auto lock using button
         - trigger: device
           domain: mqtt
