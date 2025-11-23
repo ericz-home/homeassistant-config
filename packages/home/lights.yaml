@@ -15,10 +15,9 @@ lights:
       alias: "Turn on Living Room Lights"
       triggers:
         - trigger: state 
-          entity_id:
-            - person.eric
-            - person.laura
-          to: "home"
+          entity_id: input_boolean.home_mode
+          from: "off"
+          to: "on"
         - trigger: sun
           event: sunset
           offset: "-00:15:00"
@@ -150,6 +149,9 @@ lights:
         - action: light.turn_off
           target:
             entity_id: light.dining_light
+        - action: light.turn_off
+          target:
+            entity_id: light.entryway_light
 
     - id: notify_away_lights
       alias: "Notify When Lights Are On and Not Home"
@@ -172,3 +174,57 @@ lights:
           data:
             title: "Lights"
             message: "The {{ trigger.entity_id }} light is on."
+
+  script:
+    front_door_close_lights:
+      description: "turn off lights when the front door closes"
+      sequence:
+        - if:
+          - condition: sun
+            after: sunset
+            after_offset: "-00:15:00"
+          then:
+            - action: input_select.select_option
+              target:
+                entity_id: input_select.living_room_scene
+              data:
+                option: "lo"
+          else:
+            - action: input_select.select_option
+              target:
+                entity_id: input_select.living_room_scene
+              data:
+                option: "off"
+        - action: light.turn_off
+          target:
+            entity_id: light.dining_light
+        - action: light.turn_off
+          target:
+            entity_id: light.entryway_light
+
+    front_door_open_lights:
+      description: "turn on lights when the front door closes"
+      conditions:
+        - condition: sun
+          after: sunset
+          after_offset: "-00:15:00"
+      sequence:
+        - wait_for_trigger:
+            - trigger: state
+              entity_id: binary_sensor.front_door_contact
+              to: "on"
+          timeout: 30
+        - action: light.turn_on
+          target:
+            entity_id: light.entryway_light
+        - wait_for_trigger:
+            - trigger: state
+              entity_id: binary_sensor.front_door_contact
+              from: "on"
+              to: "off"
+              for: 30
+          timeout: 60
+        - action: light.turn_off
+          target:
+            entity_id: light.entryway_light
+

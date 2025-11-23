@@ -69,17 +69,16 @@ locks:
         - action: lock.lock
           target:
             entity_id: lock.front_door_lock
-
+        - action: script.front_door_close_lights
 
     # automatically unlock the door when persons arrive home
     - id: auto_unlock_door
       alias: "Auto Unlock the Door"
       triggers:
         - trigger: state 
-          entity_id:
-            - person.eric
-            - person.laura
-          to: "home"
+          entity_id: input_boolean.home_mode
+          from: "off"
+          to: "on"
       conditions:
         - alias: "door locked"
           not:
@@ -98,6 +97,7 @@ locks:
         - action: lock.unlock
           target:
             entity_id: lock.front_door_lock
+        - action: script.front_door_open_lights
 
 
     # send a notification whenever the door state changes
