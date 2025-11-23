@@ -204,11 +204,10 @@ lights:
 
     front_door_open_lights:
       description: "turn on lights when the front door closes"
-      conditions:
+      sequence:
         - condition: sun
           after: sunset
           after_offset: "-00:15:00"
-      sequence:
         - wait_for_trigger:
             - trigger: state
               entity_id: binary_sensor.front_door_contact
