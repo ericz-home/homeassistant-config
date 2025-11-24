@@ -34,6 +34,10 @@ lights:
           condition: state
           entity_id: input_boolean.away_mode
           state: "off"
+        - alias: "at home"
+          condition: state
+          entity_id: input_boolean.home_mode
+          state: "on"
         - alias: "not sleep"
           condition: state
           entity_id: input_boolean.sleep_mode
