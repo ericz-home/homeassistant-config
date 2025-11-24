@@ -213,6 +213,7 @@ lights:
               entity_id: binary_sensor.front_door_contact
               to: "on"
           timeout: 30
+          continue_on_timeout: false
         - action: light.turn_on
           target:
             entity_id: light.entryway_light
