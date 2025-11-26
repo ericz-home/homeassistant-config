@@ -26,10 +26,6 @@ lights:
           condition: sun
           after: sunset
           after_offset: "-00:15:00"
-        - alias: "lights off"
-          condition: state
-          entity_id: light.twinkle_lights
-          state: "off"
         - alias: "not away"
           condition: state
           entity_id: input_boolean.away_mode
