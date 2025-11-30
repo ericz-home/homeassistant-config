@@ -63,6 +63,9 @@ laundry:
         - condition: state
           entity_id: input_select.washing_machine_status
           state: "running"
+        - alias: "enough time has passed"
+          condition: template
+          value_template: "{{ now() - as_local(as_datetime(states('input_datetime.washing_machine_start'))) > timedelta(minutes=30) }}"
       actions:
         - action: input_select.select_option
           target:
