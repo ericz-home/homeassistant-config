@@ -11,9 +11,6 @@ tv:
           trigger: device
       conditions:
         - condition: state
-          entity_id: light.tv_room_light
-          state: "off"
-        - condition: state
           entity_id: media_player.sony_xr_75x90j
           state: "off"
       actions:
