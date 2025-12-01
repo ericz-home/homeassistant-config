@@ -145,13 +145,10 @@ lights:
             option: "off"
         - action: light.turn_off
           target:
-            entity_id: light.bedroom_light
-        - action: light.turn_off
-          target:
-            entity_id: light.dining_light
-        - action: light.turn_off
-          target:
-            entity_id: light.entryway_light
+            entity_id: 
+              - light.bedroom_light
+              - light.dining_light
+              - light.entryway_light
 
     - id: notify_away_lights
       alias: "Notify When Lights Are On and Not Home"
@@ -197,13 +194,12 @@ lights:
                 option: "off"
         - action: light.turn_off
           target:
-            entity_id: light.dining_light
-        - action: light.turn_off
-          target:
-            entity_id: light.entryway_light
+            entity_id: 
+              - light.dining_light
+              - light.entryway_light
 
     front_door_open_lights:
-      description: "turn on lights when the front door closes"
+      description: "Turn on lights when the front door closes"
       sequence:
         - condition: sun
           after: sunset
