@@ -6,12 +6,12 @@ living_room:
       entities:
         light.torch_light:
           state: "on"
-          color_temp_kelvin: 3500
-          brightness: 216
+          color_temp_kelvin: 2200
+          brightness: 225
         light.arc_lamp:
           state: "on"
-          color_temp_kelvin: 3500
-          brightness: 216
+          color_temp_kelvin: 2000
+          brightness: 225
         light.twinkle_lights: "on"
 
     - name: Living Room Mid
