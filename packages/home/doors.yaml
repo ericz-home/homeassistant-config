@@ -35,13 +35,12 @@ doors:
               - binary_sensor.sliding_door_contact
             open_doors: >
               {{ doors | select('is_state', 'on') | list }}
-
         - action: script.notify_apps
           data:
             title: "Doors"
             message: >
               {% for door in open_doors %}
-                {{ state_attr(door, 'friendly_name' }} is open.
+                "{{ state_attr(door, 'friendly_name' }} is open."
               {% endfor %}
 
     - id: detect_front_door_open
