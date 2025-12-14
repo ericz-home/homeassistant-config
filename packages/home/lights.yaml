@@ -1,20 +1,4 @@
 lights:
-  light:
-    - platform: group
-      name: "Living Room Lights"
-      entities:
-        - light.torch_light
-        - light.arc_lamp
-        - light.twinkle_lights
-    - platform: group
-      name: "House Lights"
-      entities:
-        - light.living_room_lights
-        - light.dining_light
-        - light.bedroom_light
-        - light.tv_room_light
-        - light.entryway_light
-
   input_select:
     living_room_scene:
       name: "Living Room Scene"
