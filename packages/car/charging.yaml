@@ -1,4 +1,4 @@
-car:
+car_charging:
   input_datetime:
     ev6_last_full_charge:
       name: "EV6 Last Full Charge"

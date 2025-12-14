@@ -1,0 +1,18 @@
+car_location:
+  automation:
+    - id: away_car_not_at_home
+      alias: "Car not at home when away"
+      triggers:
+        - trigger: state
+          entity_id: device_tracker.my_ev6_location
+          from: "home"
+          to: "not_home" 
+      conditions:
+        - condition: state
+          entity_id: input_boolean.away_mode
+          state: "on"
+      actions:
+        - action: script.notify_apps
+          data:
+            title: "Car"
+            message: "Car is no longer home."
