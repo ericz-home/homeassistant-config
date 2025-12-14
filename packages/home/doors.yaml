@@ -31,10 +31,10 @@ doors:
         - action: script.notify_apps
           data:
             title: "Doors"
-            message: >
-              {% set doors = ['binary_sensor.front_door_contact', 'binary_sensor.sliding_door_contact']}
+            message: |
+              {% set doors = ['binary_sensor.front_door_contact', 'binary_sensor.sliding_door_contact'] %}
               {% for door in doors if is_state(door, 'on') %}
-                {{ state_attr(door, 'friendly_name' }} is open.
+                {{ state_attr(door, 'friendly_name') }} is open.
               {% endfor %}
 
     - id: detect_front_door_open
