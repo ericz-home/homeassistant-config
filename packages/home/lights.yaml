@@ -18,6 +18,10 @@ lights:
           entity_id: input_boolean.home_mode
           from: "off"
           to: "on"
+        - trigger: state 
+          entity_id: input_boolean.sleep_mode
+          from: "on"
+          to: "off"
         - trigger: sun
           event: sunset
           offset: "-00:15:00"
@@ -26,6 +30,8 @@ lights:
           condition: sun
           after: sunset
           after_offset: "-00:15:00"
+          before: sunrise
+          before_offset: "01:00:00"
         - alias: "not away"
           condition: state
           entity_id: input_boolean.away_mode
@@ -56,6 +62,32 @@ lights:
                 entity_id: input_select.living_room_scene
               data:
                 option: mid
+
+    - id: living_room_lights_off
+      alias: "Turn off Living Room Lights"
+      triggers:
+        - trigger: sun
+          event: sunrise
+          offset: "01:30:00"
+      conditions:
+        - alias: "not away"
+          condition: state
+          entity_id: input_boolean.away_mode
+          state: "off"
+        - alias: "at home"
+          condition: state
+          entity_id: input_boolean.home_mode
+          state: "on"
+        - alias: "not sleep"
+          condition: state
+          entity_id: input_boolean.sleep_mode
+          state: "off"
+      actions:
+        - action: input_select.select_option
+          target:
+            entity_id: input_select.living_room_scene
+          data:
+            option: "off"
 
     - id: select_living_room_scene
       alias: "Select Living Room Scene"
@@ -196,6 +228,7 @@ lights:
           target:
             entity_id: 
               - light.dining_light
+              - light.bedroom_light
               - light.entryway_light
 
     front_door_open_lights:
