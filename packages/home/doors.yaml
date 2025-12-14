@@ -11,16 +11,38 @@ doors:
           entity_id: binary_sensor.sliding_door_contact
           from: "off"
           to: "on"
+        - trigger: state
+          entity_id: input_boolean.home_mode
+          from: "on"
+          from: "off"
       conditions:
         - alias: "not at home"
           condition: state
           entity_id: input_boolean.home_mode
           state: "off"
+        - alias: "doors open"
+          condition: state
+          entity_id:
+            - binary_sensor.front_door_contact
+            - binary_sensor.sliding_door_contact
+          match: any
+          state: "on"
       actions:
+        - alias: "open doors"
+          variables:
+            doors: 
+              - binary_sensor.front_door_contact
+              - binary_sensor.sliding_door_contact
+            open_doors: >
+              {{ doors | select('is_state', 'on') | list }}
+
         - action: script.notify_apps
           data:
             title: "Doors"
-            message: "{{ state_attr(trigger.entity_id, 'friendly_name') }} is open."
+            message: >
+              {% for door in open_doors %}
+                {{ state_attr(door, 'friendly_name' }} is open.
+              {% endfor %}
 
     - id: detect_front_door_open
       alias: "Detect Door Left Open"

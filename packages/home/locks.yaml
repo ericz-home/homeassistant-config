@@ -117,3 +117,47 @@ locks:
           data:
             title: "Doors"
             message: "Front door is {{ states('lock.front_door_lock') }}."
+
+    - id: notify_unlocked_door
+      alias: "Notify If Door is Unlocked"
+      triggers:
+        - trigger: state
+          entity_id: input_boolean.home_mode
+          from: "on"
+          to: "off"
+        - trigger: state
+          entity_id: lock.front_door_lock
+          to: "unlocked"
+      conditions:
+        - condition: state
+          entity_id: input_boolean.home_mode
+          state: "off"
+        - condition: state
+          entity_id: lock.front_door_lock
+          state: "unlocked"
+      actions:
+        - action: script.notify_single_action_apps
+          data:
+            title: "Doors"
+            message: "Front door is unlocked"
+            action_key: "lock_door"
+            action_title: "Lock Door"
+        - wait_for_trigger:
+            - platform: event
+              event_type: mobile_app_notification_action
+              event_data:
+                action: "lock_door"
+            - platform: event
+              event_type: mobile_app_notification_cleared
+              event_data:
+                action: "lock_door"
+          timeout:
+            minutes: 30
+          continue_on_timeout: false
+        - choose:
+            - conditions: "{{ wait.trigger.event.event_type == 'mobile_app_notification_action' }}"
+              sequence:
+                - action: lock.lock
+                  target:
+                    entity_id: lock.front_door_lock
+
