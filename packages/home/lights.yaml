@@ -204,6 +204,24 @@ lights:
             title: "Lights"
             message: "The {{ trigger.entity_id }} light is on."
 
+    - id: entryway_lights_door_close
+      alias: "Turn Off Entryway Light When Door Close"
+      triggers:
+        - trigger: state
+          entity_id: binary_sensor.front_door_contact
+          from: "on"
+          to: "off"
+      conditions:
+        - condition: state
+          entity_id: light.entryway_light
+          state: "on"
+      actions:
+        - delay: 30
+        - action: light.turn_off
+          target:
+            entity_id: light.entryway_light
+          
+
   script:
     front_door_close_lights:
       description: "turn off lights when the front door closes"
