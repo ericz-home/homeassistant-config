@@ -181,6 +181,7 @@ lights:
               - light.bedroom_light
               - light.dining_light
               - light.entryway_light
+              - light.tv_room_light
 
     - id: notify_away_lights
       alias: "Notify When Lights Are On and Not Home"
