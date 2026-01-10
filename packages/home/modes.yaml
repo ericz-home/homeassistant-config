@@ -62,6 +62,12 @@ modes:
         - condition: state
           entity_id: input_boolean.sleep_mode
           state: "off"
+        - condition: state
+          entity_id: input_boolean.away_mode
+          state: "off"
+        - condition: state
+          entity_id: input_boolean.home_mode
+          state: "on"
       actions:
         - delay: 5
         - action: input_boolean.turn_on
@@ -78,6 +84,12 @@ modes:
       conditions:
         - condition: state
           entity_id: input_boolean.sleep_mode
+          state: "on"
+        - condition: state
+          entity_id: input_boolean.away_mode
+          state: "off"
+        - condition: state
+          entity_id: input_boolean.home_mode
           state: "on"
       actions:
         - action: input_boolean.turn_off
