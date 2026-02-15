@@ -21,4 +21,4 @@ tts:
 
 auth_oidc: !include auth_oidc.yaml
 
-device_tracker: !include_dir_merge_list device_trackers/
+mqtt: !include mqtt.yaml

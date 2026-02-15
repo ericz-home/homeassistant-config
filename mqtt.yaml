@@ -1,0 +1,3 @@
+certificate: /mqtt/tls/ca.crt
+client_key: /mqtt/tls/tls.key
+client_cert: /mqtt/tls/tls.crt
