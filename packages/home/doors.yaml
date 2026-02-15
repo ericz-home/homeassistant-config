@@ -14,7 +14,7 @@ doors:
         - trigger: state
           entity_id: input_boolean.home_mode
           from: "on"
-          from: "off"
+          to: "off"
       conditions:
         - alias: "not at home"
           condition: state
