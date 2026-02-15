@@ -20,5 +20,3 @@ tts:
   - platform: google_translate
 
 auth_oidc: !include auth_oidc.yaml
-
-mqtt: !include mqtt.yaml
