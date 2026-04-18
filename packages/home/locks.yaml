@@ -75,11 +75,13 @@ locks:
     - id: auto_unlock_door
       alias: "Auto Unlock the Door"
       triggers:
-        - trigger: state 
-          entity_id: input_boolean.home_mode
-          from: "off"
-          to: "on"
+        - trigger: numeric
+          entity_id: zone.home
+          above: 0
       conditions:
+        - alias: "coming home"
+          condition: template
+          value_template: '{{ trigger.from_state.state|int < trigger.to_state.state|int }}'
         - alias: "door locked"
           not:
             condition: state
