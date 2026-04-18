@@ -75,7 +75,7 @@ locks:
     - id: auto_unlock_door
       alias: "Auto Unlock the Door"
       triggers:
-        - trigger: numeric
+        - trigger: numeric_state
           entity_id: zone.home
           above: 0
       conditions:
