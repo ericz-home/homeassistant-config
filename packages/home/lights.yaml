@@ -22,16 +22,14 @@ lights:
           entity_id: input_boolean.sleep_mode
           from: "on"
           to: "off"
-        - trigger: sun
-          event: sunset
-          offset: "-00:15:00"
+        - trigger: numeric_state
+          entity_id: sun.sun
+          attribute: elevation
+          below: "-2"
       conditions:
         - alias: "sun down"
-          condition: sun
-          after: sunset
-          after_offset: "-00:15:00"
-          before: sunrise
-          before_offset: "01:00:00"
+          condition: template
+          value_template: "{{ state_attr('sun.sun', 'elevation') < -2 }}"
         - alias: "not away"
           condition: state
           entity_id: input_boolean.away_mode
@@ -66,9 +64,10 @@ lights:
     - id: living_room_lights_off
       alias: "Turn off Living Room Lights"
       triggers:
-        - trigger: sun
-          event: sunrise
-          offset: "00:30:00"
+        - trigger: numeric_state
+          entity_id: sun.sun
+          attribute: elevation
+          above: "1"
       conditions:
         - alias: "not away"
           condition: state
