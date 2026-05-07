@@ -188,7 +188,7 @@ lights:
         - trigger: state
           entity_id: 
             - light.torch_light
-            - light.arc_lamp
+            - light.lamp
             - light.twinkle_lights
             - light.dining_light
             - light.bedroom_light
