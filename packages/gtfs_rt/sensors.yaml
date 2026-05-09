@@ -1,50 +1,51 @@
-gtfs_rt:
-  sensor:
-    - platform: gtfs_rt
-      trip_update_url: !secret rail_trip_update_url
-      vehicle_position_url: !secret rail_vehicle_position_url
-      departures:
-        - name: "1 Line AngleLake"
-          route: "100479"
-          stopid: "990001"
-          icon: mdi:train
-          service_type: "Train"
-        - name: "1 Line Northgate"
-          route: "100479"
-          stopid: "990002"
-          icon: mdi:train
-          service_type: "Train"
-    - platform: gtfs_rt
-      trip_update_url: !secret bus_trip_update_url
-      vehicle_position_url: !secret bus_vehicle_position_url
-      departures:
-        - name: "3 2 W SeattleCenter"
-          route: "100193"
-          stopid: "26381"
-          icon: mdi:bus
-          service_type: "Bus"
-        - name: "3 1 W CentralMagnolia"
-          route: "100184"
-          stopid: "26381"
-          icon: mdi:bus
-          service_type: "Bus"
-        - name: "3 2 E SeattleChildrens"
-          route: "100193"
-          stopid: "26980"
-          icon: mdi:bus
-          service_type: "Bus"
-        - name: "3 1 E SeattleChildrens"
-          route: "100184"
-          stopid: "26980"
-          icon: mdi:bus
-          service_type: "Bus"
-        - name: "7 0 DowntownFairview"
-          route: "100264"
-          stopid: "9140"
-          icon: mdi:bus
-          service_type: "Bus"
-        - name: "4 9 DowntownBroadway"
-          route: "100447"
-          stopid: "9140"
-          icon: mdi:bus
-          service_type: "Bus"
+# Disable gtfs because of noisy errors
+# gtfs_rt:
+#   sensor:
+#     - platform: gtfs_rt
+#       trip_update_url: !secret rail_trip_update_url
+#       vehicle_position_url: !secret rail_vehicle_position_url
+#       departures:
+#         - name: "1 Line AngleLake"
+#           route: "100479"
+#           stopid: "990001"
+#           icon: mdi:train
+#           service_type: "Train"
+#         - name: "1 Line Northgate"
+#           route: "100479"
+#           stopid: "990002"
+#           icon: mdi:train
+#           service_type: "Train"
+#     - platform: gtfs_rt
+#       trip_update_url: !secret bus_trip_update_url
+#       vehicle_position_url: !secret bus_vehicle_position_url
+#       departures:
+#         - name: "3 2 W SeattleCenter"
+#           route: "100193"
+#           stopid: "26381"
+#           icon: mdi:bus
+#           service_type: "Bus"
+#         - name: "3 1 W CentralMagnolia"
+#           route: "100184"
+#           stopid: "26381"
+#           icon: mdi:bus
+#           service_type: "Bus"
+#         - name: "3 2 E SeattleChildrens"
+#           route: "100193"
+#           stopid: "26980"
+#           icon: mdi:bus
+#           service_type: "Bus"
+#         - name: "3 1 E SeattleChildrens"
+#           route: "100184"
+#           stopid: "26980"
+#           icon: mdi:bus
+#           service_type: "Bus"
+#         - name: "7 0 DowntownFairview"
+#           route: "100264"
+#           stopid: "9140"
+#           icon: mdi:bus
+#           service_type: "Bus"
+#         - name: "4 9 DowntownBroadway"
+#           route: "100447"
+#           stopid: "9140"
+#           icon: mdi:bus
+#           service_type: "Bus"
