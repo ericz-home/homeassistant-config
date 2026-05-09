@@ -77,7 +77,7 @@ locks:
       triggers:
         - trigger: state 
           entity_id: zone.home
-          not_to: 0
+          not_to: "0"
       conditions:
         - alias: "coming home"
           condition: template
