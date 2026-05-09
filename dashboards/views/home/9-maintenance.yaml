@@ -1,18 +1,18 @@
 - type: grid
-  column_span: 3
+  column_span: 1
   cards:
     - type: vertical-stack
       cards:
         - type: custom:bubble-card
           card_type: separator
-          name: 'Low Battery'
-          icon: mdi:battery-alert
+          name: 'Maintenance'
+          icon: mdi:tools
           sub_button:
             - icon: mdi:arrow-expand
               show_background: false
               tap_action:
                 action: navigate
-                navigation_path: '#batteries'
+                navigation_path: '#maintenance'
         - type: custom:auto-entities
           card: 
             type: grid
@@ -31,46 +31,6 @@
           sort:
             method: state
             numeric: true
-        - type: vertical-stack 
-          cards:
-            - type: custom:bubble-card
-              card_type: pop-up
-              hash: '#batteries'
-            - type: custom:bubble-card
-              card_type: separator
-              name: 'Batteries'
-              icon: mdi:battery-sync
-            - type: custom:auto-entities
-              card: 
-                type: grid
-                columns: 2
-                square: false
-              show_empty: false
-              card_param: cards
-              filter:
-                include:
-                  - integration: mqtt
-                    attributes:
-                      device_class: 'battery'
-                      state_class: 'measurement'
-                    options:
-                      type: tile
-              sort:
-                method: state
-                numeric: true
-
-    - type: vertical-stack
-      cards:
-        - type: custom:bubble-card
-          card_type: separator
-          name: 'Maintenance'
-          icon: mdi:tools
-          sub_button:
-            - icon: mdi:arrow-expand
-              show_background: false
-              tap_action:
-                action: navigate
-                navigation_path: '#maintenance'
         - type: custom:auto-entities
           card: 
             type: grid
