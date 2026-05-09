@@ -13,6 +13,9 @@
               tap_action:
                 action: navigate
                 navigation_path: '#maintenance'
+              double_tap_action:
+                action: navigate
+                navigation_path: 'maintenance'
         - type: custom:auto-entities
           card: 
             type: grid
