@@ -74,7 +74,7 @@
               card_mod:
                 style: |
                   ha-state-icon {
-                    {% set age = now() - as_local(as_datetime(entity)) %}
+                    {% set age = now() - as_local(as_datetime(config.entity)) %}
                     {% if age > timedelta(hours=20) %}
                       color: var(--warning-color);
                     {% elif age >= timedelta(hours=24) %}
@@ -92,7 +92,7 @@
               card_mod:
                 style: |
                   ha-state-icon {
-                    {% set age = now() - as_local(as_datetime(entity)) %}
+                    {% set age = now() - as_local(as_datetime(config.entity)) %}
                     {% if age > timedelta(days=25) %}
                       color: var(--warning-color);
                     {% elif age >= timedelta(days=31) %}
