@@ -60,11 +60,10 @@
                 options:
                   type: custom:mushroom-entity-card
                   icon_color: 'var(--rgb-warning)'
-        - type: vertical-stack 
+        - type: custom:bubble-card
+          card_type: pop-up
+          hash: '#maintenance'
           cards:
-            - type: custom:bubble-card
-              card_type: pop-up
-              hash: '#maintenance'
             - type: custom:bubble-card
               card_type: separator
               name: 'Meds'
