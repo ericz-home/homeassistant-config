@@ -14,7 +14,6 @@ frontend:
     - /local/community/lovelace-card-mod/card-mod.js
     - /local/community/Bubble-Card/bubble-pop-up-fix.js
 
-http: !include http.yaml
 # Text to speech
 tts:
   - platform: google_translate
