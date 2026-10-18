@@ -42,6 +42,10 @@ lights:
           condition: state
           entity_id: input_boolean.sleep_mode
           state: "off"
+        - alias: "lights are off"
+          condition: state
+          entity_id: input_select.living_room_scene
+          state: "off"
       actions:
         - choose:
             - conditions:
