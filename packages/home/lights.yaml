@@ -25,11 +25,11 @@ lights:
         - trigger: numeric_state
           entity_id: sun.sun
           attribute: elevation
-          below: "0"
+          below: "-0.5"
       conditions:
         - alias: "sun down"
           condition: template
-          value_template: "{{ state_attr('sun.sun', 'elevation') < -2 }}"
+          value_template: "{{ state_attr('sun.sun', 'elevation') < -0.5 }}"
         - alias: "not away"
           condition: state
           entity_id: input_boolean.away_mode
