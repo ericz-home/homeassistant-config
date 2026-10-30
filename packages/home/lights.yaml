@@ -25,7 +25,7 @@ lights:
         - trigger: numeric_state
           entity_id: sun.sun
           attribute: elevation
-          below: "-2"
+          below: "0"
       conditions:
         - alias: "sun down"
           condition: template
