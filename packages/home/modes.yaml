@@ -52,12 +52,6 @@ modes:
           device_id: 9670c4fd4d208a0f5cce5158f1b7c786
           type: action
           subtype: config_single
-        - trigger: state
-          entity_id: sensor.galaxys24_do_not_disturb_sensor
-          not_to: 
-            - "off"
-            - "unknown"
-            - "unavailable"
       conditions:
         - condition: state
           entity_id: input_boolean.sleep_mode
