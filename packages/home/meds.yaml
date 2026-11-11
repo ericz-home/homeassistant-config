@@ -17,6 +17,10 @@ meds:
             entity_id: input_datetime.erics_meds_last
           data:
             timestamp: "{{ now().timestamp() }}"
+        - action: script.notify_apps
+          data:
+            message: "clear_notification"
+            tag: "medication_reminder"
 
     - id: remind_eric_meds
       alias: "Remind Eric to Take Meds"
@@ -38,6 +42,4 @@ meds:
           data:
             title: "Medications"
             message: "Reminder to take your meds."
-
-
-
+            tag: "medication_reminder"

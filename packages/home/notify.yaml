@@ -7,12 +7,15 @@ notifications:
           description: "heading of the notification"
         message: 
           description: "body of the notification"
+        tag:
+          description: "tag of notification"
       sequence:
         - alias: "notify eric"
           action: notify.mobile_app_galaxys24
           data:
             title: "{{ title }}"
             message: "{{ message }}"
+            tag: "{{ tag }}"
     notify_single_action_apps:
       description: "push notifications to mobile apps with actions"
       fields:
@@ -20,6 +23,8 @@ notifications:
           description: "heading of the notification"
         message: 
           description: "body of the notification"
+        tag:
+          description: "tag of notification"
         action_key:
           description: "key for the event"
         action_title:
@@ -27,6 +32,7 @@ notifications:
       sequence:
         - alias: "notify eric"
           action: notify.mobile_app_galaxys24
+          tag: "{{ tag }}"
           data:
             title: "{{ title }}"
             message: "{{ message }}"
