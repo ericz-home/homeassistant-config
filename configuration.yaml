@@ -7,7 +7,6 @@ homeassistant:
 default_config:
 logger:
   default: warning
-  additional_ca: info
 
 lovelace: !include lovelace.yaml
 frontend:
