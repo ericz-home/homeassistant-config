@@ -6,7 +6,7 @@ homeassistant:
 # Loads default set of integrations. Do not remove.
 default_config:
 logger:
-  default: warning
+  default: info
 additional_ca:
   lab_root: lab/ca.crt
 
