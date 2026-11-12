@@ -15,7 +15,8 @@ notifications:
           data:
             title: "{{ title }}"
             message: "{{ message }}"
-            tag: "{{ tag }}"
+            data:
+              tag: "{{ tag }}"
     notify_single_action_apps:
       description: "push notifications to mobile apps with actions"
       fields:
@@ -35,8 +36,8 @@ notifications:
           data:
             title: "{{ title }}"
             message: "{{ message }}"
-            tag: "{{ tag }}"
             data:
+              tag: "{{ tag }}"
               actions:
                 - action: "{{ action_key }}"
                   title: "{{ action_title }}"
