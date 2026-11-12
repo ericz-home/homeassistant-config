@@ -43,12 +43,6 @@ if [ -n "${UMASK}" ]; then
 fi
 
 #
-# update certs
-#
-bashio::log.info "Update ca certificates"
-update-ca-certificates
-
-#
 # Run homeassistant
 #
 
