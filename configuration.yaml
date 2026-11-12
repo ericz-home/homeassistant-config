@@ -7,6 +7,8 @@ homeassistant:
 default_config:
 logger:
   default: warning
+additional_ca:
+  lab_root: /vault/tls/ca.crt
 
 lovelace: !include lovelace.yaml
 frontend:
