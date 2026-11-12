@@ -3,7 +3,6 @@ lights:
     living_room_scene:
       name: "Living Room Scene"
       icon: mdi:lightbulb-on-50
-      initial: "off"
       options:
         - "off"
         - lo

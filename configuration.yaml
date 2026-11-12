@@ -6,9 +6,8 @@ homeassistant:
 # Loads default set of integrations. Do not remove.
 default_config:
 logger:
-  default: info
-additional_ca:
-  lab_root: lab/ca.crt
+  default: warning
+  additional_ca: info
 
 lovelace: !include lovelace.yaml
 frontend:
