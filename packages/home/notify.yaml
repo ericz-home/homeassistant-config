@@ -32,10 +32,10 @@ notifications:
       sequence:
         - alias: "notify eric"
           action: notify.mobile_app_galaxys24
-          tag: "{{ tag }}"
           data:
             title: "{{ title }}"
             message: "{{ message }}"
+            tag: "{{ tag }}"
             data:
               actions:
                 - action: "{{ action_key }}"
